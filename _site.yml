@@ -1,7 +1,7 @@
 name: "ucsd_css211"
 title: "CSS 211: Statistical Methods for Computational Social Science"
 description: "Graduate course on statistical methods and computational tools for social science research"
-output_dir: "_site"
+output_dir: "docs"
 navbar:
   title: "CSS 211"
   left:
