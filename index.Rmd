@@ -1,0 +1,16 @@
+---
+title: "CSS 211: Statistical Methods for Computational Social Science"
+---
+
+## Welcome
+
+This course provides graduate students with essential statistical methods and computational tools for social science research.
+
+## Instructor
+Sean Trott  
+Department of Cognitive Science, UCSD
+
+## Quick Links
+- [Syllabus](syllabus.html)
+- [Course Schedule](schedule.html)  
+- [GitHub Repository](https://github.com/seantrott/ucsd_css211)

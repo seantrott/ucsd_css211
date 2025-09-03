@@ -1,0 +1,87 @@
+name: "ucsd_css211"
+title: "CSS 211: Statistical Methods for Computational Social Science"
+description: "Graduate course on statistical methods and computational tools for social science research"
+output_dir: "_site"
+navbar:
+  title: "CSS 211"
+  left:
+    - text: "Home"
+      icon: fas fa-home
+      href: index.html
+    - text: "Syllabus"
+      icon: fas fa-book
+      href: syllabus.html
+    - text: "Schedule"
+      icon: fas fa-calendar
+      href: schedule.html
+    - text: "Lectures"
+      icon: fas fa-chalkboard-teacher
+      menu:
+        - text: "Week 0: Course Introduction"
+          href: lectures/week0-intro.html
+        - text: "Week 1: Philosophy of Science"
+          href: lectures/week1-philosophy.html
+        - text: "Week 1: Introduction to R"
+          href: lectures/week1-r-intro.html
+        - text: "Week 2: Data Wrangling"
+          href: lectures/week2-wrangling.html
+        - text: "Week 3: Data Visualization"
+          href: lectures/week3-visualization.html
+        - text: "Week 4: Linear Regression"
+          href: lectures/week4-regression.html
+        - text: "Week 5: Multiple Regression"
+          href: lectures/week5-multiple.html
+        - text: "Week 6: Logistic Regression"
+          href: lectures/week6-logistic.html
+        - text: "Week 7: Mixed Effects Models"
+          href: lectures/week7-mixed.html
+        - text: "Week 8: Resampling Methods"
+          href: lectures/week8-resampling.html
+        - text: "Week 9: Best Practices"
+          href: lectures/week9-practices.html
+    - text: "Labs"
+      icon: fas fa-laptop-code
+      menu:
+        - text: "Lab 1: R Basics"
+          href: labs/lab1-r-basics.html
+        - text: "Lab 2: Data Cleaning"
+          href: labs/lab2-cleaning.html
+        - text: "Lab 3: Exploratory Analysis"
+          href: labs/lab3-eda.html
+        - text: "Lab 4: Regression Practice"
+          href: labs/lab4-regression.html
+        - text: "Lab 5: Complex Models"
+          href: labs/lab5-complex.html
+        - text: "Lab 6: Logistic Models"
+          href: labs/lab6-logistic.html
+        - text: "Lab 7: Mixed Models"
+          href: labs/lab7-mixed.html
+        - text: "Lab 8: Build Your Own Baseline"
+          href: labs/lab8-baseline.html
+    - text: "Assignments"
+      icon: fas fa-pencil-alt
+      menu:
+        - text: "Problem Set 1"
+          href: assignments/ps1.html
+        - text: "Problem Set 2"
+          href: assignments/ps2.html
+        - text: "Midterm Info"
+          href: assignments/midterm.html
+        - text: "Final Project"
+          href: assignments/final-project.html
+    - text: "Resources"
+      icon: fas fa-external-link-alt
+      menu:
+        - text: "R Resources"
+          href: resources/r-resources.html
+        - text: "Datasets"
+          href: resources/datasets.html
+        - text: "Readings"
+          href: resources/readings.html
+  right:
+    - icon: fab fa-github
+      href: https://github.com/seantrott/ucsd_css211
+output: 
+  html_document:
+    theme: flatly
+    highlight: textmate
