@@ -1,0 +1,83 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "CSS 211: Statistical Methods for Computational Social Science"
+  navbar:
+    left:
+      - href: index.qmd
+        text: "Home"
+      - href: syllabus.qmd
+        text: "Syllabus"
+      - href: schedule.qmd
+        text: "Schedule"
+      - text: "Lectures"
+        menu:
+          - href: lectures/week0-intro.qmd
+            text: "Week 0: Course Introduction"
+          - href: lectures/week1-philosophy.qmd
+            text: "Week 1: Philosophy of Science"
+          - href: lectures/week1-r-intro.qmd
+            text: "Week 1: Introduction to R"
+          - href: lectures/week2-wrangling.qmd
+            text: "Week 2: Data Wrangling"
+          - href: lectures/week3-visualization.qmd
+            text: "Week 3: Data Visualization"
+          - href: lectures/week4-regression.qmd
+            text: "Week 4: Linear Regression"
+          - href: lectures/week5-multiple.qmd
+            text: "Week 5: Multiple Regression"
+          - href: lectures/week6-logistic.qmd
+            text: "Week 6: Logistic Regression"
+          - href: lectures/week7-mixed.qmd
+            text: "Week 7: Mixed Effects Models"
+          - href: lectures/week8-resampling.qmd
+            text: "Week 8: Resampling Methods"
+          - href: lectures/week9-practices.qmd
+            text: "Week 9: Best Practices"
+      - text: "Labs"
+        menu:
+          - href: labs/lab1-r-basics.qmd
+            text: "Lab 1: R Basics"
+          - href: labs/lab2-cleaning.qmd
+            text: "Lab 2: Data Cleaning"
+          - href: labs/lab3-eda.qmd
+            text: "Lab 3: Exploratory Analysis"
+          - href: labs/lab4-regression.qmd
+            text: "Lab 4: Regression Practice"
+          - href: labs/lab5-complex.qmd
+            text: "Lab 5: Complex Models"
+          - href: labs/lab6-logistic.qmd
+            text: "Lab 6: Logistic Models"
+          - href: labs/lab7-mixed.qmd
+            text: "Lab 7: Mixed Models"
+          - href: labs/lab8-baseline.qmd
+            text: "Lab 8: Build Your Own Baseline"
+      - text: "Assignments"
+        menu:
+          - href: assignments/ps1.qmd
+            text: "Problem Set 1"
+          - href: assignments/ps2.qmd
+            text: "Problem Set 2"
+          - href: assignments/midterm.qmd
+            text: "Midterm Info"
+          - href: assignments/final-project.qmd
+            text: "Final Project"
+      - text: "Resources"
+        menu:
+          - href: resources/r-resources.qmd
+            text: "R Resources"
+          - href: resources/datasets.qmd
+            text: "Datasets"
+          - href: resources/readings.qmd
+            text: "Readings"
+    right:
+      - icon: github
+        href: https://github.com/seantrott/ucsd_css211
+
+format:
+  html:
+    theme: flatly
+    css: styles.css
+    toc: true

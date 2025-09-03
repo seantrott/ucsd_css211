@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CSS 211 Syllabus – CSS 211: Statistical Methods for Computational Social Science</title>
+<title>Introduction to CSS 211 – CSS 211: Statistical Methods for Computational Social Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f93c2b1f3f0577f377aefa4848a86a36.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-f93c2b1f3f0577f377aefa4848a86a36.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,9 +115,9 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">CSS 211: Statistical Methods for Computational Social Science</span>
     </a>
   </div>
@@ -93,15 +128,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./syllabus.html" aria-current="page"> 
+    <a class="nav-link" href="../syllabus.html"> 
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./schedule.html"> 
+    <a class="nav-link" href="../schedule.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -110,47 +145,47 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures">    
         <li>
-    <a class="dropdown-item" href="./lectures/week0-intro.html">
+    <a class="dropdown-item" href="../lectures/week0-intro.html">
  <span class="dropdown-text">Week 0: Course Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/week1-philosophy.qmd">
+    <a class="dropdown-item" href="../lectures/week1-philosophy.qmd">
  <span class="dropdown-text">Week 1: Philosophy of Science</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/week1-r-intro.qmd">
+    <a class="dropdown-item" href="../lectures/week1-r-intro.qmd">
  <span class="dropdown-text">Week 1: Introduction to R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/week2-wrangling.qmd">
+    <a class="dropdown-item" href="../lectures/week2-wrangling.qmd">
  <span class="dropdown-text">Week 2: Data Wrangling</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/week3-visualization.qmd">
+    <a class="dropdown-item" href="../lectures/week3-visualization.qmd">
  <span class="dropdown-text">Week 3: Data Visualization</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/week4-regression.qmd">
+    <a class="dropdown-item" href="../lectures/week4-regression.qmd">
  <span class="dropdown-text">Week 4: Linear Regression</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/week5-multiple.qmd">
+    <a class="dropdown-item" href="../lectures/week5-multiple.qmd">
  <span class="dropdown-text">Week 5: Multiple Regression</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/week6-logistic.qmd">
+    <a class="dropdown-item" href="../lectures/week6-logistic.qmd">
  <span class="dropdown-text">Week 6: Logistic Regression</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/week7-mixed.qmd">
+    <a class="dropdown-item" href="../lectures/week7-mixed.qmd">
  <span class="dropdown-text">Week 7: Mixed Effects Models</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/week8-resampling.qmd">
+    <a class="dropdown-item" href="../lectures/week8-resampling.qmd">
  <span class="dropdown-text">Week 8: Resampling Methods</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/week9-practices.qmd">
+    <a class="dropdown-item" href="../lectures/week9-practices.qmd">
  <span class="dropdown-text">Week 9: Best Practices</span></a>
   </li>  
     </ul>
@@ -161,35 +196,35 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-labs">    
         <li>
-    <a class="dropdown-item" href="./labs/lab1-r-basics.qmd">
+    <a class="dropdown-item" href="../labs/lab1-r-basics.qmd">
  <span class="dropdown-text">Lab 1: R Basics</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./labs/lab2-cleaning.qmd">
+    <a class="dropdown-item" href="../labs/lab2-cleaning.qmd">
  <span class="dropdown-text">Lab 2: Data Cleaning</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./labs/lab3-eda.qmd">
+    <a class="dropdown-item" href="../labs/lab3-eda.qmd">
  <span class="dropdown-text">Lab 3: Exploratory Analysis</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./labs/lab4-regression.qmd">
+    <a class="dropdown-item" href="../labs/lab4-regression.qmd">
  <span class="dropdown-text">Lab 4: Regression Practice</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./labs/lab5-complex.qmd">
+    <a class="dropdown-item" href="../labs/lab5-complex.qmd">
  <span class="dropdown-text">Lab 5: Complex Models</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./labs/lab6-logistic.qmd">
+    <a class="dropdown-item" href="../labs/lab6-logistic.qmd">
  <span class="dropdown-text">Lab 6: Logistic Models</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./labs/lab7-mixed.qmd">
+    <a class="dropdown-item" href="../labs/lab7-mixed.qmd">
  <span class="dropdown-text">Lab 7: Mixed Models</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./labs/lab8-baseline.qmd">
+    <a class="dropdown-item" href="../labs/lab8-baseline.qmd">
  <span class="dropdown-text">Lab 8: Build Your Own Baseline</span></a>
   </li>  
     </ul>
@@ -200,19 +235,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-assignments">    
         <li>
-    <a class="dropdown-item" href="./assignments/ps1.qmd">
+    <a class="dropdown-item" href="../assignments/ps1.qmd">
  <span class="dropdown-text">Problem Set 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./assignments/ps2.qmd">
+    <a class="dropdown-item" href="../assignments/ps2.qmd">
  <span class="dropdown-text">Problem Set 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./assignments/midterm.qmd">
+    <a class="dropdown-item" href="../assignments/midterm.qmd">
  <span class="dropdown-text">Midterm Info</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./assignments/final-project.qmd">
+    <a class="dropdown-item" href="../assignments/final-project.qmd">
  <span class="dropdown-text">Final Project</span></a>
   </li>  
     </ul>
@@ -223,15 +258,15 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
         <li>
-    <a class="dropdown-item" href="./resources/r-resources.qmd">
+    <a class="dropdown-item" href="../resources/r-resources.qmd">
  <span class="dropdown-text">R Resources</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./resources/datasets.qmd">
+    <a class="dropdown-item" href="../resources/datasets.qmd">
  <span class="dropdown-text">Datasets</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./resources/readings.qmd">
+    <a class="dropdown-item" href="../resources/readings.qmd">
  <span class="dropdown-text">Readings</span></a>
   </li>  
     </ul>
@@ -259,14 +294,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#course-overview" id="toc-course-overview" class="nav-link active" data-scroll-target="#course-overview">Course Overview</a></li>
-  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link" data-scroll-target="#learning-outcomes">Learning Outcomes</a></li>
-  <li><a href="#teaching-team" id="toc-teaching-team" class="nav-link" data-scroll-target="#teaching-team">Teaching Team</a></li>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  <li><a href="#grading-and-assessments" id="toc-grading-and-assessments" class="nav-link" data-scroll-target="#grading-and-assessments">Grading and Assessments</a>
-  <ul class="collapse">
-  <li><a href="#rounding" id="toc-rounding" class="nav-link" data-scroll-target="#rounding">Rounding</a></li>
-  </ul></li>
+  <li><a href="#welcome-to-css-211" id="toc-welcome-to-css-211" class="nav-link active" data-scroll-target="#welcome-to-css-211">Welcome to CSS 211!</a></li>
   </ul>
 </nav>
     </div>
@@ -275,7 +303,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">CSS 211 Syllabus</h1>
+<h1 class="title">Introduction to CSS 211</h1>
 </div>
 
 
@@ -292,69 +320,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="course-overview" class="level2">
-<h2 class="anchored" data-anchor-id="course-overview">Course Overview</h2>
-<p>This course is an introduction to statistical methods and computational tools for computational social science (CSS) research. Students will develop proficiency in R programming while learning foundational concepts for working with CSS data, including: data wrangling and visualization, regression, and model selection. The course emphasizes hands-on application of techniques to real-world datasets, as well as discussion of ongoing methodological and epistemological issues in the study of human behavior.</p>
-</section>
-<section id="learning-outcomes" class="level2">
-<h2 class="anchored" data-anchor-id="learning-outcomes">Learning Outcomes</h2>
-<p>My goal is that by the end of this course, students will be able to:</p>
-<ul>
-<li>Define and explain key concepts in statistical inference and regression analysis.</li>
-<li>Identify appropriate visualizations and statistical methods for different kinds of research questions and datasets.</li>
-<li>Implement data wrangling, visualization, and analysis workflows in R.</li>
-<li>Interpret and evaluate results (visualizations, fit models, etc.) in the context of a research question.</li>
-<li>Design and implement a complete statistical analysis project from research question to interpretation.</li>
-</ul>
-</section>
-<section id="teaching-team" class="level2">
-<h2 class="anchored" data-anchor-id="teaching-team">Teaching Team</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Role</th>
-<th>OH Time</th>
-<th>Email</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Sean Trott</td>
-<td>Instructor</td>
-<td>TBD</td>
-<td>sttrott@ucsd.edu</td>
-</tr>
-<tr class="even">
-<td>TBD</td>
-<td>TA</td>
-<td>TBD</td>
-<td>TBD</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
-<p>Students should have a basic understanding of probability theory and statistics; some experience with a programming language (e.g., Python or R) is encouraged but not required.</p>
-</section>
-<section id="grading-and-assessments" class="level2">
-<h2 class="anchored" data-anchor-id="grading-and-assessments">Grading and Assessments</h2>
-<p><strong>Labs (20% total)</strong>: 4 coding labs, completed in R and submitted via Canvas. Students may collaborate on labs with each other and seek help from their TA/instructor.</p>
-<p><strong>Concept quizzes (20%)</strong>: 4 short quizzes, held over Canvas, designed to test and improve conceptual intuitions about course topics.</p>
-<p><strong>Midterm (25%)</strong>: A paper midterm held in-class testing knowledge of course material.</p>
-<p><strong>Final project (35%)</strong>: A rigorous replication (and possible extension) of existing empirical work (published or otherwise) in a student’s discipline of interest. Final projects should be completed independently; students will turn in both a written report and present their work in a short in-class presentation the final week of class. (A rubric will be provided separately.)</p>
-<section id="rounding" class="level3">
-<h3 class="anchored" data-anchor-id="rounding">Rounding</h3>
-<p>My course policy is not to round up grades for two reasons:</p>
-<ol type="1">
-<li>If rounding is applied selectively (i.e., only to students who ask), it is unfair to other students.<br>
-</li>
-<li>If rounding is applied across the board, it simply redefines the boundary between two letter grades (e.g., making an 89% the cut-off for an A-).</li>
-</ol>
+<section id="welcome-to-css-211" class="level2">
+<h2 class="anchored" data-anchor-id="welcome-to-css-211">Welcome to CSS 211!</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

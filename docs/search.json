@@ -1,0 +1,93 @@
+[
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "CSS 211 Schedule",
+    "section": "",
+    "text": "This is a tentative schedule of which topics I plan to cover. Note that while all lectures will have an interactive component, Fridays are reserved for more hands-on labs—typically involving a CSS-relevant dataset—with active participation encouraged.\n\n\n\n\n\n\n\n\n\n\nWeek\nDay\nDate\nTopic(s)\nAssignments Due\n\n\n\n\n0\nF\n09-26\nCourse Introduction\n\n\n\n1\nM\n09-30\nPhilosophy of Science in CSS\n\n\n\n1\nW\n10-02\nIntroduction to R and RStudio\n\n\n\n1\nF\n10-04\nR basics [LAB]\nLab 1\n\n\n2\nM\n10-07\nData wrangling\n\n\n\n2\nW\n10-09\nData wrangling\n\n\n\n2\nF\n10-11\nHands-on data cleaning [LAB]\nConcept quiz\n\n\n3\nM\n10-14\nData visualization (principles)\n\n\n\n3\nW\n10-16\nData visualization (ggplot)\n\n\n\n3\nF\n10-18\nExploratory data analysis [LAB]\nLab 2\n\n\n4\nM\n10-21\nLinear regression\n\n\n\n4\nW\n10-23\nLinear regression\n\n\n\n4\nF\n10-25\nHands-on regression [LAB]\nConcept quiz\n\n\n5\nM\n10-28\nMultiple regression\n\n\n\n5\nW\n10-30\nRegression: issues\n\n\n\n5\nF\n11-01\nBuilding complex models [LAB]\nLab 3\n\n\n6\nM\n11-04\nLogistic regression\n\n\n\n6\nW\n11-06\nRegularization\n\n\n\n6\nF\n11-08\nInterpreting logistic models [LAB]\nConcept quiz\n\n\n7\nM\n11-11\nMixed effects models\n\n\n\n7\nW\n11-13\nMixed models + model selection\n\n\n\n7\nF\n11-15\nIn-class midterm\nMidterm!\n\n\n8\nM\n11-18\nResampling\n\n\n\n8\nW\n11-20\nResampling\nLab 4\n\n\n8\nF\n11-22\nBuild your own baseline [LAB]\nConcept quiz\n\n\n9\nM\n11-25\nFinal project check-in\n\n\n\n9\nW\n11-27\nHOLIDAY (Thanksgiving)\n\n\n\n9\nF\n11-29\nHOLIDAY (Thanksgiving)\n\n\n\n10\nM\n12-02\nBest practices, Wrap-up\n\n\n\n10\nW\n12-04\nFinal project presentations (pt. 1)\n\n\n\n10\nF\n12-06\nFinal project presentations (pt. 2)\n\n\n\n11\nW\n12-09\n\nFinal report due"
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "CSS 211 Syllabus",
+    "section": "",
+    "text": "This course is an introduction to statistical methods and computational tools for computational social science (CSS) research. Students will develop proficiency in R programming while learning foundational concepts for working with CSS data, including: data wrangling and visualization, regression, and model selection. The course emphasizes hands-on application of techniques to real-world datasets, as well as discussion of ongoing methodological and epistemological issues in the study of human behavior."
+  },
+  {
+    "objectID": "syllabus.html#course-overview",
+    "href": "syllabus.html#course-overview",
+    "title": "CSS 211 Syllabus",
+    "section": "",
+    "text": "This course is an introduction to statistical methods and computational tools for computational social science (CSS) research. Students will develop proficiency in R programming while learning foundational concepts for working with CSS data, including: data wrangling and visualization, regression, and model selection. The course emphasizes hands-on application of techniques to real-world datasets, as well as discussion of ongoing methodological and epistemological issues in the study of human behavior."
+  },
+  {
+    "objectID": "syllabus.html#learning-outcomes",
+    "href": "syllabus.html#learning-outcomes",
+    "title": "CSS 211 Syllabus",
+    "section": "Learning Outcomes",
+    "text": "Learning Outcomes\nMy goal is that by the end of this course, students will be able to:\n\nDefine and explain key concepts in statistical inference and regression analysis.\nIdentify appropriate visualizations and statistical methods for different kinds of research questions and datasets.\nImplement data wrangling, visualization, and analysis workflows in R.\nInterpret and evaluate results (visualizations, fit models, etc.) in the context of a research question.\nDesign and implement a complete statistical analysis project from research question to interpretation."
+  },
+  {
+    "objectID": "syllabus.html#teaching-team",
+    "href": "syllabus.html#teaching-team",
+    "title": "CSS 211 Syllabus",
+    "section": "Teaching Team",
+    "text": "Teaching Team\n\n\n\nName\nRole\nOH Time\nEmail\n\n\n\n\nSean Trott\nInstructor\nTBD\nsttrott@ucsd.edu\n\n\nTBD\nTA\nTBD\nTBD"
+  },
+  {
+    "objectID": "syllabus.html#prerequisites",
+    "href": "syllabus.html#prerequisites",
+    "title": "CSS 211 Syllabus",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nStudents should have a basic understanding of probability theory and statistics; some experience with a programming language (e.g., Python or R) is encouraged but not required."
+  },
+  {
+    "objectID": "syllabus.html#grading-and-assessments",
+    "href": "syllabus.html#grading-and-assessments",
+    "title": "CSS 211 Syllabus",
+    "section": "Grading and Assessments",
+    "text": "Grading and Assessments\nLabs (20% total): 4 coding labs, completed in R and submitted via Canvas. Students may collaborate on labs with each other and seek help from their TA/instructor.\nConcept quizzes (20%): 4 short quizzes, held over Canvas, designed to test and improve conceptual intuitions about course topics.\nMidterm (25%): A paper midterm held in-class testing knowledge of course material.\nFinal project (35%): A rigorous replication (and possible extension) of existing empirical work (published or otherwise) in a student’s discipline of interest. Final projects should be completed independently; students will turn in both a written report and present their work in a short in-class presentation the final week of class. (A rubric will be provided separately.)\n\nRounding\nMy course policy is not to round up grades for two reasons:\n\nIf rounding is applied selectively (i.e., only to students who ask), it is unfair to other students.\n\nIf rounding is applied across the board, it simply redefines the boundary between two letter grades (e.g., making an 89% the cut-off for an A-)."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "CSS 211: Statistical Methods for Computational Social Science",
+    "section": "",
+    "text": "This is the course website for CSS 211/POLI 279. The current iteration of the course is Fall 2025.\nThe goal of this course is to introduce students to foundational statistical methods and tools for computational social science (CSS), including: data wrangling and visualization, regression, and model selection. Students will also develop proficiency in the R programming, and the course emphasizes hands-on application of techniques to real-world datasets."
+  },
+  {
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "CSS 211: Statistical Methods for Computational Social Science",
+    "section": "",
+    "text": "This is the course website for CSS 211/POLI 279. The current iteration of the course is Fall 2025.\nThe goal of this course is to introduce students to foundational statistical methods and tools for computational social science (CSS), including: data wrangling and visualization, regression, and model selection. Students will also develop proficiency in the R programming, and the course emphasizes hands-on application of techniques to real-world datasets."
+  },
+  {
+    "objectID": "index.html#instructor",
+    "href": "index.html#instructor",
+    "title": "CSS 211: Statistical Methods for Computational Social Science",
+    "section": "Instructor",
+    "text": "Instructor\nSean Trott\nDepartment of Cognitive Science, UCSD"
+  },
+  {
+    "objectID": "index.html#quick-links",
+    "href": "index.html#quick-links",
+    "title": "CSS 211: Statistical Methods for Computational Social Science",
+    "section": "Quick Links",
+    "text": "Quick Links\n\nSyllabus\nCourse Schedule\n\nGitHub Repository"
+  },
+  {
+    "objectID": "lectures/week0-intro.html",
+    "href": "lectures/week0-intro.html",
+    "title": "Introduction to CSS 211",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "lectures/week0-intro.html#welcome-to-css-211",
+    "href": "lectures/week0-intro.html#welcome-to-css-211",
+    "title": "Introduction to CSS 211",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2"
+  }
+]
