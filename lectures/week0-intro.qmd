@@ -1,9 +1,22 @@
 ---
 title: "Introduction to CSS 211"
+format:
+  html: 
+    toc: true
+  revealjs:
+    output-file: "week0-intro-slides.html"
+    theme: simple
+    slide-number: true
 ---
 
 ## Welcome to CSS 211!
 
+Hello, world.
+
+## R basics
+
 ```{r}
+#| echo: true          # Show the code
+#| eval: true          # Run the code  
 1 + 1
 ```

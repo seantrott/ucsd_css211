@@ -7,7 +7,7 @@ This is a tentative schedule of which topics I plan to cover. Note that while al
 
 | Week | Day | Date | Topic(s) | Assignments Due |
 |------|-----|------|----------|-----------------|
-| 0 | F | 09-26 | Course Introduction | |
+| 0 | F | 09-26 | [Course Introduction](lectures/week0-intro.qmd)| |
 | 1 | M | 09-30 | Philosophy of Science in CSS | |
 | 1 | W | 10-02 | Introduction to R and RStudio | |
 | 1 | F | 10-04 | R basics **[LAB]** | **Lab 1** |

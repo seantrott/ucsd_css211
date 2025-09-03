@@ -46,3 +46,7 @@ My course policy is not to round up grades for two reasons:
 2. If rounding is applied across the board, it simply redefines the boundary between two letter grades (e.g., making an 89% the cut-off for an A-).
 
 
+## Using AI
+
+Tools like ChatGPT can be incredibly helpful for learning to code (or speeding up the process). At the same time, I think it’s crucial to learn the foundational skills and concepts that will allow you to use these tools to their full potential. That is the main motivation for having an in-class midterm: ultimately, I cannot force anyone to complete homework on their own without using ChatGPT (or equivalent tools), and I wouldn’t even claim that people shouldn’t consult ChatGPT for additional help or questions; but in order to perform well on the midterm, you will still need to learn the concepts.
+
