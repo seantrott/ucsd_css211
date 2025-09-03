@@ -1,0 +1,48 @@
+---
+title: "CSS 211 Syllabus"
+---
+
+## Course Overview
+
+This course is an introduction to statistical methods and computational tools for computational social science (CSS) research. Students will develop proficiency in R programming while learning foundational concepts for working with CSS data, including: data wrangling and visualization, regression, and model selection. The course emphasizes hands-on application of techniques to real-world datasets, as well as discussion of ongoing methodological and epistemological issues in the study of human behavior. 
+
+## Learning Outcomes
+
+My goal is that by the end of this course, students will be able to:
+
+- Define and explain key concepts in statistical inference and regression analysis.
+- Identify appropriate visualizations and statistical methods for different kinds of research questions and datasets.
+- Implement data wrangling, visualization, and analysis workflows in R.
+- Interpret and evaluate results (visualizations, fit models, etc.) in the context of a research question.
+- Design and implement a complete statistical analysis project from research question to interpretation. 
+
+## Teaching Team
+
+| Name | Role | OH Time | Email |
+|------|------|---------|-------|
+| Sean Trott | Instructor | TBD | sttrott@ucsd.edu |
+| TBD | TA | TBD | TBD |
+
+## Prerequisites
+
+Students should have a basic understanding of probability theory and statistics; some experience with a programming language (e.g., Python or R) is encouraged but not required.
+
+## Grading and Assessments
+
+
+**Labs (20% total)**: 4 coding labs, completed in R and submitted via Canvas. Students may collaborate on labs with each other and seek help from their TA/instructor.
+
+**Concept quizzes (20%)**: 4 short quizzes, held over Canvas, designed to test and improve conceptual intuitions about course topics.
+
+**Midterm (25%)**: A paper midterm held in-class testing knowledge of course material.
+
+**Final project (35%)**: A rigorous replication (and possible extension) of existing empirical work (published or otherwise) in a student’s discipline of interest. Final projects should be completed independently; students will turn in both a written report and present their work in a short in-class presentation the final week of class. (A rubric will be provided separately.)
+
+### Rounding
+
+My course policy is not to round up grades for two reasons:
+
+1. If rounding is applied selectively (i.e., only to students who ask), it is unfair to other students.  
+2. If rounding is applied across the board, it simply redefines the boundary between two letter grades (e.g., making an 89% the cut-off for an A-).
+
+

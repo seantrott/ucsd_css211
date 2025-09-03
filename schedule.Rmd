@@ -1,0 +1,41 @@
+---
+title: "CSS 211 Schedule"
+---
+
+
+This is a tentative schedule of which topics I plan to cover. Note that while all lectures will have an interactive component, Fridays are reserved for more hands-on labs—typically involving a CSS-relevant dataset—with active participation encouraged. 
+
+| Week | Day | Date | Topic(s) | Assignments Due |
+|------|-----|------|----------|-----------------|
+| 0 | F | 09-26 | Course Introduction | |
+| 1 | M | 09-30 | Philosophy of Science in CSS | |
+| 1 | W | 10-02 | Introduction to R and RStudio | |
+| 1 | F | 10-04 | R basics **[LAB]** | **Lab 1** |
+| 2 | M | 10-07 | Data wrangling | |
+| 2 | W | 10-09 | Data wrangling | |
+| 2 | F | 10-11 | Hands-on data cleaning **[LAB]** | **Concept quiz** |
+| 3 | M | 10-14 | Data visualization (principles) | |
+| 3 | W | 10-16 | Data visualization (*ggplot*) | |
+| 3 | F | 10-18 | Exploratory data analysis **[LAB]** | Lab 2 |
+| 4 | M | 10-21 | Linear regression | |
+| 4 | W | 10-23 | Linear regression | |
+| 4 | F | 10-25 | Hands-on regression **[LAB]** | **Concept quiz** |
+| 5 | M | 10-28 | Multiple regression | |
+| 5 | W | 10-30 | Regression: issues | |
+| 5 | F | 11-01 | Building complex models **[LAB]** | Lab 3 |
+| 6 | M | 11-04 | Logistic regression | |
+| 6 | W | 11-06 | Regularization | |
+| 6 | F | 11-08 | Interpreting logistic models **[LAB]** | **Concept quiz** |
+| 7 | M | 11-11 | Mixed effects models | |
+| 7 | W | 11-13 | Mixed models + model selection | |
+| 7 | F | 11-15 | **In-class midterm** | **Midterm!** |
+| 8 | M | 11-18 | Resampling | |
+| 8 | W | 11-20 | Resampling | Lab 4 |
+| 8 | F | 11-22 | Build your own baseline **[LAB]** | **Concept quiz** |
+| 9 | M | 11-25 | Final project check-in | |
+| 9 | W | 11-27 | **HOLIDAY (Thanksgiving)** | |
+| 9 | F | 11-29 | **HOLIDAY (Thanksgiving)** | |
+| 10 | M | 12-02 | Best practices, Wrap-up | |
+| 10 | W | 12-04 | Final project presentations (pt. 1) | |
+| 10 | F | 12-06 | Final project presentations (pt. 2) | |
+| 11 | W | 12-09 | | **Final report due** |
