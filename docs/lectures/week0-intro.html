@@ -153,38 +153,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Week 0: Course Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../lectures/week1-philosophy.qmd">
+    <a class="dropdown-item" href="../lectures/week1-philosophy.html">
  <span class="dropdown-text">Week 1: Philosophy of Science</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-labs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Labs</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-labs">    
-        <li>
-    <a class="dropdown-item" href="../labs/lab1-r-basics.qmd">
- <span class="dropdown-text">Lab 1: R Basics</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Resources</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
-        <li>
-    <a class="dropdown-item" href="../resources/r-resources.qmd">
- <span class="dropdown-text">R Resources</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../resources/datasets.qmd">
- <span class="dropdown-text">Datasets</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../resources/readings.qmd">
- <span class="dropdown-text">Readings</span></a>
   </li>  
     </ul>
   </li>
@@ -211,8 +181,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#welcome-to-css-211" id="toc-welcome-to-css-211" class="nav-link active" data-scroll-target="#welcome-to-css-211">Welcome to CSS 211!</a></li>
-  <li><a href="#r-basics" id="toc-r-basics" class="nav-link" data-scroll-target="#r-basics">R basics</a></li>
+  <li><a href="#goals-of-the-lecture" id="toc-goals-of-the-lecture" class="nav-link active" data-scroll-target="#goals-of-the-lecture">Goals of the lecture</a></li>
+  <li><a href="#who-am-i" id="toc-who-am-i" class="nav-link" data-scroll-target="#who-am-i">Who am I?</a></li>
+  <li><a href="#what-is-css" id="toc-what-is-css" class="nav-link" data-scroll-target="#what-is-css">What is CSS?</a></li>
+  <li><a href="#what-is-social-science" id="toc-what-is-social-science" class="nav-link" data-scroll-target="#what-is-social-science">What is social science?</a></li>
+  <li><a href="#what-are-computational-methods-for" id="toc-what-are-computational-methods-for" class="nav-link" data-scroll-target="#what-are-computational-methods-for">What are computational methods for?</a></li>
+  <li><a href="#what-is-this-course-for" id="toc-what-is-this-course-for" class="nav-link" data-scroll-target="#what-is-this-course-for">What is this course for?</a></li>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
+  <li><a href="#why-r" id="toc-why-r" class="nav-link" data-scroll-target="#why-r">Why R?</a></li>
+  <li><a href="#r-basics" id="toc-r-basics" class="nav-link" data-scroll-target="#r-basics">R: basics</a></li>
+  <li><a href="#r-simple-histogram" id="toc-r-simple-histogram" class="nav-link" data-scroll-target="#r-simple-histogram">R: simple histogram</a></li>
+  <li><a href="#r-simple-scatterplot" id="toc-r-simple-scatterplot" class="nav-link" data-scroll-target="#r-simple-scatterplot">R: simple scatterplot</a></li>
+  <li><a href="#r-simple-scatterplot-1" id="toc-r-simple-scatterplot-1" class="nav-link" data-scroll-target="#r-simple-scatterplot-1">R: simple scatterplot</a></li>
+  <li><a href="#logistics-and-course-structure" id="toc-logistics-and-course-structure" class="nav-link" data-scroll-target="#logistics-and-course-structure">Logistics and course structure</a></li>
+  <li><a href="#assessment-strategy" id="toc-assessment-strategy" class="nav-link" data-scroll-target="#assessment-strategy">Assessment strategy</a></li>
+  <li><a href="#course-policies" id="toc-course-policies" class="nav-link" data-scroll-target="#course-policies">Course policies</a></li>
+  <li><a href="#note-on-ai-usage" id="toc-note-on-ai-usage" class="nav-link" data-scroll-target="#note-on-ai-usage">Note on AI usage</a></li>
+  <li><a href="#final-project" id="toc-final-project" class="nav-link" data-scroll-target="#final-project">Final project</a></li>
+  <li><a href="#tooling-prerequisites-and-tech-setup" id="toc-tooling-prerequisites-and-tech-setup" class="nav-link" data-scroll-target="#tooling-prerequisites-and-tech-setup">Tooling, prerequisites, and tech setup</a></li>
+  <li><a href="#topics-and-schedule" id="toc-topics-and-schedule" class="nav-link" data-scroll-target="#topics-and-schedule">Topics and schedule</a></li>
+  <li><a href="#welcome-to-css-211" id="toc-welcome-to-css-211" class="nav-link" data-scroll-target="#welcome-to-css-211">Welcome to CSS 211!</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="week0-intro-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
@@ -238,18 +226,328 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="goals-of-the-lecture" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="goals-of-the-lecture">Goals of the lecture</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Introductions<br>
+</li>
+<li>What is CSS?</li>
+<li>What is this course for?</li>
+<li>Logistics</li>
+</ul>
+</div>
+</section>
+<section id="who-am-i" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="who-am-i">Who am I?</h2>
+<ul>
+<li><a href="https://seantrott.github.io/">Assistant Teaching Professor, Cognitive Science</a>.</li>
+<li><a href="https://seantrott.github.io/research/">Research interests</a>: large language models (LLMs), language comprehension, Theory of Mind.</li>
+</ul>
+</section>
+<section id="what-is-css" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="what-is-css">What is CSS?</h2>
+<blockquote class="blockquote">
+<p>In a nutshell, Computational Social Science focuses on computational approaches to social science.</p>
+</blockquote>
+<p>At UCSD, Social Sciences encompasses many disciplines:</p>
+<div class="incremental">
+<ul class="incremental">
+<li>Economics.</li>
+<li>Political Science.</li>
+<li>Cognitive Science.</li>
+<li>Sociology.</li>
+</ul>
+</div>
+</section>
+<section id="what-is-social-science" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="what-is-social-science">What is social science?</h2>
+<p><strong>Social science</strong> refers to a domain of study: <em>social phenomena</em>.</p>
+<div class="incremental">
+<ul class="incremental">
+<li>Encompasses many <strong>scales</strong>: individual human behavior, political trends, etc.</li>
+<li>Involves multiple <strong>methods</strong>: qualitative interviews, statistical analysis, simulations.</li>
+</ul>
+</div>
+</section>
+<section id="what-are-computational-methods-for" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="what-are-computational-methods-for">What are computational methods for?</h2>
+<p>Another way of asking this is: <strong>how do computational methods help us learn what we want to know</strong>?</p>
+<div class="incremental">
+<ul class="incremental">
+<li>Many research questions benefit from <em>large-scale quantitative analysis</em>.
+<ul class="incremental">
+<li>Measuring trends over time.</li>
+<li>Comparing effects of policy interventions.</li>
+<li>Modeling the relationships between variables.</li>
+</ul></li>
+<li>Computational methods help us do this efficiently and reliably.</li>
+</ul>
+</div>
+</section>
+<section id="what-is-this-course-for" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="what-is-this-course-for">What is this course for?</h2>
+<p>The goal of this course is to introduce students to <strong>foundational concepts and methods</strong> in statistical modeling. We will emphasize both <strong>hands-on application</strong> and <strong>conceptual understanding</strong>.</p>
+<p>Key concepts include:</p>
+<div class="incremental">
+<ul class="incremental">
+<li>Data wrangling, summarization, and visualization.<br>
+</li>
+<li>Modeling data and designing analyses.</li>
+<li>Interrogating the assumptions of an analysis or dataset.</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Hands-on work will be done using the R programming language.</p>
+</div>
+</section>
+<section id="learning-outcomes" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="learning-outcomes">Learning outcomes</h2>
+<p>My goal is that by the end of this course, students will be able to:</p>
+<ul>
+<li><strong>Define</strong> and <strong>explain</strong> key concepts in statistical inference and regression analysis.</li>
+<li><strong>Identify</strong> appropriate visualizations and statistical methods for different kinds of research questions and datasets.</li>
+<li><strong>Implement</strong> data wrangling, visualization, and analysis workflows in R.</li>
+<li><strong>Interpret</strong> and <strong>evaluate</strong> results (visualizations, fit models, etc.) in the context of a research question.</li>
+<li><strong>Design</strong> and <strong>implement</strong> a complete statistical analysis project from research question to interpretation.</li>
+</ul>
+</section>
+<section id="why-r" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="why-r">Why R?</h2>
+<blockquote class="blockquote">
+<p><a href="https://www.r-project.org/">R</a> is a programming language used to perform statistical analysis, wrangle data, make data visualizaitons, and more.</p>
+</blockquote>
+<p>R is certainly not the <em>only</em> way to analyze data, but it’s a useful tool in your toolbox for a couple reasons.</p>
+<div class="incremental">
+<ul class="incremental">
+<li>R has excellent packages (<code>lme4</code>) for running analyses with mixed effects models.</li>
+<li>R has the <a href="https://www.tidyverse.org/"><code>tidyverse</code></a>, a collection of packages for writing really <em>clean</em> code to wrangle, summarize, and visualize data.<br>
+</li>
+<li>The <code>tidyverse</code> includes <a href="https://ggplot2.tidyverse.org/"><code>ggplot</code></a>, one of the best plotting packages I’ve ever used.<br>
+</li>
+<li>R is integrated with platforms like <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>, which enable creation of sharable code, websites, and slides (like these).</li>
+</ul>
+</div>
+</section>
+<section id="r-basics" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="r-basics">R: basics</h2>
+<p>R can be used to perform simple arithmetic calculations:</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Our first R calculation</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"The answer is:"</span>, x))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "The answer is: 2"</code></pre>
+</div>
+</div>
+<p>It can also be used to calculate summary statistics, like a <code>mean</code> or standard deviation (<code>std</code>).</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>sample_vector <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Mean: "</span>, <span class="fu">mean</span>(sample_vector)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Mean:  5"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"SD: "</span>, <span class="fu">sd</span>(sample_vector)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "SD:  2.58198889747161"</code></pre>
+</div>
+</div>
+</section>
+<section id="r-simple-histogram" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="r-simple-histogram">R: simple histogram</h2>
+<p>R can also be used to <em>visualize data</em>.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>vector <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">hist</span>(vector)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week0-intro_files/figure-html/hist-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="r-simple-scatterplot" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="r-simple-scatterplot">R: simple scatterplot</h2>
+<p><em>Scatterplots</em> can be used to visualize relationships between data.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>v1 <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb8-2"><a href="#cb8-2"></a>v2 <span class="ot">=</span> v1 <span class="sc">*</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="fu">plot</span>(v1, v2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week0-intro_files/figure-html/scatter-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="r-simple-scatterplot-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="r-simple-scatterplot-1">R: simple scatterplot</h2>
+<p><em>Scatterplots</em> can be used to visualize relationships between data.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>v1 <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a>v2 <span class="ot">=</span> v1 <span class="sc">*</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What do you think the <code>v2</code> line of code is doing?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="logistics-and-course-structure" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="logistics-and-course-structure">Logistics and course structure</h2>
+<p>Designing this course required some forethought. CSS is a <em>broad</em> discipline: what methods and content are useful for everyone?</p>
+<p>My approach:</p>
+<blockquote class="blockquote">
+<p>Course content and assessments should reflect underlying <strong>learning outcomes</strong>.</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li><strong>Define</strong> and <strong>explain</strong> key concepts in statistical inference and regression analysis.</li>
+<li><strong>Identify</strong> appropriate visualizations and statistical methods for different kinds of research questions and datasets.</li>
+<li><strong>Implement</strong> data wrangling, visualization, and analysis workflows in R.</li>
+<li><strong>Interpret</strong> and <strong>evaluate</strong> results (visualizations, fit models, etc.) in the context of a research question.</li>
+<li><strong>Design</strong> and <strong>implement</strong> a complete statistical analysis project from research question to interpretation.</li>
+</ul>
+</div>
+</section>
+<section id="assessment-strategy" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="assessment-strategy">Assessment strategy</h2>
+<div class="incremental">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 28%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Assessment</th>
+<th>Percentage</th>
+<th>Learning Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Labs</td>
+<td>20%</td>
+<td>Implementation, interpretation, evaluation</td>
+</tr>
+<tr class="even">
+<td>Concept quizzes</td>
+<td>20%</td>
+<td>Defining, explaining</td>
+</tr>
+<tr class="odd">
+<td>Midterm</td>
+<td>25%</td>
+<td>Defining, interpreting, evaluating</td>
+</tr>
+<tr class="even">
+<td>Final project</td>
+<td>35%</td>
+<td>Designing, identifying, implementing, evaluating</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="course-policies" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="course-policies">Course policies</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><strong>Attendance</strong>: Recommended, not required.</li>
+<li><strong>Dropped quiz</strong>: Your lowest quiz will be dropped from your grade.</li>
+<li><strong>Late assignments</strong>: Generally not accepted except in cases of emergencies.
+<ul class="incremental">
+<li>If you have a <em>midterm scheduling conflict</em>, let me know <em>as soon as possible</em> so we can try to accommodate it.</li>
+</ul></li>
+<li><strong>Getting help</strong>: Office hours from the teaching team generally preferred to email.</li>
+</ul>
+</div>
+</section>
+<section id="note-on-ai-usage" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="note-on-ai-usage">Note on AI usage</h2>
+<p>My research focuses on large language models (LLMs), which have seen incredible progress in recent years. I probably don’t need to tell you how powerful ChatGPT can be!</p>
+<p>A few points need to be made here:</p>
+<div class="incremental">
+<ul class="incremental">
+<li>Tools like ChatGPT will likely keep getting better, and we shouldn’t ignore that.</li>
+<li>Doing CSS “in the wild” may sometimes benefit from using ChatGPT!</li>
+<li>Separately, CSS “in the wild” is not done in an insolated test-taking environment.</li>
+<li>It’s also still important (I think) to learn the <strong>fundamentals</strong> .
+<ul class="incremental">
+<li>I can use ChatGPT more effectively when I know <em>what I want to do</em>.</li>
+</ul></li>
+<li>Thus, our assessments combine:
+<ul class="incremental">
+<li>Take-home work (more “ecologically valid”).</li>
+<li>Work requiring “endogenous” problem-solving (in-person midterm).</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="final-project" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="final-project">Final project</h2>
+<p>The final project will be done independently, and will involve <strong>replicating</strong> from start to finish a published analysis in the CSS domain of your choice.</p>
+<div class="incremental">
+<ul class="incremental">
+<li>You have a lot of freedom here, but I recommend:
+<ul class="incremental">
+<li>Thinking about this <strong>early on</strong>. Happy to point people to useful resources!</li>
+<li>Choosing something that’s <strong>challenging</strong> (but also doable!).</li>
+</ul></li>
+<li><strong>Extensions</strong> to existing work (e.g., new analyses) will be encouraged.</li>
+<li>Your <strong>deliverables</strong> will be:
+<ul class="incremental">
+<li>A final report (turned in via Canvas).</li>
+<li>A final presentation (delivered week 10).</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="tooling-prerequisites-and-tech-setup" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="tooling-prerequisites-and-tech-setup">Tooling, prerequisites, and tech setup</h2>
+<p>This course will involve quite a bit of programming in R.</p>
+<div class="incremental">
+<ul class="incremental">
+<li>Week 1 will cover <strong>tooling</strong>. You’ll need R installed and RStudio.</li>
+<li>No explicit prerequisites, though some programming background (like CSS bootcamp!) will be helpful.</li>
+</ul>
+</div>
+</section>
+<section id="topics-and-schedule" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="topics-and-schedule">Topics and schedule</h2>
+<p>Topics will be roughly as follows:</p>
+<div class="incremental">
+<ul class="incremental">
+<li><strong>Week 1</strong>: Introduction to R and the RStudio environment.
+<ul class="incremental">
+<li>(Plus some philophy of science.)</li>
+</ul></li>
+<li><strong>Weeks 2-3</strong>: Data wrangling and visualization.</li>
+<li><strong>Weeks 4-5</strong>: Deep dive into linear regression.</li>
+<li><strong>Weeks 6-8</strong>: Advanced statistical techniques.<br>
+</li>
+<li><strong>Weeks 9-10</strong>: Best practices, final project work and presentations.</li>
+</ul>
+</div>
+</section>
 <section id="welcome-to-css-211" class="level2">
 <h2 class="anchored" data-anchor-id="welcome-to-css-211">Welcome to CSS 211!</h2>
-<p>Hello, world.</p>
-</section>
-<section id="r-basics" class="level2">
-<h2 class="anchored" data-anchor-id="r-basics">R basics</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
 
 
 </section>

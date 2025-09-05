@@ -7,16 +7,281 @@ format:
     output-file: "week0-intro-slides.html"
     theme: simple
     slide-number: true
+    chalkboard: true
+    preview-links: auto
+    footer: "CSS 211 | UC San Diego"
 ---
 
-## Welcome to CSS 211!
+## Goals of the lecture {.smaller}
 
-Hello, world.
+::: {.incremental}
+- Introductions  
+- What is CSS?
+- What is this course for?
+- Logistics
+:::
 
-## R basics
+## Who am I?  {.smaller}
 
-```{r}
-#| echo: true          # Show the code
-#| eval: true          # Run the code  
-1 + 1
+- [Assistant Teaching Professor, Cognitive Science](https://seantrott.github.io/). 
+- [Research interests](https://seantrott.github.io/research/): large language models (LLMs), language comprehension, Theory of Mind. 
+
+::: {.content-visible when-format="revealjs"}
+## Who are you?  {.smaller}
+
+**Turn to someone near you and share:**
+
+::: {.incremental}
+- Your name
+- Your research interests 
+- What drew you to CSS
+:::
+:::
+
+## What is CSS?  {.smaller}
+
+> In a nutshell, Computational Social Science focuses on computational approaches to social science.
+
+At UCSD, Social Sciences encompasses many disciplines:
+
+::: {.incremental}
+- Economics. 
+- Political Science. 
+- Cognitive Science.
+- Sociology.
+:::
+
+## What is social science?  {.smaller}
+
+**Social science** refers to a domain of study: *social phenomena*.
+
+::: {.incremental}
+- Encompasses many **scales**: individual human behavior, political trends, etc. 
+- Involves multiple **methods**: qualitative interviews, statistical analysis, simulations.
+:::
+
+## What are computational methods for?  {.smaller}
+
+
+Another way of asking this is: **how do computational methods help us learn what we want to know**?
+
+::: {.incremental}
+- Many research questions benefit from *large-scale quantitative analysis*.  
+  - Measuring trends over time.
+  - Comparing effects of policy interventions. 
+  - Modeling the relationships between variables. 
+- Computational methods help us do this efficiently and reliably.
+:::
+
+
+
+## What is this course for? {.smaller}
+
+The goal of this course is to introduce students to **foundational concepts and methods** in statistical modeling. We will emphasize both **hands-on application** and **conceptual understanding**. 
+
+Key concepts include:
+
+::: {.incremental}
+- Data wrangling, summarization, and visualization.  
+- Modeling data and designing analyses.
+- Interrogating the assumptions of an analysis or dataset.
+:::
+
+::: {.fragment}
+Hands-on work will be done using the R programming language.
+:::
+
+
+## Learning outcomes {.smaller}
+
+My goal is that by the end of this course, students will be able to:
+
+- **Define** and **explain** key concepts in statistical inference and regression analysis.
+- **Identify** appropriate visualizations and statistical methods for different kinds of research questions and datasets.
+- **Implement** data wrangling, visualization, and analysis workflows in R.
+- **Interpret** and **evaluate** results (visualizations, fit models, etc.) in the context of a research question.
+- **Design** and **implement** a complete statistical analysis project from research question to interpretation. 
+
+
+## Why R? {.smaller}
+
+
+> [R](https://www.r-project.org/) is a programming language used to perform statistical analysis, wrangle data, make data visualizaitons, and more. 
+
+R is certainly not the *only* way to analyze data, but it's a useful tool in your toolbox for a couple reasons.
+
+::: {.incremental}
+- R has excellent packages (`lme4`) for running analyses with mixed effects models. 
+- R has the [`tidyverse`](https://www.tidyverse.org/), a collection of packages for writing really *clean* code to wrangle, summarize, and visualize data.  
+- The `tidyverse` includes [`ggplot`](https://ggplot2.tidyverse.org/), one of the best plotting packages I've ever used.  
+- R is integrated with platforms like [RStudio](https://posit.co/download/rstudio-desktop/), which enable creation of sharable code, websites, and slides (like these).
+:::
+
+
+## R: basics  {.smaller}
+
+R can be used to perform simple arithmetic calculations:
+
+```{r basic1}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+# Our first R calculation
+x <- 1 + 1
+print(paste("The answer is:", x))
 ```
+
+It can also be used to calculate summary statistics, like a `mean` or standard deviation (`std`).
+
+
+```{r basic2}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+sample_vector = c(2, 4, 6, 8)
+print(paste("Mean: ", mean(sample_vector)))
+print(paste("SD: ", sd(sample_vector)))
+```
+
+## R: simple histogram  {.smaller}
+
+R can also be used to *visualize data*.
+
+```{r hist}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+vector = rnorm(100, mean = 50, sd = 2)
+hist(vector)
+```
+
+## R: simple scatterplot  {.smaller}
+
+*Scatterplots* can be used to visualize relationships between data.
+
+```{r scatter}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+v1 = rnorm(100, mean = 50, sd = 2)
+v2 = v1 * 2 + rnorm(100, mean = 0, sd = 2)
+plot(v1, v2)
+```
+
+
+## R: simple scatterplot  {.smaller}
+
+*Scatterplots* can be used to visualize relationships between data.
+
+```{r scatter_no_plot}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+v1 = rnorm(100, mean = 50, sd = 2)
+v2 = v1 * 2 + rnorm(100, mean = 0, sd = 2)
+```
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+What do you think the `v2` line of code is doing?
+:::
+:::
+
+## Logistics and course structure  {.smaller}
+
+Designing this course required some forethought. CSS is a *broad* discipline: what methods and content are useful for everyone?
+
+My approach:
+
+> Course content and assessments should reflect underlying **learning outcomes**.
+
+::: {.incremental}
+- **Define** and **explain** key concepts in statistical inference and regression analysis.
+- **Identify** appropriate visualizations and statistical methods for different kinds of research questions and datasets.
+- **Implement** data wrangling, visualization, and analysis workflows in R.
+- **Interpret** and **evaluate** results (visualizations, fit models, etc.) in the context of a research question.
+- **Design** and **implement** a complete statistical analysis project from research question to interpretation. 
+:::
+
+## Assessment strategy {.smaller}
+
+::: {.incremental}
+| Assessment | Percentage | Learning Outcome |
+|------------|------------|------------------|
+| Labs | 20% |Implementation, interpretation, evaluation |
+| Concept quizzes | 20% |Defining, explaining|
+| Midterm | 25% |Defining, interpreting, evaluating |
+| Final project | 35% |Designing, identifying, implementing, evaluating |
+:::
+
+## Course policies {.smaller}
+
+::: {.incremental}
+- **Attendance**: Recommended, not required. 
+- **Dropped quiz**: Your lowest quiz will be dropped from your grade.
+- **Late assignments**: Generally not accepted except in cases of emergencies. 
+  - If you have a *midterm scheduling conflict*, let me know *as soon as possible* so we can try to accommodate it. 
+- **Getting help**: Office hours from the teaching team generally preferred to email. 
+:::
+
+## Note on AI usage {.smaller}
+
+My research focuses on large language models (LLMs), which have seen incredible progress in recent years. I probably don't need to tell you how powerful ChatGPT can be!
+
+A few points need to be made here:
+
+::: {.incremental}
+- Tools like ChatGPT will likely keep getting better, and we shouldn't ignore that.
+- Doing CSS "in the wild" may sometimes benefit from using ChatGPT!
+- Separately, CSS "in the wild" is not done in an insolated test-taking environment.
+- It's also still important (I think) to learn the **fundamentals** .
+  - I can use ChatGPT more effectively when I know *what I want to do*.
+- Thus, our assessments combine:
+  - Take-home work (more "ecologically valid").
+  - Work requiring "endogenous" problem-solving (in-person midterm).
+:::
+
+## Final project {.smaller}
+
+The final project will be done independently, and will involve **replicating** from start to finish a published analysis in the CSS domain of your choice. 
+
+::: {.incremental}
+- You have a lot of freedom here, but I recommend:
+  - Thinking about this **early on**. Happy to point people to useful resources!
+  - Choosing something that's **challenging** (but also doable!). 
+- **Extensions** to existing work (e.g., new analyses) will be encouraged. 
+- Your **deliverables** will be:
+  - A final report (turned in via Canvas). 
+  - A final presentation (delivered week 10).
+:::
+
+
+## Tooling, prerequisites, and tech setup {.smaller}
+
+This course will involve quite a bit of programming in R.
+
+::: {.incremental}
+- Week 1 will cover **tooling**. You'll need R installed and RStudio. 
+- No explicit prerequisites, though some programming background (like CSS bootcamp!) will be helpful.
+:::
+
+## Topics and schedule {.smaller}
+
+Topics will be roughly as follows:
+
+::: {.incremental}
+- **Week 1**: Introduction to R and the RStudio environment. 
+  - (Plus some philophy of science.)
+- **Weeks 2-3**: Data wrangling and visualization. 
+- **Weeks 4-5**: Deep dive into linear regression. 
+- **Weeks 6-8**: Advanced statistical techniques.  
+- **Weeks 9-10**: Best practices, final project work and presentations.
+:::
+
+## Welcome to CSS 211!

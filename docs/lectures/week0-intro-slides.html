@@ -98,6 +98,8 @@
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
@@ -198,25 +200,326 @@
 </div>
 
 </section>
+<section id="goals-of-the-lecture" class="slide level2 smaller">
+<h2>Goals of the lecture</h2>
+<ul>
+<li class="fragment">Introductions<br>
+</li>
+<li class="fragment">What is CSS?</li>
+<li class="fragment">What is this course for?</li>
+<li class="fragment">Logistics</li>
+</ul>
+</section>
+<section id="who-am-i" class="slide level2 smaller">
+<h2>Who am I?</h2>
+<ul>
+<li><a href="https://seantrott.github.io/">Assistant Teaching Professor, Cognitive Science</a>.</li>
+<li><a href="https://seantrott.github.io/research/">Research interests</a>: large language models (LLMs), language comprehension, Theory of Mind.</li>
+</ul>
+</section>
+<section id="who-are-you" class="slide level2 smaller">
+<h2>Who are you?</h2>
+<p><strong>Turn to someone near you and share:</strong></p>
+<ul>
+<li class="fragment">Your name</li>
+<li class="fragment">Your research interests</li>
+<li class="fragment">What drew you to CSS</li>
+</ul>
+</section>
+<section id="what-is-css" class="slide level2 smaller">
+<h2>What is CSS?</h2>
+<blockquote>
+<p>In a nutshell, Computational Social Science focuses on computational approaches to social science.</p>
+</blockquote>
+<p>At UCSD, Social Sciences encompasses many disciplines:</p>
+<ul>
+<li class="fragment">Economics.</li>
+<li class="fragment">Political Science.</li>
+<li class="fragment">Cognitive Science.</li>
+<li class="fragment">Sociology.</li>
+</ul>
+</section>
+<section id="what-is-social-science" class="slide level2 smaller">
+<h2>What is social science?</h2>
+<p><strong>Social science</strong> refers to a domain of study: <em>social phenomena</em>.</p>
+<ul>
+<li class="fragment">Encompasses many <strong>scales</strong>: individual human behavior, political trends, etc.</li>
+<li class="fragment">Involves multiple <strong>methods</strong>: qualitative interviews, statistical analysis, simulations.</li>
+</ul>
+</section>
+<section id="what-are-computational-methods-for" class="slide level2 smaller">
+<h2>What are computational methods for?</h2>
+<p>Another way of asking this is: <strong>how do computational methods help us learn what we want to know</strong>?</p>
+<ul>
+<li class="fragment">Many research questions benefit from <em>large-scale quantitative analysis</em>.
+<ul>
+<li class="fragment">Measuring trends over time.</li>
+<li class="fragment">Comparing effects of policy interventions.</li>
+<li class="fragment">Modeling the relationships between variables.</li>
+</ul></li>
+<li class="fragment">Computational methods help us do this efficiently and reliably.</li>
+</ul>
+</section>
+<section id="what-is-this-course-for" class="slide level2 smaller">
+<h2>What is this course for?</h2>
+<p>The goal of this course is to introduce students to <strong>foundational concepts and methods</strong> in statistical modeling. We will emphasize both <strong>hands-on application</strong> and <strong>conceptual understanding</strong>.</p>
+<p>Key concepts include:</p>
+<ul>
+<li class="fragment">Data wrangling, summarization, and visualization.<br>
+</li>
+<li class="fragment">Modeling data and designing analyses.</li>
+<li class="fragment">Interrogating the assumptions of an analysis or dataset.</li>
+</ul>
+<div class="fragment">
+<p>Hands-on work will be done using the R programming language.</p>
+</div>
+</section>
+<section id="learning-outcomes" class="slide level2 smaller">
+<h2>Learning outcomes</h2>
+<p>My goal is that by the end of this course, students will be able to:</p>
+<ul>
+<li><strong>Define</strong> and <strong>explain</strong> key concepts in statistical inference and regression analysis.</li>
+<li><strong>Identify</strong> appropriate visualizations and statistical methods for different kinds of research questions and datasets.</li>
+<li><strong>Implement</strong> data wrangling, visualization, and analysis workflows in R.</li>
+<li><strong>Interpret</strong> and <strong>evaluate</strong> results (visualizations, fit models, etc.) in the context of a research question.</li>
+<li><strong>Design</strong> and <strong>implement</strong> a complete statistical analysis project from research question to interpretation.</li>
+</ul>
+</section>
+<section id="why-r" class="slide level2 smaller">
+<h2>Why R?</h2>
+<blockquote>
+<p><a href="https://www.r-project.org/">R</a> is a programming language used to perform statistical analysis, wrangle data, make data visualizaitons, and more.</p>
+</blockquote>
+<p>R is certainly not the <em>only</em> way to analyze data, but it’s a useful tool in your toolbox for a couple reasons.</p>
+<ul>
+<li class="fragment">R has excellent packages (<code>lme4</code>) for running analyses with mixed effects models.</li>
+<li class="fragment">R has the <a href="https://www.tidyverse.org/"><code>tidyverse</code></a>, a collection of packages for writing really <em>clean</em> code to wrangle, summarize, and visualize data.<br>
+</li>
+<li class="fragment">The <code>tidyverse</code> includes <a href="https://ggplot2.tidyverse.org/"><code>ggplot</code></a>, one of the best plotting packages I’ve ever used.<br>
+</li>
+<li class="fragment">R is integrated with platforms like <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>, which enable creation of sharable code, websites, and slides (like these).</li>
+</ul>
+</section>
+<section id="r-basics" class="slide level2 smaller">
+<h2>R: basics</h2>
+<p>R can be used to perform simple arithmetic calculations:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Our first R calculation</span></span>
+<span id="cb1-2"><a></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb1-3"><a></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"The answer is:"</span>, x))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "The answer is: 2"</code></pre>
+</div>
+</div>
+<p>It can also be used to calculate summary statistics, like a <code>mean</code> or standard deviation (<code>std</code>).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>sample_vector <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>)</span>
+<span id="cb3-2"><a></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Mean: "</span>, <span class="fu">mean</span>(sample_vector)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Mean:  5"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"SD: "</span>, <span class="fu">sd</span>(sample_vector)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "SD:  2.58198889747161"</code></pre>
+</div>
+</div>
+</section>
+<section id="r-simple-histogram" class="slide level2 smaller">
+<h2>R: simple histogram</h2>
+<p>R can also be used to <em>visualize data</em>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>vector <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb7-2"><a></a><span class="fu">hist</span>(vector)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week0-intro_files/figure-revealjs/hist-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="r-simple-scatterplot" class="slide level2 smaller">
+<h2>R: simple scatterplot</h2>
+<p><em>Scatterplots</em> can be used to visualize relationships between data.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>v1 <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb8-2"><a></a>v2 <span class="ot">=</span> v1 <span class="sc">*</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb8-3"><a></a><span class="fu">plot</span>(v1, v2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week0-intro_files/figure-revealjs/scatter-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="r-simple-scatterplot-1" class="slide level2 smaller">
+<h2>R: simple scatterplot</h2>
+<p><em>Scatterplots</em> can be used to visualize relationships between data.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>v1 <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb9-2"><a></a>v2 <span class="ot">=</span> v1 <span class="sc">*</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+
+</div>
+<div class="fragment">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>💭 Check-in</strong></p>
+</div>
+<div class="callout-content">
+<p>What do you think the <code>v2</code> line of code is doing?</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="logistics-and-course-structure" class="slide level2 smaller">
+<h2>Logistics and course structure</h2>
+<p>Designing this course required some forethought. CSS is a <em>broad</em> discipline: what methods and content are useful for everyone?</p>
+<p>My approach:</p>
+<blockquote>
+<p>Course content and assessments should reflect underlying <strong>learning outcomes</strong>.</p>
+</blockquote>
+<ul>
+<li class="fragment"><strong>Define</strong> and <strong>explain</strong> key concepts in statistical inference and regression analysis.</li>
+<li class="fragment"><strong>Identify</strong> appropriate visualizations and statistical methods for different kinds of research questions and datasets.</li>
+<li class="fragment"><strong>Implement</strong> data wrangling, visualization, and analysis workflows in R.</li>
+<li class="fragment"><strong>Interpret</strong> and <strong>evaluate</strong> results (visualizations, fit models, etc.) in the context of a research question.</li>
+<li class="fragment"><strong>Design</strong> and <strong>implement</strong> a complete statistical analysis project from research question to interpretation.</li>
+</ul>
+</section>
+<section id="assessment-strategy" class="slide level2 smaller">
+<h2>Assessment strategy</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 28%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Assessment</th>
+<th>Percentage</th>
+<th>Learning Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Labs</td>
+<td>20%</td>
+<td>Implementation, interpretation, evaluation</td>
+</tr>
+<tr class="even">
+<td>Concept quizzes</td>
+<td>20%</td>
+<td>Defining, explaining</td>
+</tr>
+<tr class="odd">
+<td>Midterm</td>
+<td>25%</td>
+<td>Defining, interpreting, evaluating</td>
+</tr>
+<tr class="even">
+<td>Final project</td>
+<td>35%</td>
+<td>Designing, identifying, implementing, evaluating</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="course-policies" class="slide level2 smaller">
+<h2>Course policies</h2>
+<ul>
+<li class="fragment"><strong>Attendance</strong>: Recommended, not required.</li>
+<li class="fragment"><strong>Dropped quiz</strong>: Your lowest quiz will be dropped from your grade.</li>
+<li class="fragment"><strong>Late assignments</strong>: Generally not accepted except in cases of emergencies.
+<ul>
+<li class="fragment">If you have a <em>midterm scheduling conflict</em>, let me know <em>as soon as possible</em> so we can try to accommodate it.</li>
+</ul></li>
+<li class="fragment"><strong>Getting help</strong>: Office hours from the teaching team generally preferred to email.</li>
+</ul>
+</section>
+<section id="note-on-ai-usage" class="slide level2 smaller">
+<h2>Note on AI usage</h2>
+<p>My research focuses on large language models (LLMs), which have seen incredible progress in recent years. I probably don’t need to tell you how powerful ChatGPT can be!</p>
+<p>A few points need to be made here:</p>
+<ul>
+<li class="fragment">Tools like ChatGPT will likely keep getting better, and we shouldn’t ignore that.</li>
+<li class="fragment">Doing CSS “in the wild” may sometimes benefit from using ChatGPT!</li>
+<li class="fragment">Separately, CSS “in the wild” is not done in an insolated test-taking environment.</li>
+<li class="fragment">It’s also still important (I think) to learn the <strong>fundamentals</strong> .
+<ul>
+<li class="fragment">I can use ChatGPT more effectively when I know <em>what I want to do</em>.</li>
+</ul></li>
+<li class="fragment">Thus, our assessments combine:
+<ul>
+<li class="fragment">Take-home work (more “ecologically valid”).</li>
+<li class="fragment">Work requiring “endogenous” problem-solving (in-person midterm).</li>
+</ul></li>
+</ul>
+</section>
+<section id="final-project" class="slide level2 smaller">
+<h2>Final project</h2>
+<p>The final project will be done independently, and will involve <strong>replicating</strong> from start to finish a published analysis in the CSS domain of your choice.</p>
+<ul>
+<li class="fragment">You have a lot of freedom here, but I recommend:
+<ul>
+<li class="fragment">Thinking about this <strong>early on</strong>. Happy to point people to useful resources!</li>
+<li class="fragment">Choosing something that’s <strong>challenging</strong> (but also doable!).</li>
+</ul></li>
+<li class="fragment"><strong>Extensions</strong> to existing work (e.g., new analyses) will be encouraged.</li>
+<li class="fragment">Your <strong>deliverables</strong> will be:
+<ul>
+<li class="fragment">A final report (turned in via Canvas).</li>
+<li class="fragment">A final presentation (delivered week 10).</li>
+</ul></li>
+</ul>
+</section>
+<section id="tooling-prerequisites-and-tech-setup" class="slide level2 smaller">
+<h2>Tooling, prerequisites, and tech setup</h2>
+<p>This course will involve quite a bit of programming in R.</p>
+<ul>
+<li class="fragment">Week 1 will cover <strong>tooling</strong>. You’ll need R installed and RStudio.</li>
+<li class="fragment">No explicit prerequisites, though some programming background (like CSS bootcamp!) will be helpful.</li>
+</ul>
+</section>
+<section id="topics-and-schedule" class="slide level2 smaller">
+<h2>Topics and schedule</h2>
+<p>Topics will be roughly as follows:</p>
+<ul>
+<li class="fragment"><strong>Week 1</strong>: Introduction to R and the RStudio environment.
+<ul>
+<li class="fragment">(Plus some philophy of science.)</li>
+</ul></li>
+<li class="fragment"><strong>Weeks 2-3</strong>: Data wrangling and visualization.</li>
+<li class="fragment"><strong>Weeks 4-5</strong>: Deep dive into linear regression.</li>
+<li class="fragment"><strong>Weeks 6-8</strong>: Advanced statistical techniques.<br>
+</li>
+<li class="fragment"><strong>Weeks 9-10</strong>: Best practices, final project work and presentations.</li>
+</ul>
+</section>
 <section id="welcome-to-css-211" class="slide level2">
 <h2>Welcome to CSS 211!</h2>
-<p>Hello, world.</p>
-</section>
-<section id="r-basics" class="slide level2">
-<h2>R basics</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
 
 
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-
+<p>CSS 211 | UC San Diego</p>
 </div>
 </div></div>
 
@@ -227,6 +530,7 @@
   <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -242,13 +546,14 @@
       // https://revealjs.com/config/
       Reveal.initialize({
 'controlsAuto': true,
-'previewLinksAuto': false,
+'previewLinksAuto': true,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -419,7 +724,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,

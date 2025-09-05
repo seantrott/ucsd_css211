@@ -29,6 +29,13 @@ Students should have a basic understanding of probability theory and statistics;
 
 ## Grading and Assessments
 
+| Assessment | Percentage |
+|------------|------------|
+| Labs | 20% |
+| Concept quizzes | 20% |
+| Midterm | 25% |
+| Final project | 35% |
+
 
 **Labs (20% total)**: 4 coding labs, completed in R and submitted via Canvas. Students may collaborate on labs with each other and seek help from their TA/instructor.
 

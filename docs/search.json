@@ -7,6 +7,62 @@
     "text": "This is a tentative schedule of which topics I plan to cover. Note that while all lectures will have an interactive component, Fridays are reserved for more hands-on labs—typically involving a CSS-relevant dataset—with active participation encouraged.\n\n\n\nWeek\nDay\nDate\nTopic(s)\nAssignments Due\n\n\n\n\n0\nF\n09-26\nCourse Introduction\n\n\n\n1\nM\n09-30\nPhilosophy of Science in CSS\n\n\n\n1\nW\n10-02\nIntroduction to R and RStudio\n\n\n\n1\nF\n10-04\nR basics [LAB]\nLab 1\n\n\n2\nM\n10-07\nData wrangling\n\n\n\n2\nW\n10-09\nData wrangling\n\n\n\n2\nF\n10-11\nHands-on data cleaning [LAB]\nConcept quiz\n\n\n3\nM\n10-14\nData visualization (principles)\n\n\n\n3\nW\n10-16\nData visualization (ggplot)\n\n\n\n3\nF\n10-18\nExploratory data analysis [LAB]\nLab 2\n\n\n4\nM\n10-21\nLinear regression\n\n\n\n4\nW\n10-23\nLinear regression\n\n\n\n4\nF\n10-25\nHands-on regression [LAB]\nConcept quiz\n\n\n5\nM\n10-28\nMultiple regression\n\n\n\n5\nW\n10-30\nRegression: issues\n\n\n\n5\nF\n11-01\nBuilding complex models [LAB]\nLab 3\n\n\n6\nM\n11-04\nLogistic regression\n\n\n\n6\nW\n11-06\nRegularization\n\n\n\n6\nF\n11-08\nInterpreting logistic models [LAB]\nConcept quiz\n\n\n7\nM\n11-11\nMixed effects models\n\n\n\n7\nW\n11-13\nMixed models + model selection\n\n\n\n7\nF\n11-15\nIn-class midterm\nMidterm!\n\n\n8\nM\n11-18\nResampling\n\n\n\n8\nW\n11-20\nResampling\nLab 4\n\n\n8\nF\n11-22\nBuild your own baseline [LAB]\nConcept quiz\n\n\n9\nM\n11-25\nFinal project check-in\n\n\n\n9\nW\n11-27\nHOLIDAY (Thanksgiving)\n\n\n\n9\nF\n11-29\nHOLIDAY (Thanksgiving)\n\n\n\n10\nM\n12-02\nBest practices, Wrap-up\n\n\n\n10\nW\n12-04\nFinal project presentations (pt. 1)\n\n\n\n10\nF\n12-06\nFinal project presentations (pt. 2)\n\n\n\n11\nW\n12-09\n\nFinal report due"
   },
   {
+    "objectID": "lectures/week1-philosophy.html",
+    "href": "lectures/week1-philosophy.html",
+    "title": "Introduction to CSS 211",
+    "section": "",
+    "text": "What is knowledge and how do we produce it?"
+  },
+  {
+    "objectID": "lectures/week1-philosophy.html#goals-of-the-lecture",
+    "href": "lectures/week1-philosophy.html#goals-of-the-lecture",
+    "title": "Introduction to CSS 211",
+    "section": "",
+    "text": "What is knowledge and how do we produce it?"
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#goals-of-the-lecture",
+    "href": "lectures/week1-phil-slides.html#goals-of-the-lecture",
+    "title": "Introduction to CSS 211",
+    "section": "Goals of the lecture",
+    "text": "Goals of the lecture\n\nWhat is knowledge and how do we produce it?"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "CSS 211: Statistical Methods for Computational Social Science",
+    "section": "",
+    "text": "This is the course website for CSS 211/POLI 279. The current iteration of the course is Fall 2025.\nThe goal of this course is to introduce students to foundational statistical methods and tools for computational social science (CSS), including: data wrangling and visualization, regression, and model selection. Students will also develop proficiency in the R programming, and the course emphasizes hands-on application of techniques to real-world datasets."
+  },
+  {
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "CSS 211: Statistical Methods for Computational Social Science",
+    "section": "",
+    "text": "This is the course website for CSS 211/POLI 279. The current iteration of the course is Fall 2025.\nThe goal of this course is to introduce students to foundational statistical methods and tools for computational social science (CSS), including: data wrangling and visualization, regression, and model selection. Students will also develop proficiency in the R programming, and the course emphasizes hands-on application of techniques to real-world datasets."
+  },
+  {
+    "objectID": "index.html#instructor",
+    "href": "index.html#instructor",
+    "title": "CSS 211: Statistical Methods for Computational Social Science",
+    "section": "Instructor",
+    "text": "Instructor\nSean Trott\nDepartment of Cognitive Science, UCSD"
+  },
+  {
+    "objectID": "index.html#quick-links",
+    "href": "index.html#quick-links",
+    "title": "CSS 211: Statistical Methods for Computational Social Science",
+    "section": "Quick Links",
+    "text": "Quick Links\n\nSyllabus\nCourse Schedule\n\nGitHub Repository"
+  },
+  {
+    "objectID": "final_project.html",
+    "href": "final_project.html",
+    "title": "CSS 211 Final Project)",
+    "section": "",
+    "text": "Details coming soon!"
+  },
+  {
     "objectID": "syllabus.html",
     "href": "syllabus.html",
     "title": "CSS 211 Syllabus",
@@ -46,7 +102,7 @@
     "href": "syllabus.html#grading-and-assessments",
     "title": "CSS 211 Syllabus",
     "section": "Grading and Assessments",
-    "text": "Grading and Assessments\nLabs (20% total): 4 coding labs, completed in R and submitted via Canvas. Students may collaborate on labs with each other and seek help from their TA/instructor.\nConcept quizzes (20%): 4 short quizzes, held over Canvas, designed to test and improve conceptual intuitions about course topics.\nMidterm (25%): A paper midterm held in-class testing knowledge of course material.\nFinal project (35%): A rigorous replication (and possible extension) of existing empirical work (published or otherwise) in a student’s discipline of interest. Final projects should be completed independently; students will turn in both a written report and present their work in a short in-class presentation the final week of class. (A rubric will be provided separately.)\n\nRounding\nMy course policy is not to round up grades for two reasons:\n\nIf rounding is applied selectively (i.e., only to students who ask), it is unfair to other students.\n\nIf rounding is applied across the board, it simply redefines the boundary between two letter grades (e.g., making an 89% the cut-off for an A-)."
+    "text": "Grading and Assessments\n\n\n\nAssessment\nPercentage\n\n\n\n\nLabs\n20%\n\n\nConcept quizzes\n20%\n\n\nMidterm\n25%\n\n\nFinal project\n35%\n\n\n\nLabs (20% total): 4 coding labs, completed in R and submitted via Canvas. Students may collaborate on labs with each other and seek help from their TA/instructor.\nConcept quizzes (20%): 4 short quizzes, held over Canvas, designed to test and improve conceptual intuitions about course topics.\nMidterm (25%): A paper midterm held in-class testing knowledge of course material.\nFinal project (35%): A rigorous replication (and possible extension) of existing empirical work (published or otherwise) in a student’s discipline of interest. Final projects should be completed independently; students will turn in both a written report and present their work in a short in-class presentation the final week of class. (A rubric will be provided separately.)\n\nRounding\nMy course policy is not to round up grades for two reasons:\n\nIf rounding is applied selectively (i.e., only to students who ask), it is unfair to other students.\n\nIf rounding is applied across the board, it simply redefines the boundary between two letter grades (e.g., making an 89% the cut-off for an A-)."
   },
   {
     "objectID": "syllabus.html#using-ai",
@@ -56,73 +112,297 @@
     "text": "Using AI\nTools like ChatGPT can be incredibly helpful for learning to code (or speeding up the process). At the same time, I think it’s crucial to learn the foundational skills and concepts that will allow you to use these tools to their full potential. That is the main motivation for having an in-class midterm: ultimately, I cannot force anyone to complete homework on their own without using ChatGPT (or equivalent tools), and I wouldn’t even claim that people shouldn’t consult ChatGPT for additional help or questions; but in order to perform well on the midterm, you will still need to learn the concepts."
   },
   {
-    "objectID": "final_project.html",
-    "href": "final_project.html",
-    "title": "CSS 211 Final Project)",
-    "section": "",
-    "text": "Details coming soon!"
+    "objectID": "lectures/week0-intro-slides.html#goals-of-the-lecture",
+    "href": "lectures/week0-intro-slides.html#goals-of-the-lecture",
+    "title": "Introduction to CSS 211",
+    "section": "Goals of the lecture",
+    "text": "Goals of the lecture\n\nIntroductions\n\nWhat is CSS?\nWhat is this course for?\nLogistics"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "CSS 211: Statistical Methods for Computational Social Science",
-    "section": "",
-    "text": "This is the course website for CSS 211/POLI 279. The current iteration of the course is Fall 2025.\nThe goal of this course is to introduce students to foundational statistical methods and tools for computational social science (CSS), including: data wrangling and visualization, regression, and model selection. Students will also develop proficiency in the R programming, and the course emphasizes hands-on application of techniques to real-world datasets."
+    "objectID": "lectures/week0-intro-slides.html#who-am-i",
+    "href": "lectures/week0-intro-slides.html#who-am-i",
+    "title": "Introduction to CSS 211",
+    "section": "Who am I?",
+    "text": "Who am I?\n\nAssistant Teaching Professor, Cognitive Science.\nResearch interests: large language models (LLMs), language comprehension, Theory of Mind."
   },
   {
-    "objectID": "index.html#welcome",
-    "href": "index.html#welcome",
-    "title": "CSS 211: Statistical Methods for Computational Social Science",
-    "section": "",
-    "text": "This is the course website for CSS 211/POLI 279. The current iteration of the course is Fall 2025.\nThe goal of this course is to introduce students to foundational statistical methods and tools for computational social science (CSS), including: data wrangling and visualization, regression, and model selection. Students will also develop proficiency in the R programming, and the course emphasizes hands-on application of techniques to real-world datasets."
+    "objectID": "lectures/week0-intro-slides.html#who-are-you",
+    "href": "lectures/week0-intro-slides.html#who-are-you",
+    "title": "Introduction to CSS 211",
+    "section": "Who are you?",
+    "text": "Who are you?\nTurn to someone near you and share:\n\nYour name\nYour research interests\nWhat drew you to CSS"
   },
   {
-    "objectID": "index.html#instructor",
-    "href": "index.html#instructor",
-    "title": "CSS 211: Statistical Methods for Computational Social Science",
-    "section": "Instructor",
-    "text": "Instructor\nSean Trott\nDepartment of Cognitive Science, UCSD"
+    "objectID": "lectures/week0-intro-slides.html#what-is-css",
+    "href": "lectures/week0-intro-slides.html#what-is-css",
+    "title": "Introduction to CSS 211",
+    "section": "What is CSS?",
+    "text": "What is CSS?\n\nIn a nutshell, Computational Social Science focuses on computational approaches to social science.\n\nAt UCSD, Social Sciences encompasses many disciplines:\n\nEconomics.\nPolitical Science.\nCognitive Science.\nSociology."
   },
   {
-    "objectID": "index.html#quick-links",
-    "href": "index.html#quick-links",
-    "title": "CSS 211: Statistical Methods for Computational Social Science",
-    "section": "Quick Links",
-    "text": "Quick Links\n\nSyllabus\nCourse Schedule\n\nGitHub Repository"
+    "objectID": "lectures/week0-intro-slides.html#what-is-social-science",
+    "href": "lectures/week0-intro-slides.html#what-is-social-science",
+    "title": "Introduction to CSS 211",
+    "section": "What is social science?",
+    "text": "What is social science?\nSocial science refers to a domain of study: social phenomena.\n\nEncompasses many scales: individual human behavior, political trends, etc.\nInvolves multiple methods: qualitative interviews, statistical analysis, simulations."
+  },
+  {
+    "objectID": "lectures/week0-intro-slides.html#what-are-computational-methods-for",
+    "href": "lectures/week0-intro-slides.html#what-are-computational-methods-for",
+    "title": "Introduction to CSS 211",
+    "section": "What are computational methods for?",
+    "text": "What are computational methods for?\nAnother way of asking this is: how do computational methods help us learn what we want to know?\n\nMany research questions benefit from large-scale quantitative analysis.\n\nMeasuring trends over time.\nComparing effects of policy interventions.\nModeling the relationships between variables.\n\nComputational methods help us do this efficiently and reliably."
+  },
+  {
+    "objectID": "lectures/week0-intro-slides.html#what-is-this-course-for",
+    "href": "lectures/week0-intro-slides.html#what-is-this-course-for",
+    "title": "Introduction to CSS 211",
+    "section": "What is this course for?",
+    "text": "What is this course for?\nThe goal of this course is to introduce students to foundational concepts and methods in statistical modeling. We will emphasize both hands-on application and conceptual understanding.\nKey concepts include:\n\nData wrangling, summarization, and visualization.\n\nModeling data and designing analyses.\nInterrogating the assumptions of an analysis or dataset.\n\n\nHands-on work will be done using the R programming language."
+  },
+  {
+    "objectID": "lectures/week0-intro-slides.html#learning-outcomes",
+    "href": "lectures/week0-intro-slides.html#learning-outcomes",
+    "title": "Introduction to CSS 211",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\nMy goal is that by the end of this course, students will be able to:\n\nDefine and explain key concepts in statistical inference and regression analysis.\nIdentify appropriate visualizations and statistical methods for different kinds of research questions and datasets.\nImplement data wrangling, visualization, and analysis workflows in R.\nInterpret and evaluate results (visualizations, fit models, etc.) in the context of a research question.\nDesign and implement a complete statistical analysis project from research question to interpretation."
+  },
+  {
+    "objectID": "lectures/week0-intro-slides.html#why-r",
+    "href": "lectures/week0-intro-slides.html#why-r",
+    "title": "Introduction to CSS 211",
+    "section": "Why R?",
+    "text": "Why R?\n\nR is a programming language used to perform statistical analysis, wrangle data, make data visualizaitons, and more.\n\nR is certainly not the only way to analyze data, but it’s a useful tool in your toolbox for a couple reasons.\n\nR has excellent packages (lme4) for running analyses with mixed effects models.\nR has the tidyverse, a collection of packages for writing really clean code to wrangle, summarize, and visualize data.\n\nThe tidyverse includes ggplot, one of the best plotting packages I’ve ever used.\n\nR is integrated with platforms like RStudio, which enable creation of sharable code, websites, and slides (like these)."
+  },
+  {
+    "objectID": "lectures/week0-intro-slides.html#r-basics",
+    "href": "lectures/week0-intro-slides.html#r-basics",
+    "title": "Introduction to CSS 211",
+    "section": "R: basics",
+    "text": "R: basics\nR can be used to perform simple arithmetic calculations:\n\n# Our first R calculation\nx &lt;- 1 + 1\nprint(paste(\"The answer is:\", x))\n\n\n\n[1] \"The answer is: 2\"\n\n\nIt can also be used to calculate summary statistics, like a mean or standard deviation (std).\n\nsample_vector = c(2, 4, 6, 8)\nprint(paste(\"Mean: \", mean(sample_vector)))\n\n\n\n[1] \"Mean:  5\"\n\nprint(paste(\"SD: \", sd(sample_vector)))\n\n[1] \"SD:  2.58198889747161\""
+  },
+  {
+    "objectID": "lectures/week0-intro-slides.html#r-simple-histogram",
+    "href": "lectures/week0-intro-slides.html#r-simple-histogram",
+    "title": "Introduction to CSS 211",
+    "section": "R: simple histogram",
+    "text": "R: simple histogram\nR can also be used to visualize data.\n\nvector = rnorm(100, mean = 50, sd = 2)\nhist(vector)"
+  },
+  {
+    "objectID": "lectures/week0-intro-slides.html#r-simple-scatterplot",
+    "href": "lectures/week0-intro-slides.html#r-simple-scatterplot",
+    "title": "Introduction to CSS 211",
+    "section": "R: simple scatterplot",
+    "text": "R: simple scatterplot\nScatterplots can be used to visualize relationships between data.\n\nv1 = rnorm(100, mean = 50, sd = 2)\nv2 = v1 * 2 + rnorm(100, mean = 0, sd = 2)\nplot(v1, v2)"
+  },
+  {
+    "objectID": "lectures/week0-intro-slides.html#r-simple-scatterplot-1",
+    "href": "lectures/week0-intro-slides.html#r-simple-scatterplot-1",
+    "title": "Introduction to CSS 211",
+    "section": "R: simple scatterplot",
+    "text": "R: simple scatterplot\nScatterplots can be used to visualize relationships between data.\n\nv1 = rnorm(100, mean = 50, sd = 2)\nv2 = v1 * 2 + rnorm(100, mean = 0, sd = 2)\n\n\n\n\n\n\n\n\n💭 Check-in\n\n\nWhat do you think the v2 line of code is doing?"
+  },
+  {
+    "objectID": "lectures/week0-intro-slides.html#logistics-and-course-structure",
+    "href": "lectures/week0-intro-slides.html#logistics-and-course-structure",
+    "title": "Introduction to CSS 211",
+    "section": "Logistics and course structure",
+    "text": "Logistics and course structure\nDesigning this course required some forethought. CSS is a broad discipline: what methods and content are useful for everyone?\nMy approach:\n\nCourse content and assessments should reflect underlying learning outcomes.\n\n\nDefine and explain key concepts in statistical inference and regression analysis.\nIdentify appropriate visualizations and statistical methods for different kinds of research questions and datasets.\nImplement data wrangling, visualization, and analysis workflows in R.\nInterpret and evaluate results (visualizations, fit models, etc.) in the context of a research question.\nDesign and implement a complete statistical analysis project from research question to interpretation."
+  },
+  {
+    "objectID": "lectures/week0-intro-slides.html#assessment-strategy",
+    "href": "lectures/week0-intro-slides.html#assessment-strategy",
+    "title": "Introduction to CSS 211",
+    "section": "Assessment strategy",
+    "text": "Assessment strategy\n\n\n\n\n\n\n\n\nAssessment\nPercentage\nLearning Outcome\n\n\n\n\nLabs\n20%\nImplementation, interpretation, evaluation\n\n\nConcept quizzes\n20%\nDefining, explaining\n\n\nMidterm\n25%\nDefining, interpreting, evaluating\n\n\nFinal project\n35%\nDesigning, identifying, implementing, evaluating"
+  },
+  {
+    "objectID": "lectures/week0-intro-slides.html#course-policies",
+    "href": "lectures/week0-intro-slides.html#course-policies",
+    "title": "Introduction to CSS 211",
+    "section": "Course policies",
+    "text": "Course policies\n\nAttendance: Recommended, not required.\nDropped quiz: Your lowest quiz will be dropped from your grade.\nLate assignments: Generally not accepted except in cases of emergencies.\n\nIf you have a midterm scheduling conflict, let me know as soon as possible so we can try to accommodate it.\n\nGetting help: Office hours from the teaching team generally preferred to email."
+  },
+  {
+    "objectID": "lectures/week0-intro-slides.html#note-on-ai-usage",
+    "href": "lectures/week0-intro-slides.html#note-on-ai-usage",
+    "title": "Introduction to CSS 211",
+    "section": "Note on AI usage",
+    "text": "Note on AI usage\nMy research focuses on large language models (LLMs), which have seen incredible progress in recent years. I probably don’t need to tell you how powerful ChatGPT can be!\nA few points need to be made here:\n\nTools like ChatGPT will likely keep getting better, and we shouldn’t ignore that.\nDoing CSS “in the wild” may sometimes benefit from using ChatGPT!\nSeparately, CSS “in the wild” is not done in an insolated test-taking environment.\nIt’s also still important (I think) to learn the fundamentals .\n\nI can use ChatGPT more effectively when I know what I want to do.\n\nThus, our assessments combine:\n\nTake-home work (more “ecologically valid”).\nWork requiring “endogenous” problem-solving (in-person midterm)."
+  },
+  {
+    "objectID": "lectures/week0-intro-slides.html#final-project",
+    "href": "lectures/week0-intro-slides.html#final-project",
+    "title": "Introduction to CSS 211",
+    "section": "Final project",
+    "text": "Final project\nThe final project will be done independently, and will involve replicating from start to finish a published analysis in the CSS domain of your choice.\n\nYou have a lot of freedom here, but I recommend:\n\nThinking about this early on. Happy to point people to useful resources!\nChoosing something that’s challenging (but also doable!).\n\nExtensions to existing work (e.g., new analyses) will be encouraged.\nYour deliverables will be:\n\nA final report (turned in via Canvas).\nA final presentation (delivered week 10)."
+  },
+  {
+    "objectID": "lectures/week0-intro-slides.html#tooling-prerequisites-and-tech-setup",
+    "href": "lectures/week0-intro-slides.html#tooling-prerequisites-and-tech-setup",
+    "title": "Introduction to CSS 211",
+    "section": "Tooling, prerequisites, and tech setup",
+    "text": "Tooling, prerequisites, and tech setup\nThis course will involve quite a bit of programming in R.\n\nWeek 1 will cover tooling. You’ll need R installed and RStudio.\nNo explicit prerequisites, though some programming background (like CSS bootcamp!) will be helpful."
+  },
+  {
+    "objectID": "lectures/week0-intro-slides.html#topics-and-schedule",
+    "href": "lectures/week0-intro-slides.html#topics-and-schedule",
+    "title": "Introduction to CSS 211",
+    "section": "Topics and schedule",
+    "text": "Topics and schedule\nTopics will be roughly as follows:\n\nWeek 1: Introduction to R and the RStudio environment.\n\n(Plus some philophy of science.)\n\nWeeks 2-3: Data wrangling and visualization.\nWeeks 4-5: Deep dive into linear regression.\nWeeks 6-8: Advanced statistical techniques.\n\nWeeks 9-10: Best practices, final project work and presentations."
   },
   {
     "objectID": "lectures/week0-intro-slides.html#welcome-to-css-211",
     "href": "lectures/week0-intro-slides.html#welcome-to-css-211",
     "title": "Introduction to CSS 211",
     "section": "Welcome to CSS 211!",
-    "text": "Welcome to CSS 211!\nHello, world."
-  },
-  {
-    "objectID": "lectures/week0-intro-slides.html#r-basics",
-    "href": "lectures/week0-intro-slides.html#r-basics",
-    "title": "Introduction to CSS 211",
-    "section": "R basics",
-    "text": "R basics\n\n1 + 1\n\n[1] 2"
+    "text": "Welcome to CSS 211!"
   },
   {
     "objectID": "lectures/week0-intro.html",
     "href": "lectures/week0-intro.html",
     "title": "Introduction to CSS 211",
     "section": "",
-    "text": "Hello, world."
+    "text": "Introductions\n\nWhat is CSS?\nWhat is this course for?\nLogistics"
   },
   {
-    "objectID": "lectures/week0-intro.html#welcome-to-css-211",
-    "href": "lectures/week0-intro.html#welcome-to-css-211",
+    "objectID": "lectures/week0-intro.html#goals-of-the-lecture",
+    "href": "lectures/week0-intro.html#goals-of-the-lecture",
     "title": "Introduction to CSS 211",
     "section": "",
-    "text": "Hello, world."
+    "text": "Introductions\n\nWhat is CSS?\nWhat is this course for?\nLogistics"
+  },
+  {
+    "objectID": "lectures/week0-intro.html#who-am-i",
+    "href": "lectures/week0-intro.html#who-am-i",
+    "title": "Introduction to CSS 211",
+    "section": "Who am I?",
+    "text": "Who am I?\n\nAssistant Teaching Professor, Cognitive Science.\nResearch interests: large language models (LLMs), language comprehension, Theory of Mind."
+  },
+  {
+    "objectID": "lectures/week0-intro.html#what-is-css",
+    "href": "lectures/week0-intro.html#what-is-css",
+    "title": "Introduction to CSS 211",
+    "section": "What is CSS?",
+    "text": "What is CSS?\n\nIn a nutshell, Computational Social Science focuses on computational approaches to social science.\n\nAt UCSD, Social Sciences encompasses many disciplines:\n\n\nEconomics.\nPolitical Science.\nCognitive Science.\nSociology."
+  },
+  {
+    "objectID": "lectures/week0-intro.html#what-is-social-science",
+    "href": "lectures/week0-intro.html#what-is-social-science",
+    "title": "Introduction to CSS 211",
+    "section": "What is social science?",
+    "text": "What is social science?\nSocial science refers to a domain of study: social phenomena.\n\n\nEncompasses many scales: individual human behavior, political trends, etc.\nInvolves multiple methods: qualitative interviews, statistical analysis, simulations."
+  },
+  {
+    "objectID": "lectures/week0-intro.html#what-are-computational-methods-for",
+    "href": "lectures/week0-intro.html#what-are-computational-methods-for",
+    "title": "Introduction to CSS 211",
+    "section": "What are computational methods for?",
+    "text": "What are computational methods for?\nAnother way of asking this is: how do computational methods help us learn what we want to know?\n\n\nMany research questions benefit from large-scale quantitative analysis.\n\nMeasuring trends over time.\nComparing effects of policy interventions.\nModeling the relationships between variables.\n\nComputational methods help us do this efficiently and reliably."
+  },
+  {
+    "objectID": "lectures/week0-intro.html#what-is-this-course-for",
+    "href": "lectures/week0-intro.html#what-is-this-course-for",
+    "title": "Introduction to CSS 211",
+    "section": "What is this course for?",
+    "text": "What is this course for?\nThe goal of this course is to introduce students to foundational concepts and methods in statistical modeling. We will emphasize both hands-on application and conceptual understanding.\nKey concepts include:\n\n\nData wrangling, summarization, and visualization.\n\nModeling data and designing analyses.\nInterrogating the assumptions of an analysis or dataset.\n\n\n\nHands-on work will be done using the R programming language."
+  },
+  {
+    "objectID": "lectures/week0-intro.html#learning-outcomes",
+    "href": "lectures/week0-intro.html#learning-outcomes",
+    "title": "Introduction to CSS 211",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\nMy goal is that by the end of this course, students will be able to:\n\nDefine and explain key concepts in statistical inference and regression analysis.\nIdentify appropriate visualizations and statistical methods for different kinds of research questions and datasets.\nImplement data wrangling, visualization, and analysis workflows in R.\nInterpret and evaluate results (visualizations, fit models, etc.) in the context of a research question.\nDesign and implement a complete statistical analysis project from research question to interpretation."
+  },
+  {
+    "objectID": "lectures/week0-intro.html#why-r",
+    "href": "lectures/week0-intro.html#why-r",
+    "title": "Introduction to CSS 211",
+    "section": "Why R?",
+    "text": "Why R?\n\nR is a programming language used to perform statistical analysis, wrangle data, make data visualizaitons, and more.\n\nR is certainly not the only way to analyze data, but it’s a useful tool in your toolbox for a couple reasons.\n\n\nR has excellent packages (lme4) for running analyses with mixed effects models.\nR has the tidyverse, a collection of packages for writing really clean code to wrangle, summarize, and visualize data.\n\nThe tidyverse includes ggplot, one of the best plotting packages I’ve ever used.\n\nR is integrated with platforms like RStudio, which enable creation of sharable code, websites, and slides (like these)."
   },
   {
     "objectID": "lectures/week0-intro.html#r-basics",
     "href": "lectures/week0-intro.html#r-basics",
     "title": "Introduction to CSS 211",
-    "section": "R basics",
-    "text": "R basics\n\n1 + 1\n\n[1] 2"
+    "section": "R: basics",
+    "text": "R: basics\nR can be used to perform simple arithmetic calculations:\n\n# Our first R calculation\nx &lt;- 1 + 1\nprint(paste(\"The answer is:\", x))\n\n[1] \"The answer is: 2\"\n\n\nIt can also be used to calculate summary statistics, like a mean or standard deviation (std).\n\nsample_vector = c(2, 4, 6, 8)\nprint(paste(\"Mean: \", mean(sample_vector)))\n\n[1] \"Mean:  5\"\n\nprint(paste(\"SD: \", sd(sample_vector)))\n\n[1] \"SD:  2.58198889747161\""
+  },
+  {
+    "objectID": "lectures/week0-intro.html#r-simple-histogram",
+    "href": "lectures/week0-intro.html#r-simple-histogram",
+    "title": "Introduction to CSS 211",
+    "section": "R: simple histogram",
+    "text": "R: simple histogram\nR can also be used to visualize data.\n\nvector = rnorm(100, mean = 50, sd = 2)\nhist(vector)"
+  },
+  {
+    "objectID": "lectures/week0-intro.html#r-simple-scatterplot",
+    "href": "lectures/week0-intro.html#r-simple-scatterplot",
+    "title": "Introduction to CSS 211",
+    "section": "R: simple scatterplot",
+    "text": "R: simple scatterplot\nScatterplots can be used to visualize relationships between data.\n\nv1 = rnorm(100, mean = 50, sd = 2)\nv2 = v1 * 2 + rnorm(100, mean = 0, sd = 2)\nplot(v1, v2)"
+  },
+  {
+    "objectID": "lectures/week0-intro.html#r-simple-scatterplot-1",
+    "href": "lectures/week0-intro.html#r-simple-scatterplot-1",
+    "title": "Introduction to CSS 211",
+    "section": "R: simple scatterplot",
+    "text": "R: simple scatterplot\nScatterplots can be used to visualize relationships between data.\n\nv1 = rnorm(100, mean = 50, sd = 2)\nv2 = v1 * 2 + rnorm(100, mean = 0, sd = 2)\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nWhat do you think the v2 line of code is doing?"
+  },
+  {
+    "objectID": "lectures/week0-intro.html#logistics-and-course-structure",
+    "href": "lectures/week0-intro.html#logistics-and-course-structure",
+    "title": "Introduction to CSS 211",
+    "section": "Logistics and course structure",
+    "text": "Logistics and course structure\nDesigning this course required some forethought. CSS is a broad discipline: what methods and content are useful for everyone?\nMy approach:\n\nCourse content and assessments should reflect underlying learning outcomes.\n\n\n\nDefine and explain key concepts in statistical inference and regression analysis.\nIdentify appropriate visualizations and statistical methods for different kinds of research questions and datasets.\nImplement data wrangling, visualization, and analysis workflows in R.\nInterpret and evaluate results (visualizations, fit models, etc.) in the context of a research question.\nDesign and implement a complete statistical analysis project from research question to interpretation."
+  },
+  {
+    "objectID": "lectures/week0-intro.html#assessment-strategy",
+    "href": "lectures/week0-intro.html#assessment-strategy",
+    "title": "Introduction to CSS 211",
+    "section": "Assessment strategy",
+    "text": "Assessment strategy\n\n\n\n\n\n\n\n\n\nAssessment\nPercentage\nLearning Outcome\n\n\n\n\nLabs\n20%\nImplementation, interpretation, evaluation\n\n\nConcept quizzes\n20%\nDefining, explaining\n\n\nMidterm\n25%\nDefining, interpreting, evaluating\n\n\nFinal project\n35%\nDesigning, identifying, implementing, evaluating"
+  },
+  {
+    "objectID": "lectures/week0-intro.html#course-policies",
+    "href": "lectures/week0-intro.html#course-policies",
+    "title": "Introduction to CSS 211",
+    "section": "Course policies",
+    "text": "Course policies\n\n\nAttendance: Recommended, not required.\nDropped quiz: Your lowest quiz will be dropped from your grade.\nLate assignments: Generally not accepted except in cases of emergencies.\n\nIf you have a midterm scheduling conflict, let me know as soon as possible so we can try to accommodate it.\n\nGetting help: Office hours from the teaching team generally preferred to email."
+  },
+  {
+    "objectID": "lectures/week0-intro.html#note-on-ai-usage",
+    "href": "lectures/week0-intro.html#note-on-ai-usage",
+    "title": "Introduction to CSS 211",
+    "section": "Note on AI usage",
+    "text": "Note on AI usage\nMy research focuses on large language models (LLMs), which have seen incredible progress in recent years. I probably don’t need to tell you how powerful ChatGPT can be!\nA few points need to be made here:\n\n\nTools like ChatGPT will likely keep getting better, and we shouldn’t ignore that.\nDoing CSS “in the wild” may sometimes benefit from using ChatGPT!\nSeparately, CSS “in the wild” is not done in an insolated test-taking environment.\nIt’s also still important (I think) to learn the fundamentals .\n\nI can use ChatGPT more effectively when I know what I want to do.\n\nThus, our assessments combine:\n\nTake-home work (more “ecologically valid”).\nWork requiring “endogenous” problem-solving (in-person midterm)."
+  },
+  {
+    "objectID": "lectures/week0-intro.html#final-project",
+    "href": "lectures/week0-intro.html#final-project",
+    "title": "Introduction to CSS 211",
+    "section": "Final project",
+    "text": "Final project\nThe final project will be done independently, and will involve replicating from start to finish a published analysis in the CSS domain of your choice.\n\n\nYou have a lot of freedom here, but I recommend:\n\nThinking about this early on. Happy to point people to useful resources!\nChoosing something that’s challenging (but also doable!).\n\nExtensions to existing work (e.g., new analyses) will be encouraged.\nYour deliverables will be:\n\nA final report (turned in via Canvas).\nA final presentation (delivered week 10)."
+  },
+  {
+    "objectID": "lectures/week0-intro.html#tooling-prerequisites-and-tech-setup",
+    "href": "lectures/week0-intro.html#tooling-prerequisites-and-tech-setup",
+    "title": "Introduction to CSS 211",
+    "section": "Tooling, prerequisites, and tech setup",
+    "text": "Tooling, prerequisites, and tech setup\nThis course will involve quite a bit of programming in R.\n\n\nWeek 1 will cover tooling. You’ll need R installed and RStudio.\nNo explicit prerequisites, though some programming background (like CSS bootcamp!) will be helpful."
+  },
+  {
+    "objectID": "lectures/week0-intro.html#topics-and-schedule",
+    "href": "lectures/week0-intro.html#topics-and-schedule",
+    "title": "Introduction to CSS 211",
+    "section": "Topics and schedule",
+    "text": "Topics and schedule\nTopics will be roughly as follows:\n\n\nWeek 1: Introduction to R and the RStudio environment.\n\n(Plus some philophy of science.)\n\nWeeks 2-3: Data wrangling and visualization.\nWeeks 4-5: Deep dive into linear regression.\nWeeks 6-8: Advanced statistical techniques.\n\nWeeks 9-10: Best practices, final project work and presentations."
+  },
+  {
+    "objectID": "lectures/week0-intro.html#welcome-to-css-211",
+    "href": "lectures/week0-intro.html#welcome-to-css-211",
+    "title": "Introduction to CSS 211",
+    "section": "Welcome to CSS 211!",
+    "text": "Welcome to CSS 211!"
   }
 ]

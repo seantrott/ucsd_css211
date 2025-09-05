@@ -20,18 +20,6 @@ website:
             text: "Week 0: Course Introduction"
           - href: lectures/week1-philosophy.qmd
             text: "Week 1: Philosophy of Science"
-      - text: "Labs"
-        menu:
-          - href: labs/lab1-r-basics.qmd
-            text: "Lab 1: R Basics"
-      - text: "Resources"
-        menu:
-          - href: resources/r-resources.qmd
-            text: "R Resources"
-          - href: resources/datasets.qmd
-            text: "Datasets"
-          - href: resources/readings.qmd
-            text: "Readings"
     right:
       - icon: github
         href: https://github.com/seantrott/ucsd_css211
