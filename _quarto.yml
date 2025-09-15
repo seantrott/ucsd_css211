@@ -18,8 +18,15 @@ website:
         menu:
           - href: lectures/week0-intro.qmd
             text: "Week 0: Course Introduction"
-          - href: lectures/week1-philosophy.qmd
-            text: "Week 1: Philosophy of Science"
+      - text: "Labs"
+        icon: fas fa-laptop-code
+        menu:
+          - text: "Lab 1: R Basics"
+            href: labs/lab1.html
+      - text: "Resources"
+        menu:
+          - text: "Readings"
+            href: readings.qmd
     right:
       - icon: github
         href: https://github.com/seantrott/ucsd_css211

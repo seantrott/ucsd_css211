@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CSS 211 Schedule – CSS 211: Statistical Methods for Computational Social Science</title>
+<title>Resources – CSS 211: Statistical Methods for Computational Social Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -101,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./schedule.html" aria-current="page"> 
+    <a class="nav-link" href="./schedule.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
@@ -161,15 +161,26 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#general-resources" id="toc-general-resources" class="nav-link active" data-scroll-target="#general-resources">General Resources</a></li>
+  <li><a href="#data-wrangling-and-visualization." id="toc-data-wrangling-and-visualization." class="nav-link" data-scroll-target="#data-wrangling-and-visualization.">Data wrangling and visualization.</a></li>
+  <li><a href="#regression" id="toc-regression" class="nav-link" data-scroll-target="#regression">Regression</a></li>
+  <li><a href="#mixed-effects-models" id="toc-mixed-effects-models" class="nav-link" data-scroll-target="#mixed-effects-models">Mixed Effects Models</a></li>
+  <li><a href="#resampling-methods" id="toc-resampling-methods" class="nav-link" data-scroll-target="#resampling-methods">Resampling Methods</a></li>
+  <li><a href="#best-practices-and-research-design" id="toc-best-practices-and-research-design" class="nav-link" data-scroll-target="#best-practices-and-research-design">Best Practices and Research Design</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">CSS 211 Schedule</h1>
+<h1 class="title">Resources</h1>
 </div>
 
 
@@ -186,280 +197,52 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is a tentative schedule of which topics I plan to cover. Note that while all lectures will have an interactive component, Fridays are reserved for more hands-on labs—typically involving a CSS-relevant dataset—with active participation encouraged.</p>
-<p>Readings are option; “ISLR” refers to <a href="https://www.statlearning.com/">“Introduction to Statistical Learning in R” (James et al.), which can be downloaded here</a>.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Week</th>
-<th>Day</th>
-<th>Date</th>
-<th>Topic(s)</th>
-<th>Assignments Due</th>
-<th>Suggested readings</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td>F</td>
-<td>09-26</td>
-<td><a href="./lectures/week0-intro.html">Course Introduction</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>M</td>
-<td>09-30</td>
-<td>Philosophy of Science in CSS</td>
-<td></td>
-<td><a href="https://r4ds.had.co.nz/introduction.html">Introduction to R for Data Science</a></td>
-</tr>
-<tr class="odd">
-<td>1</td>
-<td>W</td>
-<td>10-02</td>
-<td>Introduction to R and RStudio</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>F</td>
-<td>10-04</td>
-<td>R basics <strong>[LAB]</strong></td>
-<td><strong>Lab 1</strong></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>M</td>
-<td>10-07</td>
-<td>Data wrangling</td>
-<td></td>
-<td><a href="https://vita.had.co.nz/papers/tidy-data.pdf">Tidy data (Wickham, 2011)</a></td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>W</td>
-<td>10-09</td>
-<td>Data wrangling</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>F</td>
-<td>10-11</td>
-<td>Hands-on data cleaning <strong>[LAB]</strong></td>
-<td><strong>Concept quiz</strong></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>M</td>
-<td>10-14</td>
-<td>Data visualization (principles)</td>
-<td></td>
-<td><a href="https://r4ds.had.co.nz/data-visualisation.html">Introduction to Data Visualization in R</a></td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>W</td>
-<td>10-16</td>
-<td>Data visualization (<em>ggplot</em>)</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>F</td>
-<td>10-18</td>
-<td>Exploratory data analysis <strong>[LAB]</strong></td>
-<td>Lab 2</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>M</td>
-<td>10-21</td>
-<td>Linear regression</td>
-<td></td>
-<td><a href="https://www.statlearning.com/">ISLR, 3.1</a></td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>W</td>
-<td>10-23</td>
-<td>Linear regression</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>F</td>
-<td>10-25</td>
-<td>Hands-on regression <strong>[LAB]</strong></td>
-<td><strong>Concept quiz</strong></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>M</td>
-<td>10-28</td>
-<td>Multiple regression</td>
-<td></td>
-<td><a href="https://www.statlearning.com/">ISLR, 3.2</a></td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>W</td>
-<td>10-30</td>
-<td>Regression: issues</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>F</td>
-<td>11-01</td>
-<td>Building complex models <strong>[LAB]</strong></td>
-<td>Lab 3</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>6</td>
-<td>M</td>
-<td>11-04</td>
-<td>Logistic regression</td>
-<td></td>
-<td><a href="https://www.statlearning.com/">ISLR, 4.3</a></td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td>W</td>
-<td>11-06</td>
-<td>Regularization</td>
-<td></td>
-<td><a href="https://www.statlearning.com/">ISLR, 6.2</a></td>
-</tr>
-<tr class="odd">
-<td>6</td>
-<td>F</td>
-<td>11-08</td>
-<td>Interpreting logistic models <strong>[LAB]</strong></td>
-<td><strong>Concept quiz</strong></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>7</td>
-<td>M</td>
-<td>11-11</td>
-<td>Mixed effects models</td>
-<td></td>
-<td><a href="https://arxiv.org/abs/1308.5499">Winter, 2013</a></td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td>W</td>
-<td>11-13</td>
-<td>Mixed models + model selection</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>7</td>
-<td>F</td>
-<td>11-15</td>
-<td><strong>In-class midterm</strong></td>
-<td><strong>Midterm!</strong></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>8</td>
-<td>M</td>
-<td>11-18</td>
-<td>Resampling</td>
-<td></td>
-<td><a href="https://www.statlearning.com/">ISLR, 5.2</a></td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td>W</td>
-<td>11-20</td>
-<td>Resampling</td>
-<td>Lab 4</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>8</td>
-<td>F</td>
-<td>11-22</td>
-<td>Build your own baseline <strong>[LAB]</strong></td>
-<td><strong>Concept quiz</strong></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>9</td>
-<td>M</td>
-<td>11-25</td>
-<td>Final project check-in</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>9</td>
-<td>W</td>
-<td>11-27</td>
-<td><strong>HOLIDAY (Thanksgiving)</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>9</td>
-<td>F</td>
-<td>11-29</td>
-<td><strong>HOLIDAY (Thanksgiving)</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>10</td>
-<td>M</td>
-<td>12-02</td>
-<td>Best practices, Wrap-up</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>10</td>
-<td>W</td>
-<td>12-04</td>
-<td>Final project presentations (pt.&nbsp;1)</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>10</td>
-<td>F</td>
-<td>12-06</td>
-<td>Final project presentations (pt.&nbsp;2)</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>11</td>
-<td>W</td>
-<td>12-09</td>
-<td></td>
-<td><strong>Final report due</strong></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p>CSS 211 has no <em>required</em> readings. However, students might benefit from exploring additional content on course topics. The <a href="./schedule.html">course schedule</a> lists suggested readings for each week; here, I include those readings, as well as additional resources students might benefit from, organized by topic.</p>
+<section id="general-resources" class="level3">
+<h3 class="anchored" data-anchor-id="general-resources">General Resources</h3>
+<ul>
+<li>Hadley Wickham’s <a href="https://r4ds.had.co.nz/index.html">R for Data Science(R4DS)</a>.</li>
+<li><a href="https://www.statlearning.com/"><em>Introduction to Statistical Learning</em></a> (James et al.)</li>
+</ul>
+</section>
+<section id="data-wrangling-and-visualization." class="level3">
+<h3 class="anchored" data-anchor-id="data-wrangling-and-visualization.">Data wrangling and visualization.</h3>
+<ul>
+<li>Wickham, H. (2014). <a href="https://vita.had.co.nz/papers/tidy-data.pdf">“Tidy data”</a> (Journal of Statistical Software).</li>
+<li>Wickham, H. &amp; Grolemund, G. (2017). R for Data Science, [Chapters 5, 10-12](<a href="https://r4ds.had.co.nz/wrangle-intro.html">R4DS, data wrangling</a>.</li>
+<li>Healy, K. (2018). <a href="https://socviz.co/index.html#preface">Data Visualization</a>, Chapters 1-3</li>
+</ul>
+</section>
+<section id="regression" class="level3">
+<h3 class="anchored" data-anchor-id="regression">Regression</h3>
+<ul>
+<li><strong>James, G. et al.&nbsp;(2021).</strong> <a href="https://www.statlearning.com/"><em>Introduction to Statistical Learning</em></a>, Chapter 3</li>
+<li><strong>James, G. et al.&nbsp;(2021).</strong> <a href="https://www.statlearning.com/"><em>Introduction to Statistical Learning</em></a>, Chapter 4.1-4.3</li>
+<li><strong>James, G. et al.&nbsp;(2021).</strong> <a href="https://www.statlearning.com/"><em>Introduction to Statistical Learning</em></a>, Chapter 6.1-6.2</li>
+</ul>
+</section>
+<section id="mixed-effects-models" class="level3">
+<h3 class="anchored" data-anchor-id="mixed-effects-models">Mixed Effects Models</h3>
+<ul>
+<li><strong>Winter, B. (2013).</strong> <a href="https://arxiv.org/abs/1308.5499">“Linear models and linear mixed effects models in R”</a> (tutorial)</li>
+<li><strong>Gelman, A. &amp; Hill, J. (2006).</strong> <em>Data Analysis Using Regression</em>, Chapters 11-12</li>
+<li><strong>Bates, D. et al.&nbsp;(2015).</strong> <a href="https://www.jstatsoft.org/article/view/v067i01/0">“Fitting linear mixed-effects models using lme4”</a> (<em>Journal of Statistical Software</em>)</li>
+</ul>
+</section>
+<section id="resampling-methods" class="level3">
+<h3 class="anchored" data-anchor-id="resampling-methods">Resampling Methods</h3>
+<ul>
+<li><strong>James, G. et al.&nbsp;(2021).</strong> <a href="https://www.statlearning.com/"><em>Introduction to Statistical Learning</em></a>, Chapter 5</li>
+</ul>
+</section>
+<section id="best-practices-and-research-design" class="level3">
+<h3 class="anchored" data-anchor-id="best-practices-and-research-design">Best Practices and Research Design</h3>
+<ul>
+<li><strong>Gelman, A. &amp; Loken, E. (2014).</strong> <a href="https://sites.stat.columbia.edu/gelman/research/unpublished/p_hacking.pdf">“The garden of forking paths: Why multiple comparisons can be a problem”</a> (<em>American Scientist</em>)</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

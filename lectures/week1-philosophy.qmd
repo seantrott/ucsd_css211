@@ -1,0 +1,336 @@
+---
+title: "The problem of knowledge"
+format:
+  html: 
+    toc: true
+  revealjs:
+    output-file: "week1-phil-slides.html"
+    theme: simple
+    slide-number: true
+    chalkboard: true
+    preview-links: auto
+    footer: "CSS 211 | UC San Diego"
+---
+
+## Goals of the lecture {.smaller}
+
+::: {.incremental}
+- What is knowledge and how do we produce it?
+- Perspectives on scientific knowledge. 
+- Epistemological and ethical challenges facing CSS. 
+:::
+
+
+## How do we learn about the world? {.smaller}
+
+There are many ways to *construct knowledge*.
+
+:::: {.columns}
+::: {.column width="33%"}
+::: {.fragment}
+Subjective experience
+:::
+:::
+::: {.column width="33%"}
+::: {.fragment}
+Intuition and reason
+:::
+:::
+::: {.column width="33%"}
+::: {.fragment}
+Empirical research and measurement
+:::
+:::
+::::
+
+::: {.center}
+![](images/week1/glass.jpg){width=25%}
+:::
+
+
+
+## Why not just subjective experience? {.smaller}
+
+> **Subjective experience** refers to the thoughts and experiences an individual has.
+
+::: {.incremental}
+- For many things, no *substitute* for personal experience. 
+- "Anecdotal" evidence can still function as a kind of evidence. 
+- Cultural knowledge (rituals, customs, etc.) also functions as a kind of *evolved wisdom*. 
+- But *over-reliance on anecdotes* can also lead us astray when it comes to **building models of the world**. 
+:::
+
+## Why not just intuition and reason? {.smaller}
+> **Intuition and reason** rely on logic and abstract thinking to understand the world.
+
+::: {.incremental}
+- [**Rationalist tradition**](https://en.wikipedia.org/wiki/Rationalism): knowledge comes from *reasoning logically*. 
+- Mathematics and formal logic are powerful tools for understanding
+- But reason alone can lead to elegant theories that seem *empirically wrong*
+  - Sometimes absurdly so, e.g., [Zeno's paradox](https://en.wikipedia.org/wiki/Zeno%27s_paradoxes)
+  - Sometimes empiricism is intuitive, e.g., [Galileo's work on gravity](https://en.wikipedia.org/wiki/Galileo%27s_Leaning_Tower_of_Pisa_experiment).
+  
+:::
+
+## The rise of empirical science {.smaller}
+
+> **Empiricism** is the idea that knowledge comes primarily from *direct sensory experience* and *observation*.
+
+
+::: {.incremental}
+- Combines *experience-based approach* with *systematic measurement and experimentation*. 
+- Over time, systematic observations can help *form theories*. 
+- In turn, theories *guide observation*. 
+- But how exactly should we do empirical science? Many different philosophies...
+:::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+What's your intuitive theory of how science works (or should work)?
+:::
+:::
+
+
+
+## Empiricism: various philosophies {.smaller}
+
+Historically, scientists and philosophers of science have made different arguments about how science works, both *descriptively* and *prescriptively*. 
+
+:::: {.columns .tiny}
+::: {.column width="33%"}
+::: {.fragment}
+[Logical positivism](https://en.wikipedia.org/wiki/Logical_positivism)
+
+- Statements are meaningful if and only if they can be *verified*. 
+- **Problem**: Many statements can't be *positively verified*; [problem of induction](https://en.wikipedia.org/wiki/Problem_of_induction). 
+:::
+:::
+::: {.column width="33%"}
+::: {.fragment}
+[Falsification](https://en.wikipedia.org/wiki/Falsifiability)
+
+- Theories cannot be *proven*, but can be *proven wrong*. 
+- E.g., a single black swan can disprove the claim: *All swans are white*. 
+- **Problem**: Science doesn't always work this way...
+:::
+:::
+::: {.column width="33%"}
+::: {.fragment}
+Beyond falsification
+
+- Science operates under [paradigms](https://en.wikipedia.org/wiki/Paradigm_shift) or [research programmes](https://plato.stanford.edu/entries/lakatos/).
+- [Pragmatism](https://plato.stanford.edu/entries/pragmatism/): Focus on producing *useful explanations*. 
+:::
+:::
+::::
+
+
+## So what makes a good explanation? {.smaller}
+
+> One goal of science is to produce **explanations** of natural phenomena.
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+What do you think makes a *good explanation*?
+:::
+:::
+
+::: {.incremental}
+- **Covering law**: show how phenomena emerge from general principles
+- **Causal-mechanical**: identify manipulable causes and trace mechanisms  
+- **Pragmatic**: serve the practical needs of the question-asker 
+- Also connects to deep questions about what *constitutes "scientific understanding" of a phenomenon*.
+:::
+
+## Prediction vs. understanding {.smaller}
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+Does being able to *predict* something mean we *understand* it?
+:::
+:::
+
+::: {.incremental}
+- Increasingly, machine learning models can make accurate predictions...
+- ...but we don't always know *why* the model works. 
+  - A model that predicts which word you'll say doesn't mean we know *why* you said that word.
+- Yet simpler, more interpretable models sometimes **trade-off** with predictive accuracy.
+- This [*complexity/accuracy* trade-off](https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff) is pervasive in statistical modeling. 
+- It also connects to more general challenges facing CSS.
+:::
+
+
+## Epistemological challenges in CSS {.smaller}
+
+> Any given **empirical claim** can be evaluated according to several *validities*. 
+
+Here, we'll focus on these validities with respect to CSS specifically.
+
+:::: {.columns}
+::: {.column width="45%"}
+::: {.fragment}
+::: {.center}
+**Construct validity**
+:::
+
+Are we measuring what we think we're measuring?
+:::
+:::
+::: {.column width="45%"}
+::: {.fragment}
+::: {.center}
+**Internal validity**
+:::
+
+Can we establish causal relationships?
+:::
+:::
+::::
+
+:::: {.columns}
+::: {.column width="45%"}
+::: {.fragment}
+::: {.center}
+**Statistical validity**
+:::
+
+Are our analytical methods appropriate?
+:::
+:::
+::: {.column width="45%"}
+::: {.fragment}
+::: {.center}
+**External validity**
+:::
+
+Do our findings generalize beyond our sample?
+:::
+:::
+::::
+
+
+
+## Construct validity in CSS {.smaller}
+
+> **Construct validity** refers to how well a variable is *operationalized*.
+
+Many variables are somewhat *abstract*: how do we **measure them**? 
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {.fragment}
+**Examples of hard constructs to operationalize:**
+
+- Happiness and well-being. 
+- Social connectedness.
+- Inequality and poverty. 
+- Political polarization. 
+:::
+:::
+::: {.column width="50%"}
+::: {.fragment}
+**Key questions:**
+
+- What aspects are we capturing?  
+- What are we missing?  
+:::
+:::
+::::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+With a partner, choose one of these constructs. How might you operationalize it? What are limitations to this approach? 
+:::
+:::
+
+
+## Internal validity: establishing causation {.smaller}
+
+> **Internal validity** is an indication of a study’s ability to eliminate alternative explanations for the effect of interest.
+
+
+::: {.incremental}
+- We've all heard [correlation does not imply causation](https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation). 
+- Best way to establish causation is through [*experiments* (RCTs)](https://en.wikipedia.org/wiki/Randomized_controlled_trial), but that's not always possible (or realistic) in many CSS domains.
+   - *Example*: social media use and mental health; digital campaigning and voter turnout; and much more. 
+- Additionally, *experimental control* sometimes trades off with *external validity*!
+- If design is *observational* (no experiment), need to account for possible **confounds**.
+
+:::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+With a partner, think of some observational CSS studies you've read about. What might be alternative explanations for the effect of interest?
+:::
+:::
+
+
+## Statistical validity in CSS {.smaller}
+
+> **Statistical validity** is the extent to which a study’s statistical conclusions are accurate.
+
+
+::: {.incremental}
+- Could include reporting the *margin of error* associated with a claim (e.g., $10 \pm 2$).
+- Also encompasses **common pitfalls**.
+  - *Flexible* models applies to *large* datasets are a recipe for *inadvertent p-hacking*. 
+  - Important to use methods like **cross-validation** to avoid *overfitting.* 
+- Fundamentally an issue of *research ethics*!
+:::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+Suppose you analyze the correlation between various *personality traits* and hundreds of outcome measures (life satisfication, income, etc.). You find significant results for about $5 \%$ of your analyses. What's a potential concern here?
+:::
+:::
+
+
+## External validity: Who and when? {.smaller}
+
+> **External validity** refers to how well a given claim generalizes to the population of interest.
+
+
+::: {.incremental}
+- Much social science research focuses on [**WEIRD** populations](https://www.apa.org/monitor/2010/05/weird) (Western, Educated, Industrialized, Rich, Democratic). 
+  - Digital data exhibits even more *skew*. 
+- How well do conclusions based on a given sample generalize across populations and times? 
+:::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+With a partner, talk about a CSS-related study you've read about. How well do you think the conclusions generalize from the sample (people, society, time, etc.) studied?
+:::
+:::
+
+
+## Ethical challenges in CSS {.smaller}
+
+CSS research involves many important **ethical questions**. 
+
+::: {.incremental}
+- *Privacy and consent*. 
+- *Algorithmic bias*. 
+- *Research ethics (reproducibility, etc.)*.
+:::
+
+## Summary, and moving forward {.smaller}
+
+::: {.incremental}
+- CSS is **pluralistic** in terms of *methods* and *research questions*: no single "correct" approach.  
+- Multiple *epistemological challenges* facing empirical science. 
+- This course will focus on *statistical methods*, but we'll also touch on other core issues, especially **construct validity**.
+:::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Key takeaway
+Producing knowledge is *hard*, but methodological and theoretical *principles* can help guide us.
+:::
+:::

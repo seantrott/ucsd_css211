@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to CSS 211 – CSS 211: Statistical Methods for Computational Social Science</title>
+<title>The problem of knowledge – CSS 211: Statistical Methods for Computational Social Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -104,6 +69,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -202,34 +196,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#goals-of-the-lecture" id="toc-goals-of-the-lecture" class="nav-link active" data-scroll-target="#goals-of-the-lecture">Goals of the lecture</a></li>
-  <li><a href="#who-am-i" id="toc-who-am-i" class="nav-link" data-scroll-target="#who-am-i">Who am I?</a></li>
-  <li><a href="#what-is-css" id="toc-what-is-css" class="nav-link" data-scroll-target="#what-is-css">What is CSS?</a></li>
-  <li><a href="#what-is-social-science" id="toc-what-is-social-science" class="nav-link" data-scroll-target="#what-is-social-science">What is social science?</a></li>
-  <li><a href="#what-are-computational-methods-for" id="toc-what-are-computational-methods-for" class="nav-link" data-scroll-target="#what-are-computational-methods-for">What are computational methods for?</a></li>
-  <li><a href="#what-is-this-course-for" id="toc-what-is-this-course-for" class="nav-link" data-scroll-target="#what-is-this-course-for">What is this course for?</a></li>
-  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
-  <li><a href="#why-r" id="toc-why-r" class="nav-link" data-scroll-target="#why-r">Why R?</a></li>
-  <li><a href="#r-basics" id="toc-r-basics" class="nav-link" data-scroll-target="#r-basics">R: basics</a></li>
-  <li><a href="#r-simple-histogram" id="toc-r-simple-histogram" class="nav-link" data-scroll-target="#r-simple-histogram">R: simple histogram</a></li>
-  <li><a href="#r-simple-scatterplot" id="toc-r-simple-scatterplot" class="nav-link" data-scroll-target="#r-simple-scatterplot">R: simple scatterplot</a></li>
-  <li><a href="#r-simple-scatterplot-1" id="toc-r-simple-scatterplot-1" class="nav-link" data-scroll-target="#r-simple-scatterplot-1">R: simple scatterplot</a></li>
-  <li><a href="#logistics-and-course-structure" id="toc-logistics-and-course-structure" class="nav-link" data-scroll-target="#logistics-and-course-structure">Logistics and course structure</a></li>
-  <li><a href="#assessment-strategy" id="toc-assessment-strategy" class="nav-link" data-scroll-target="#assessment-strategy">Assessment strategy</a></li>
-  <li><a href="#course-policies" id="toc-course-policies" class="nav-link" data-scroll-target="#course-policies">Course policies</a></li>
-  <li><a href="#note-on-ai-usage" id="toc-note-on-ai-usage" class="nav-link" data-scroll-target="#note-on-ai-usage">Note on AI usage</a></li>
-  <li><a href="#final-project" id="toc-final-project" class="nav-link" data-scroll-target="#final-project">Final project</a></li>
-  <li><a href="#tooling-prerequisites-and-tech-setup" id="toc-tooling-prerequisites-and-tech-setup" class="nav-link" data-scroll-target="#tooling-prerequisites-and-tech-setup">Tooling, prerequisites, and tech setup</a></li>
-  <li><a href="#topics-and-schedule" id="toc-topics-and-schedule" class="nav-link" data-scroll-target="#topics-and-schedule">Topics and schedule</a></li>
-  <li><a href="#welcome-to-css-211" id="toc-welcome-to-css-211" class="nav-link" data-scroll-target="#welcome-to-css-211">Welcome to CSS 211!</a></li>
+  <li><a href="#how-do-we-learn-about-the-world" id="toc-how-do-we-learn-about-the-world" class="nav-link" data-scroll-target="#how-do-we-learn-about-the-world">How do we learn about the world?</a></li>
+  <li><a href="#why-not-just-subjective-experience" id="toc-why-not-just-subjective-experience" class="nav-link" data-scroll-target="#why-not-just-subjective-experience">Why not just subjective experience?</a></li>
+  <li><a href="#why-not-just-intuition-and-reason" id="toc-why-not-just-intuition-and-reason" class="nav-link" data-scroll-target="#why-not-just-intuition-and-reason">Why not just intuition and reason?</a></li>
+  <li><a href="#the-rise-of-empirical-science" id="toc-the-rise-of-empirical-science" class="nav-link" data-scroll-target="#the-rise-of-empirical-science">The rise of empirical science</a></li>
+  <li><a href="#empiricism-various-philosophies" id="toc-empiricism-various-philosophies" class="nav-link" data-scroll-target="#empiricism-various-philosophies">Empiricism: various philosophies</a></li>
+  <li><a href="#so-what-makes-a-good-explanation" id="toc-so-what-makes-a-good-explanation" class="nav-link" data-scroll-target="#so-what-makes-a-good-explanation">So what makes a good explanation?</a></li>
+  <li><a href="#prediction-vs.-understanding" id="toc-prediction-vs.-understanding" class="nav-link" data-scroll-target="#prediction-vs.-understanding">Prediction vs.&nbsp;understanding</a></li>
+  <li><a href="#epistemological-challenges-in-css" id="toc-epistemological-challenges-in-css" class="nav-link" data-scroll-target="#epistemological-challenges-in-css">Epistemological challenges in CSS</a></li>
+  <li><a href="#construct-validity-in-css" id="toc-construct-validity-in-css" class="nav-link" data-scroll-target="#construct-validity-in-css">Construct validity in CSS</a></li>
+  <li><a href="#internal-validity-establishing-causation" id="toc-internal-validity-establishing-causation" class="nav-link" data-scroll-target="#internal-validity-establishing-causation">Internal validity: establishing causation</a></li>
+  <li><a href="#statistical-validity-in-css" id="toc-statistical-validity-in-css" class="nav-link" data-scroll-target="#statistical-validity-in-css">Statistical validity in CSS</a></li>
+  <li><a href="#external-validity-who-and-when" id="toc-external-validity-who-and-when" class="nav-link" data-scroll-target="#external-validity-who-and-when">External validity: Who and when?</a></li>
+  <li><a href="#ethical-challenges-in-css" id="toc-ethical-challenges-in-css" class="nav-link" data-scroll-target="#ethical-challenges-in-css">Ethical challenges in CSS</a></li>
+  <li><a href="#summary-and-moving-forward" id="toc-summary-and-moving-forward" class="nav-link" data-scroll-target="#summary-and-moving-forward">Summary, and moving forward</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="week0-intro-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="week1-phil-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to CSS 211</h1>
+<h1 class="title">The problem of knowledge</h1>
 </div>
 
 
@@ -250,166 +239,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="smaller anchored" data-anchor-id="goals-of-the-lecture">Goals of the lecture</h2>
 <div class="incremental">
 <ul class="incremental">
-<li>Introductions<br>
-</li>
-<li>What is CSS?</li>
-<li>What is this course for?</li>
-<li>Logistics</li>
+<li>What is knowledge and how do we produce it?</li>
+<li>Perspectives on scientific knowledge.</li>
+<li>Epistemological and ethical challenges facing CSS.</li>
 </ul>
 </div>
 </section>
-<section id="who-am-i" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="who-am-i">Who am I?</h2>
-<ul>
-<li><a href="https://seantrott.github.io/">Assistant Teaching Professor, Cognitive Science</a>.</li>
-<li><a href="https://seantrott.github.io/research/">Research interests</a>: large language models (LLMs), language comprehension, Theory of Mind.</li>
-</ul>
-</section>
-<section id="what-is-css" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="what-is-css">What is CSS?</h2>
-<blockquote class="blockquote">
-<p>In a nutshell, Computational Social Science focuses on computational approaches to social science.</p>
-</blockquote>
-<p>At UCSD, Social Sciences encompasses many disciplines:</p>
-<div class="incremental">
-<ul class="incremental">
-<li>Economics.</li>
-<li>Political Science.</li>
-<li>Cognitive Science.</li>
-<li>Sociology.</li>
-</ul>
-</div>
-</section>
-<section id="what-is-social-science" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="what-is-social-science">What is social science?</h2>
-<p><strong>Social science</strong> refers to a domain of study: <em>social phenomena</em>.</p>
-<div class="incremental">
-<ul class="incremental">
-<li>Encompasses many <strong>scales</strong>: individual human behavior, political trends, etc.</li>
-<li>Involves multiple <strong>methods</strong>: qualitative interviews, statistical analysis, simulations.</li>
-</ul>
-</div>
-</section>
-<section id="what-are-computational-methods-for" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="what-are-computational-methods-for">What are computational methods for?</h2>
-<p>Another way of asking this is: <strong>how do computational methods help us learn what we want to know</strong>?</p>
-<div class="incremental">
-<ul class="incremental">
-<li>Many research questions benefit from <em>large-scale quantitative analysis</em>.
-<ul class="incremental">
-<li>Measuring trends over time.</li>
-<li>Comparing effects of policy interventions.</li>
-<li>Modeling the relationships between variables.</li>
-</ul></li>
-<li>Computational methods help us do this efficiently and reliably.</li>
-</ul>
-</div>
-</section>
-<section id="what-is-this-course-for" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="what-is-this-course-for">What is this course for?</h2>
-<p>The goal of this course is to introduce students to <strong>foundational concepts and methods</strong> in statistical modeling. We will emphasize both <strong>hands-on application</strong> and <strong>conceptual understanding</strong>.</p>
-<p>Key concepts include:</p>
-<div class="incremental">
-<ul class="incremental">
-<li>Data wrangling, summarization, and visualization.<br>
-</li>
-<li>Modeling data and designing analyses.</li>
-<li>Interrogating the assumptions of an analysis or dataset.</li>
-</ul>
-</div>
+<section id="how-do-we-learn-about-the-world" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="how-do-we-learn-about-the-world">How do we learn about the world?</h2>
+<p>There are many ways to <em>construct knowledge</em>.</p>
+<div class="columns">
+<div class="column" style="width:33%;">
 <div class="fragment">
-<p>Hands-on work will be done using the R programming language.</p>
+<p>Subjective experience</p>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="fragment">
+<p>Intuition and reason</p>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="fragment">
+<p>Empirical research and measurement</p>
+</div>
+</div>
+</div>
+<div class="center">
+<p><img src="images/week1/glass.jpg" class="img-fluid" style="width:25.0%"></p>
 </div>
 </section>
-<section id="learning-outcomes" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="learning-outcomes">Learning outcomes</h2>
-<p>My goal is that by the end of this course, students will be able to:</p>
-<ul>
-<li><strong>Define</strong> and <strong>explain</strong> key concepts in statistical inference and regression analysis.</li>
-<li><strong>Identify</strong> appropriate visualizations and statistical methods for different kinds of research questions and datasets.</li>
-<li><strong>Implement</strong> data wrangling, visualization, and analysis workflows in R.</li>
-<li><strong>Interpret</strong> and <strong>evaluate</strong> results (visualizations, fit models, etc.) in the context of a research question.</li>
-<li><strong>Design</strong> and <strong>implement</strong> a complete statistical analysis project from research question to interpretation.</li>
-</ul>
-</section>
-<section id="why-r" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="why-r">Why R?</h2>
+<section id="why-not-just-subjective-experience" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="why-not-just-subjective-experience">Why not just subjective experience?</h2>
 <blockquote class="blockquote">
-<p><a href="https://www.r-project.org/">R</a> is a programming language used to perform statistical analysis, wrangle data, make data visualizaitons, and more.</p>
+<p><strong>Subjective experience</strong> refers to the thoughts and experiences an individual has.</p>
 </blockquote>
-<p>R is certainly not the <em>only</em> way to analyze data, but it’s a useful tool in your toolbox for a couple reasons.</p>
 <div class="incremental">
 <ul class="incremental">
-<li>R has excellent packages (<code>lme4</code>) for running analyses with mixed effects models.</li>
-<li>R has the <a href="https://www.tidyverse.org/"><code>tidyverse</code></a>, a collection of packages for writing really <em>clean</em> code to wrangle, summarize, and visualize data.<br>
-</li>
-<li>The <code>tidyverse</code> includes <a href="https://ggplot2.tidyverse.org/"><code>ggplot</code></a>, one of the best plotting packages I’ve ever used.<br>
-</li>
-<li>R is integrated with platforms like <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>, which enable creation of sharable code, websites, and slides (like these).</li>
+<li>For many things, no <em>substitute</em> for personal experience.</li>
+<li>“Anecdotal” evidence can still function as a kind of evidence.</li>
+<li>Cultural knowledge (rituals, customs, etc.) also functions as a kind of <em>evolved wisdom</em>.</li>
+<li>But <em>over-reliance on anecdotes</em> can also lead us astray when it comes to <strong>building models of the world</strong>.</li>
 </ul>
 </div>
 </section>
-<section id="r-basics" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="r-basics">R: basics</h2>
-<p>R can be used to perform simple arithmetic calculations:</p>
-<div class="cell" data-output-location="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Our first R calculation</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"The answer is:"</span>, x))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "The answer is: 2"</code></pre>
-</div>
-</div>
-<p>It can also be used to calculate summary statistics, like a <code>mean</code> or standard deviation (<code>std</code>).</p>
-<div class="cell" data-output-location="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>sample_vector <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>)</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Mean: "</span>, <span class="fu">mean</span>(sample_vector)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Mean:  5"</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"SD: "</span>, <span class="fu">sd</span>(sample_vector)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "SD:  2.58198889747161"</code></pre>
-</div>
+<section id="why-not-just-intuition-and-reason" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="why-not-just-intuition-and-reason">Why not just intuition and reason?</h2>
+<blockquote class="blockquote">
+<p><strong>Intuition and reason</strong> rely on logic and abstract thinking to understand the world.</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li><a href="https://en.wikipedia.org/wiki/Rationalism"><strong>Rationalist tradition</strong></a>: knowledge comes from <em>reasoning logically</em>.</li>
+<li>Mathematics and formal logic are powerful tools for understanding</li>
+<li>But reason alone can lead to elegant theories that seem <em>empirically wrong</em>
+<ul class="incremental">
+<li>Sometimes absurdly so, e.g., <a href="https://en.wikipedia.org/wiki/Zeno%27s_paradoxes">Zeno’s paradox</a></li>
+<li>Sometimes empiricism is intuitive, e.g., <a href="https://en.wikipedia.org/wiki/Galileo%27s_Leaning_Tower_of_Pisa_experiment">Galileo’s work on gravity</a>.</li>
+</ul></li>
+</ul>
 </div>
 </section>
-<section id="r-simple-histogram" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="r-simple-histogram">R: simple histogram</h2>
-<p>R can also be used to <em>visualize data</em>.</p>
-<div class="cell" data-output-location="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>vector <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">hist</span>(vector)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="week0-intro_files/figure-html/hist-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="r-simple-scatterplot" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="r-simple-scatterplot">R: simple scatterplot</h2>
-<p><em>Scatterplots</em> can be used to visualize relationships between data.</p>
-<div class="cell" data-output-location="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>v1 <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
-<span id="cb8-2"><a href="#cb8-2"></a>v2 <span class="ot">=</span> v1 <span class="sc">*</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="fu">plot</span>(v1, v2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="week0-intro_files/figure-html/scatter-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="r-simple-scatterplot-1" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="r-simple-scatterplot-1">R: simple scatterplot</h2>
-<p><em>Scatterplots</em> can be used to visualize relationships between data.</p>
-<div class="cell" data-output-location="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>v1 <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
-<span id="cb9-2"><a href="#cb9-2"></a>v2 <span class="ot">=</span> v1 <span class="sc">*</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="the-rise-of-empirical-science" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="the-rise-of-empirical-science">The rise of empirical science</h2>
+<blockquote class="blockquote">
+<p><strong>Empiricism</strong> is the idea that knowledge comes primarily from <em>direct sensory experience</em> and <em>observation</em>.</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li>Combines <em>experience-based approach</em> with <em>systematic measurement and experimentation</em>.</li>
+<li>Over time, systematic observations can help <em>form theories</em>.</li>
+<li>In turn, theories <em>guide observation</em>.</li>
+<li>But how exactly should we do empirical science? Many different philosophies…</li>
+</ul>
 </div>
 <div class="fragment">
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -422,152 +322,319 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>What do you think the <code>v2</code> line of code is doing?</p>
+<p>What’s your intuitive theory of how science works (or should work)?</p>
 </div>
 </div>
 </div>
 </section>
-<section id="logistics-and-course-structure" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="logistics-and-course-structure">Logistics and course structure</h2>
-<p>Designing this course required some forethought. CSS is a <em>broad</em> discipline: what methods and content are useful for everyone?</p>
-<p>My approach:</p>
+<section id="empiricism-various-philosophies" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="empiricism-various-philosophies">Empiricism: various philosophies</h2>
+<p>Historically, scientists and philosophers of science have made different arguments about how science works, both <em>descriptively</em> and <em>prescriptively</em>.</p>
+<div class="columns tiny">
+<div class="column" style="width:33%;">
+<div class="fragment">
+<p><a href="https://en.wikipedia.org/wiki/Logical_positivism">Logical positivism</a></p>
+<ul>
+<li>Statements are meaningful if and only if they can be <em>verified</em>.</li>
+<li><strong>Problem</strong>: Many statements can’t be <em>positively verified</em>; <a href="https://en.wikipedia.org/wiki/Problem_of_induction">problem of induction</a>.</li>
+</ul>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="fragment">
+<p><a href="https://en.wikipedia.org/wiki/Falsifiability">Falsification</a></p>
+<ul>
+<li>Theories cannot be <em>proven</em>, but can be <em>proven wrong</em>.</li>
+<li>E.g., a single black swan can disprove the claim: <em>All swans are white</em>.</li>
+<li><strong>Problem</strong>: Science doesn’t always work this way…</li>
+</ul>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="fragment">
+<p>Beyond falsification</p>
+<ul>
+<li>Science operates under <a href="https://en.wikipedia.org/wiki/Paradigm_shift">paradigms</a> or <a href="https://plato.stanford.edu/entries/lakatos/">research programmes</a>.</li>
+<li><a href="https://plato.stanford.edu/entries/pragmatism/">Pragmatism</a>: Focus on producing <em>useful explanations</em>.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="so-what-makes-a-good-explanation" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="so-what-makes-a-good-explanation">So what makes a good explanation?</h2>
 <blockquote class="blockquote">
-<p>Course content and assessments should reflect underlying <strong>learning outcomes</strong>.</p>
+<p>One goal of science is to produce <strong>explanations</strong> of natural phenomena.</p>
+</blockquote>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What do you think makes a <em>good explanation</em>?</p>
+</div>
+</div>
+</div>
+<div class="incremental">
+<ul class="incremental">
+<li><strong>Covering law</strong>: show how phenomena emerge from general principles</li>
+<li><strong>Causal-mechanical</strong>: identify manipulable causes and trace mechanisms<br>
+</li>
+<li><strong>Pragmatic</strong>: serve the practical needs of the question-asker</li>
+<li>Also connects to deep questions about what <em>constitutes “scientific understanding” of a phenomenon</em>.</li>
+</ul>
+</div>
+</section>
+<section id="prediction-vs.-understanding" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="prediction-vs.-understanding">Prediction vs.&nbsp;understanding</h2>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Does being able to <em>predict</em> something mean we <em>understand</em> it?</p>
+</div>
+</div>
+</div>
+<div class="incremental">
+<ul class="incremental">
+<li>Increasingly, machine learning models can make accurate predictions…</li>
+<li>…but we don’t always know <em>why</em> the model works.
+<ul class="incremental">
+<li>A model that predicts which word you’ll say doesn’t mean we know <em>why</em> you said that word.</li>
+</ul></li>
+<li>Yet simpler, more interpretable models sometimes <strong>trade-off</strong> with predictive accuracy.</li>
+<li>This <a href="https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff"><em>complexity/accuracy</em> trade-off</a> is pervasive in statistical modeling.</li>
+<li>It also connects to more general challenges facing CSS.</li>
+</ul>
+</div>
+</section>
+<section id="epistemological-challenges-in-css" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="epistemological-challenges-in-css">Epistemological challenges in CSS</h2>
+<blockquote class="blockquote">
+<p>Any given <strong>empirical claim</strong> can be evaluated according to several <em>validities</em>.</p>
+</blockquote>
+<p>Here, we’ll focus on these validities with respect to CSS specifically.</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="fragment">
+<div class="center">
+<p><strong>Construct validity</strong></p>
+</div>
+<p>Are we measuring what we think we’re measuring?</p>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="fragment">
+<div class="center">
+<p><strong>Internal validity</strong></p>
+</div>
+<p>Can we establish causal relationships?</p>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="fragment">
+<div class="center">
+<p><strong>Statistical validity</strong></p>
+</div>
+<p>Are our analytical methods appropriate?</p>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="fragment">
+<div class="center">
+<p><strong>External validity</strong></p>
+</div>
+<p>Do our findings generalize beyond our sample?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="construct-validity-in-css" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="construct-validity-in-css">Construct validity in CSS</h2>
+<blockquote class="blockquote">
+<p><strong>Construct validity</strong> refers to how well a variable is <em>operationalized</em>.</p>
+</blockquote>
+<p>Many variables are somewhat <em>abstract</em>: how do we <strong>measure them</strong>?</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment">
+<p><strong>Examples of hard constructs to operationalize:</strong></p>
+<ul>
+<li>Happiness and well-being.</li>
+<li>Social connectedness.</li>
+<li>Inequality and poverty.</li>
+<li>Political polarization.</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<p><strong>Key questions:</strong></p>
+<ul>
+<li>What aspects are we capturing?<br>
+</li>
+<li>What are we missing?<br>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>With a partner, choose one of these constructs. How might you operationalize it? What are limitations to this approach?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="internal-validity-establishing-causation" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="internal-validity-establishing-causation">Internal validity: establishing causation</h2>
+<blockquote class="blockquote">
+<p><strong>Internal validity</strong> is an indication of a study’s ability to eliminate alternative explanations for the effect of interest.</p>
 </blockquote>
 <div class="incremental">
 <ul class="incremental">
-<li><strong>Define</strong> and <strong>explain</strong> key concepts in statistical inference and regression analysis.</li>
-<li><strong>Identify</strong> appropriate visualizations and statistical methods for different kinds of research questions and datasets.</li>
-<li><strong>Implement</strong> data wrangling, visualization, and analysis workflows in R.</li>
-<li><strong>Interpret</strong> and <strong>evaluate</strong> results (visualizations, fit models, etc.) in the context of a research question.</li>
-<li><strong>Design</strong> and <strong>implement</strong> a complete statistical analysis project from research question to interpretation.</li>
+<li>We’ve all heard <a href="https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation">correlation does not imply causation</a>.</li>
+<li>Best way to establish causation is through <a href="https://en.wikipedia.org/wiki/Randomized_controlled_trial"><em>experiments</em> (RCTs)</a>, but that’s not always possible (or realistic) in many CSS domains.
+<ul class="incremental">
+<li><em>Example</em>: social media use and mental health; digital campaigning and voter turnout; and much more.</li>
+</ul></li>
+<li>Additionally, <em>experimental control</em> sometimes trades off with <em>external validity</em>!</li>
+<li>If design is <em>observational</em> (no experiment), need to account for possible <strong>confounds</strong>.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>With a partner, think of some observational CSS studies you’ve read about. What might be alternative explanations for the effect of interest?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="statistical-validity-in-css" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="statistical-validity-in-css">Statistical validity in CSS</h2>
+<blockquote class="blockquote">
+<p><strong>Statistical validity</strong> is the extent to which a study’s statistical conclusions are accurate.</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li>Could include reporting the <em>margin of error</em> associated with a claim (e.g., <span class="math inline">\(10 \pm 2\)</span>).</li>
+<li>Also encompasses <strong>common pitfalls</strong>.
+<ul class="incremental">
+<li><em>Flexible</em> models applies to <em>large</em> datasets are a recipe for <em>inadvertent p-hacking</em>.</li>
+<li>Important to use methods like <strong>cross-validation</strong> to avoid <em>overfitting.</em></li>
+</ul></li>
+<li>Fundamentally an issue of <em>research ethics</em>!</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose you analyze the correlation between various <em>personality traits</em> and hundreds of outcome measures (life satisfication, income, etc.). You find significant results for about <span class="math inline">\(5 \%\)</span> of your analyses. What’s a potential concern here?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="external-validity-who-and-when" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="external-validity-who-and-when">External validity: Who and when?</h2>
+<blockquote class="blockquote">
+<p><strong>External validity</strong> refers to how well a given claim generalizes to the population of interest.</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li>Much social science research focuses on <a href="https://www.apa.org/monitor/2010/05/weird"><strong>WEIRD</strong> populations</a> (Western, Educated, Industrialized, Rich, Democratic).
+<ul class="incremental">
+<li>Digital data exhibits even more <em>skew</em>.</li>
+</ul></li>
+<li>How well do conclusions based on a given sample generalize across populations and times?</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>With a partner, talk about a CSS-related study you’ve read about. How well do you think the conclusions generalize from the sample (people, society, time, etc.) studied?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="ethical-challenges-in-css" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="ethical-challenges-in-css">Ethical challenges in CSS</h2>
+<p>CSS research involves many important <strong>ethical questions</strong>.</p>
+<div class="incremental">
+<ul class="incremental">
+<li><em>Privacy and consent</em>.</li>
+<li><em>Algorithmic bias</em>.</li>
+<li><em>Research ethics (reproducibility, etc.)</em>.</li>
 </ul>
 </div>
 </section>
-<section id="assessment-strategy" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="assessment-strategy">Assessment strategy</h2>
-<div class="incremental">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 28%">
-<col style="width: 28%">
-<col style="width: 42%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Assessment</th>
-<th>Percentage</th>
-<th>Learning Outcome</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Labs</td>
-<td>20%</td>
-<td>Implementation, interpretation, evaluation</td>
-</tr>
-<tr class="even">
-<td>Concept quizzes</td>
-<td>20%</td>
-<td>Defining, explaining</td>
-</tr>
-<tr class="odd">
-<td>Midterm</td>
-<td>25%</td>
-<td>Defining, interpreting, evaluating</td>
-</tr>
-<tr class="even">
-<td>Final project</td>
-<td>35%</td>
-<td>Designing, identifying, implementing, evaluating</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="course-policies" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="course-policies">Course policies</h2>
+<section id="summary-and-moving-forward" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="summary-and-moving-forward">Summary, and moving forward</h2>
 <div class="incremental">
 <ul class="incremental">
-<li><strong>Attendance</strong>: Recommended, not required.</li>
-<li><strong>Dropped quiz</strong>: Your lowest quiz will be dropped from your grade.</li>
-<li><strong>Late assignments</strong>: Generally not accepted except in cases of emergencies.
-<ul class="incremental">
-<li>If you have a <em>midterm scheduling conflict</em>, let me know <em>as soon as possible</em> so we can try to accommodate it.</li>
-</ul></li>
-<li><strong>Getting help</strong>: Office hours from the teaching team generally preferred to email.</li>
-</ul>
-</div>
-</section>
-<section id="note-on-ai-usage" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="note-on-ai-usage">Note on AI usage</h2>
-<p>My research focuses on large language models (LLMs), which have seen incredible progress in recent years. I probably don’t need to tell you how powerful ChatGPT can be!</p>
-<p>A few points need to be made here:</p>
-<div class="incremental">
-<ul class="incremental">
-<li>Tools like ChatGPT will likely keep getting better, and we shouldn’t ignore that.</li>
-<li>Doing CSS “in the wild” may sometimes benefit from using ChatGPT!</li>
-<li>Separately, CSS “in the wild” is not done in an insolated test-taking environment.</li>
-<li>It’s also still important (I think) to learn the <strong>fundamentals</strong> .
-<ul class="incremental">
-<li>I can use ChatGPT more effectively when I know <em>what I want to do</em>.</li>
-</ul></li>
-<li>Thus, our assessments combine:
-<ul class="incremental">
-<li>Take-home work (more “ecologically valid”).</li>
-<li>Work requiring “endogenous” problem-solving (in-person midterm).</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="final-project" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="final-project">Final project</h2>
-<p>The final project will be done independently, and will involve <strong>replicating</strong> from start to finish a published analysis in the CSS domain of your choice.</p>
-<div class="incremental">
-<ul class="incremental">
-<li>You have a lot of freedom here, but I recommend:
-<ul class="incremental">
-<li>Thinking about this <strong>early on</strong>. Happy to point people to useful resources!</li>
-<li>Choosing something that’s <strong>challenging</strong> (but also doable!).</li>
-</ul></li>
-<li><strong>Extensions</strong> to existing work (e.g., new analyses) will be encouraged.</li>
-<li>Your <strong>deliverables</strong> will be:
-<ul class="incremental">
-<li>A final report (turned in via Canvas).</li>
-<li>A final presentation (delivered week 10).</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="tooling-prerequisites-and-tech-setup" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="tooling-prerequisites-and-tech-setup">Tooling, prerequisites, and tech setup</h2>
-<p>This course will involve quite a bit of programming in R.</p>
-<div class="incremental">
-<ul class="incremental">
-<li>Week 1 will cover <strong>tooling</strong>. You’ll need R installed and RStudio.</li>
-<li>No explicit prerequisites, though some programming background (like CSS bootcamp!) will be helpful.</li>
-</ul>
-</div>
-</section>
-<section id="topics-and-schedule" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="topics-and-schedule">Topics and schedule</h2>
-<p>Topics will be roughly as follows:</p>
-<div class="incremental">
-<ul class="incremental">
-<li><strong>Week 1</strong>: Introduction to R and the RStudio environment.
-<ul class="incremental">
-<li>(Plus some philophy of science.)</li>
-</ul></li>
-<li><strong>Weeks 2-3</strong>: Data wrangling and visualization.</li>
-<li><strong>Weeks 4-5</strong>: Deep dive into linear regression.</li>
-<li><strong>Weeks 6-8</strong>: Advanced statistical techniques.<br>
+<li>CSS is <strong>pluralistic</strong> in terms of <em>methods</em> and <em>research questions</em>: no single “correct” approach.<br>
 </li>
-<li><strong>Weeks 9-10</strong>: Best practices, final project work and presentations.</li>
+<li>Multiple <em>epistemological challenges</em> facing empirical science.</li>
+<li>This course will focus on <em>statistical methods</em>, but we’ll also touch on other core issues, especially <strong>construct validity</strong>.</li>
 </ul>
 </div>
-</section>
-<section id="welcome-to-css-211" class="level2">
-<h2 class="anchored" data-anchor-id="welcome-to-css-211">Welcome to CSS 211!</h2>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Key takeaway
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Producing knowledge is <em>hard</em>, but methodological and theoretical <em>principles</em> can help guide us.</p>
+</div>
+</div>
+</div>
 
 
 </section>
