@@ -1,0 +1,193 @@
+---
+title: "Lab 1: Introduction to R"
+---
+
+
+## Introduction
+
+
+**Name:** ___________________________
+
+**Date:** ___________________________
+
+## Introduction
+
+The goal of this lab is to familiarize you with using **R and RStudio**. You'll get hands-on practice with:
+
+- Performing simple calculations (basic arithmetic, mean, etc.). 
+- Working with variables. 
+- Creating simple variables.
+
+Note that this lab will all be in "base R", meaning we won't (yet) be working with packages like `tidyverse`. 
+
+## Exercise 1: Basic Arithmetic
+
+R can be used as a calculator. Try the following operations:
+
+```{r exercise1a}
+# Addition
+5 + 3
+
+```
+
+```{r exercise1b}
+# Subtraction
+10 - 4
+
+```
+
+```{r exercise1c}
+# Multiplication
+6 * 7
+
+```
+
+```{r exercise1d}
+# Division
+20 / 4
+
+```
+
+**Your turn:** Calculate $15 + 8 * 3 - 2$
+
+```{r exercise1e}
+# Write your code here:
+
+
+```
+
+## Exercise 2: Variables and Assignment
+
+In R, we can store values in variables using the assignment operator `<-`.
+
+```{r exercise2a}
+# Create a variable called 'my_age' and assign it your age
+my_age <- 25  # Replace 25 with your actual age
+
+# Print the variable
+my_age
+
+```
+
+**Your turn:** Create two variables representing the number of hours you studied yesterday and today. Calculate the total hours.
+
+```{r exercise2b}
+# Write your code here:
+
+
+
+
+```
+
+## Exercise 3: Vectors and Basic Statistics
+
+Vectors are collections of values. We create them using the `c()` function.
+
+```{r exercise3a}
+# Create a vector of test scores
+test_scores <- c(85, 92, 78, 96, 88, 91, 83)
+
+# Display the vector
+test_scores
+
+```
+
+```{r exercise3b}
+# Calculate basic statistics
+mean(test_scores)     # Mean (average)
+median(test_scores)   # Median (middle value)
+sd(test_scores)       # Standard deviation
+length(test_scores)   # Number of values
+
+```
+
+**Your turn:** Create a vector with the ages of 5 family members or friends. Calculate the mean and standard deviation.
+
+```{r exercise3c}
+# Write your code here:
+
+
+
+
+
+```
+
+## Exercise 4: Creating Data
+
+Let's create some sample data to work with:
+
+```{r exercise4a}
+# Create a vector of 50 random numbers from a normal distribution
+# with mean = 100 and standard deviation = 15
+random_data <- rnorm(50, mean = 100, sd = 15)
+
+# Look at the first 10 values
+head(random_data, 10)
+
+```
+
+```{r exercise4b}
+# Calculate summary statistics for this data
+mean(random_data)
+sd(random_data)
+min(random_data)
+max(random_data)
+
+```
+
+**Your turn:** Create a vector of 30 random numbers with mean = 50 and sd = 5. Calculate its summary statistics.
+
+```{r exercise4c}
+# Write your code here:
+
+
+
+
+
+```
+
+## Exercise 5: Basic Plotting
+
+R has built-in functions for creating plots. Let's make a histogram:
+
+```{r exercise5a}
+# Create a histogram of our random data
+hist(random_data, 
+     main = "Histogram of Random Data",
+     xlab = "Value",
+     ylab = "Frequency",
+     col = "lightblue")
+
+```
+
+```{r exercise5b}
+# Create a simple scatterplot
+x_values <- c(1, 2, 3, 4, 5)
+y_values <- c(2, 4, 1, 5, 3)
+
+plot(x_values, y_values,
+     main = "Simple Scatterplot",
+     xlab = "X Values",
+     ylab = "Y Values",
+     pch = 16,  # Solid circles
+     col = "red")
+
+```
+
+**Your turn:** Create a histogram of the family ages vector you created in Exercise 3. Add appropriate labels.
+
+```{r exercise5c}
+# Write your code here:
+
+
+
+
+```
+
+
+## Submission Instructions
+
+1. Make sure all your code chunks run without errors
+2. Save this file with your name in the filename (e.g., "Lab1_YourLastName.qmd")
+3. Render the document to HTML 
+4. Submit both the .qmd file and the rendered HTML file to Canvas
