@@ -20,7 +20,7 @@ My goal is that by the end of this course, students will be able to:
 
 | Name | Role | OH Time | Email |
 |------|------|---------|-------|
-| Sean Trott | Instructor | TBD | sttrott@ucsd.edu |
+| Sean Trott | Instructor | Friday 1-2pm (CSB 259) | sttrott@ucsd.edu |
 | TBD | TA | TBD | TBD |
 
 ## Prerequisites

@@ -4,56 +4,441 @@
     "href": "schedule.html",
     "title": "CSS 211 Schedule",
     "section": "",
-    "text": "This is a tentative schedule of which topics I plan to cover. Note that while all lectures will have an interactive component, Fridays are reserved for more hands-on labs—typically involving a CSS-relevant dataset—with active participation encouraged.\nReadings are option; “ISLR” refers to “Introduction to Statistical Learning in R” (James et al.), which can be downloaded here.\n\n\n\nWeek\nDay\nDate\nTopic(s)\nAssignments Due\nSuggested readings\n\n\n\n\n0\nF\n09-26\nCourse Introduction\n\n\n\n\n1\nM\n09-30\nPhilosophy of Science in CSS\n\nIntroduction to R for Data Science\n\n\n1\nW\n10-02\nIntroduction to R and RStudio\n\n\n\n\n1\nF\n10-04\nR basics [LAB]\nLab 1\n\n\n\n2\nM\n10-07\nData wrangling\n\nTidy data (Wickham, 2011)\n\n\n2\nW\n10-09\nData wrangling\n\n\n\n\n2\nF\n10-11\nHands-on data cleaning [LAB]\nConcept quiz\n\n\n\n3\nM\n10-14\nData visualization (principles)\n\nIntroduction to Data Visualization in R\n\n\n3\nW\n10-16\nData visualization (ggplot)\n\n\n\n\n3\nF\n10-18\nExploratory data analysis [LAB]\nLab 2\n\n\n\n4\nM\n10-21\nLinear regression\n\nISLR, 3.1\n\n\n4\nW\n10-23\nLinear regression\n\n\n\n\n4\nF\n10-25\nHands-on regression [LAB]\nConcept quiz\n\n\n\n5\nM\n10-28\nMultiple regression\n\nISLR, 3.2\n\n\n5\nW\n10-30\nRegression: issues\n\n\n\n\n5\nF\n11-01\nBuilding complex models [LAB]\nLab 3\n\n\n\n6\nM\n11-04\nLogistic regression\n\nISLR, 4.3\n\n\n6\nW\n11-06\nRegularization\n\nISLR, 6.2\n\n\n6\nF\n11-08\nInterpreting logistic models [LAB]\nConcept quiz\n\n\n\n7\nM\n11-11\nMixed effects models\n\nWinter, 2013\n\n\n7\nW\n11-13\nMixed models + model selection\n\n\n\n\n7\nF\n11-15\nIn-class midterm\nMidterm!\n\n\n\n8\nM\n11-18\nResampling\n\nISLR, 5.2\n\n\n8\nW\n11-20\nResampling\nLab 4\n\n\n\n8\nF\n11-22\nBuild your own baseline [LAB]\nConcept quiz\n\n\n\n9\nM\n11-25\nFinal project check-in\n\n\n\n\n9\nW\n11-27\nHOLIDAY (Thanksgiving)\n\n\n\n\n9\nF\n11-29\nHOLIDAY (Thanksgiving)\n\n\n\n\n10\nM\n12-02\nBest practices, Wrap-up\n\n\n\n\n10\nW\n12-04\nFinal project presentations (pt. 1)\n\n\n\n\n10\nF\n12-06\nFinal project presentations (pt. 2)\n\n\n\n\n11\nW\n12-09\n\nFinal report due"
+    "text": "This is a tentative schedule of which topics I plan to cover. Note that while all lectures will have an interactive component, Fridays are reserved for more hands-on labs—typically involving a CSS-relevant dataset—with active participation encouraged.\nReadings are option; “ISLR” refers to “Introduction to Statistical Learning in R” (James et al.), which can be downloaded here.\n\n\n\nWeek\nDay\nDate\nTopic(s)\nAssignments Due\nSuggested readings\n\n\n\n\n0\nF\n09-26\nCourse Introduction\n\n\n\n\n1\nM\n09-30\nPhilosophy of Science in CSS\n\nIntroduction to R for Data Science\n\n\n1\nW\n10-01\nIntroduction to R and RStudio\n\n\n\n\n1\nF\n10-03\nR basics [LAB]\nLab 1\n\n\n\n2\nM\n10-06\nData wrangling\n\nTidy data (Wickham, 2011)\n\n\n2\nW\n10-08\nData wrangling\n\n\n\n\n2\nF\n10-10\nHands-on data cleaning [LAB]\nConcept quiz\n\n\n\n3\nM\n10-13\nData visualization (principles)\n\nIntroduction to Data Visualization in R\n\n\n3\nW\n10-15\nData visualization (ggplot)\n\n\n\n\n3\nF\n10-17\nExploratory data analysis [LAB]\nLab 2\n\n\n\n4\nM\n10-20\nLinear regression\n\nISLR, 3.1\n\n\n4\nW\n10-22\nLinear regression\n\n\n\n\n4\nF\n10-24\nHands-on regression [LAB]\nConcept quiz\n\n\n\n5\nM\n10-27\nMultiple regression\n\nISLR, 3.2\n\n\n5\nW\n10-29\nRegression: issues\n\n\n\n\n5\nF\n10-31\nBuilding complex models [LAB]\nLab 3\n\n\n\n6\nM\n11-03\nLogistic regression\n\nISLR, 4.3\n\n\n6\nW\n11-05\nRegularization\n\nISLR, 6.2\n\n\n6\nF\n11-07\nInterpreting logistic models [LAB]\nConcept quiz\n\n\n\n7\nM\n11-10\nMixed effects models\n\nWinter, 2013\n\n\n7\nW\n11-12\nMixed models + model selection\n\n\n\n\n7\nF\n11-14\nIn-class midterm\nMidterm!\n\n\n\n8\nM\n11-17\nResampling\n\nISLR, 5.2\n\n\n8\nW\n11-19\nResampling\nLab 4\n\n\n\n8\nF\n11-21\nBuild your own baseline [LAB]\nConcept quiz\n\n\n\n9\nM\n11-24\nFinal project check-in\n\n\n\n\n9\nW\n11-26\nHOLIDAY (Thanksgiving)\n\n\n\n\n9\nF\n11-28\nHOLIDAY (Thanksgiving)\n\n\n\n\n10\nM\n12-01\nBest practices, Wrap-up\n\n\n\n\n10\nW\n12-03\nFinal project presentations (pt. 1)\n\n\n\n\n10\nF\n12-05\nFinal project presentations (pt. 2)\n\n\n\n\n11\nW\n12-10\n\nFinal report due"
   },
   {
-    "objectID": "lectures/week1-philosophy.html",
-    "href": "lectures/week1-philosophy.html",
-    "title": "The problem of knowledge",
+    "objectID": "lectures/week1-r-intro.html",
+    "href": "lectures/week1-r-intro.html",
+    "title": "Introduction to R",
     "section": "",
-    "text": "What is knowledge and how do we produce it?\nPerspectives on scientific knowledge.\nEpistemological and ethical challenges facing CSS."
+    "text": "Brief tooling.\nWhy R?\nIntroduction to “base R”.\nBrief preview of the tidyverse.\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nNote that today’s lecture will extend to Friday’s in-class lab slot. Depending on whether we have time on Friday, we can also work on the take-hom lab in Friday’s class."
   },
   {
-    "objectID": "lectures/week1-philosophy.html#goals-of-the-lecture",
-    "href": "lectures/week1-philosophy.html#goals-of-the-lecture",
-    "title": "The problem of knowledge",
+    "objectID": "lectures/week1-r-intro.html#goals-of-the-lecture",
+    "href": "lectures/week1-r-intro.html#goals-of-the-lecture",
+    "title": "Introduction to R",
     "section": "",
-    "text": "What is knowledge and how do we produce it?\nPerspectives on scientific knowledge.\nEpistemological and ethical challenges facing CSS."
+    "text": "Brief tooling.\nWhy R?\nIntroduction to “base R”.\nBrief preview of the tidyverse.\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nNote that today’s lecture will extend to Friday’s in-class lab slot. Depending on whether we have time on Friday, we can also work on the take-hom lab in Friday’s class."
   },
   {
-    "objectID": "lectures/week1-phil-slides.html#goals-of-the-lecture",
-    "href": "lectures/week1-phil-slides.html#goals-of-the-lecture",
-    "title": "The problem of knowledge",
+    "objectID": "lectures/week1-r-intro.html#tooling-briefly",
+    "href": "lectures/week1-r-intro.html#tooling-briefly",
+    "title": "Introduction to R",
+    "section": "Tooling (briefly)",
+    "text": "Tooling (briefly)\n\nOne of the most frustrating parts of programming is tooling: getting your computer set up to actually do the stuff you want to learn about.\n\nIn this class, we’ll be working with the R programming language using a desktop IDE called RStudio.\n\n\nLinks to download and install RStudio can be found here.\nFollow the instructions: will include downloading and installing R.\n\nTo avoid other tooling headaches, we’ll just be using Canvas for course management.\nWe won’t be relying on GitHub, but it’s also very useful and important!"
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#why-r",
+    "href": "lectures/week1-r-intro.html#why-r",
+    "title": "Introduction to R",
+    "section": "Why R?",
+    "text": "Why R?\nThere are many different programming languages. Why use R?\n\n\nR was specifically designed for data analysis.\n\nR supports a number of open-source packages to make data analysis easier.\n\nggplot, dplyr, lme4.\nWe’ll be learning all about these in the course!\n\nOther CSS-relevant languages include Python and SQL.\n\nLearning R is not incompatible with learning these!"
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#introduction-to-base-r",
+    "href": "lectures/week1-r-intro.html#introduction-to-base-r",
+    "title": "Introduction to R",
+    "section": "Introduction to “base” R",
+    "text": "Introduction to “base” R\n\n“Base” R just refers to the set of functions and tools available “out of the box”, without using additional packages like tidyverse.\n\nBase R includes (but is not limited to):\n\n\nBasic mechanics like variable assignment.\nSimple functions like plot, as well as core types like vectors.\nStatistical methods like lm and anova (which we’ll discuss later)."
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#variable-assignment",
+    "href": "lectures/week1-r-intro.html#variable-assignment",
+    "title": "Introduction to R",
+    "section": "Variable assignment",
+    "text": "Variable assignment\n\nVariables allow us to store information (values, vectors, etc.) so we can use it again later.\n\nHere, we create a variable called account, so we can add to it.\n\n# Our first R variable\naccount &lt;- 20 ### assign value to variable\naccount + 25 ### add to variable\n\n[1] 45\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nYou can also use = for assignment, but &lt;- is the R convention. (For most purposes in this course, it shouldn’t matter which you use, and I sometimes mix them up!)\n\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nTry adding different numbers to account. What do you think will happen if you add a string like 'CSS'?"
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#basic-variable-types",
+    "href": "lectures/week1-r-intro.html#basic-variable-types",
+    "title": "Introduction to R",
+    "section": "Basic variable types",
+    "text": "Basic variable types\n\nEach variable has a certain type or class.\n\nYou can do different things with different types of variables. For instance, you can’t calculate the mean of multiple characters, but you can for numeric types.\n\n\n\n\n\n\n\n\nType\nWhat it is\nExample\n\n\n\n\nnumeric\nNumbers (integers & decimals)\nage &lt;- 25, gpa &lt;- 3.7\n\n\ncharacter\nText strings\nname &lt;- \"Alice\"\n\n\nlogical\nTRUE/FALSE values\npassed &lt;- TRUE\n\n\ninteger\nWhole numbers only\ncount &lt;- 5L\n\n\nfactor\nCategorical data\ngrade &lt;- factor(\"A\")\n\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nUse the typeof() or class() functions to check the type of different variables or values."
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#basic-operations-with-numeric-variables",
+    "href": "lectures/week1-r-intro.html#basic-operations-with-numeric-variables",
+    "title": "Introduction to R",
+    "section": "Basic Operations with Numeric Variables",
+    "text": "Basic Operations with Numeric Variables\nnumeric variables allow for a number of arithmetic operations (like a calculator).\n\n# Creating numeric variables\nmy_var &lt;- 5\n\n\nmy_var + 1 ### Addition\n\n[1] 6\n\nmy_var * 2 ### Multiplication\n\n[1] 10\n\nmy_var / 2 ### Division\n\n[1] 2.5\n\nmy_var ** 2 ### Exponentiation\n\n[1] 25"
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#vectors-building-blocks-of-r",
+    "href": "lectures/week1-r-intro.html#vectors-building-blocks-of-r",
+    "title": "Introduction to R",
+    "section": "Vectors: Building Blocks of R",
+    "text": "Vectors: Building Blocks of R\n\nA vector is a collection of elements with the same class.\n\nVectors can be created with the c(...) function.\n\n# Creating vector\nmy_vector &lt;- c(25, 30, 32)\nprint(my_vector)\n\n[1] 25 30 32\n\nprint(my_vector[1])\n\n[1] 25\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nCreate your own vector, this time with character types in it. Try indexing into different parts of the vector."
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#working-with-vectors",
+    "href": "lectures/week1-r-intro.html#working-with-vectors",
+    "title": "Introduction to R",
+    "section": "Working with vectors",
+    "text": "Working with vectors\nLike scalars, numeric vectors can be manipulated mathematically.\n\nmy_vector + 1 ### add 1 to each element\n\n[1] 26 31 33\n\nmy_vector * 5 ### Multiply each element by 5\n\n[1] 125 150 160\n\nmy_vector + c(1, 2, 3) ### Add vector to another vector\n\n[1] 26 32 35\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nWhat do you think will happen if you try to add two vectors of different lengths?"
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#functions",
+    "href": "lectures/week1-r-intro.html#functions",
+    "title": "Introduction to R",
+    "section": "Functions",
+    "text": "Functions\n\nA function implements some operation; you can think of it as a verb applied to some input.\n\nIn CSS, you’ll often be using functions to summarize your data (like a vector).\n\n# Creating vector\nheights &lt;- c(60, 65, 62, 70, 72, 73)\n\nmean(heights)\n\n[1] 67\n\nmedian(heights)\n\n[1] 67.5\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nCreate a vector containing possible incomes; then create the mean and median of this vector."
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#creating-vectors-from-distributions-pt.-1",
+    "href": "lectures/week1-r-intro.html#creating-vectors-from-distributions-pt.-1",
+    "title": "Introduction to R",
+    "section": "Creating vectors from distributions (pt. 1)",
+    "text": "Creating vectors from distributions (pt. 1)\nIn addition to creating vectors by hand, we can use functions to create random vectors by sampling from some distribution, e.g., a normal distribution (rnorm(x, mean, sd)).\n\n# Creating vector\nv_norm = rnorm(100, mean = 50, sd = 2)\nhist(v_norm)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nTry changing the different parameters of rnorm and then plotting the resulting vector again using hist. What do you notice about changing the mean or sd?"
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#creating-vectors-from-distributions-pt.-2",
+    "href": "lectures/week1-r-intro.html#creating-vectors-from-distributions-pt.-2",
+    "title": "Introduction to R",
+    "section": "Creating vectors from distributions (pt. 2)",
+    "text": "Creating vectors from distributions (pt. 2)\nThere are also many types of distributions beyond normal distributions.\n\n\nUniform distributions: use runif.\nBinomial distributions: use rbinom.\nPoisson distributions: use rpois.\nSampling from these distributions (and visualizing them) is a helpful way to learn about different statistical distributions.\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nCreate a uniform distribution with runif with 100 values ranging from 2 to 3. If you’re not sure how to do this, use ?runif to learn more about the function."
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#interim-summary",
+    "href": "lectures/week1-r-intro.html#interim-summary",
+    "title": "Introduction to R",
+    "section": "Interim summary",
+    "text": "Interim summary\nSo far, we’ve covered a number of core topics in base R.\n\n\nAssigning and working with variables.\nDifferent types of variables.\nApplying functions to variables.\nCreating vectors and visualizing them with hist.\nSampling from statistical distribution.\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nAny questions before we move on to creating dataframes and other kinds of plots?"
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#dataframes",
+    "href": "lectures/week1-r-intro.html#dataframes",
+    "title": "Introduction to R",
+    "section": "Dataframes",
+    "text": "Dataframes\n\nThe data.frame class is a “tightly coupled collection of variables”; it’s also a fundamental data structure in R.\n\n\n\nLike a matrix, but with labeled columns of the same length.\nEach column corresponds to a vector of values (numbers, characters, etc.).\nSupports many useful operations.\nAnalogous to pandas.DataFrame in Python!\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nNote that once we move to the tidyverse, we’ll be working with tibbles, which are basically like a data.frame."
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#creating-a-data.frame",
+    "href": "lectures/week1-r-intro.html#creating-a-data.frame",
+    "title": "Introduction to R",
+    "section": "Creating a data.frame",
+    "text": "Creating a data.frame\n\n\nA data.frame can be created using the data.frame function.\nPass in labeled vectors of the same length.\n\n\n\ndf_example = data.frame(hours_studied = c(0, 2, 2, 3, 5, 8), test_score = c(70, 85, 89, 89, 94, 95))\nhead(df_example, 2)\n\n  hours_studied test_score\n1             0         70\n2             2         85\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nTry creating your own data.frame with custom columns. For example, one column could be movie_title and another could be your rating of that movie. Make sure the columns are the same length!"
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#exploring-a-data.frame",
+    "href": "lectures/week1-r-intro.html#exploring-a-data.frame",
+    "title": "Introduction to R",
+    "section": "Exploring a data.frame",
+    "text": "Exploring a data.frame\nWe can use functions like nrow, head, and colnames to learn about our data.frame.\n\nprint(nrow(df_example)) ### How many rows?\n\n[1] 6\n\nprint(colnames(df_example)) ### Column names\n\n[1] \"hours_studied\" \"test_score\"   \n\nprint(head(df_example, 2)) ### First two rows\n\n  hours_studied test_score\n1             0         70\n2             2         85\n\nprint(str(df_example)) ### Structure of data\n\n'data.frame':   6 obs. of  2 variables:\n $ hours_studied: num  0 2 2 3 5 8\n $ test_score   : num  70 85 89 89 94 95\nNULL\n\nprint(summary(df_example)) ### Summary of each column\n\n hours_studied     test_score   \n Min.   :0.000   Min.   :70.00  \n 1st Qu.:2.000   1st Qu.:86.00  \n Median :2.500   Median :89.00  \n Mean   :3.333   Mean   :87.00  \n 3rd Qu.:4.500   3rd Qu.:92.75  \n Max.   :8.000   Max.   :95.00"
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#accessing-individual-columns",
+    "href": "lectures/week1-r-intro.html#accessing-individual-columns",
+    "title": "Introduction to R",
+    "section": "Accessing individual columns",
+    "text": "Accessing individual columns\nYou can access individual columns using the dataframe$column_name syntax.\n\ndf_example$hours_studied ### Get vector\n\n[1] 0 2 2 3 5 8\n\nsummary(df_example$hours_studied) ### Get summary of vector\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  0.000   2.000   2.500   3.333   4.500   8.000"
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#filtering-a-data.frame",
+    "href": "lectures/week1-r-intro.html#filtering-a-data.frame",
+    "title": "Introduction to R",
+    "section": "Filtering a data.frame",
+    "text": "Filtering a data.frame\nIn base R, you can filter a data.frame using the df[CONDITION] syntax, where CONDITION corresponds to a logical statement.\n\ndf_example[df_example$hours_studied &gt; 2, ]\n\n  hours_studied test_score\n4             3         89\n5             5         94\n6             8         95\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nIn the tidyverse, we can use the handy filter function."
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#simple-bivariate-plots",
+    "href": "lectures/week1-r-intro.html#simple-bivariate-plots",
+    "title": "Introduction to R",
+    "section": "Simple bivariate plots",
+    "text": "Simple bivariate plots\nOnce you have multiple vectors, you can plot the relationship between them, e.g., using a simple scatterplot.\n\nplot(df_example$hours_studied, \n     df_example$test_score,\n     xlab = \"Hours Studied\", \n     ylab = \"Test Score\",\n     pch = 16, # Filled circles\n     col = \"blue\")"
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#calculating-correlations",
+    "href": "lectures/week1-r-intro.html#calculating-correlations",
+    "title": "Introduction to R",
+    "section": "Calculating correlations",
+    "text": "Calculating correlations\nYou can also quantify the relationship between variables, e.g., using a Pearson’s r correlation coefficient.\n\ncor.test(df_example$hours_studied, df_example$test_score)\n\n\n    Pearson's product-moment correlation\n\ndata:  df_example$hours_studied and df_example$test_score\nt = 2.8958, df = 4, p-value = 0.0443\nalternative hypothesis: true correlation is not equal to 0\n95 percent confidence interval:\n 0.03391115 0.97998161\nsample estimates:\n      cor \n0.8228274"
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#working-with-missing-data",
+    "href": "lectures/week1-r-intro.html#working-with-missing-data",
+    "title": "Introduction to R",
+    "section": "Working with missing data",
+    "text": "Working with missing data\nReal data often contains missing values. R represents these as NA (Not Available). We’ll discuss these in more detail next week, but here’s a preview:\n\n# Vector with missing data\nsurvey_responses &lt;- c(85, 92, NA, 78, NA, 88)\nmean(survey_responses)                    # Returns NA!\n\n[1] NA\n\nmean(survey_responses, na.rm = TRUE)      # Remove NAs first: 85.75\n\n[1] 85.75"
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#working-with-missing-data-pt.-2",
+    "href": "lectures/week1-r-intro.html#working-with-missing-data-pt.-2",
+    "title": "Introduction to R",
+    "section": "Working with missing data (pt. 2)",
+    "text": "Working with missing data (pt. 2)\nYou can remove missing data by filtering the data.frame, using the syntax below and the is.na condition.\n\n# Vector with missing data\nsurvey_responses[is.na(survey_responses) == FALSE]\n\n[1] 85 92 78 88"
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#putting-it-together-simulating-data",
+    "href": "lectures/week1-r-intro.html#putting-it-together-simulating-data",
+    "title": "Introduction to R",
+    "section": "Putting it together: simulating data",
+    "text": "Putting it together: simulating data\nSo far, we’ve discussed a number of useful concepts in R:\n\n\nWorking with vectors.\nSimulating random distributions using rnorm.\nCreating data.frame objects and plotting or analyzing them.\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nNow, let’s simulate data.\n\nFirst, use rnorm to create a random normal distribution of parent_heights (use parameters that seem reasonable to you).\nThen, create a second variable called child_heights that’s related to parent_heights, ideally with some random error added. (Hint: Think about how a regression line works.).\nPut these variables in a data.frame.\nFinally, plot the relationship between those variables and calculate the correlation."
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#simulating-data",
+    "href": "lectures/week1-r-intro.html#simulating-data",
+    "title": "Introduction to R",
+    "section": "Simulating data",
+    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\n\n\n\n\n\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8434487"
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#a-conceptual-preview-of-the-tidyverse",
+    "href": "lectures/week1-r-intro.html#a-conceptual-preview-of-the-tidyverse",
+    "title": "Introduction to R",
+    "section": "A conceptual preview of the tidyverse",
+    "text": "A conceptual preview of the tidyverse\nNext week, we’ll discuss the tidyverse: a set of packages and functions developed to make data analysis and visualization in R easier.\nThis includes (but is not limited to):\n\n\nFunctions for transforming data, e.g., filter or mutate.\nFunctions for merging data, like left_join or inner_join.\nFunctions for visualizing data, like ggplot."
+  },
+  {
+    "objectID": "lectures/week1-r-intro.html#lecture-wrap-up",
+    "href": "lectures/week1-r-intro.html#lecture-wrap-up",
+    "title": "Introduction to R",
+    "section": "Lecture wrap-up",
+    "text": "Lecture wrap-up\nThis course is not primarily about programming in R, but programming in R is a foundational skill for other parts of this course.\nThis lecture (and accompanying lab) is intended to give you more comfort with the following concepts:\n\n\nWorking with variables and different types of data.\nCreating and working with vectors.\n\nSimple plotting.\nWorking with data.frame objects."
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#goals-of-the-lecture",
+    "href": "lectures/week1-r-intro-slides.html#goals-of-the-lecture",
+    "title": "Introduction to R",
     "section": "Goals of the lecture",
-    "text": "Goals of the lecture\n\nWhat is knowledge and how do we produce it?\nPerspectives on scientific knowledge.\nEpistemological and ethical challenges facing CSS."
+    "text": "Goals of the lecture\n\nBrief tooling.\nWhy R?\nIntroduction to “base R”.\nBrief preview of the tidyverse.\n\n\n\n\n\nNote\n\n\nNote that today’s lecture will extend to Friday’s in-class lab slot. Depending on whether we have time on Friday, we can also work on the take-hom lab in Friday’s class."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "CSS 211: Statistical Methods for Computational Social Science",
+    "objectID": "lectures/week1-r-intro-slides.html#tooling-briefly",
+    "href": "lectures/week1-r-intro-slides.html#tooling-briefly",
+    "title": "Introduction to R",
+    "section": "Tooling (briefly)",
+    "text": "Tooling (briefly)\n\nOne of the most frustrating parts of programming is tooling: getting your computer set up to actually do the stuff you want to learn about.\n\nIn this class, we’ll be working with the R programming language using a desktop IDE called RStudio.\n\nLinks to download and install RStudio can be found here.\nFollow the instructions: will include downloading and installing R.\n\nTo avoid other tooling headaches, we’ll just be using Canvas for course management.\nWe won’t be relying on GitHub, but it’s also very useful and important!"
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#why-r",
+    "href": "lectures/week1-r-intro-slides.html#why-r",
+    "title": "Introduction to R",
+    "section": "Why R?",
+    "text": "Why R?\nThere are many different programming languages. Why use R?\n\nR was specifically designed for data analysis.\n\nR supports a number of open-source packages to make data analysis easier.\n\nggplot, dplyr, lme4.\nWe’ll be learning all about these in the course!\n\nOther CSS-relevant languages include Python and SQL.\n\nLearning R is not incompatible with learning these!"
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#introduction-to-base-r",
+    "href": "lectures/week1-r-intro-slides.html#introduction-to-base-r",
+    "title": "Introduction to R",
+    "section": "Introduction to “base” R",
+    "text": "Introduction to “base” R\n\n“Base” R just refers to the set of functions and tools available “out of the box”, without using additional packages like tidyverse.\n\nBase R includes (but is not limited to):\n\nBasic mechanics like variable assignment.\nSimple functions like plot, as well as core types like vectors.\nStatistical methods like lm and anova (which we’ll discuss later)."
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#variable-assignment",
+    "href": "lectures/week1-r-intro-slides.html#variable-assignment",
+    "title": "Introduction to R",
+    "section": "Variable assignment",
+    "text": "Variable assignment\n\nVariables allow us to store information (values, vectors, etc.) so we can use it again later.\n\nHere, we create a variable called account, so we can add to it.\n\n# Our first R variable\naccount &lt;- 20 ### assign value to variable\naccount + 25 ### add to variable\n\n\n\n[1] 45\n\n\n\n\n\n\nNote\n\n\nYou can also use = for assignment, but &lt;- is the R convention. (For most purposes in this course, it shouldn’t matter which you use, and I sometimes mix them up!)\n\n\n\n\n\n\n\n\n💭 Check-in\n\n\nTry adding different numbers to account. What do you think will happen if you add a string like 'CSS'?"
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#basic-variable-types",
+    "href": "lectures/week1-r-intro-slides.html#basic-variable-types",
+    "title": "Introduction to R",
+    "section": "Basic variable types",
+    "text": "Basic variable types\n\nEach variable has a certain type or class.\n\nYou can do different things with different types of variables. For instance, you can’t calculate the mean of multiple characters, but you can for numeric types.\n\n\n\n\n\n\n\n\nType\nWhat it is\nExample\n\n\n\n\nnumeric\nNumbers (integers & decimals)\nage &lt;- 25, gpa &lt;- 3.7\n\n\ncharacter\nText strings\nname &lt;- \"Alice\"\n\n\nlogical\nTRUE/FALSE values\npassed &lt;- TRUE\n\n\ninteger\nWhole numbers only\ncount &lt;- 5L\n\n\nfactor\nCategorical data\ngrade &lt;- factor(\"A\")\n\n\n\n\n\n\n\n💭 Check-in\n\n\nUse the typeof() or class() functions to check the type of different variables or values."
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#basic-operations-with-numeric-variables",
+    "href": "lectures/week1-r-intro-slides.html#basic-operations-with-numeric-variables",
+    "title": "Introduction to R",
+    "section": "Basic Operations with Numeric Variables",
+    "text": "Basic Operations with Numeric Variables\nnumeric variables allow for a number of arithmetic operations (like a calculator).\n\n# Creating numeric variables\nmy_var &lt;- 5\n\n\nmy_var + 1 ### Addition\n\n\n\n[1] 6\n\nmy_var * 2 ### Multiplication\n\n[1] 10\n\nmy_var / 2 ### Division\n\n[1] 2.5\n\nmy_var ** 2 ### Exponentiation\n\n[1] 25"
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#vectors-building-blocks-of-r",
+    "href": "lectures/week1-r-intro-slides.html#vectors-building-blocks-of-r",
+    "title": "Introduction to R",
+    "section": "Vectors: Building Blocks of R",
+    "text": "Vectors: Building Blocks of R\n\nA vector is a collection of elements with the same class.\n\nVectors can be created with the c(...) function.\n\n# Creating vector\nmy_vector &lt;- c(25, 30, 32)\nprint(my_vector)\n\n\n\n[1] 25 30 32\n\nprint(my_vector[1])\n\n[1] 25\n\n\n\n\n\n\n💭 Check-in\n\n\nCreate your own vector, this time with character types in it. Try indexing into different parts of the vector."
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#working-with-vectors",
+    "href": "lectures/week1-r-intro-slides.html#working-with-vectors",
+    "title": "Introduction to R",
+    "section": "Working with vectors",
+    "text": "Working with vectors\nLike scalars, numeric vectors can be manipulated mathematically.\n\nmy_vector + 1 ### add 1 to each element\n\n\n\n[1] 26 31 33\n\nmy_vector * 5 ### Multiply each element by 5\n\n[1] 125 150 160\n\nmy_vector + c(1, 2, 3) ### Add vector to another vector\n\n[1] 26 32 35\n\n\n\n\n\n\n💭 Check-in\n\n\nWhat do you think will happen if you try to add two vectors of different lengths?"
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#functions",
+    "href": "lectures/week1-r-intro-slides.html#functions",
+    "title": "Introduction to R",
+    "section": "Functions",
+    "text": "Functions\n\nA function implements some operation; you can think of it as a verb applied to some input.\n\nIn CSS, you’ll often be using functions to summarize your data (like a vector).\n\n# Creating vector\nheights &lt;- c(60, 65, 62, 70, 72, 73)\n\nmean(heights)\n\n\n\n[1] 67\n\nmedian(heights)\n\n[1] 67.5\n\n\n\n\n\n\n💭 Check-in\n\n\nCreate a vector containing possible incomes; then create the mean and median of this vector."
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#creating-vectors-from-distributions-pt.-1",
+    "href": "lectures/week1-r-intro-slides.html#creating-vectors-from-distributions-pt.-1",
+    "title": "Introduction to R",
+    "section": "Creating vectors from distributions (pt. 1)",
+    "text": "Creating vectors from distributions (pt. 1)\nIn addition to creating vectors by hand, we can use functions to create random vectors by sampling from some distribution, e.g., a normal distribution (rnorm(x, mean, sd)).\n\n# Creating vector\nv_norm = rnorm(100, mean = 50, sd = 2)\nhist(v_norm)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💭 Check-in\n\n\nTry changing the different parameters of rnorm and then plotting the resulting vector again using hist. What do you notice about changing the mean or sd?"
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#creating-vectors-from-distributions-pt.-2",
+    "href": "lectures/week1-r-intro-slides.html#creating-vectors-from-distributions-pt.-2",
+    "title": "Introduction to R",
+    "section": "Creating vectors from distributions (pt. 2)",
+    "text": "Creating vectors from distributions (pt. 2)\nThere are also many types of distributions beyond normal distributions.\n\nUniform distributions: use runif.\nBinomial distributions: use rbinom.\nPoisson distributions: use rpois.\nSampling from these distributions (and visualizing them) is a helpful way to learn about different statistical distributions.\n\n\n\n\n\n💭 Check-in\n\n\nCreate a uniform distribution with runif with 100 values ranging from 2 to 3. If you’re not sure how to do this, use ?runif to learn more about the function."
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#interim-summary",
+    "href": "lectures/week1-r-intro-slides.html#interim-summary",
+    "title": "Introduction to R",
+    "section": "Interim summary",
+    "text": "Interim summary\nSo far, we’ve covered a number of core topics in base R.\n\nAssigning and working with variables.\nDifferent types of variables.\nApplying functions to variables.\nCreating vectors and visualizing them with hist.\nSampling from statistical distribution.\n\n\n\n\n\n💭 Check-in\n\n\nAny questions before we move on to creating dataframes and other kinds of plots?"
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#dataframes",
+    "href": "lectures/week1-r-intro-slides.html#dataframes",
+    "title": "Introduction to R",
+    "section": "Dataframes",
+    "text": "Dataframes\n\nThe data.frame class is a “tightly coupled collection of variables”; it’s also a fundamental data structure in R.\n\n\nLike a matrix, but with labeled columns of the same length.\nEach column corresponds to a vector of values (numbers, characters, etc.).\nSupports many useful operations.\nAnalogous to pandas.DataFrame in Python!\n\n\n\n\n\nNote\n\n\nNote that once we move to the tidyverse, we’ll be working with tibbles, which are basically like a data.frame."
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#creating-a-data.frame",
+    "href": "lectures/week1-r-intro-slides.html#creating-a-data.frame",
+    "title": "Introduction to R",
+    "section": "Creating a data.frame",
+    "text": "Creating a data.frame\n\nA data.frame can be created using the data.frame function.\nPass in labeled vectors of the same length.\n\n\ndf_example = data.frame(hours_studied = c(0, 2, 2, 3, 5, 8), test_score = c(70, 85, 89, 89, 94, 95))\nhead(df_example, 2)\n\n\n\n  hours_studied test_score\n1             0         70\n2             2         85\n\n\n\n\n\n\n💭 Check-in\n\n\nTry creating your own data.frame with custom columns. For example, one column could be movie_title and another could be your rating of that movie. Make sure the columns are the same length!"
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#exploring-a-data.frame",
+    "href": "lectures/week1-r-intro-slides.html#exploring-a-data.frame",
+    "title": "Introduction to R",
+    "section": "Exploring a data.frame",
+    "text": "Exploring a data.frame\nWe can use functions like nrow, head, and colnames to learn about our data.frame.\n\nprint(nrow(df_example)) ### How many rows?\n\n\n\n[1] 6\n\nprint(colnames(df_example)) ### Column names\n\n[1] \"hours_studied\" \"test_score\"   \n\nprint(head(df_example, 2)) ### First two rows\n\n  hours_studied test_score\n1             0         70\n2             2         85\n\nprint(str(df_example)) ### Structure of data\n\n'data.frame':   6 obs. of  2 variables:\n $ hours_studied: num  0 2 2 3 5 8\n $ test_score   : num  70 85 89 89 94 95\nNULL\n\nprint(summary(df_example)) ### Summary of each column\n\n hours_studied     test_score   \n Min.   :0.000   Min.   :70.00  \n 1st Qu.:2.000   1st Qu.:86.00  \n Median :2.500   Median :89.00  \n Mean   :3.333   Mean   :87.00  \n 3rd Qu.:4.500   3rd Qu.:92.75  \n Max.   :8.000   Max.   :95.00"
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#accessing-individual-columns",
+    "href": "lectures/week1-r-intro-slides.html#accessing-individual-columns",
+    "title": "Introduction to R",
+    "section": "Accessing individual columns",
+    "text": "Accessing individual columns\nYou can access individual columns using the dataframe$column_name syntax.\n\ndf_example$hours_studied ### Get vector\n\n\n\n[1] 0 2 2 3 5 8\n\nsummary(df_example$hours_studied) ### Get summary of vector\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  0.000   2.000   2.500   3.333   4.500   8.000"
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#filtering-a-data.frame",
+    "href": "lectures/week1-r-intro-slides.html#filtering-a-data.frame",
+    "title": "Introduction to R",
+    "section": "Filtering a data.frame",
+    "text": "Filtering a data.frame\nIn base R, you can filter a data.frame using the df[CONDITION] syntax, where CONDITION corresponds to a logical statement.\n\ndf_example[df_example$hours_studied &gt; 2, ]\n\n\n\n  hours_studied test_score\n4             3         89\n5             5         94\n6             8         95\n\n\n\n\n\n\nNote\n\n\nIn the tidyverse, we can use the handy filter function."
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#simple-bivariate-plots",
+    "href": "lectures/week1-r-intro-slides.html#simple-bivariate-plots",
+    "title": "Introduction to R",
+    "section": "Simple bivariate plots",
+    "text": "Simple bivariate plots\nOnce you have multiple vectors, you can plot the relationship between them, e.g., using a simple scatterplot.\n\nplot(df_example$hours_studied, \n     df_example$test_score,\n     xlab = \"Hours Studied\", \n     ylab = \"Test Score\",\n     pch = 16, # Filled circles\n     col = \"blue\")"
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#calculating-correlations",
+    "href": "lectures/week1-r-intro-slides.html#calculating-correlations",
+    "title": "Introduction to R",
+    "section": "Calculating correlations",
+    "text": "Calculating correlations\nYou can also quantify the relationship between variables, e.g., using a Pearson’s r correlation coefficient.\n\ncor.test(df_example$hours_studied, df_example$test_score)\n\n\n\n\n    Pearson's product-moment correlation\n\ndata:  df_example$hours_studied and df_example$test_score\nt = 2.8958, df = 4, p-value = 0.0443\nalternative hypothesis: true correlation is not equal to 0\n95 percent confidence interval:\n 0.03391115 0.97998161\nsample estimates:\n      cor \n0.8228274"
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#working-with-missing-data",
+    "href": "lectures/week1-r-intro-slides.html#working-with-missing-data",
+    "title": "Introduction to R",
+    "section": "Working with missing data",
+    "text": "Working with missing data\nReal data often contains missing values. R represents these as NA (Not Available). We’ll discuss these in more detail next week, but here’s a preview:\n\n# Vector with missing data\nsurvey_responses &lt;- c(85, 92, NA, 78, NA, 88)\nmean(survey_responses)                    # Returns NA!\n\n\n\n[1] NA\n\nmean(survey_responses, na.rm = TRUE)      # Remove NAs first: 85.75\n\n[1] 85.75"
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#working-with-missing-data-pt.-2",
+    "href": "lectures/week1-r-intro-slides.html#working-with-missing-data-pt.-2",
+    "title": "Introduction to R",
+    "section": "Working with missing data (pt. 2)",
+    "text": "Working with missing data (pt. 2)\nYou can remove missing data by filtering the data.frame, using the syntax below and the is.na condition.\n\n# Vector with missing data\nsurvey_responses[is.na(survey_responses) == FALSE]\n\n\n\n[1] 85 92 78 88"
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#putting-it-together-simulating-data",
+    "href": "lectures/week1-r-intro-slides.html#putting-it-together-simulating-data",
+    "title": "Introduction to R",
+    "section": "Putting it together: simulating data",
+    "text": "Putting it together: simulating data\nSo far, we’ve discussed a number of useful concepts in R:\n\nWorking with vectors.\nSimulating random distributions using rnorm.\nCreating data.frame objects and plotting or analyzing them.\n\n\n\n\n\n💭 Check-in\n\n\nNow, let’s simulate data.\n\nFirst, use rnorm to create a random normal distribution of parent_heights (use parameters that seem reasonable to you).\nThen, create a second variable called child_heights that’s related to parent_heights, ideally with some random error added. (Hint: Think about how a regression line works.).\nPut these variables in a data.frame.\nFinally, plot the relationship between those variables and calculate the correlation."
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#simulating-data",
+    "href": "lectures/week1-r-intro-slides.html#simulating-data",
+    "title": "Introduction to R",
+    "section": "Simulating data",
+    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8471092"
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#a-conceptual-preview-of-the-tidyverse",
+    "href": "lectures/week1-r-intro-slides.html#a-conceptual-preview-of-the-tidyverse",
+    "title": "Introduction to R",
+    "section": "A conceptual preview of the tidyverse",
+    "text": "A conceptual preview of the tidyverse\nNext week, we’ll discuss the tidyverse: a set of packages and functions developed to make data analysis and visualization in R easier.\nThis includes (but is not limited to):\n\nFunctions for transforming data, e.g., filter or mutate.\nFunctions for merging data, like left_join or inner_join.\nFunctions for visualizing data, like ggplot."
+  },
+  {
+    "objectID": "lectures/week1-r-intro-slides.html#lecture-wrap-up",
+    "href": "lectures/week1-r-intro-slides.html#lecture-wrap-up",
+    "title": "Introduction to R",
+    "section": "Lecture wrap-up",
+    "text": "Lecture wrap-up\nThis course is not primarily about programming in R, but programming in R is a foundational skill for other parts of this course.\nThis lecture (and accompanying lab) is intended to give you more comfort with the following concepts:\n\nWorking with variables and different types of data.\nCreating and working with vectors.\n\nSimple plotting.\nWorking with data.frame objects."
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "CSS 211 Syllabus",
     "section": "",
-    "text": "This is the course website for CSS 211/POLI 279. The current iteration of the course is Fall 2025.\nThe goal of this course is to introduce students to foundational statistical methods and tools for computational social science (CSS), including: data wrangling and visualization, regression, and model selection. Students will also develop proficiency in the R programming, and the course emphasizes hands-on application of techniques to real-world datasets."
+    "text": "This course is an introduction to statistical methods and computational tools for computational social science (CSS) research. Students will develop proficiency in R programming while learning foundational concepts for working with CSS data, including: data wrangling and visualization, regression, and model selection. The course emphasizes hands-on application of techniques to real-world datasets, as well as discussion of ongoing methodological and epistemological issues in the study of human behavior."
   },
   {
-    "objectID": "index.html#welcome",
-    "href": "index.html#welcome",
-    "title": "CSS 211: Statistical Methods for Computational Social Science",
+    "objectID": "syllabus.html#course-overview",
+    "href": "syllabus.html#course-overview",
+    "title": "CSS 211 Syllabus",
     "section": "",
-    "text": "This is the course website for CSS 211/POLI 279. The current iteration of the course is Fall 2025.\nThe goal of this course is to introduce students to foundational statistical methods and tools for computational social science (CSS), including: data wrangling and visualization, regression, and model selection. Students will also develop proficiency in the R programming, and the course emphasizes hands-on application of techniques to real-world datasets."
+    "text": "This course is an introduction to statistical methods and computational tools for computational social science (CSS) research. Students will develop proficiency in R programming while learning foundational concepts for working with CSS data, including: data wrangling and visualization, regression, and model selection. The course emphasizes hands-on application of techniques to real-world datasets, as well as discussion of ongoing methodological and epistemological issues in the study of human behavior."
   },
   {
-    "objectID": "index.html#instructor",
-    "href": "index.html#instructor",
-    "title": "CSS 211: Statistical Methods for Computational Social Science",
-    "section": "Instructor",
-    "text": "Instructor\nSean Trott\nDepartment of Cognitive Science, UCSD"
+    "objectID": "syllabus.html#learning-outcomes",
+    "href": "syllabus.html#learning-outcomes",
+    "title": "CSS 211 Syllabus",
+    "section": "Learning Outcomes",
+    "text": "Learning Outcomes\nMy goal is that by the end of this course, students will be able to:\n\nDefine and explain key concepts in statistical inference and regression analysis.\nIdentify appropriate visualizations and statistical methods for different kinds of research questions and datasets.\nImplement data wrangling, visualization, and analysis workflows in R.\nInterpret and evaluate results (visualizations, fit models, etc.) in the context of a research question.\nDesign and implement a complete statistical analysis project from research question to interpretation."
   },
   {
-    "objectID": "index.html#quick-links",
-    "href": "index.html#quick-links",
-    "title": "CSS 211: Statistical Methods for Computational Social Science",
-    "section": "Quick Links",
-    "text": "Quick Links\n\nSyllabus\nCourse Schedule\n\nGitHub Repository"
+    "objectID": "syllabus.html#teaching-team",
+    "href": "syllabus.html#teaching-team",
+    "title": "CSS 211 Syllabus",
+    "section": "Teaching Team",
+    "text": "Teaching Team\n\n\n\nName\nRole\nOH Time\nEmail\n\n\n\n\nSean Trott\nInstructor\nFriday 1-2pm (CSB 259)\nsttrott@ucsd.edu\n\n\nTBD\nTA\nTBD\nTBD"
+  },
+  {
+    "objectID": "syllabus.html#prerequisites",
+    "href": "syllabus.html#prerequisites",
+    "title": "CSS 211 Syllabus",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nStudents should have a basic understanding of probability theory and statistics; some experience with a programming language (e.g., Python or R) is encouraged but not required."
+  },
+  {
+    "objectID": "syllabus.html#grading-and-assessments",
+    "href": "syllabus.html#grading-and-assessments",
+    "title": "CSS 211 Syllabus",
+    "section": "Grading and Assessments",
+    "text": "Grading and Assessments\n\n\n\nAssessment\nPercentage\n\n\n\n\nLabs\n20%\n\n\nConcept quizzes\n20%\n\n\nMidterm\n25%\n\n\nFinal project\n35%\n\n\n\nLabs (20% total): 4 coding labs, completed in R and submitted via Canvas. Students may collaborate on labs with each other and seek help from their TA/instructor.\nConcept quizzes (20%): 4 short quizzes, held over Canvas, designed to test and improve conceptual intuitions about course topics.\nMidterm (25%): A paper midterm held in-class testing knowledge of course material.\nFinal project (35%): A rigorous replication (and possible extension) of existing empirical work (published or otherwise) in a student’s discipline of interest. Final projects should be completed independently; students will turn in both a written report and present their work in a short in-class presentation the final week of class. (A rubric will be provided separately.)\n\nRounding\nMy course policy is not to round up grades for two reasons:\n\nIf rounding is applied selectively (i.e., only to students who ask), it is unfair to other students.\n\nIf rounding is applied across the board, it simply redefines the boundary between two letter grades (e.g., making an 89% the cut-off for an A-)."
+  },
+  {
+    "objectID": "syllabus.html#using-ai",
+    "href": "syllabus.html#using-ai",
+    "title": "CSS 211 Syllabus",
+    "section": "Using AI",
+    "text": "Using AI\nTools like ChatGPT can be incredibly helpful for learning to code (or speeding up the process). At the same time, I think it’s crucial to learn the foundational skills and concepts that will allow you to use these tools to their full potential. That is the main motivation for having an in-class midterm: ultimately, I cannot force anyone to complete homework on their own without using ChatGPT (or equivalent tools), and I wouldn’t even claim that people shouldn’t consult ChatGPT for additional help or questions; but in order to perform well on the midterm, you will still need to learn the concepts."
+  },
+  {
+    "objectID": "final_project.html",
+    "href": "final_project.html",
+    "title": "CSS 211 Final Project)",
+    "section": "",
+    "text": "Details coming soon!"
+  },
+  {
+    "objectID": "readings.html",
+    "href": "readings.html",
+    "title": "Resources",
+    "section": "",
+    "text": "CSS 211 has no required readings. However, students might benefit from exploring additional content on course topics. The course schedule lists suggested readings for each week; here, I include those readings, as well as additional resources students might benefit from, organized by topic.\n\nGeneral Resources\n\nHadley Wickham’s R for Data Science(R4DS).\nIntroduction to Statistical Learning (James et al.)\n\n\n\nData wrangling and visualization.\n\nWickham, H. (2014). “Tidy data” (Journal of Statistical Software).\nWickham, H. & Grolemund, G. (2017). R for Data Science, [Chapters 5, 10-12](R4DS, data wrangling.\nHealy, K. (2018). Data Visualization, Chapters 1-3\n\n\n\nRegression\n\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 3\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 4.1-4.3\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 6.1-6.2\n\n\n\nMixed Effects Models\n\nWinter, B. (2013). “Linear models and linear mixed effects models in R” (tutorial)\nGelman, A. & Hill, J. (2006). Data Analysis Using Regression, Chapters 11-12\nBates, D. et al. (2015). “Fitting linear mixed-effects models using lme4” (Journal of Statistical Software)\n\n\n\nResampling Methods\n\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 5\n\n\n\nBest Practices and Research Design\n\nGelman, A. & Loken, E. (2014). “The garden of forking paths: Why multiple comparisons can be a problem” (American Scientist)"
   },
   {
     "objectID": "labs/lab1.html",
@@ -102,7 +487,7 @@
     "href": "labs/lab1.html#exercise-4-creating-data",
     "title": "Lab 1: Introduction to R",
     "section": "Exercise 4: Creating Data",
-    "text": "Exercise 4: Creating Data\nLet’s create some sample data to work with:\n\n# Create a vector of 50 random numbers from a normal distribution\n# with mean = 100 and standard deviation = 15\nrandom_data &lt;- rnorm(50, mean = 100, sd = 15)\n\n# Look at the first 10 values\nhead(random_data, 10)\n\n [1] 133.16707  94.61346  46.26437  98.72039 115.52276  99.92753  79.61550\n [8] 112.07298 118.23725 116.63643\n\n\n\n# Calculate summary statistics for this data\nmean(random_data)\n\n[1] 102.9162\n\nsd(random_data)\n\n[1] 17.84417\n\nmin(random_data)\n\n[1] 46.26437\n\nmax(random_data)\n\n[1] 137.2179\n\n\nYour turn: Create a vector of 30 random numbers with mean = 50 and sd = 5. Calculate its summary statistics.\n\n# Write your code here:"
+    "text": "Exercise 4: Creating Data\nLet’s create some sample data to work with:\n\n# Create a vector of 50 random numbers from a normal distribution\n# with mean = 100 and standard deviation = 15\nrandom_data &lt;- rnorm(50, mean = 100, sd = 15)\n\n# Look at the first 10 values\nhead(random_data, 10)\n\n [1]  73.06425 101.46059 119.33577  80.01669  75.93396  99.78032  97.52055\n [8]  89.82246  59.58417  91.49836\n\n\n\n# Calculate summary statistics for this data\nmean(random_data)\n\n[1] 97.82652\n\nsd(random_data)\n\n[1] 16.06379\n\nmin(random_data)\n\n[1] 59.58417\n\nmax(random_data)\n\n[1] 145.5407\n\n\nYour turn: Create a vector of 30 random numbers with mean = 50 and sd = 5. Calculate its summary statistics.\n\n# Write your code here:"
   },
   {
     "objectID": "labs/lab1.html#exercise-5-basic-plotting",
@@ -119,67 +504,249 @@
     "text": "Submission Instructions\n\nMake sure all your code chunks run without errors\nSave this file with your name in the filename (e.g., “Lab1_YourLastName.qmd”)\nRender the document to HTML\nSubmit both the .qmd file and the rendered HTML file to Canvas"
   },
   {
-    "objectID": "readings.html",
-    "href": "readings.html",
-    "title": "Resources",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "CSS 211: Statistical Methods for Computational Social Science",
     "section": "",
-    "text": "CSS 211 has no required readings. However, students might benefit from exploring additional content on course topics. The course schedule lists suggested readings for each week; here, I include those readings, as well as additional resources students might benefit from, organized by topic.\n\nGeneral Resources\n\nHadley Wickham’s R for Data Science(R4DS).\nIntroduction to Statistical Learning (James et al.)\n\n\n\nData wrangling and visualization.\n\nWickham, H. (2014). “Tidy data” (Journal of Statistical Software).\nWickham, H. & Grolemund, G. (2017). R for Data Science, [Chapters 5, 10-12](R4DS, data wrangling.\nHealy, K. (2018). Data Visualization, Chapters 1-3\n\n\n\nRegression\n\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 3\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 4.1-4.3\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 6.1-6.2\n\n\n\nMixed Effects Models\n\nWinter, B. (2013). “Linear models and linear mixed effects models in R” (tutorial)\nGelman, A. & Hill, J. (2006). Data Analysis Using Regression, Chapters 11-12\nBates, D. et al. (2015). “Fitting linear mixed-effects models using lme4” (Journal of Statistical Software)\n\n\n\nResampling Methods\n\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 5\n\n\n\nBest Practices and Research Design\n\nGelman, A. & Loken, E. (2014). “The garden of forking paths: Why multiple comparisons can be a problem” (American Scientist)"
+    "text": "This is the course website for CSS 211/POLI 279. The current iteration of the course is Fall 2025.\nThe goal of this course is to introduce students to foundational statistical methods and tools for computational social science (CSS), including: data wrangling and visualization, regression, and model selection. Students will also develop proficiency in the R programming, and the course emphasizes hands-on application of techniques to real-world datasets."
   },
   {
-    "objectID": "final_project.html",
-    "href": "final_project.html",
-    "title": "CSS 211 Final Project)",
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "CSS 211: Statistical Methods for Computational Social Science",
     "section": "",
-    "text": "Details coming soon!"
+    "text": "This is the course website for CSS 211/POLI 279. The current iteration of the course is Fall 2025.\nThe goal of this course is to introduce students to foundational statistical methods and tools for computational social science (CSS), including: data wrangling and visualization, regression, and model selection. Students will also develop proficiency in the R programming, and the course emphasizes hands-on application of techniques to real-world datasets."
   },
   {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "CSS 211 Syllabus",
+    "objectID": "index.html#instructor",
+    "href": "index.html#instructor",
+    "title": "CSS 211: Statistical Methods for Computational Social Science",
+    "section": "Instructor",
+    "text": "Instructor\nSean Trott\nDepartment of Cognitive Science, UCSD"
+  },
+  {
+    "objectID": "index.html#quick-links",
+    "href": "index.html#quick-links",
+    "title": "CSS 211: Statistical Methods for Computational Social Science",
+    "section": "Quick Links",
+    "text": "Quick Links\n\nSyllabus\nCourse Schedule\n\nGitHub Repository"
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#goals-of-the-lecture",
+    "href": "lectures/week1-phil-slides.html#goals-of-the-lecture",
+    "title": "The problem of knowledge",
+    "section": "Goals of the lecture",
+    "text": "Goals of the lecture\n\nWhat is knowledge and how do we produce it?\nPerspectives on scientific knowledge.\nEpistemological and ethical challenges facing CSS."
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#how-do-we-learn-about-the-world",
+    "href": "lectures/week1-phil-slides.html#how-do-we-learn-about-the-world",
+    "title": "The problem of knowledge",
+    "section": "How do we learn about the world?",
+    "text": "How do we learn about the world?\nThere are many ways to construct knowledge.\n\n\n\nSubjective experience\n\n\n\nIntuition and reason\n\n\n\nEmpirical research and measurement"
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#why-not-just-subjective-experience",
+    "href": "lectures/week1-phil-slides.html#why-not-just-subjective-experience",
+    "title": "The problem of knowledge",
+    "section": "Why not just subjective experience?",
+    "text": "Why not just subjective experience?\n\nSubjective experience refers to the thoughts and experiences an individual has.\n\n\nFor many things, no substitute for personal experience.\n“Anecdotal” evidence can still function as a kind of evidence.\nCultural knowledge (rituals, customs, etc.) also functions as a kind of evolved wisdom.\nBut over-reliance on anecdotes can also lead us astray when it comes to building models of the world."
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#why-not-just-intuition-and-reason",
+    "href": "lectures/week1-phil-slides.html#why-not-just-intuition-and-reason",
+    "title": "The problem of knowledge",
+    "section": "Why not just intuition and reason?",
+    "text": "Why not just intuition and reason?\n\nIntuition and reason rely on logic and abstract thinking to understand the world.\n\n\nRationalist tradition: knowledge comes from reasoning logically.\nMathematics and formal logic are powerful tools for understanding\nBut reason alone can lead to elegant theories that seem empirically wrong\n\nSometimes absurdly so, e.g., Zeno’s paradox\nSometimes empiricism is intuitive, e.g., Galileo’s work on gravity."
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#the-rise-of-empirical-science",
+    "href": "lectures/week1-phil-slides.html#the-rise-of-empirical-science",
+    "title": "The problem of knowledge",
+    "section": "The rise of empirical science",
+    "text": "The rise of empirical science\n\nEmpiricism is the idea that knowledge comes primarily from direct sensory experience and observation.\n\n\nCombines experience-based approach with systematic measurement and experimentation.\nOver time, systematic observations can help form theories.\nIn turn, theories guide observation.\nBut how exactly should we do empirical science? Many different philosophies…\n\n\n\n\n\n💭 Check-in\n\n\nWhat’s your intuitive theory of how science works (or should work)?"
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#empiricism-various-philosophies",
+    "href": "lectures/week1-phil-slides.html#empiricism-various-philosophies",
+    "title": "The problem of knowledge",
+    "section": "Empiricism: various philosophies",
+    "text": "Empiricism: various philosophies\nHistorically, scientists and philosophers of science have made different arguments about how science works, both descriptively and prescriptively.\n\n\n\nLogical positivism\n\nStatements are meaningful if and only if they can be verified.\nProblem: Many statements can’t be positively verified; problem of induction.\n\n\n\n\nFalsification\n\nTheories cannot be proven, but can be proven wrong.\nE.g., a single black swan can disprove the claim: All swans are white.\nProblem: Science doesn’t always work this way…\n\n\n\n\nBeyond falsification\n\nScience operates under paradigms or research programmes.\nPragmatism: Focus on producing useful explanations."
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#so-what-makes-a-good-explanation",
+    "href": "lectures/week1-phil-slides.html#so-what-makes-a-good-explanation",
+    "title": "The problem of knowledge",
+    "section": "So what makes a good explanation?",
+    "text": "So what makes a good explanation?\n\nOne goal of science is to produce explanations of natural phenomena.\n\n\n\n\n\n💭 Check-in\n\n\nWhat do you think makes a good explanation?\n\n\n\n\n\nCovering law: show how phenomena emerge from general principles\nCausal-mechanical: identify manipulable causes and trace mechanisms\n\nPragmatic: serve the practical needs of the question-asker\nAlso connects to deep questions about what constitutes “scientific understanding” of a phenomenon."
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#prediction-vs.-understanding",
+    "href": "lectures/week1-phil-slides.html#prediction-vs.-understanding",
+    "title": "The problem of knowledge",
+    "section": "Prediction vs. understanding",
+    "text": "Prediction vs. understanding\n\n\n\n\n💭 Check-in\n\n\nDoes being able to predict something mean we understand it?\n\n\n\n\n\nIncreasingly, machine learning models can make accurate predictions…\n…but we don’t always know why the model works.\n\nA model that predicts which word you’ll say doesn’t mean we know why you said that word.\n\nYet simpler, more interpretable models sometimes trade-off with predictive accuracy.\nThis complexity/accuracy trade-off is pervasive in statistical modeling.\nIt also connects to more general challenges facing CSS."
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#epistemological-challenges-in-css",
+    "href": "lectures/week1-phil-slides.html#epistemological-challenges-in-css",
+    "title": "The problem of knowledge",
+    "section": "Epistemological challenges in CSS",
+    "text": "Epistemological challenges in CSS\n\nAny given empirical claim can be evaluated according to several validities.\n\nHere, we’ll focus on these validities with respect to CSS specifically.\n\n\n\n\nConstruct validity\n\nAre we measuring what we think we’re measuring?\n\n\n\n\nInternal validity\n\nCan we establish causal relationships?\n\n\n\n\n\n\nStatistical validity\n\nAre our analytical methods appropriate?\n\n\n\n\nExternal validity\n\nDo our findings generalize beyond our sample?"
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#construct-validity-in-css",
+    "href": "lectures/week1-phil-slides.html#construct-validity-in-css",
+    "title": "The problem of knowledge",
+    "section": "Construct validity in CSS",
+    "text": "Construct validity in CSS\n\nConstruct validity refers to how well a variable is operationalized.\n\nMany variables are somewhat abstract: how do we measure them?\n\n\n\nExamples of hard constructs to operationalize:\n\nHappiness and well-being.\nSocial connectedness.\nInequality and poverty.\nPolitical polarization.\n\n\n\n\nKey questions:\n\nWhat aspects are we capturing?\n\nWhat are we missing?\n\n\n\n\n\n\n\n\n💭 Check-in\n\n\nWith a partner, choose one of these constructs. How might you operationalize it? What are limitations to this approach?"
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#internal-validity-establishing-causation",
+    "href": "lectures/week1-phil-slides.html#internal-validity-establishing-causation",
+    "title": "The problem of knowledge",
+    "section": "Internal validity: establishing causation",
+    "text": "Internal validity: establishing causation\n\nInternal validity is an indication of a study’s ability to eliminate alternative explanations for the effect of interest.\n\n\nWe’ve all heard correlation does not imply causation.\nBest way to establish causation is through experiments (RCTs), but that’s not always possible (or realistic) in many CSS domains.\n\nExample: social media use and mental health; digital campaigning and voter turnout; and much more.\n\nAdditionally, experimental control sometimes trades off with external validity!\nIf design is observational (no experiment), need to account for possible confounds.\n\n\n\n\n\n💭 Check-in\n\n\nWith a partner, think of some observational CSS studies you’ve read about. What might be alternative explanations for the effect of interest?"
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#statistical-validity-in-css",
+    "href": "lectures/week1-phil-slides.html#statistical-validity-in-css",
+    "title": "The problem of knowledge",
+    "section": "Statistical validity in CSS",
+    "text": "Statistical validity in CSS\n\nStatistical validity is the extent to which a study’s statistical conclusions are accurate.\n\n\nCould include reporting the margin of error associated with a claim (e.g., \\(10 \\pm 2\\)).\nAlso encompasses common pitfalls.\n\nFlexible models applies to large datasets are a recipe for inadvertent p-hacking.\nImportant to use methods like cross-validation to avoid overfitting.\n\nFundamentally an issue of research ethics!\n\n\n\n\n\n💭 Check-in\n\n\nSuppose you analyze the correlation between various personality traits and hundreds of outcome measures (life satisfication, income, etc.). You find significant results for about \\(5 \\%\\) of your analyses. What’s a potential concern here?"
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#external-validity-who-and-when",
+    "href": "lectures/week1-phil-slides.html#external-validity-who-and-when",
+    "title": "The problem of knowledge",
+    "section": "External validity: Who and when?",
+    "text": "External validity: Who and when?\n\nExternal validity refers to how well a given claim generalizes to the population of interest.\n\n\nMuch social science research focuses on WEIRD populations (Western, Educated, Industrialized, Rich, Democratic).\n\nDigital data exhibits even more skew.\n\nHow well do conclusions based on a given sample generalize across populations and times?\n\n\n\n\n\n💭 Check-in\n\n\nWith a partner, talk about a CSS-related study you’ve read about. How well do you think the conclusions generalize from the sample (people, society, time, etc.) studied?"
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#ethical-challenges-in-css",
+    "href": "lectures/week1-phil-slides.html#ethical-challenges-in-css",
+    "title": "The problem of knowledge",
+    "section": "Ethical challenges in CSS",
+    "text": "Ethical challenges in CSS\nCSS research involves many important ethical questions.\n\nPrivacy and consent.\nAlgorithmic bias.\nResearch ethics (reproducibility, etc.)."
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#summary-and-moving-forward",
+    "href": "lectures/week1-phil-slides.html#summary-and-moving-forward",
+    "title": "The problem of knowledge",
+    "section": "Summary, and moving forward",
+    "text": "Summary, and moving forward\n\nCSS is pluralistic in terms of methods and research questions: no single “correct” approach.\n\nMultiple epistemological challenges facing empirical science.\nThis course will focus on statistical methods, but we’ll also touch on other core issues, especially construct validity.\n\n\n\n\n\n💭 Key takeaway\n\n\nProducing knowledge is hard, but methodological and theoretical principles can help guide us."
+  },
+  {
+    "objectID": "lectures/week1-philosophy.html",
+    "href": "lectures/week1-philosophy.html",
+    "title": "The problem of knowledge",
     "section": "",
-    "text": "This course is an introduction to statistical methods and computational tools for computational social science (CSS) research. Students will develop proficiency in R programming while learning foundational concepts for working with CSS data, including: data wrangling and visualization, regression, and model selection. The course emphasizes hands-on application of techniques to real-world datasets, as well as discussion of ongoing methodological and epistemological issues in the study of human behavior."
+    "text": "What is knowledge and how do we produce it?\nPerspectives on scientific knowledge.\nEpistemological and ethical challenges facing CSS."
   },
   {
-    "objectID": "syllabus.html#course-overview",
-    "href": "syllabus.html#course-overview",
-    "title": "CSS 211 Syllabus",
+    "objectID": "lectures/week1-philosophy.html#goals-of-the-lecture",
+    "href": "lectures/week1-philosophy.html#goals-of-the-lecture",
+    "title": "The problem of knowledge",
     "section": "",
-    "text": "This course is an introduction to statistical methods and computational tools for computational social science (CSS) research. Students will develop proficiency in R programming while learning foundational concepts for working with CSS data, including: data wrangling and visualization, regression, and model selection. The course emphasizes hands-on application of techniques to real-world datasets, as well as discussion of ongoing methodological and epistemological issues in the study of human behavior."
+    "text": "What is knowledge and how do we produce it?\nPerspectives on scientific knowledge.\nEpistemological and ethical challenges facing CSS."
   },
   {
-    "objectID": "syllabus.html#learning-outcomes",
-    "href": "syllabus.html#learning-outcomes",
-    "title": "CSS 211 Syllabus",
-    "section": "Learning Outcomes",
-    "text": "Learning Outcomes\nMy goal is that by the end of this course, students will be able to:\n\nDefine and explain key concepts in statistical inference and regression analysis.\nIdentify appropriate visualizations and statistical methods for different kinds of research questions and datasets.\nImplement data wrangling, visualization, and analysis workflows in R.\nInterpret and evaluate results (visualizations, fit models, etc.) in the context of a research question.\nDesign and implement a complete statistical analysis project from research question to interpretation."
+    "objectID": "lectures/week1-philosophy.html#how-do-we-learn-about-the-world",
+    "href": "lectures/week1-philosophy.html#how-do-we-learn-about-the-world",
+    "title": "The problem of knowledge",
+    "section": "How do we learn about the world?",
+    "text": "How do we learn about the world?\nThere are many ways to construct knowledge.\n\n\n\nSubjective experience\n\n\n\nIntuition and reason\n\n\n\nEmpirical research and measurement"
   },
   {
-    "objectID": "syllabus.html#teaching-team",
-    "href": "syllabus.html#teaching-team",
-    "title": "CSS 211 Syllabus",
-    "section": "Teaching Team",
-    "text": "Teaching Team\n\n\n\nName\nRole\nOH Time\nEmail\n\n\n\n\nSean Trott\nInstructor\nTBD\nsttrott@ucsd.edu\n\n\nTBD\nTA\nTBD\nTBD"
+    "objectID": "lectures/week1-philosophy.html#why-not-just-subjective-experience",
+    "href": "lectures/week1-philosophy.html#why-not-just-subjective-experience",
+    "title": "The problem of knowledge",
+    "section": "Why not just subjective experience?",
+    "text": "Why not just subjective experience?\n\nSubjective experience refers to the thoughts and experiences an individual has.\n\n\n\nFor many things, no substitute for personal experience.\n“Anecdotal” evidence can still function as a kind of evidence.\nCultural knowledge (rituals, customs, etc.) also functions as a kind of evolved wisdom.\nBut over-reliance on anecdotes can also lead us astray when it comes to building models of the world."
   },
   {
-    "objectID": "syllabus.html#prerequisites",
-    "href": "syllabus.html#prerequisites",
-    "title": "CSS 211 Syllabus",
-    "section": "Prerequisites",
-    "text": "Prerequisites\nStudents should have a basic understanding of probability theory and statistics; some experience with a programming language (e.g., Python or R) is encouraged but not required."
+    "objectID": "lectures/week1-philosophy.html#why-not-just-intuition-and-reason",
+    "href": "lectures/week1-philosophy.html#why-not-just-intuition-and-reason",
+    "title": "The problem of knowledge",
+    "section": "Why not just intuition and reason?",
+    "text": "Why not just intuition and reason?\n\nIntuition and reason rely on logic and abstract thinking to understand the world.\n\n\n\nRationalist tradition: knowledge comes from reasoning logically.\nMathematics and formal logic are powerful tools for understanding\nBut reason alone can lead to elegant theories that seem empirically wrong\n\nSometimes absurdly so, e.g., Zeno’s paradox\nSometimes empiricism is intuitive, e.g., Galileo’s work on gravity."
   },
   {
-    "objectID": "syllabus.html#grading-and-assessments",
-    "href": "syllabus.html#grading-and-assessments",
-    "title": "CSS 211 Syllabus",
-    "section": "Grading and Assessments",
-    "text": "Grading and Assessments\n\n\n\nAssessment\nPercentage\n\n\n\n\nLabs\n20%\n\n\nConcept quizzes\n20%\n\n\nMidterm\n25%\n\n\nFinal project\n35%\n\n\n\nLabs (20% total): 4 coding labs, completed in R and submitted via Canvas. Students may collaborate on labs with each other and seek help from their TA/instructor.\nConcept quizzes (20%): 4 short quizzes, held over Canvas, designed to test and improve conceptual intuitions about course topics.\nMidterm (25%): A paper midterm held in-class testing knowledge of course material.\nFinal project (35%): A rigorous replication (and possible extension) of existing empirical work (published or otherwise) in a student’s discipline of interest. Final projects should be completed independently; students will turn in both a written report and present their work in a short in-class presentation the final week of class. (A rubric will be provided separately.)\n\nRounding\nMy course policy is not to round up grades for two reasons:\n\nIf rounding is applied selectively (i.e., only to students who ask), it is unfair to other students.\n\nIf rounding is applied across the board, it simply redefines the boundary between two letter grades (e.g., making an 89% the cut-off for an A-)."
+    "objectID": "lectures/week1-philosophy.html#the-rise-of-empirical-science",
+    "href": "lectures/week1-philosophy.html#the-rise-of-empirical-science",
+    "title": "The problem of knowledge",
+    "section": "The rise of empirical science",
+    "text": "The rise of empirical science\n\nEmpiricism is the idea that knowledge comes primarily from direct sensory experience and observation.\n\n\n\nCombines experience-based approach with systematic measurement and experimentation.\nOver time, systematic observations can help form theories.\nIn turn, theories guide observation.\nBut how exactly should we do empirical science? Many different philosophies…\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nWhat’s your intuitive theory of how science works (or should work)?"
   },
   {
-    "objectID": "syllabus.html#using-ai",
-    "href": "syllabus.html#using-ai",
-    "title": "CSS 211 Syllabus",
-    "section": "Using AI",
-    "text": "Using AI\nTools like ChatGPT can be incredibly helpful for learning to code (or speeding up the process). At the same time, I think it’s crucial to learn the foundational skills and concepts that will allow you to use these tools to their full potential. That is the main motivation for having an in-class midterm: ultimately, I cannot force anyone to complete homework on their own without using ChatGPT (or equivalent tools), and I wouldn’t even claim that people shouldn’t consult ChatGPT for additional help or questions; but in order to perform well on the midterm, you will still need to learn the concepts."
+    "objectID": "lectures/week1-philosophy.html#empiricism-various-philosophies",
+    "href": "lectures/week1-philosophy.html#empiricism-various-philosophies",
+    "title": "The problem of knowledge",
+    "section": "Empiricism: various philosophies",
+    "text": "Empiricism: various philosophies\nHistorically, scientists and philosophers of science have made different arguments about how science works, both descriptively and prescriptively.\n\n\n\nLogical positivism\n\nStatements are meaningful if and only if they can be verified.\nProblem: Many statements can’t be positively verified; problem of induction.\n\n\n\n\nFalsification\n\nTheories cannot be proven, but can be proven wrong.\nE.g., a single black swan can disprove the claim: All swans are white.\nProblem: Science doesn’t always work this way…\n\n\n\n\nBeyond falsification\n\nScience operates under paradigms or research programmes.\nPragmatism: Focus on producing useful explanations."
+  },
+  {
+    "objectID": "lectures/week1-philosophy.html#so-what-makes-a-good-explanation",
+    "href": "lectures/week1-philosophy.html#so-what-makes-a-good-explanation",
+    "title": "The problem of knowledge",
+    "section": "So what makes a good explanation?",
+    "text": "So what makes a good explanation?\n\nOne goal of science is to produce explanations of natural phenomena.\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nWhat do you think makes a good explanation?\n\n\n\n\n\nCovering law: show how phenomena emerge from general principles\nCausal-mechanical: identify manipulable causes and trace mechanisms\n\nPragmatic: serve the practical needs of the question-asker\nAlso connects to deep questions about what constitutes “scientific understanding” of a phenomenon."
+  },
+  {
+    "objectID": "lectures/week1-philosophy.html#prediction-vs.-understanding",
+    "href": "lectures/week1-philosophy.html#prediction-vs.-understanding",
+    "title": "The problem of knowledge",
+    "section": "Prediction vs. understanding",
+    "text": "Prediction vs. understanding\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nDoes being able to predict something mean we understand it?\n\n\n\n\n\nIncreasingly, machine learning models can make accurate predictions…\n…but we don’t always know why the model works.\n\nA model that predicts which word you’ll say doesn’t mean we know why you said that word.\n\nYet simpler, more interpretable models sometimes trade-off with predictive accuracy.\nThis complexity/accuracy trade-off is pervasive in statistical modeling.\nIt also connects to more general challenges facing CSS."
+  },
+  {
+    "objectID": "lectures/week1-philosophy.html#epistemological-challenges-in-css",
+    "href": "lectures/week1-philosophy.html#epistemological-challenges-in-css",
+    "title": "The problem of knowledge",
+    "section": "Epistemological challenges in CSS",
+    "text": "Epistemological challenges in CSS\n\nAny given empirical claim can be evaluated according to several validities.\n\nHere, we’ll focus on these validities with respect to CSS specifically.\n\n\n\n\nConstruct validity\n\nAre we measuring what we think we’re measuring?\n\n\n\n\nInternal validity\n\nCan we establish causal relationships?\n\n\n\n\n\n\n\nStatistical validity\n\nAre our analytical methods appropriate?\n\n\n\n\nExternal validity\n\nDo our findings generalize beyond our sample?"
+  },
+  {
+    "objectID": "lectures/week1-philosophy.html#construct-validity-in-css",
+    "href": "lectures/week1-philosophy.html#construct-validity-in-css",
+    "title": "The problem of knowledge",
+    "section": "Construct validity in CSS",
+    "text": "Construct validity in CSS\n\nConstruct validity refers to how well a variable is operationalized.\n\nMany variables are somewhat abstract: how do we measure them?\n\n\n\nExamples of hard constructs to operationalize:\n\nHappiness and well-being.\nSocial connectedness.\nInequality and poverty.\nPolitical polarization.\n\n\n\n\nKey questions:\n\nWhat aspects are we capturing?\n\nWhat are we missing?\n\n\n\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nWith a partner, choose one of these constructs. How might you operationalize it? What are limitations to this approach?"
+  },
+  {
+    "objectID": "lectures/week1-philosophy.html#internal-validity-establishing-causation",
+    "href": "lectures/week1-philosophy.html#internal-validity-establishing-causation",
+    "title": "The problem of knowledge",
+    "section": "Internal validity: establishing causation",
+    "text": "Internal validity: establishing causation\n\nInternal validity is an indication of a study’s ability to eliminate alternative explanations for the effect of interest.\n\n\n\nWe’ve all heard correlation does not imply causation.\nBest way to establish causation is through experiments (RCTs), but that’s not always possible (or realistic) in many CSS domains.\n\nExample: social media use and mental health; digital campaigning and voter turnout; and much more.\n\nAdditionally, experimental control sometimes trades off with external validity!\nIf design is observational (no experiment), need to account for possible confounds.\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nWith a partner, think of some observational CSS studies you’ve read about. What might be alternative explanations for the effect of interest?"
+  },
+  {
+    "objectID": "lectures/week1-philosophy.html#statistical-validity-in-css",
+    "href": "lectures/week1-philosophy.html#statistical-validity-in-css",
+    "title": "The problem of knowledge",
+    "section": "Statistical validity in CSS",
+    "text": "Statistical validity in CSS\n\nStatistical validity is the extent to which a study’s statistical conclusions are accurate.\n\n\n\nCould include reporting the margin of error associated with a claim (e.g., \\(10 \\pm 2\\)).\nAlso encompasses common pitfalls.\n\nFlexible models applies to large datasets are a recipe for inadvertent p-hacking.\nImportant to use methods like cross-validation to avoid overfitting.\n\nFundamentally an issue of research ethics!\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nSuppose you analyze the correlation between various personality traits and hundreds of outcome measures (life satisfication, income, etc.). You find significant results for about \\(5 \\%\\) of your analyses. What’s a potential concern here?"
+  },
+  {
+    "objectID": "lectures/week1-philosophy.html#external-validity-who-and-when",
+    "href": "lectures/week1-philosophy.html#external-validity-who-and-when",
+    "title": "The problem of knowledge",
+    "section": "External validity: Who and when?",
+    "text": "External validity: Who and when?\n\nExternal validity refers to how well a given claim generalizes to the population of interest.\n\n\n\nMuch social science research focuses on WEIRD populations (Western, Educated, Industrialized, Rich, Democratic).\n\nDigital data exhibits even more skew.\n\nHow well do conclusions based on a given sample generalize across populations and times?\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nWith a partner, talk about a CSS-related study you’ve read about. How well do you think the conclusions generalize from the sample (people, society, time, etc.) studied?"
+  },
+  {
+    "objectID": "lectures/week1-philosophy.html#ethical-challenges-in-css",
+    "href": "lectures/week1-philosophy.html#ethical-challenges-in-css",
+    "title": "The problem of knowledge",
+    "section": "Ethical challenges in CSS",
+    "text": "Ethical challenges in CSS\nCSS research involves many important ethical questions.\n\n\nPrivacy and consent.\nAlgorithmic bias.\nResearch ethics (reproducibility, etc.)."
+  },
+  {
+    "objectID": "lectures/week1-philosophy.html#summary-and-moving-forward",
+    "href": "lectures/week1-philosophy.html#summary-and-moving-forward",
+    "title": "The problem of knowledge",
+    "section": "Summary, and moving forward",
+    "text": "Summary, and moving forward\n\n\nCSS is pluralistic in terms of methods and research questions: no single “correct” approach.\n\nMultiple epistemological challenges facing empirical science.\nThis course will focus on statistical methods, but we’ll also touch on other core issues, especially construct validity.\n\n\n\n\n\n\n\n\n\nNote💭 Key takeaway\n\n\n\nProducing knowledge is hard, but methodological and theoretical principles can help guide us."
   },
   {
     "objectID": "lectures/week0-intro-slides.html#goals-of-the-lecture",
@@ -474,481 +1041,5 @@
     "title": "Introduction to CSS 211",
     "section": "Welcome to CSS 211!",
     "text": "Welcome to CSS 211!"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#how-do-we-learn-about-the-world",
-    "href": "lectures/week1-philosophy.html#how-do-we-learn-about-the-world",
-    "title": "The problem of knowledge",
-    "section": "How do we learn about the world?",
-    "text": "How do we learn about the world?\nThere are many ways to construct knowledge.\n\n\n\nSubjective experience\n\n\n\nIntuition and reason\n\n\n\nEmpirical research and measurement"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#test-slide",
-    "href": "lectures/week1-philosophy.html#test-slide",
-    "title": "The problem of knowledge",
-    "section": "Test slide",
-    "text": "Test slide\nThings to discuss:\n\nHistorical tour of empirical science:\n\nLogical positivism: theory-neutral observations building up into a coherent, logic-based model of the world.\nFalsification: we can’t prove things to be true, but we can rule theories out (Popper).\nChallenges: Kuhn (depends on paradigms), Lakatos (we do have a hard core of assumptions within a research programme)\n\nWhere do we go from here? What makes a good explanation?\n\nCovering law: good explanations should show how specific phenomena emerge from more general principles.\nCausal mechanical: good explanations identify manipulable causes and trace mechanisms.\nPragmatic: good explanations serve some kind of need for the question-asker (could be very practical, like informing policy.)\n\nKey empirical challenges (CSS focused):\n\nConstruct validity: how do we measure what we want to measure?\n\nExamples: happiness, poverty, social connectedness, inequality, etc.\n\nStatistical validity: how do we assess relationships between variables in an appropriate way?\nExternal validity: which populations is this observation true for? which time periods?\nPrediction vs. inference; does accuracy entail understanding? (what do you think?)\n\nEthical challenges"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#how-do-we-learn-about-the-world",
-    "href": "lectures/week1-phil-slides.html#how-do-we-learn-about-the-world",
-    "title": "The problem of knowledge",
-    "section": "How do we learn about the world?",
-    "text": "How do we learn about the world?\nThere are many ways to construct knowledge.\n\n\n\nSubjective experience\n\n\n\nIntuition and reason\n\n\n\nEmpirical research and measurement"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#test-slide",
-    "href": "lectures/week1-phil-slides.html#test-slide",
-    "title": "The problem of knowledge",
-    "section": "Test slide",
-    "text": "Test slide\nThings to discuss:\n\nHistorical tour of empirical science:\n\nLogical positivism: theory-neutral observations building up into a coherent, logic-based model of the world.\nFalsification: we can’t prove things to be true, but we can rule theories out (Popper).\nChallenges: Kuhn (depends on paradigms), Lakatos (we do have a hard core of assumptions within a research programme)\n\nWhere do we go from here? What makes a good explanation?\n\nCovering law: good explanations should show how specific phenomena emerge from more general principles.\nCausal mechanical: good explanations identify manipulable causes and trace mechanisms.\nPragmatic: good explanations serve some kind of need for the question-asker (could be very practical, like informing policy.)\n\nKey empirical challenges (CSS focused):\n\nConstruct validity: how do we measure what we want to measure?\n\nExamples: happiness, poverty, social connectedness, inequality, etc.\n\nStatistical validity: how do we assess relationships between variables in an appropriate way?\nExternal validity: which populations is this observation true for? which time periods?\nPrediction vs. inference; does accuracy entail understanding? (what do you think?)\n\nEthical challenges"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#why-not-just-subjective-experience",
-    "href": "lectures/week1-philosophy.html#why-not-just-subjective-experience",
-    "title": "The problem of knowledge",
-    "section": "Why not just subjective experience?",
-    "text": "Why not just subjective experience?\n\nSubjective experience refers to the thoughts and experiences an individual has.\n\n\n\nFor many things, no substitute for personal experience.\n“Anecdotal” evidence can still function as a kind of evidence.\nCultural knowledge (rituals, customs, etc.) also functions as a kind of evolved wisdom.\nBut over-reliance on anecdotes can also lead us astray when it comes to building models of the world."
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#why-not-just-intuition-and-reason",
-    "href": "lectures/week1-philosophy.html#why-not-just-intuition-and-reason",
-    "title": "The problem of knowledge",
-    "section": "Why not just intuition and reason?",
-    "text": "Why not just intuition and reason?\n\nIntuition and reason rely on logic and abstract thinking to understand the world.\n\n\n\nRationalist tradition: knowledge comes from reasoning logically.\nMathematics and formal logic are powerful tools for understanding\nBut reason alone can lead to elegant theories that seem empirically wrong\n\nSometimes absurdly so, e.g., Zeno’s paradox\nSometimes empiricism is intuitive, e.g., Galileo’s work on gravity."
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#the-rise-of-empirical-science",
-    "href": "lectures/week1-philosophy.html#the-rise-of-empirical-science",
-    "title": "The problem of knowledge",
-    "section": "The rise of empirical science",
-    "text": "The rise of empirical science\n\nEmpiricism is the idea that knowledge comes primarily from direct sensory experience and observation.\n\n\n\nCombines experience-based approach with systematic measurement and experimentation.\nOver time, systematic observations can help form theories.\nIn turn, theories guide observation.\nBut how exactly should we do empirical science? Many different philosophies…\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nWhat’s your intuitive theory of how science works (or should work)?"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#why-not-just-subjective-experience",
-    "href": "lectures/week1-phil-slides.html#why-not-just-subjective-experience",
-    "title": "The problem of knowledge",
-    "section": "Why not just subjective experience?",
-    "text": "Why not just subjective experience?\n\nSubjective experience refers to the thoughts and experiences an individual has.\n\n\nFor many things, no substitute for personal experience.\n“Anecdotal” evidence can still function as a kind of evidence.\nCultural knowledge (rituals, customs, etc.) also functions as a kind of evolved wisdom.\nBut over-reliance on anecdotes can also lead us astray when it comes to building models of the world."
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#why-not-just-intuition-and-reason",
-    "href": "lectures/week1-phil-slides.html#why-not-just-intuition-and-reason",
-    "title": "The problem of knowledge",
-    "section": "Why not just intuition and reason?",
-    "text": "Why not just intuition and reason?\n\nIntuition and reason rely on logic and abstract thinking to understand the world.\n\n\nRationalist tradition: knowledge comes from reasoning logically.\nMathematics and formal logic are powerful tools for understanding\nBut reason alone can lead to elegant theories that seem empirically wrong\n\nSometimes absurdly so, e.g., Zeno’s paradox\nSometimes empiricism is intuitive, e.g., Galileo’s work on gravity."
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#the-rise-of-empirical-science",
-    "href": "lectures/week1-phil-slides.html#the-rise-of-empirical-science",
-    "title": "The problem of knowledge",
-    "section": "The rise of empirical science",
-    "text": "The rise of empirical science\n\nEmpiricism is the idea that knowledge comes primarily from direct sensory experience and observation.\n\n\nCombines experience-based approach with systematic measurement and experimentation.\nOver time, systematic observations can help form theories.\nIn turn, theories guide observation.\nBut how exactly should we do empirical science? Many different philosophies…\n\n\n\n\n\n💭 Check-in\n\n\nWhat’s your intuitive theory of how science works (or should work)?"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#the-long-march-of-empirical-science",
-    "href": "lectures/week1-philosophy.html#the-long-march-of-empirical-science",
-    "title": "The problem of knowledge",
-    "section": "The long march of empirical science",
-    "text": "The long march of empirical science\nHistorically, scientists and philosophers of science have made different arguments about how science works, both descriptively and prescriptively.\n\n\n\nLogical positivism\n\nStatements are meaningful if and only if they can be verified.\nProblem: Many statements can’t be positively verified; problem of induction.\n\n\n\n\nFalsification\n\nTheories cannot be proven, but can be proven wrong.\nE.g., a single black swan can disprove the claim: All swans are white.\nProblem: Science doesn’t always work this way…\n\n\n\n\nBeyond falsification\n\nScience operates under paradigms or research programmes.\nPragmatism: Focus on what works for our purposes rather than absolute truth.\nDifferent questions may require different methods and standards of evidence."
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#the-long-march-of-empirical-science",
-    "href": "lectures/week1-phil-slides.html#the-long-march-of-empirical-science",
-    "title": "The problem of knowledge",
-    "section": "The long march of empirical science",
-    "text": "The long march of empirical science\nHistorically, scientists and philosophers of science have made different arguments about how science works, both descriptively and prescriptively.\n\n\n\nLogical positivism\n\nStatements are meaningful if and only if they can be verified.\nProblem: Many statements can’t be positively verified; problem of induction.\n\n\n\n\nFalsification\n\nTheories cannot be proven, but can be proven wrong.\nE.g., a single black swan can disprove the claim: All swans are white.\nProblem: Science doesn’t always work this way…\n\n\n\n\nBeyond falsification\n\nScience operates under paradigms or research programmes.\nPragmatism: Focus on what works for our purposes rather than absolute truth.\nDifferent questions may require different methods and standards of evidence."
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#the-philosophical-history-of-empirical-science",
-    "href": "lectures/week1-philosophy.html#the-philosophical-history-of-empirical-science",
-    "title": "The problem of knowledge",
-    "section": "The philosophical history of empirical science",
-    "text": "The philosophical history of empirical science\nHistorically, scientists and philosophers of science have made different arguments about how science works, both descriptively and prescriptively.\n\n\n\nLogical positivism\n\nStatements are meaningful if and only if they can be verified.\nProblem: Many statements can’t be positively verified; problem of induction.\n\n\n\n\nFalsification\n\nTheories cannot be proven, but can be proven wrong.\nE.g., a single black swan can disprove the claim: All swans are white.\nProblem: Science doesn’t always work this way…\n\n\n\n\nBeyond falsification\n\nScience operates under paradigms or research programmes.\nPragmatism: Focus on what works for our purposes rather than absolute truth.\nDifferent questions may require different methods and standards of evidence."
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#the-philosophical-history-of-empirical-science",
-    "href": "lectures/week1-phil-slides.html#the-philosophical-history-of-empirical-science",
-    "title": "The problem of knowledge",
-    "section": "The philosophical history of empirical science",
-    "text": "The philosophical history of empirical science\nHistorically, scientists and philosophers of science have made different arguments about how science works, both descriptively and prescriptively.\n\n\n\nLogical positivism\n\nStatements are meaningful if and only if they can be verified.\nProblem: Many statements can’t be positively verified; problem of induction.\n\n\n\n\nFalsification\n\nTheories cannot be proven, but can be proven wrong.\nE.g., a single black swan can disprove the claim: All swans are white.\nProblem: Science doesn’t always work this way…\n\n\n\n\nBeyond falsification\n\nScience operates under paradigms or research programmes.\nPragmatism: Focus on what works for our purposes rather than absolute truth.\nDifferent questions may require different methods and standards of evidence."
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#empiricism-various-philosophies",
-    "href": "lectures/week1-philosophy.html#empiricism-various-philosophies",
-    "title": "The problem of knowledge",
-    "section": "Empiricism: various philosophies",
-    "text": "Empiricism: various philosophies\nHistorically, scientists and philosophers of science have made different arguments about how science works, both descriptively and prescriptively.\n\n\n\nLogical positivism\n\nStatements are meaningful if and only if they can be verified.\nProblem: Many statements can’t be positively verified; problem of induction.\n\n\n\n\nFalsification\n\nTheories cannot be proven, but can be proven wrong.\nE.g., a single black swan can disprove the claim: All swans are white.\nProblem: Science doesn’t always work this way…\n\n\n\n\nBeyond falsification\n\nScience operates under paradigms or research programmes.\nPragmatism: Focus on producing useful explanations."
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#empiricism-various-philosophies",
-    "href": "lectures/week1-phil-slides.html#empiricism-various-philosophies",
-    "title": "The problem of knowledge",
-    "section": "Empiricism: various philosophies",
-    "text": "Empiricism: various philosophies\nHistorically, scientists and philosophers of science have made different arguments about how science works, both descriptively and prescriptively.\n\n\n\nLogical positivism\n\nStatements are meaningful if and only if they can be verified.\nProblem: Many statements can’t be positively verified; problem of induction.\n\n\n\n\nFalsification\n\nTheories cannot be proven, but can be proven wrong.\nE.g., a single black swan can disprove the claim: All swans are white.\nProblem: Science doesn’t always work this way…\n\n\n\n\nBeyond falsification\n\nScience operates under paradigms or research programmes.\nPragmatism: Focus on producing useful explanations."
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#so-what-makes-a-good-explanation",
-    "href": "lectures/week1-philosophy.html#so-what-makes-a-good-explanation",
-    "title": "The problem of knowledge",
-    "section": "So what makes a good explanation?",
-    "text": "So what makes a good explanation?\n\nOne goal of science is to produce explanations of natural phenomena.\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nWhat do you think makes a good explanation?\n\n\n\n\n\nCovering law: show how phenomena emerge from general principles\nCausal-mechanical: identify manipulable causes and trace mechanisms\n\nPragmatic: serve the practical needs of the question-asker\nAlso connects to deep questions about what constitutes “scientific understanding” of a phenomenon."
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#so-what-makes-a-good-explanation",
-    "href": "lectures/week1-phil-slides.html#so-what-makes-a-good-explanation",
-    "title": "The problem of knowledge",
-    "section": "So what makes a good explanation?",
-    "text": "So what makes a good explanation?\n\nOne goal of science is to produce explanations of natural phenomena.\n\n\n\n\n\n💭 Check-in\n\n\nWhat do you think makes a good explanation?\n\n\n\n\n\nCovering law: show how phenomena emerge from general principles\nCausal-mechanical: identify manipulable causes and trace mechanisms\n\nPragmatic: serve the practical needs of the question-asker\nAlso connects to deep questions about what constitutes “scientific understanding” of a phenomenon."
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#the-rise-of-empirical-science-1",
-    "href": "lectures/week1-philosophy.html#the-rise-of-empirical-science-1",
-    "title": "The problem of knowledge",
-    "section": "The rise of empirical science",
-    "text": "The rise of empirical science\n\n\nEmpiricism: knowledge comes primarily from sensory experience and observation\nCombines systematic observation with logical reasoning\n\nBut how exactly should we do empirical science?\nDifferent philosophies have emerged over time…"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#logical-positivism",
-    "href": "lectures/week1-philosophy.html#logical-positivism",
-    "title": "The problem of knowledge",
-    "section": "Logical positivism",
-    "text": "Logical positivism\n\nScience should build theory-neutral observations into coherent, logic-based models.\n\n\n\nObservations are objective and independent of theory\nScientific knowledge accumulates through careful measurement\nLogic and mathematics provide the foundation for scientific reasoning\nGoal: unified scientific method across all domains\nProblem: Are observations ever truly “theory-neutral”?"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#falsification-popper",
-    "href": "lectures/week1-philosophy.html#falsification-popper",
-    "title": "The problem of knowledge",
-    "section": "Falsification (Popper)",
-    "text": "Falsification (Popper)\n\nWe can’t prove theories true, but we can rule them out.\n\n\n\nKey insight: confirmation is easier to find than we think\nGood scientific theories make risky predictions that could be wrong\n\nScience progresses by eliminating false theories\nDemarcates science from non-science (astrology vs. astronomy)\nProblem: Scientists don’t actually abandon theories after single failures…"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#paradigms-and-research-programmes",
-    "href": "lectures/week1-philosophy.html#paradigms-and-research-programmes",
-    "title": "The problem of knowledge",
-    "section": "Paradigms and research programmes",
-    "text": "Paradigms and research programmes\n\n\n\nKuhn: Paradigms\n\n\nScience operates within paradigms (shared frameworks)\n“Normal science” solves puzzles within the paradigm\nRevolutionary science changes the paradigm entirely\n\n\n\n\n\nLakatos: Research programmes\n\n\nHard core: fundamental assumptions we don’t question\nProtective belt: auxiliary hypotheses we can modify\nProgrammes compete based on novel predictions"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#what-makes-a-good-explanation",
-    "href": "lectures/week1-philosophy.html#what-makes-a-good-explanation",
-    "title": "The problem of knowledge",
-    "section": "What makes a good explanation?",
-    "text": "What makes a good explanation?\n\n\nCovering law: show how phenomena emerge from general principles\nCausal-mechanical: identify manipulable causes and trace mechanisms\n\nPragmatic: serve the practical needs of the question-asker\nWhich approach is most useful depends on our goals"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#empirical-challenges-in-css",
-    "href": "lectures/week1-philosophy.html#empirical-challenges-in-css",
-    "title": "The problem of knowledge",
-    "section": "Empirical challenges in CSS",
-    "text": "Empirical challenges in CSS\n\n\nConstruct validity: Are we measuring what we think we’re measuring?\nStatistical validity: Are our analytical methods appropriate?\nExternal validity: Do our findings generalize beyond our sample?\nPrediction vs. inference: Does accuracy entail understanding?"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#construct-validity-challenges",
-    "href": "lectures/week1-philosophy.html#construct-validity-challenges",
-    "title": "The problem of knowledge",
-    "section": "Construct validity challenges",
-    "text": "Construct validity challenges\n\nConstruct validity refers to how well a variable is operationalized.\n\nMany variables are somewhat abstract: how do we measure them?\n\n\n\nExamples of tricky constructs:\n\nHappiness and well-being.\nSocial connectedness\n\nInequality and poverty.\nPolitical polarization\n\n\n\n\nKey questions:\n\nWhat aspects are we capturing?\n\nWhat are we missing?\n\nDo our measures mean the same thing across groups?\n\n\n\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nCan you think of more?"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#statistical-validity-in-the-digital-age",
-    "href": "lectures/week1-philosophy.html#statistical-validity-in-the-digital-age",
-    "title": "The problem of knowledge",
-    "section": "Statistical validity in the digital age",
-    "text": "Statistical validity in the digital age\n\n\nMassive datasets create new opportunities…\n…but also new pitfalls\nMultiple testing: more analyses = more false positives\nP-hacking: finding patterns that aren’t really there\nAlgorithmic bias: models can perpetuate existing inequalities"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#external-validity-who-and-when",
-    "href": "lectures/week1-philosophy.html#external-validity-who-and-when",
-    "title": "The problem of knowledge",
-    "section": "External validity: Who and when?",
-    "text": "External validity: Who and when?\n\nExternal validity refers to how well a given claim generalizes to the population of interest.\n\n\n\nMuch social science research focuses on WEIRD populations (Western, Educated, Industrialized, Rich, Democratic).\n\nDigital data exhibits even more skew.\n\nHow well do conclusions based on a given sample generalize across populations and times?\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nWith a partner, talk about a CSS-related study you’ve read about. How well do you think the conclusions generalize from the sample (people, society, time, etc.) studied?"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#prediction-vs.-understanding",
-    "href": "lectures/week1-philosophy.html#prediction-vs.-understanding",
-    "title": "The problem of knowledge",
-    "section": "Prediction vs. understanding",
-    "text": "Prediction vs. understanding\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nDoes being able to predict something mean we understand it?\n\n\n\n\n\nIncreasingly, machine learning models can make accurate predictions…\n…but we don’t always know why the model works.\n\nA model that predicts which word you’ll say doesn’t mean we know why you said that word.\n\nYet simpler, more interpretable models sometimes trade-off with predictive accuracy.\nThis complexity/accuracy trade-off is pervasive in statistical modeling.\nIt also connects to more general challenges facing CSS."
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#ethical-challenges-in-css",
-    "href": "lectures/week1-philosophy.html#ethical-challenges-in-css",
-    "title": "The problem of knowledge",
-    "section": "Ethical challenges in CSS",
-    "text": "Ethical challenges in CSS\nCSS research involves many important ethical questions.\n\n\nPrivacy and consent.\nAlgorithmic bias.\nResearch ethics (reproducibility, etc.)."
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#moving-forward",
-    "href": "lectures/week1-philosophy.html#moving-forward",
-    "title": "The problem of knowledge",
-    "section": "Moving forward",
-    "text": "Moving forward\n\n\nNo single “correct” approach to knowledge production\nDifferent methods and perspectives offer complementary insights\nPluralism: embrace multiple ways of understanding social phenomena\nRemain aware of our assumptions and limitations\nConsider the ethical implications of our research choices"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#the-rise-of-empirical-science-1",
-    "href": "lectures/week1-phil-slides.html#the-rise-of-empirical-science-1",
-    "title": "The problem of knowledge",
-    "section": "The rise of empirical science",
-    "text": "The rise of empirical science\n\nEmpiricism: knowledge comes primarily from sensory experience and observation\nCombines systematic observation with logical reasoning\n\nBut how exactly should we do empirical science?\nDifferent philosophies have emerged over time…"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#logical-positivism",
-    "href": "lectures/week1-phil-slides.html#logical-positivism",
-    "title": "The problem of knowledge",
-    "section": "Logical positivism",
-    "text": "Logical positivism\n\nScience should build theory-neutral observations into coherent, logic-based models.\n\n\nObservations are objective and independent of theory\nScientific knowledge accumulates through careful measurement\nLogic and mathematics provide the foundation for scientific reasoning\nGoal: unified scientific method across all domains\nProblem: Are observations ever truly “theory-neutral”?"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#falsification-popper",
-    "href": "lectures/week1-phil-slides.html#falsification-popper",
-    "title": "The problem of knowledge",
-    "section": "Falsification (Popper)",
-    "text": "Falsification (Popper)\n\nWe can’t prove theories true, but we can rule them out.\n\n\nKey insight: confirmation is easier to find than we think\nGood scientific theories make risky predictions that could be wrong\n\nScience progresses by eliminating false theories\nDemarcates science from non-science (astrology vs. astronomy)\nProblem: Scientists don’t actually abandon theories after single failures…"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#paradigms-and-research-programmes",
-    "href": "lectures/week1-phil-slides.html#paradigms-and-research-programmes",
-    "title": "The problem of knowledge",
-    "section": "Paradigms and research programmes",
-    "text": "Paradigms and research programmes\n\n\nKuhn: Paradigms\n\n\nScience operates within paradigms (shared frameworks)\n“Normal science” solves puzzles within the paradigm\nRevolutionary science changes the paradigm entirely\n\n\n\nLakatos: Research programmes\n\n\nHard core: fundamental assumptions we don’t question\nProtective belt: auxiliary hypotheses we can modify\nProgrammes compete based on novel predictions"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#what-makes-a-good-explanation",
-    "href": "lectures/week1-phil-slides.html#what-makes-a-good-explanation",
-    "title": "The problem of knowledge",
-    "section": "What makes a good explanation?",
-    "text": "What makes a good explanation?\n\nCovering law: show how phenomena emerge from general principles\nCausal-mechanical: identify manipulable causes and trace mechanisms\n\nPragmatic: serve the practical needs of the question-asker\nWhich approach is most useful depends on our goals"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#empirical-challenges-in-css",
-    "href": "lectures/week1-phil-slides.html#empirical-challenges-in-css",
-    "title": "The problem of knowledge",
-    "section": "Empirical challenges in CSS",
-    "text": "Empirical challenges in CSS\n\nConstruct validity: Are we measuring what we think we’re measuring?\nStatistical validity: Are our analytical methods appropriate?\nExternal validity: Do our findings generalize beyond our sample?\nPrediction vs. inference: Does accuracy entail understanding?"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#construct-validity-challenges",
-    "href": "lectures/week1-phil-slides.html#construct-validity-challenges",
-    "title": "The problem of knowledge",
-    "section": "Construct validity challenges",
-    "text": "Construct validity challenges\n\nConstruct validity refers to how well a variable is operationalized.\n\nMany variables are somewhat abstract: how do we measure them?\n\n\n\nExamples of tricky constructs:\n\nHappiness and well-being.\nSocial connectedness\n\nInequality and poverty.\nPolitical polarization\n\n\n\n\nKey questions:\n\nWhat aspects are we capturing?\n\nWhat are we missing?\n\nDo our measures mean the same thing across groups?\n\n\n\n\n\n\n\n\n💭 Check-in\n\n\nCan you think of more?"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#statistical-validity-in-the-digital-age",
-    "href": "lectures/week1-phil-slides.html#statistical-validity-in-the-digital-age",
-    "title": "The problem of knowledge",
-    "section": "Statistical validity in the digital age",
-    "text": "Statistical validity in the digital age\n\nMassive datasets create new opportunities…\n…but also new pitfalls\nMultiple testing: more analyses = more false positives\nP-hacking: finding patterns that aren’t really there\nAlgorithmic bias: models can perpetuate existing inequalities"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#external-validity-who-and-when",
-    "href": "lectures/week1-phil-slides.html#external-validity-who-and-when",
-    "title": "The problem of knowledge",
-    "section": "External validity: Who and when?",
-    "text": "External validity: Who and when?\n\nExternal validity refers to how well a given claim generalizes to the population of interest.\n\n\nMuch social science research focuses on WEIRD populations (Western, Educated, Industrialized, Rich, Democratic).\n\nDigital data exhibits even more skew.\n\nHow well do conclusions based on a given sample generalize across populations and times?\n\n\n\n\n\n💭 Check-in\n\n\nWith a partner, talk about a CSS-related study you’ve read about. How well do you think the conclusions generalize from the sample (people, society, time, etc.) studied?"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#prediction-vs.-understanding",
-    "href": "lectures/week1-phil-slides.html#prediction-vs.-understanding",
-    "title": "The problem of knowledge",
-    "section": "Prediction vs. understanding",
-    "text": "Prediction vs. understanding\n\n\n\n\n💭 Check-in\n\n\nDoes being able to predict something mean we understand it?\n\n\n\n\n\nIncreasingly, machine learning models can make accurate predictions…\n…but we don’t always know why the model works.\n\nA model that predicts which word you’ll say doesn’t mean we know why you said that word.\n\nYet simpler, more interpretable models sometimes trade-off with predictive accuracy.\nThis complexity/accuracy trade-off is pervasive in statistical modeling.\nIt also connects to more general challenges facing CSS."
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#ethical-challenges-in-css",
-    "href": "lectures/week1-phil-slides.html#ethical-challenges-in-css",
-    "title": "The problem of knowledge",
-    "section": "Ethical challenges in CSS",
-    "text": "Ethical challenges in CSS\nCSS research involves many important ethical questions.\n\nPrivacy and consent.\nAlgorithmic bias.\nResearch ethics (reproducibility, etc.)."
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#moving-forward",
-    "href": "lectures/week1-phil-slides.html#moving-forward",
-    "title": "The problem of knowledge",
-    "section": "Moving forward",
-    "text": "Moving forward\n\nNo single “correct” approach to knowledge production\nDifferent methods and perspectives offer complementary insights\nPluralism: embrace multiple ways of understanding social phenomena\nRemain aware of our assumptions and limitations\nConsider the ethical implications of our research choices"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#epistemological-challenges-in-css",
-    "href": "lectures/week1-philosophy.html#epistemological-challenges-in-css",
-    "title": "The problem of knowledge",
-    "section": "Epistemological challenges in CSS",
-    "text": "Epistemological challenges in CSS\n\nAny given empirical claim can be evaluated according to several validities.\n\nHere, we’ll focus on these validities with respect to CSS specifically.\n\n\n\n\nConstruct validity\n\nAre we measuring what we think we’re measuring?\n\n\n\n\nInternal validity\n\nCan we establish causal relationships?\n\n\n\n\n\n\n\nStatistical validity\n\nAre our analytical methods appropriate?\n\n\n\n\nExternal validity\n\nDo our findings generalize beyond our sample?"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#prediction-vs.-understanding-1",
-    "href": "lectures/week1-philosophy.html#prediction-vs.-understanding-1",
-    "title": "The problem of knowledge",
-    "section": "Prediction vs. understanding",
-    "text": "Prediction vs. understanding\n\nDoes being able to predict something mean we understand it?\n\n\n\nMachine learning models can make accurate predictions…\n…without providing intuitive explanations\nBlack box problem: we don’t know why the model works\nTrade-off between predictive accuracy and interpretability\nDiscussion: What matters more for CSS research?"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#construct-validity-challenges-1",
-    "href": "lectures/week1-philosophy.html#construct-validity-challenges-1",
-    "title": "The problem of knowledge",
-    "section": "Construct validity challenges",
-    "text": "Construct validity challenges\nHow do we measure complex social phenomena?\n\n\n\nExamples of tricky constructs: - Happiness and well-being - Social connectedness\n- Inequality and poverty - Political polarization\n\n\n\nKey questions: - What aspects are we capturing? - What are we missing? - Do our measures mean the same thing across groups?"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#statistical-validity-in-the-digital-age-1",
-    "href": "lectures/week1-philosophy.html#statistical-validity-in-the-digital-age-1",
-    "title": "The problem of knowledge",
-    "section": "Statistical validity in the digital age",
-    "text": "Statistical validity in the digital age\n\n\nMassive datasets create new opportunities…\n…but also new pitfalls\nMultiple testing: more analyses = more false positives\nP-hacking: finding patterns that aren’t really there\nAlgorithmic bias: models can perpetuate existing inequalities"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#external-validity-who-and-when-1",
-    "href": "lectures/week1-philosophy.html#external-validity-who-and-when-1",
-    "title": "The problem of knowledge",
-    "section": "External validity: Who and when?",
-    "text": "External validity: Who and when?\n\n\nMost research focuses on WEIRD populations (Western, Educated, Industrialized, Rich, Democratic)\nDigital data often skews toward certain demographics\nSocial phenomena change over time and across contexts\nKey question: What can we learn about human behavior in general?"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#prediction-vs.-understanding-2",
-    "href": "lectures/week1-philosophy.html#prediction-vs.-understanding-2",
-    "title": "The problem of knowledge",
-    "section": "Prediction vs. understanding",
-    "text": "Prediction vs. understanding\n\nDoes being able to predict something mean we understand it?\n\n\n\nMachine learning models can make accurate predictions…\n…without providing intuitive explanations\nBlack box problem: we don’t know why the model works\nTrade-off between predictive accuracy and interpretability\nDiscussion: What matters more for CSS research?"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#ethical-challenges-in-css-1",
-    "href": "lectures/week1-philosophy.html#ethical-challenges-in-css-1",
-    "title": "The problem of knowledge",
-    "section": "Ethical challenges in CSS",
-    "text": "Ethical challenges in CSS\n\n\nPrivacy: vast amounts of personal data available for research\nConsent: people may not know their data is being used\nRepresentation: whose voices are included/excluded?\n\nImpact: research findings can influence policy and individual lives\nResponsibility: what obligations do researchers have to society?"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#moving-forward-1",
-    "href": "lectures/week1-philosophy.html#moving-forward-1",
-    "title": "The problem of knowledge",
-    "section": "Moving forward",
-    "text": "Moving forward\n\n\nNo single “correct” approach to knowledge production\nDifferent methods and perspectives offer complementary insights\nPluralism: embrace multiple ways of understanding social phenomena\nRemain aware of our assumptions and limitations\nConsider the ethical implications of our research choices"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#epistemological-challenges-in-css",
-    "href": "lectures/week1-phil-slides.html#epistemological-challenges-in-css",
-    "title": "The problem of knowledge",
-    "section": "Epistemological challenges in CSS",
-    "text": "Epistemological challenges in CSS\n\nAny given empirical claim can be evaluated according to several validities.\n\nHere, we’ll focus on these validities with respect to CSS specifically.\n\n\n\n\nConstruct validity\n\nAre we measuring what we think we’re measuring?\n\n\n\n\nInternal validity\n\nCan we establish causal relationships?\n\n\n\n\n\n\nStatistical validity\n\nAre our analytical methods appropriate?\n\n\n\n\nExternal validity\n\nDo our findings generalize beyond our sample?"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#prediction-vs.-understanding-1",
-    "href": "lectures/week1-phil-slides.html#prediction-vs.-understanding-1",
-    "title": "The problem of knowledge",
-    "section": "Prediction vs. understanding",
-    "text": "Prediction vs. understanding\n\nDoes being able to predict something mean we understand it?\n\n\nMachine learning models can make accurate predictions…\n…without providing intuitive explanations\nBlack box problem: we don’t know why the model works\nTrade-off between predictive accuracy and interpretability\nDiscussion: What matters more for CSS research?"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#construct-validity-challenges-1",
-    "href": "lectures/week1-phil-slides.html#construct-validity-challenges-1",
-    "title": "The problem of knowledge",
-    "section": "Construct validity challenges",
-    "text": "Construct validity challenges\nHow do we measure complex social phenomena?\n\n\n\nExamples of tricky constructs: - Happiness and well-being - Social connectedness\n- Inequality and poverty - Political polarization\n\n\n\nKey questions: - What aspects are we capturing? - What are we missing? - Do our measures mean the same thing across groups?"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#statistical-validity-in-the-digital-age-1",
-    "href": "lectures/week1-phil-slides.html#statistical-validity-in-the-digital-age-1",
-    "title": "The problem of knowledge",
-    "section": "Statistical validity in the digital age",
-    "text": "Statistical validity in the digital age\n\nMassive datasets create new opportunities…\n…but also new pitfalls\nMultiple testing: more analyses = more false positives\nP-hacking: finding patterns that aren’t really there\nAlgorithmic bias: models can perpetuate existing inequalities"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#external-validity-who-and-when-1",
-    "href": "lectures/week1-phil-slides.html#external-validity-who-and-when-1",
-    "title": "The problem of knowledge",
-    "section": "External validity: Who and when?",
-    "text": "External validity: Who and when?\n\nMost research focuses on WEIRD populations (Western, Educated, Industrialized, Rich, Democratic)\nDigital data often skews toward certain demographics\nSocial phenomena change over time and across contexts\nKey question: What can we learn about human behavior in general?"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#prediction-vs.-understanding-2",
-    "href": "lectures/week1-phil-slides.html#prediction-vs.-understanding-2",
-    "title": "The problem of knowledge",
-    "section": "Prediction vs. understanding",
-    "text": "Prediction vs. understanding\n\nDoes being able to predict something mean we understand it?\n\n\nMachine learning models can make accurate predictions…\n…without providing intuitive explanations\nBlack box problem: we don’t know why the model works\nTrade-off between predictive accuracy and interpretability\nDiscussion: What matters more for CSS research?"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#ethical-challenges-in-css-1",
-    "href": "lectures/week1-phil-slides.html#ethical-challenges-in-css-1",
-    "title": "The problem of knowledge",
-    "section": "Ethical challenges in CSS",
-    "text": "Ethical challenges in CSS\n\nPrivacy: vast amounts of personal data available for research\nConsent: people may not know their data is being used\nRepresentation: whose voices are included/excluded?\n\nImpact: research findings can influence policy and individual lives\nResponsibility: what obligations do researchers have to society?"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#moving-forward-1",
-    "href": "lectures/week1-phil-slides.html#moving-forward-1",
-    "title": "The problem of knowledge",
-    "section": "Moving forward",
-    "text": "Moving forward\n\nNo single “correct” approach to knowledge production\nDifferent methods and perspectives offer complementary insights\nPluralism: embrace multiple ways of understanding social phenomena\nRemain aware of our assumptions and limitations\nConsider the ethical implications of our research choices"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#epistemological-challenges-in-css-1",
-    "href": "lectures/week1-philosophy.html#epistemological-challenges-in-css-1",
-    "title": "The problem of knowledge",
-    "section": "Epistemological challenges in CSS",
-    "text": "Epistemological challenges in CSS\n\nAny given empirical claim can be evaluated according to several validities.\n\n\n\n\n\nConstruct validity\n\nAre we measuring what we think we’re measuring?\n\n\n\nInternal validity\n\nCan we establish causal relationships?\n\n\n::::\n\n\n\nStatistical validity\n\nAre our analytical methods appropriate?\n\n\n\n\nExternal validity\n\nDo our findings generalize beyond our sample?\n\n::: ::::"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#epistemological-challenges-in-css-1",
-    "href": "lectures/week1-phil-slides.html#epistemological-challenges-in-css-1",
-    "title": "The problem of knowledge",
-    "section": "Epistemological challenges in CSS",
-    "text": "Epistemological challenges in CSS\n\nAny given empirical claim can be evaluated according to several validities.\n\n\n\n\n\nConstruct validity\n\nAre we measuring what we think we’re measuring?\n\n\n\nInternal validity\n\nCan we establish causal relationships?\n\n::::\n\n\n\nStatistical validity\n\nAre our analytical methods appropriate?\n\n\n\nExternal validity\n\nDo our findings generalize beyond our sample?\n::: ::::"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#construct-validity-in-css",
-    "href": "lectures/week1-philosophy.html#construct-validity-in-css",
-    "title": "The problem of knowledge",
-    "section": "Construct validity in CSS",
-    "text": "Construct validity in CSS\n\nConstruct validity refers to how well a variable is operationalized.\n\nMany variables are somewhat abstract: how do we measure them?\n\n\n\nExamples of hard constructs to operationalize:\n\nHappiness and well-being.\nSocial connectedness.\nInequality and poverty.\nPolitical polarization.\n\n\n\n\nKey questions:\n\nWhat aspects are we capturing?\n\nWhat are we missing?\n\n\n\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nWith a partner, choose one of these constructs. How might you operationalize it? What are limitations to this approach?"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#construct-validity-in-css",
-    "href": "lectures/week1-phil-slides.html#construct-validity-in-css",
-    "title": "The problem of knowledge",
-    "section": "Construct validity in CSS",
-    "text": "Construct validity in CSS\n\nConstruct validity refers to how well a variable is operationalized.\n\nMany variables are somewhat abstract: how do we measure them?\n\n\n\nExamples of hard constructs to operationalize:\n\nHappiness and well-being.\nSocial connectedness.\nInequality and poverty.\nPolitical polarization.\n\n\n\n\nKey questions:\n\nWhat aspects are we capturing?\n\nWhat are we missing?\n\n\n\n\n\n\n\n\n💭 Check-in\n\n\nWith a partner, choose one of these constructs. How might you operationalize it? What are limitations to this approach?"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#internal-validity-establishing-causation",
-    "href": "lectures/week1-philosophy.html#internal-validity-establishing-causation",
-    "title": "The problem of knowledge",
-    "section": "Internal validity: establishing causation",
-    "text": "Internal validity: establishing causation\n\nInternal validity is an indication of a study’s ability to eliminate alternative explanations for the effect of interest.\n\n\n\nWe’ve all heard correlation does not imply causation.\nBest way to establish causation is through experiments (RCTs), but that’s not always possible (or realistic) in many CSS domains.\n\nExample: social media use and mental health; digital campaigning and voter turnout; and much more.\n\nAdditionally, experimental control sometimes trades off with external validity!\nIf design is observational (no experiment), need to account for possible confounds.\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nWith a partner, think of some observational CSS studies you’ve read about. What might be alternative explanations for the effect of interest?"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#statistical-validity-in-css",
-    "href": "lectures/week1-philosophy.html#statistical-validity-in-css",
-    "title": "The problem of knowledge",
-    "section": "Statistical validity in CSS",
-    "text": "Statistical validity in CSS\n\nStatistical validity is the extent to which a study’s statistical conclusions are accurate.\n\n\n\nCould include reporting the margin of error associated with a claim (e.g., \\(10 \\pm 2\\)).\nAlso encompasses common pitfalls.\n\nFlexible models applies to large datasets are a recipe for inadvertent p-hacking.\nImportant to use methods like cross-validation to avoid overfitting.\n\nFundamentally an issue of research ethics!\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nSuppose you analyze the correlation between various personality traits and hundreds of outcome measures (life satisfication, income, etc.). You find significant results for about \\(5 \\%\\) of your analyses. What’s a potential concern here?"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#internal-validity-establishing-causation",
-    "href": "lectures/week1-phil-slides.html#internal-validity-establishing-causation",
-    "title": "The problem of knowledge",
-    "section": "Internal validity: establishing causation",
-    "text": "Internal validity: establishing causation\n\nInternal validity is an indication of a study’s ability to eliminate alternative explanations for the effect of interest.\n\n\nWe’ve all heard correlation does not imply causation.\nBest way to establish causation is through experiments (RCTs), but that’s not always possible (or realistic) in many CSS domains.\n\nExample: social media use and mental health; digital campaigning and voter turnout; and much more.\n\nAdditionally, experimental control sometimes trades off with external validity!\nIf design is observational (no experiment), need to account for possible confounds.\n\n\n\n\n\n💭 Check-in\n\n\nWith a partner, think of some observational CSS studies you’ve read about. What might be alternative explanations for the effect of interest?"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#statistical-validity-in-css",
-    "href": "lectures/week1-phil-slides.html#statistical-validity-in-css",
-    "title": "The problem of knowledge",
-    "section": "Statistical validity in CSS",
-    "text": "Statistical validity in CSS\n\nStatistical validity is the extent to which a study’s statistical conclusions are accurate.\n\n\nCould include reporting the margin of error associated with a claim (e.g., \\(10 \\pm 2\\)).\nAlso encompasses common pitfalls.\n\nFlexible models applies to large datasets are a recipe for inadvertent p-hacking.\nImportant to use methods like cross-validation to avoid overfitting.\n\nFundamentally an issue of research ethics!\n\n\n\n\n\n💭 Check-in\n\n\nSuppose you analyze the correlation between various personality traits and hundreds of outcome measures (life satisfication, income, etc.). You find significant results for about \\(5 \\%\\) of your analyses. What’s a potential concern here?"
-  },
-  {
-    "objectID": "lectures/week1-philosophy.html#summary-and-moving-forward",
-    "href": "lectures/week1-philosophy.html#summary-and-moving-forward",
-    "title": "The problem of knowledge",
-    "section": "Summary, and moving forward",
-    "text": "Summary, and moving forward\n\n\nCSS is pluralistic in terms of methods and research questions: no single “correct” approach.\n\nMultiple epistemological challenges facing empirical science.\nThis course will focus on statistical methods, but we’ll also touch on other core issues, especially construct validity.\n\n\n\n\n\n\n\n\n\nNote💭 Key takeaway\n\n\n\nProducing knowledge is hard, but methodological and theoretical principles can help guide us."
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#summary-and-moving-forward",
-    "href": "lectures/week1-phil-slides.html#summary-and-moving-forward",
-    "title": "The problem of knowledge",
-    "section": "Summary, and moving forward",
-    "text": "Summary, and moving forward\n\nCSS is pluralistic in terms of methods and research questions: no single “correct” approach.\n\nMultiple epistemological challenges facing empirical science.\nThis course will focus on statistical methods, but we’ll also touch on other core issues, especially construct validity.\n\n\n\n\n\n💭 Key takeaway\n\n\nProducing knowledge is hard, but methodological and theoretical principles can help guide us."
   }
 ]
