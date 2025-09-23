@@ -1,0 +1,135 @@
+---
+title: "Week 2: Hands-on data wrangling"
+---
+
+## Introduction
+
+The goal of this hands-on exercise is to familiarize you with the basics of **data wrangling and descriptive analysis**. It will be a "semi-guided session", with periods for independent (or collaborative) work.
+
+Specific topics and skills:
+
+- Familiarity with tools for **describing** data, e.g., `group_by` and `summarise`, as well as simple plots like `hist`. 
+- Experience **transforming** or **manipulating** data using `filter` and `mutate`.
+- Experience **reshaping** and **merging** datasets using `pivot_longer` and various *joins*. 
+
+## The dataset(s)
+
+We'll be working with a few Linguistics datasets:
+
+- A dataset about word **concreteness**, which you've already seen from class.  
+- A dataset about word **iconicity** (the extent to which words sound like what they mean). 
+- 
+
+
+To get started, let's load the datasets.
+
+
+```{r}
+library(tidyverse)
+
+### Concreteness
+df_concreteness <- read_csv("https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/concreteness.csv")
+
+### Iconicity
+df_iconicity <- read_csv("https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/iconicity.csv")
+```
+
+## Exercise 1: Understand the structure of your data
+
+First, use functions like `nrow`, `colnames`, `head`, and more to understand the structure and content of each dataset.
+
+Try to answer the following questions:
+
+- What does each column mean? 
+- Would you say the datasets are in wide or long format?  
+- Do the datasets have any overlapping columns?  
+- How many words are in each dataset? Are they the same words?  
+- What's the range of values for iconicity and concreteness ratings?  
+
+## Exercise 2: Join your data
+
+Use a **join** operation to merge the concreteness and iconicity datasets on a common column name. (**Hint**: You might need to use `mutate` to create a new column in at least one of the datasets.)
+
+What are the consequences of using `left/right/full/inner_join`? Which *join* did you use, and what does the resulting table look like in terms of lost (or gained) rows? 
+
+## Exercise 3: Explore your data
+
+Now that you've *merged* your datasets, let's conduct some initial explorations.
+
+### 3a: How many ratings?
+
+The iconicity dataset contains a number of ratings for each word, but some words were rated more times than others. 
+
+- What is the **range** of `n_ratings`? 
+- Which word was rated the most times? What about the least? 
+
+### 3b: Which words are most and least iconic? 
+
+- Which(s) word has (or have) the highest **iconicity** rating in the merged dataset? What about the word(s) with the lowest rating? Do these results make sense to you? (**Hint**: Use `slice_max/min`). 
+
+- What about the *top 5 iconic* words and the *bottom 5 iconic* words? (**Hint**: Use `arrange` and `slice_head`.)
+
+- Can you draw any conclusions from this preliminary exploration about which kinds of words are most and least iconic? 
+
+- Are the extreme words the same before and after merging?
+
+### 3c: Which words have the most and least variance in their iconicity ratings?
+
+Repeat exercise 3b, but for `rating_sd` instead of `rating`. 
+
+### 3d: Which words are most and least frequent?
+
+Repeat exercise 3b, but now for `Frequency`. Which words are the most and least *frequent* in the joined dataset?
+
+### 3e: Which words are most and least concrete?
+
+Repeat exercise 3b, but now for `Concreteness`. Which words are the most and least *concrete* in the joined dataset?
+
+
+## Exercise 4: Grouping and summarizing
+
+The dataset also includes information about each word's **part-of-speech**. Let's use that information to learn more about our data.
+
+### 4a: Which part-of-speech is most and least iconic?
+
+Use `group_by` and `summarise` to calculate the mean iconicity for each part of speech. 
+
+- Which part-of-speech has the highest iconicity on average, and which has the least?  
+- Is this broadly consistent with your qualitative inspection of the most and least iconic words earlier? 
+
+### 4b: Which part-of-speech is most and least concrete?
+
+Use `group_by` and `summarise` to calculate the mean *frequency* for each part of speech. 
+
+- Which part-of-speech has the highest frequency on average, and which has the least?  
+- Do you think these estimates might be affected by the distribution *shape* of `Frequency`? If necessary, recalculate the above with a log-transformed measure.
+
+
+## Exercise 5: Correlations between our variables
+
+### 5a: A correlation matrix
+
+Now, create a correlation matrix between `n_ratings`, `rating`, `rating_sd`, `Concreteness`, and `Frequency`. You might need to use `select` to first select those columns. 
+
+- What are the strongest correlations? 
+- Are more concrete words also more iconic?
+
+### 5b: Does the strength of correlation depend on part-of-speech?
+
+Focusing specifically on the relationship between `Concreteness` and `rating`, calculate the correlation between these variables for each **part-of-speech**. 
+
+- Which parts-of-speech show the highest correlation? Which show the lowest? 
+- Compare these values to the *count* of observations for each part of speech. 
+
+### 5c: Concrete vs. abstract words
+
+- Now, create a *binary* variable called `Concrete` that categorizes words with a `Concreteness >2.5` as "Concrete", and words with a `Concreteness <= 2.5` as "Abstract".  
+- Then, calculate the mean iconicity for words categorized as Concrete vs. Abstract. 
+
+
+## Exercise 6: Free exploration!
+
+Try to come up with at least one additional question to ask about your data. 
+
+- If necessary, that could include merging with *additional datasets* (e.g., the AoA dataset used in class).  
+- Alternatively, you could try to build a regression model using `lm` to model the relationships between the variables more directly. 

@@ -1,0 +1,491 @@
+---
+title: "Introduction to R"
+format:
+  html: 
+    toc: true
+  revealjs:
+    output-file: "week1-r-intro-slides.html"
+    theme: simple
+    slide-number: true
+    chalkboard: true
+    preview-links: auto
+    footer: "CSS 211 | UC San Diego"
+---
+
+## Goals of the lecture {.smaller}
+
+::: {.incremental}
+- Brief tooling.
+- Why R? 
+- Introduction to "base R". 
+- Brief preview of the `tidyverse`. 
+:::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+Note that today's lecture will extend to Friday's *in-class lab slot*. Depending on whether we have time on Friday, we can also work on the *take-hom lab* in Friday's class.
+:::
+:::
+
+
+## Tooling (briefly) {.smaller}
+
+> One of the most frustrating parts of programming is **tooling**: getting your computer set up to actually *do* the stuff you want to learn about.
+
+In this class, we'll be working with the [R programming language](https://www.r-project.org/) using a desktop IDE called [RStudio](https://posit.co/download/rstudio-desktop/). 
+
+::: {.incremental}
+- Links to download and install RStudio can be found [here](https://posit.co/download/rstudio-desktop/). 
+- Follow the instructions: will include downloading and installing **R**.  
+- To avoid other tooling headaches, we'll just be using *Canvas* for course management.
+- We won't be relying on GitHub, but it's also very useful and important!
+:::
+
+
+## Why R? {.smaller}
+
+There are *many* different programming languages. Why use R? 
+
+::: {.incremental}
+- R was specifically designed for *data analysis*.  
+- R supports a number of *open-source packages* to make data analysis easier.
+  - `ggplot`, `dplyr`, `lme4`. 
+  - We'll be learning all about these in the course!
+- Other CSS-relevant languages include [Python](https://www.python.org/) and [SQL](https://www.w3schools.com/sql/). 
+  - Learning R is not *incompatible* with learning these!
+:::
+
+
+## Introduction to "base" R {.smaller}
+
+> "Base" R just refers to the set of functions and tools available "out of the box", without using additional packages like `tidyverse`.
+
+Base R includes (but is not limited to):
+
+::: {.incremental}
+- Basic mechanics like **variable assignment**. 
+- Simple functions like `plot`, as well as core *types* like **vectors**.
+- Statistical methods like `lm` and `anova` (which we'll discuss later). 
+:::
+
+
+
+## Variable assignment {.smaller}
+
+> **Variables** allow us to *store information* (values, vectors, etc.) so we can use it again later.
+
+Here, we create a variable called `account`, so we can add to it.
+
+```{r basic1}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+# Our first R variable
+account <- 20 ### assign value to variable
+account + 25 ### add to variable
+```
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+You can also use `=` for assignment, but `<-` is the R convention. (For most purposes in this course, it shouldn't matter which you use, and I sometimes mix them up!)
+:::
+:::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+Try adding different numbers to `account`. What do you think will happen if you add a string like `'CSS'`?
+:::
+:::
+
+
+## Basic variable types {.smaller}
+
+> Each variable has a certain type or `class`. 
+
+You can *do different things* with different types of variables. For instance, you can't calculate the `mean` of multiple characters, but you can for `numeric` types.
+
+| Type | What it is | Example |
+|------|------------|---------|
+| **numeric** | Numbers (integers & decimals) | `age <- 25`, `gpa <- 3.7` | 
+| **character** | Text strings | `name <- "Alice"` | 
+| **logical** | TRUE/FALSE values | `passed <- TRUE` |
+| **integer** | Whole numbers only | `count <- 5L` | 
+| **factor** | Categorical data | `grade <- factor("A")` |
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+Use the `typeof()` or `class()` functions to check the type of different variables or values. 
+:::
+:::
+
+
+## Basic Operations with Numeric Variables {.smaller}
+
+`numeric` variables allow for a number of *arithmetic operations* (like a calculator).
+
+```{r operations1}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+# Creating numeric variables
+my_var <- 5
+
+
+my_var + 1 ### Addition
+my_var * 2 ### Multiplication
+my_var / 2 ### Division
+my_var ** 2 ### Exponentiation
+```
+
+
+## Vectors: Building Blocks of R {.smaller}
+
+> A **vector** is a collection of elements with the same `class`. 
+
+Vectors can be created with the `c(...)` function.
+
+```{r v1}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+# Creating vector
+my_vector <- c(25, 30, 32)
+print(my_vector)
+print(my_vector[1])
+```
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+Create your own vector, this time with `character` types in it. Try **indexing** into different parts of the vector.
+:::
+:::
+
+## Working with vectors {.smaller}
+
+Like **scalars**, numeric vectors can be manipulated mathematically.
+
+```{r v1-math}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+my_vector + 1 ### add 1 to each element
+my_vector * 5 ### Multiply each element by 5
+my_vector + c(1, 2, 3) ### Add vector to another vector
+```
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+What do you think will happen if you try to add two vectors of different lengths?
+:::
+:::
+
+
+## Functions {.smaller}
+
+> A **function** implements some operation; you can think of it as a *verb* applied to some input. 
+
+In CSS, you'll often be using functions to *summarize* your data (like a vector).
+
+
+```{r v1-function}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+# Creating vector
+heights <- c(60, 65, 62, 70, 72, 73)
+
+mean(heights)
+median(heights)
+```
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+Create a vector containing possible *incomes*; then create the `mean` and `median` of this vector.
+:::
+:::
+
+
+
+## Creating vectors from distributions (pt. 1) {.smaller}
+
+In addition to creating vectors *by hand*, we can use functions to create **random vectors** by *sampling* from some distribution, e.g., a **normal distribution** (`rnorm(x, mean, sd)`).
+
+```{r rand-example}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+#| fig-width: 5
+#| fig-height: 3
+# Creating vector
+v_norm = rnorm(100, mean = 50, sd = 2)
+hist(v_norm)
+```
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+Try changing the different parameters of `rnorm` and then plotting the resulting vector again using `hist`. What do you notice about changing the `mean` or `sd`? 
+:::
+:::
+
+## Creating vectors from distributions (pt. 2) {.smaller}
+
+There are also many types of **distributions** beyond normal distributions.
+
+::: {.incremental}
+- Uniform distributions: use `runif`. 
+- Binomial distributions: use `rbinom`. 
+- Poisson distributions: use `rpois`. 
+- **Sampling** from these distributions (and visualizing them) is a helpful way to learn about different statistical distributions. 
+:::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+Create a uniform distribution with `runif` with 100 values ranging from `2` to `3`. If you're not sure how to do this, use `?runif` to learn more about the function.
+:::
+:::
+
+
+## Interim summary {.smaller}
+
+So far, we've covered a number of **core topics** in base R. 
+
+::: {.incremental}
+- Assigning and working with *variables*. 
+- Different *types* of variables. 
+- Applying *functions* to variables. 
+- Creating *vectors* and visualizing them with `hist`. 
+- Sampling from *statistical distribution*. 
+:::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+Any questions before we move on to creating **dataframes** and other kinds of plots?
+:::
+:::
+
+## Dataframes {.smaller}
+
+> The `data.frame` class is a "tightly coupled collection of variables"; it's also a **fundamental data structure** in R.
+
+::: {.incremental}
+- Like a matrix, but with *labeled columns* of the same length. 
+- Each column corresponds to a *vector* of values (numbers, characters, etc.). 
+- Supports many useful operations. 
+- Analogous to `pandas.DataFrame` in `Python`!
+:::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+Note that once we move to the `tidyverse`, we'll be working with `tibbles`, which are *basically* like a `data.frame`.
+:::
+:::
+
+
+## Creating a `data.frame` {.smaller}
+
+::: {.incremental}
+- A `data.frame` can be created using the `data.frame` function.
+- Pass in labeled vectors *of the same length*.
+:::
+
+```{r df-example}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+df_example = data.frame(hours_studied = c(0, 2, 2, 3, 5, 8), test_score = c(70, 85, 89, 89, 94, 95))
+head(df_example, 2)
+```
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+Try creating your own `data.frame` with custom columns. For example, one column could be `movie_title` and another could be your `rating` of that movie. Make sure the columns are the same length!
+:::
+:::
+
+
+## Exploring  a `data.frame` {.smaller}
+
+We can use functions like `nrow`, `head`, and `colnames` to learn about our `data.frame`.
+
+```{r df-example2}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+print(nrow(df_example)) ### How many rows?
+print(colnames(df_example)) ### Column names
+print(head(df_example, 2)) ### First two rows
+print(str(df_example)) ### Structure of data
+print(summary(df_example)) ### Summary of each column
+```
+
+## Accessing individual columns {.smaller}
+
+You can access individual *columns* using the `dataframe$column_name` syntax.
+
+```{r df-columns}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+df_example$hours_studied ### Get vector
+summary(df_example$hours_studied) ### Get summary of vector
+```
+
+## Filtering a `data.frame` {.smaller}
+
+In base R, you can **filter** a `data.frame` using the `df[CONDITION]` syntax, where `CONDITION` corresponds to a `logical` statement.
+
+```{r df-filter}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+df_example[df_example$hours_studied > 2, ]
+```
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+In the `tidyverse`, we can use the handy `filter` function.
+:::
+:::
+
+
+## Simple *bivariate* plots {.smaller}
+
+Once you have *multiple vectors*, you can plot the relationship between them, e.g., using a simple **scatterplot**.
+
+```{r scatter}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+#| fig-width: 7
+#| fig-height: 4
+plot(df_example$hours_studied, 
+     df_example$test_score,
+     xlab = "Hours Studied", 
+     ylab = "Test Score",
+     pch = 16, # Filled circles
+     col = "blue")
+```
+
+## Calculating *correlations* {.smaller}
+
+You can also *quantify* the relationship between variables, e.g., using a **Pearson's r correlation coefficient**.
+
+```{r cor}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+cor.test(df_example$hours_studied, df_example$test_score)
+```
+
+## Working with missing data {.smaller}
+
+Real data often contains **missing values**. R represents these as `NA` (Not Available). We'll discuss these in more detail next week, but here's a preview:
+
+
+```{r missing}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+# Vector with missing data
+survey_responses <- c(85, 92, NA, 78, NA, 88)
+mean(survey_responses)                    # Returns NA!
+mean(survey_responses, na.rm = TRUE)      # Remove NAs first: 85.75
+```
+
+## Working with missing data (pt. 2) {.smaller}
+
+You can *remove* missing data by **filtering** the `data.frame`, using the syntax below and the `is.na` condition.
+
+```{r missing2}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+# Vector with missing data
+survey_responses[is.na(survey_responses) == FALSE]
+```
+
+
+## Putting it together: simulating data {.smaller}
+
+So far, we've discussed a number of useful concepts in R:
+
+::: {.incremental}
+- Working with **vectors**. 
+- Simulating random distributions using `rnorm`. 
+- Creating `data.frame` objects and plotting or analyzing them.
+:::
+
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+Now, let's *simulate data*. 
+
+- First, use `rnorm` to create a random normal distribution of `parent_heights` (use parameters that seem reasonable to you). 
+- Then, create a second variable called `child_heights` that's *related* to `parent_heights`, ideally with some *random error* added. (**Hint**: Think about how a regression line works.). 
+- Put these variables in a `data.frame`.
+- Finally, **plot** the relationship between those variables and calculate the correlation.
+:::
+:::
+
+## Simulating data {.smaller}
+
+
+```{r simulating}
+#| echo: true
+#| code-line-numbers: true
+parent_heights = rnorm(100, 65, 3)
+child_heights = parent_heights + rnorm(100, 0, 2)
+df_heights = data.frame(parent_heights, child_heights)
+
+plot(df_heights$parent_heights, 
+     df_heights$child_heights,
+     xlab = "Parent Height", 
+     ylab = "Child Height",
+     pch = 16, # Filled circles
+     col = "blue")
+
+cor(df_heights$parent_heights, df_heights$child_heights)
+
+```
+
+## A conceptual preview of the `tidyverse` {.smaller}
+
+Next week, we'll discuss the `tidyverse`: a set of packages and functions developed to make data analysis and visualization in R easier.
+
+This includes (but is not limited to):
+
+::: {.incremental}
+- Functions for [**transforming data**](https://nyu-cdsc.github.io/learningr/assets/data-transformation.pdf), e.g., `filter` or `mutate`. 
+- Functions for **merging data**, like `left_join` or `inner_join`. 
+- Functions for **visualizing data**, like `ggplot`. 
+:::
+
+
+## Lecture wrap-up {.smaller}
+
+This course is not *primarily* about programming in R, but programming in R is a **foundational skill** for other parts of this course.
+
+This lecture (and accompanying lab) is intended to give you more comfort with the following concepts:
+
+::: {.incremental}
+- Working with **variables** and different types of data. 
+- Creating and working with **vectors**.  
+- Simple **plotting**. 
+- Working with `data.frame` objects.
+:::
+
+
+
+

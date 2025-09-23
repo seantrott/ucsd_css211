@@ -11,29 +11,29 @@ Readings are option; "ISLR" refers to ["Introduction to Statistical Learning in 
 |------|-----|------|----------|-----------------|-----------------|
 | 0 | F | 09-26 | [Course Introduction](lectures/week0-intro.qmd)| | |
 | 1 | M | 09-30 | [Philosophy of Science in CSS](lectures/week1-philosophy.qmd) | | [Introduction to R for Data Science ](https://r4ds.had.co.nz/introduction.html)|
-| 1 | W | 10-01 | Introduction to R and RStudio | | |
-| 1 | F | 10-03 | R basics **[LAB]** | **Lab 1** | |
-| 2 | M | 10-06 | Data wrangling | |[Tidy data (Wickham, 2011)](https://vita.had.co.nz/papers/tidy-data.pdf) |
-| 2 | W | 10-08 | Data wrangling | |
-| 2 | F | 10-10 | Hands-on data cleaning **[LAB]** | **Concept quiz** |
+| 1 | W | 10-01 | [Introduction to R and RStudio](lectures/week1-r-intro.qmd) | | |
+| 1 | F | 10-03 | [R basics **[HANDS-ON]**](labs/lab1.qmd) | **Lab 1** | |
+| 2 | M | 10-06 | [Data wrangling](lectures/week2-wrangling.qmd) | |[Tidy data (Wickham, 2011)](https://vita.had.co.nz/papers/tidy-data.pdf) |
+| 2 | W | 10-08 | [Data wrangling](lectures/week2-wrangling.qmd) | |
+| 2 | F | 10-10 | Hands-on data cleaning **[HANDS-ON]** | **Concept quiz** |
 | 3 | M | 10-13 | Data visualization (principles) | |[Introduction to Data Visualization in R](https://r4ds.had.co.nz/data-visualisation.html)|
 | 3 | W | 10-15 | Data visualization (*ggplot*) | |
-| 3 | F | 10-17 | Exploratory data analysis **[LAB]** | Lab 2 |
+| 3 | F | 10-17 | Exploratory data analysis **[HANDS-ON]** | Lab 2 |
 | 4 | M | 10-20 | Linear regression ||[ISLR, 3.1](https://www.statlearning.com/) |
 | 4 | W | 10-22 | Linear regression | |
-| 4 | F | 10-24 | Hands-on regression **[LAB]** | **Concept quiz** |
+| 4 | F | 10-24 | Hands-on regression **[HANDS-ON]** | **Concept quiz** |
 | 5 | M | 10-27 | Multiple regression | |[ISLR, 3.2](https://www.statlearning.com/)|
 | 5 | W | 10-29 | Regression: issues | |
-| 5 | F | 10-31 | Building complex models **[LAB]** | Lab 3 |
+| 5 | F | 10-31 | Building complex models **[HANDS-ON]** | Lab 3 |
 | 6 | M | 11-03 | Logistic regression | |[ISLR, 4.3](https://www.statlearning.com/)|
 | 6 | W | 11-05 | Regularization | |[ISLR, 6.2](https://www.statlearning.com/)|
-| 6 | F | 11-07 | Interpreting logistic models **[LAB]** | **Concept quiz** |
+| 6 | F | 11-07 | Interpreting logistic models **[HANDS-ON]** | **Concept quiz** |
 | 7 | M | 11-10 | Mixed effects models | |[Winter, 2013](https://arxiv.org/abs/1308.5499)|
 | 7 | W | 11-12 | Mixed models + model selection | |
 | 7 | F | 11-14 | **In-class midterm** | **Midterm!** |
 | 8 | M | 11-17 | Resampling | |[ISLR, 5.2](https://www.statlearning.com/)|
 | 8 | W | 11-19 | Resampling | Lab 4 |
-| 8 | F | 11-21 | Build your own baseline **[LAB]** | **Concept quiz** |
+| 8 | F | 11-21 | Build your own baseline **[HANDS-ON]** | **Concept quiz** |
 | 9 | M | 11-24 | Final project check-in | |
 | 9 | W | 11-26 | **HOLIDAY (Thanksgiving)** | |
 | 9 | F | 11-28 | **HOLIDAY (Thanksgiving)** | |

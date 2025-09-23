@@ -1,0 +1,1042 @@
+---
+title: "Data Wrangling in R"
+format:
+  html: 
+    toc: true
+  revealjs:
+    output-file: "week2-r-wrangling-slides.html"
+    theme: simple
+    slide-number: true
+    chalkboard: true
+    preview-links: auto
+    footer: "CSS 211 | UC San Diego"
+---
+
+## Goals of the lecture {.smaller}
+
+::: {.incremental}
+- What is *data wrangling* and why should we learn it? 
+- Principles of **tidy data**. 
+- Wrangling with the `tidyverse`.
+:::
+
+
+
+## What is data wrangling? {.smaller}
+
+> **Data wrangling** refers to the processes of transforming or manipulating raw data into a useful format for downstream *analysis* and *visualization*.
+
+In CSS, you'll find yourself needing to: 
+
+::: {.incremental}
+- *Import* data from various sources, in various formats. 
+- *Clean* messy variables or *recast* them to different types. 
+- *Filter* and *transform* data. 
+- *Address* missing values.
+- *Reshape* data between different formats. 
+- *Join* multiple datasets together. 
+:::
+
+[These are all supported by the `tidyverse`! But what *is* **tidy data**?]{.fragment}
+
+
+## Tidy data {.smaller}
+
+[Wickham (2014)](https://www.jstatsoft.org/article/view/v059i10/0) defines **tidy data** as follows:
+
+> "Tidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table."
+
+Let's address each of these in turn:
+
+::: {.incremental}
+1. Each *variable* is a column. 
+2. Each *observation* is a row. 
+3. Each *type of observational unit* is a table.
+:::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+With a partner, discuss what each of these criteria might mean.
+:::
+:::
+
+## Each variable is a *column* {.smaller}
+
+> A **variable** contains values that measure the same attribute across units.
+
+::: {.incremental}
+- *Examples*: `height`, `age`, `income`, `test_score`, `population`.
+- Each variable gets its own *column*.
+:::
+
+::: {.fragment}
+**Untidy example:**
+
+| country | gdp_2020 | gdp_2021 | gdp_2022 |
+|---------|----------|----------|----------|
+| USA     | 21.35   | 23.368    | 26.01  |
+| China   | 14.72    | 18.2    | 18.32   |
+| Germany | 3.94     | 4.35     | 4.16    |
+:::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+Why is this *not tidy*? How would you make it tidy?
+:::
+:::
+
+## Each variable is a *column* {.smaller}
+
+Now, we have a *column* for `country`, `year,` and `gdp`.
+
+::: {.fragment}
+**Tidy example:**
+
+| country | year | gdp_trillion |
+|---------|------|--------------|
+| USA     | 2020 | 21.35        |
+| USA     | 2021 | 23.368       |
+| USA     | 2022 | 26.01        |
+| China   | 2020 | 14.72        |
+| China   | 2021 | 18.2         |
+| China   | 2022 | 18.32        |
+| Germany | 2020 | 3.94         |
+| Germany | 2021 | 4.35         |
+| Germany | 2022 | 4.16         |
+:::
+
+## Each observation is a *row* {.smaller}
+
+> An **observation** contains all values measured on the same *unit* across attributes.
+
+::: {.incremental}
+- One row = one complete case or measurement. 
+- No splitting observations across multiple rows.
+:::
+
+::: {.fragment}
+**Untidy example:**
+
+| state      | measure          | value |
+|------------|------------------|-------|
+| California | population       | 39.5  |
+| California | electoral_votes  | 54    |
+| Texas      | population       | 31  |
+| Texas      | electoral_votes  | 40    |
+:::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+Why is this *not tidy*? How would you make it tidy?
+:::
+:::
+
+## Each observation is a *row* {.smaller}
+
+`population` and `electoral_votes` are separate *measures* for the same *case* (observation), so should be in the same row.
+
+::: {.fragment}
+**Tidy version:**
+
+| state      | population_millions | electoral_votes |
+|------------|--------------------|-----------------| 
+| California | 39.5               | 54              |
+| Texas      | 31.0               | 40              |
+:::
+
+
+## Each type of observational unit is a *table* {.smaller}
+
+> Different types of things being measured should be in separate tables.
+
+
+::: {.incremental}
+- *Example*: Record student test scores in one table, and school-level information in another. 
+- *Example 2*: Record monthly temperatures for cities in one table, and city *altitude* in another. 
+- This avoids repeating information (like school name for every student). 
+- Once we're ready, we can **join** these tables. 
+:::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+Can you think of other examples of "observational units" you would want to keep in separate tables?
+:::
+:::
+
+## Tidy data revisited {.smaller}
+
+> "Tidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table." (Wickham, 2014)
+
+::: {.incremental}
+- These guidelines aren't *arbitrary*.
+- A **standard tidy structure** is helpful for *visualizing* and *analyzing* data. 
+:::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+In fact, I often conceptualize "tidy" data in terms of:
+
+- What are the *axes* in a plot I want to make? (These should be separate *columns*.)
+- What are the *terms* in a regression formula I want to write? (These should be separate *columns*.)
+:::
+:::
+
+## Welcome to the `tidyverse` {.smaller}
+
+> The [`tidyverse`](https://www.tidyverse.org/) is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures."
+
+::: {.incremental}
+- Fundamentally, the `tidyverse` rests on the philosophy of **tidy data**. 
+- Includes a range of functions, from *importing data* (`read_csv`) to *merging datasets* (`inner_join`). 
+:::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Installation Help
+
+- Install the `tidyverse` using `install.packages("tidyverse")`. 
+- Then, *load* it using `library(tidyverse)`. 
+:::
+:::
+
+
+## Loading the `tidyverse` {.smaller}
+
+```{r loading}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+### Loading the tidyverse
+library(tidyverse)
+tidyverse::tidyverse_packages()
+```
+
+::: {.incremental}
+- We'll cover some of these packages later in this class, like `broom` and `ggplot2`. 
+- This week, we'll focus on functions from `readr`, `magrittr`, `dplyr`, and  `tidyr`.
+:::
+
+
+## The pipe (`%>%`) {.smaller}
+
+> The **pipe operator** (`%>%`) lets you chain functions together in a readable way.
+
+::: {.incremental}
+- Takes the output from the left side and feeds it as the first argument to the right side. 
+- Instead of **nesting** functions, can **pipe** outputs into each other. 
+- Makes code more readable and easier to follow. 
+- We'll see examples coming up!
+:::
+
+
+## Part 1: Basic data manipulation
+
+Importing, filtering, mutating, and summarizing data.
+
+
+## Reading in a dataset {.smaller}
+
+One of the most fundamental things you'll need to do is *import* data, e.g., from a `.csv` file. 
+
+- `read_csv` takes as input a *filepath* (either locally, or a URL). 
+- Output is a `tibble`. 
+
+```{r read_csv}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+df_conc <- read_csv("https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/concreteness.csv")
+nrow(df_conc)
+```
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+Use of the functions we've discussed (`nrow`, `names`, `head`, etc.) to explore the dataset.
+:::
+:::
+
+## Basics of `dplyr` {.smaller}
+
+> `dplyr` is a package in the `tidyverse` that contains functions for *transforming* and *manipulating* dataframes.
+
+Each function is a "verb", for instance:
+
+::: {.incremental}
+- `filter` relevant rows. 
+- `mutate` the dataset by adding new variables. 
+- `pull` specific columns by name.  
+- `rename` specific columns. 
+- `group_by` specific values or factors. 
+- `summarize` dataset with summary statistics. 
+:::
+
+## The `filter` {.smaller}
+
+> `filter` works by selecting a *subset* of rows based on some **boolean condition**. 
+
+```{r filter}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+df_conc %>%  ### piping!
+  filter(Word == "class")
+```
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+
+Try using `filter` to return words that:
+
+- Have a `Concreteness > 4.5`. 
+- Have a `Dom_Pos` of `Noun`. 
+
+**Hint**: You can *chain* multiple filter statements together with a `%>%` operator.
+:::
+:::
+
+## `mutate` your data {.smaller}
+
+> `mutate` works by *creating* a new variable (or *overwriting* an existing one) via applying some transformation to an existing variable or set of variables.
+
+Let's create a **log frequency** variable, since `Frequency` is highly right-skewed.
+
+```{r mutate1}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+df_conc = df_conc %>%  ### piping!
+  mutate(log_freq = log10(Frequency))
+
+summary(df_conc$log_freq)
+```
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+
+Why do you think the *mininum* `log_freq` value is `-Inf`?
+:::
+:::
+
+## `mutate` (pt. 2) {.smaller}
+
+Some words in our dataset have a `Frequency` of `0`. One strategy is to *add one* to those values before taking the log.
+
+```{r mutate2}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+df_conc = df_conc %>%  ### piping!
+  mutate(log_freq = log10(Frequency + 1))
+
+summary(df_conc$log_freq)
+```
+
+
+
+## `group_by` specific factors and `summarise` {.smaller}
+
+- The `group_by` function is extremely useful for **grouping** your data by specific factors.
+- You can `%>%` this into `summarise` to calculate summary statistics for each group. 
+
+
+```{r groupby}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+df_conc %>%
+  group_by(Dom_Pos) %>%
+  summarise(mean_conc = mean(Concreteness)) %>%
+  head(2)
+```
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+
+In addition to calculating `mean`, try also calculating the `sd`; additionally, try calculating the `mean` and `sd` for `log_freq` by `Dom_Pos`. 
+:::
+:::
+
+## Counting the number of observations {.smaller}
+
+Often relevant for a `group_by` calculation is the *number* of observations per group.
+
+```{r groupby_count}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+df_conc %>%
+  group_by(Dom_Pos) %>%
+  summarise(mean_conc = mean(Concreteness),
+            count = n()) %>%
+  head(2)
+```
+
+## Hands-on practice {.smaller}
+
+Now let's get some hands-on practice applying these new techniques. 
+
+::: {.incremental}
+- Read in the `pokemon.csv` dataset from the [`ucsd_211_datasets` GitHub](https://github.com/seantrott/ucsd_css211_datasets) using `read_csv`. 
+- Use `group_by` to *count* the number of Pokemon of each `Type 1`. Which `Type 1` is most frequent? 
+- Then, `filter` the dataset to only include Pokemon of the most frequent type (based on what you learned). 
+- Of this filtered dataset, `group_by` `legendary` status and calculate the `mean(Attack)`
+:::
+
+
+## Hands-on practice (solution) {.smaller}
+
+
+
+```{r hands-on}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+### Part 1
+df_pokemon <- read_csv("https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/pokemon.csv")
+
+### Part 2
+max_type = df_pokemon %>% 
+  group_by(`Type 1`) %>% 
+  summarise(count = n()) %>%
+  slice_max(count) %>%
+  pull(`Type 1`)
+
+### Parts 3-4
+df_pokemon %>%
+  filter(`Type 1` == max_type) %>%
+  group_by(Legendary) %>%
+  summarise(mean_attack = mean(Attack))
+```
+
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+
+Notice any functions we haven't discussed?
+:::
+:::
+
+## Some new functions {.smaller}
+
+Above, we used a combination of `read_csv`, `filter`, `group_by`, and `summarise`. But we also used some other new functions:
+
+::: {.incremental}
+- `slice_max`: returns rows with the **max** values of a given column. 
+   - Can also use `slice_head`, `slice_tail`, `slice_min`, and `slice_sample`. 
+- `pull`: returns the individual vector/value from a given column. 
+:::
+
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+
+Any questions before we move on to more `dplyr` functions and more aspects of the `tidyverse` more generally?
+:::
+:::
+
+## `select` specific columns {.smaller}
+
+> The `select` function can be used to **select** certain columns for further analysis.
+
+This is especially useful if you want to `%>%` those columns into, say, a correlation matrix.
+
+
+```{r select}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+df_conc %>%
+  select(log_freq, Concreteness, Frequency) %>%
+  cor()
+```
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+
+Try building a correlation matrix of the numerical columns from the Pokemon dataset (e.g., `Attack`, `Defense`, etc.). Are there any conclusions you can draw?
+:::
+:::
+
+
+## Part 2: More complex wrangling
+
+Missing data, reshaping, and joining.
+
+
+## Missing values {.smaller}
+
+> Real-world data often has **missing values**, which are treated as `NA` ("Not Available") by R. 
+
+There are a few relevant issues here:
+
+::: {.incremental}
+- First, you need to **identify** the presence of missing values. 
+- Second, you need to **address** the issue. 
+  - Ignore them? 
+  - Remove any rows with missing values?
+  - Try to impute their values?
+:::
+
+## Identifying missing values {.smaller}
+
+We can use the `is.na` function to check for missing values.
+
+```{r identify-missing}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+### Reading in dataset
+df_titanic <- read_csv("https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/titanic.csv")
+
+### Check for missing values; returns a vector of boolean values
+is.na(df_titanic$Age)[0:5]
+
+```
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+
+How many missing values are there total in the `Age` column? What about `Survived` or `Cabin`? (**Hint**: You can `sum` boolean values like `TRUE` and `FALSE`).
+:::
+:::
+
+## Identify missing values (pt. 2) {.smaller}
+
+We can combine some handy functions (`across` and `everything`) to sum up the number of `NA` values per column.
+
+```{r identify-missing2}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+## Get number of NA across all columns
+df_titanic %>% 
+  summarise(across(everything(), ~ sum(is.na(.))))
+```
+
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+`NA` values seem disproportionately located in the `Cabin` column. 
+:::
+:::
+
+## Addressing missing values {.smaller}
+
+Now that we've **identified** missing values, we have a few options:
+
+::: {.incremental}
+- We could *ignore* them, i.e., perform analyses as if they don't exist. 
+- We could *remove* missing values from our dataset. 
+- We could *impute* the missing values (guess). 
+:::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+
+What do you think are the trade-offs of each approach?
+:::
+:::
+
+
+## The problem with ignoring `NA` {.smaller}
+
+Unsurprisingly, ignoring `NA` values doesn't mean they go away. 
+
+- In some cases, analyses or visualizations may "quietly" ignore them. 
+  - This is bad because it means you're not *fully aware* of what goes into an analysis.
+- In other cases, it'll interfere with your summary statistics.
+
+```{r na-mean}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+## Mean defaults to NA b/c of missing values
+mean(df_titanic$Age)
+
+## Temporary fix is to remove them from this calculation...
+mean(df_titanic$Age, na.rm = TRUE)
+```
+
+## Removing missing values {.smaller}
+
+Another common approach to `NA` values is simply to **remove them**. 
+
+We can do this selectively in a given analysis, like below:
+
+```{r na-mean1}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+## Temporary fix is to remove them from this calculation...
+mean(df_titanic$Age, na.rm = TRUE)
+```
+
+Or we can actually `filter` our dataset to remove them entirely (or use `drop_na`).
+
+```{r na-mean2}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+df_titanic_subset = df_titanic %>%
+  filter(!is.na(Age))
+```
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+
+Do you think we should *always* just remove all `NA` values? Why or why not?
+:::
+:::
+
+## Not all `NA` values matter equally {.smaller}
+
+Whether or not we *care* that something is `NA` depends on our research questions!
+
+- `Age` might be relevant for analyses of `Survived`. 
+- `Cabin` may not really matter. 
+
+```{r na-cabin}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+### Cabin mostly NA, but maybe that's fine?
+sum(is.na(df_titanic$Cabin))
+
+df_titanic$Cabin[1:10]
+```
+
+## How do `NA` values distribute? {.smaller}
+
+One factor that might affect our approach is how `NA` values **distribute**.
+
+- Are they distributed randomly with respect to some other variable (e.g., `Survived`)? 
+- Or are they *systematic*? 
+- Either way, it's helpful to know.
+
+
+```{r na-survived}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+### Lower NA information about Cabins for people who survived
+df_titanic %>%
+  group_by(Survived) %>%
+  summarise(proportion_na = mean(is.na(Cabin)))
+```
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+
+What is the relative rate of `NA` values across levels of `Survived` for `Age`? 
+:::
+:::
+
+## Imputing missing values {.smaller}
+
+> **Imputing** values means *inferring* them based on some other set of properties or set of assumption. I.e., an "educated guess". 
+
+- Can set to `mean` or `median` value (e.g., `mean(Age`)). 
+- Can "guess" value based on some other property (e.g., `mean(Age)` for that `Pclass`).
+
+
+```{r na-impute}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+df_titanic = df_titanic %>%
+  group_by(Pclass) %>% ### Group by passenger class
+  mutate(Age_imputed = ifelse(
+    is.na(Age), mean(Age, na.rm = TRUE),  ### Replace with mean for that Pclass
+    Age)) %>% ### otherwise just use original age
+  ungroup()
+
+
+df_titanic %>%
+  group_by(Pclass) %>%
+  summarise(mean_age = mean(Age_imputed))
+```
+
+
+## Missing values: wrap-up {.smaller}
+
+
+::: {.incremental}
+- Real-world data often has **missing values**.
+- At minimum, it's important to *identify* and *characterize* `NA` values in your dataset.
+- Ideally, you should develop a *strategy* for dealing with them with intentionality.
+:::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+Sometimes missing values show up when we **join** datasets. We'll discuss joining soon.
+:::
+:::
+
+
+## Reshaping data {.smaller}
+
+> **Reshaping data** means converting it to either a "longer" format (from a "wide" format) or the other way around. 
+
+::: {.incremental} 
+- In many cases, this means making data **tidy** (long format). 
+- The `tidyr` package contains key functions for this, such as `pivot_longer` and `pivot_wider`. 
+- `tidyr` also includes functions to `separate` information from a single column across multiple columns (or `unite`, to do the opposite.)
+:::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+The best way to understand this is to look at some examples!
+:::
+:::
+
+## `pivot_longer`: from wide to long {.smaller}
+
+Let's start by creating a **wide** dataset, which might be considered "messy".
+
+```{r pivot_longer1}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+df_messy_1 = data.frame(john = c(10, 11),
+                        mary = c(20, 25),
+                        jane = c(5, 10),
+                        treatment = c('a', 'b'))
+df_messy_1
+```
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+
+Why is this considered "messy"? And what would a "long" version look like?
+:::
+:::
+
+## `pivot_longer`: from wide to long {.smaller}
+
+We can use the `pivot_longer` function to transform this into a **long** format.
+
+```{r pivot_longer2}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+df_messy_1 %>%
+  pivot_longer(cols = c(john, mary, jane), ### which columns to pivot
+               names_to = 'name', ### what to call column with keys
+               values_to = 'result') ### what to call column with values
+```
+
+::: {.incremental} 
+- Crucial argument is `cols` (which columns to pivot).
+- `names_to` and `values_to` are helpful for making the resulting table more readable.
+:::
+
+
+## `pivot_longer`: from wide to long {.smaller}
+
+Let's look at another example.
+
+```{r pivot_longer3}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+df_messy_2 = data.frame(name = c('john', 'mary', 'jane'),
+                        a = c(10, 20, 5),
+                        b = c(11, 25, 10))
+
+df_messy_2
+
+df_tidy = df_messy_2 %>%
+  pivot_longer(cols = c(a, b),
+               names_to = "treatment",
+                values_to = "result")
+
+df_tidy
+```
+
+## `pivot_wider`: back to wide format! {.smaller}
+
+> `pivot_wider` reshapes data into **wide** format.
+
+```{r pivot_wider}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+### To recreate first table
+df_tidy %>%
+  pivot_wider(names_from = "name",
+              values_from = "result")
+
+### To recreate second table
+df_tidy %>%
+  pivot_wider(names_from = "treatment",
+              values_from = "result")
+```
+
+
+## Your turn! (pt. 1) {.smaller}
+
+If you've loaded `tidyverse`, you should have access to (at least) the following data tables:
+
+- `table1` 
+- `table2` 
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+
+How would you `pivot_wider` `table2` such that it resembles `table1`?
+:::
+:::
+
+## Your turn! (pt. 2) {.smaller}
+
+Now let's try `pivot_longer` with a more complex example. Load the **missing work** example from [this Full Stack Economics graph](https://www.fullstackeconomics.com/p/18-charts-that-explain-the-american-economy). 
+
+
+```{r pivot_practice}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+### Part 1
+df_work <- read_csv("https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/missing_work.csv")
+head(df_work, 3)
+
+
+```
+
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+
+Right now, the table stores different *reasons for missing work* as different *columns*. 
+
+Instead, let's `pivot_longer` so the table has a column for `Reason` (for missing) and a column for `Count` (number of days missed). 
+
+:::
+:::
+
+
+## Other handy `tidyr` functions {.smaller}
+
+Although **pivoting** is probably the *main* function enabled by `tidyr`, it also contains other valuable reshaping functions:
+
+::: {.incremental} 
+- `separate` "splits" values within a given column into multiple columns. 
+- `unite` does the opposite.
+:::
+
+
+
+```{r separate_example}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+table3 %>%
+  separate(rate,  ### column to separate
+           into = c("cases", "population"),  ### columns to split into
+           convert = TRUE, ### convert into numeric
+           sep = "/") ### separator currently separating values
+
+```
+
+## Joining data {.smaller}
+
+> **Joining** is an operation in which columns from data `Y` are added to data `X`, matching observations based on shared variables (or "keys"). 
+
+::: {.incremental} 
+- In real-world analysis, data is often stored across multiple sources. 
+- *Joining* brings together related information from separate tables. 
+- Key types: `left_join()`, `right_join()`, `inner_join()`, `full_join()`
+:::
+
+::: {.fragment}
+**Example scenario:**
+
+- Table 1: State election results (`state`, `biden_pct`, `turnout`)  
+- Table 2: State demographics (`state`, `median_income`, `college_pct`)
+
+Here, we might **join** the tables based on the overlapping `state` variable.
+
+**Goal**: Analyze how `median_income` and `college_pct` relates to voting patterns.
+:::
+
+
+## Types of joins {.smaller}
+
+Given tables `X` and `Y`, you have several options for how to **join** them.
+
+::: {.incremental} 
+- `inner_join`: only keep observations from `X` with matching key in `Y`. 
+- `left_join`: keep all observations from `X`, join matching ones from `Y`.
+- `right-join`: keep all observations from `Y`, join matching ones from `X`.
+- `full_join`: keep all observations in both `X` and `Y`. 
+:::
+
+## Simple join example {.smaller}
+
+Suppose we have two tables: `table4a` contains information about the **cases** in each country (with different columns for different years), and `table4b` contains information about the **population** of each country (again, with different columns for different years).
+
+Ideally, we'd like to *join* these tables.
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+
+What steps will we need to take to *join* them?
+
+(**Hint**: It may involve more than joining.)
+:::
+:::
+
+## Simple join example {.smaller}
+
+```{r join_example}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+### First, tidy each table
+tidy4a = table4a %>%
+  pivot_longer(c(`1999`, `2000`), names_to = "year", values_to = "cases")
+tidy4b = table4b %>%
+  pivot_longer(c(`1999`, `2000`), names_to = "year", values_to = "population")
+
+### Then, join
+left_join(tidy4a, tidy4b)
+
+```
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+
+In this case, would it matter whether we use `left_join` or `inner_join`? If not, under what circumstances would this distinction matter?
+:::
+:::
+
+## A more complex example {.smaller}
+
+We've already loaded information about word **concreteness**. Now let's load another dataset about the average **age of acquisition** at which words are learned, and *combine* that with the concreteness dataset.
+
+```{r aoa}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+df_aoa <- read_csv("https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/AoA.csv")
+nrow(df_aoa)
+head(df_aoa)
+
+```
+
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+### 💭 Check-in
+
+How would you **join** this dataset with the concreteness dataset? What kind of *join* operation might you want to use?
+:::
+:::
+
+## A more complex example (pt. 2) {.smaller}
+
+The concreteness and AoA datasets are not **fully-overlapping**. Concreteness contains words not in AoA and vice versa.
+
+
+```{r aoa_join}
+#| echo: true
+#| code-line-numbers: true
+#| output-location: fragment
+
+### Inner join (keep only intersection)
+df_inner = df_conc %>%
+  inner_join(df_aoa)
+nrow(df_inner)
+
+### Left join (keep all concreteness)
+df_left = df_conc %>%
+  left_join(df_aoa)
+nrow(df_left)
+
+### Right join (keep all AoA)
+df_right = df_conc %>%
+  right_join(df_aoa)
+nrow(df_right)
+
+### full join (keep everything)
+df_full = df_conc %>%
+  full_join(df_aoa)
+nrow(df_full)
+
+```
+
+## Joining: the details {.smaller}
+
+When **joining**, there are a few other details we've glossed over:
+
+- `by`: this specifies which *keys* to join on (will default to all overlapping). 
+- `multiple`: how to handle cases where rows from `X` match multiple rows from `Y`. 
+- `unmatched`: how to handle cases where rows would be dropped. 
+
+
+
+## Putting it all together {.smaller}
+
+These lectures have covered the basics of **data wrangling** with the `tidyverse`. 
+
+A typical workflow will involve:
+
+::: {.incremental}
+- **Reading** data (`read_csv`). 
+- **Exploring** the data (`is.na`, `summary`, `summarise`). 
+- **Clean** data (`mutate`, `filter`). 
+- **Reshape** if needed `(pivot_longer/wider`). 
+- **Join** if needed (`inner_join`, etc.). 
+:::
+
+::: {.fragment}
+::: {.callout-note icon="false"}
+The end result is a dataset ready for further *analysis* and *visualization* (coming up!). 
+:::
+:::
+
+

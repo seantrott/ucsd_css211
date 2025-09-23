@@ -1,0 +1,2205 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.23">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Data Wrangling in R – CSS 211: Statistical Methods for Computational Social Science</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-f93c2b1f3f0577f377aefa4848a86a36.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CSS 211: Statistical Methods for Computational Social Science</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../final_project.html"> 
+<span class="menu-text">Final Project</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lectures" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lectures</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures">    
+        <li>
+    <a class="dropdown-item" href="../lectures/week0-intro.html">
+ <span class="dropdown-text">Week 0: Course Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lectures/week1-philosophy.html">
+ <span class="dropdown-text">Week 1: Philosophy of Science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lectures/week1-r-intro.html">
+ <span class="dropdown-text">Week 1: Introduction to R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lectures/week2-wrangling.html">
+ <span class="dropdown-text">Week 2: Data Wrangling</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-labs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-fas fa-laptop-code" role="img">
+</i> 
+ <span class="menu-text">Labs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-labs">    
+        <li>
+    <a class="dropdown-item" href="../labs/lab1.html">
+ <span class="dropdown-text">Lab 1: R Basics</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-hands-on-exercises" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Hands-on exercises</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-hands-on-exercises">    
+        <li>
+    <a class="dropdown-item" href="../hands_on/week2.html">
+ <span class="dropdown-text">Week 2: Wrangling</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="../readings.html">
+ <span class="dropdown-text">Readings</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/seantrott/ucsd_css211"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#goals-of-the-lecture" id="toc-goals-of-the-lecture" class="nav-link active" data-scroll-target="#goals-of-the-lecture">Goals of the lecture</a></li>
+  <li><a href="#what-is-data-wrangling" id="toc-what-is-data-wrangling" class="nav-link" data-scroll-target="#what-is-data-wrangling">What is data wrangling?</a></li>
+  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data">Tidy data</a></li>
+  <li><a href="#each-variable-is-a-column" id="toc-each-variable-is-a-column" class="nav-link" data-scroll-target="#each-variable-is-a-column">Each variable is a <em>column</em></a></li>
+  <li><a href="#each-variable-is-a-column-1" id="toc-each-variable-is-a-column-1" class="nav-link" data-scroll-target="#each-variable-is-a-column-1">Each variable is a <em>column</em></a></li>
+  <li><a href="#each-observation-is-a-row" id="toc-each-observation-is-a-row" class="nav-link" data-scroll-target="#each-observation-is-a-row">Each observation is a <em>row</em></a></li>
+  <li><a href="#each-observation-is-a-row-1" id="toc-each-observation-is-a-row-1" class="nav-link" data-scroll-target="#each-observation-is-a-row-1">Each observation is a <em>row</em></a></li>
+  <li><a href="#each-type-of-observational-unit-is-a-table" id="toc-each-type-of-observational-unit-is-a-table" class="nav-link" data-scroll-target="#each-type-of-observational-unit-is-a-table">Each type of observational unit is a <em>table</em></a></li>
+  <li><a href="#tidy-data-revisited" id="toc-tidy-data-revisited" class="nav-link" data-scroll-target="#tidy-data-revisited">Tidy data revisited</a></li>
+  <li><a href="#welcome-to-the-tidyverse" id="toc-welcome-to-the-tidyverse" class="nav-link" data-scroll-target="#welcome-to-the-tidyverse">Welcome to the <code>tidyverse</code></a></li>
+  <li><a href="#loading-the-tidyverse" id="toc-loading-the-tidyverse" class="nav-link" data-scroll-target="#loading-the-tidyverse">Loading the <code>tidyverse</code></a></li>
+  <li><a href="#the-pipe" id="toc-the-pipe" class="nav-link" data-scroll-target="#the-pipe">The pipe (<code>%&gt;%</code>)</a></li>
+  <li><a href="#part-1-basic-data-manipulation" id="toc-part-1-basic-data-manipulation" class="nav-link" data-scroll-target="#part-1-basic-data-manipulation">Part 1: Basic data manipulation</a></li>
+  <li><a href="#reading-in-a-dataset" id="toc-reading-in-a-dataset" class="nav-link" data-scroll-target="#reading-in-a-dataset">Reading in a dataset</a></li>
+  <li><a href="#basics-of-dplyr" id="toc-basics-of-dplyr" class="nav-link" data-scroll-target="#basics-of-dplyr">Basics of <code>dplyr</code></a></li>
+  <li><a href="#the-filter" id="toc-the-filter" class="nav-link" data-scroll-target="#the-filter">The <code>filter</code></a></li>
+  <li><a href="#mutate-your-data" id="toc-mutate-your-data" class="nav-link" data-scroll-target="#mutate-your-data"><code>mutate</code> your data</a></li>
+  <li><a href="#mutate-pt.-2" id="toc-mutate-pt.-2" class="nav-link" data-scroll-target="#mutate-pt.-2"><code>mutate</code> (pt.&nbsp;2)</a></li>
+  <li><a href="#group_by-specific-factors-and-summarise" id="toc-group_by-specific-factors-and-summarise" class="nav-link" data-scroll-target="#group_by-specific-factors-and-summarise"><code>group_by</code> specific factors and <code>summarise</code></a></li>
+  <li><a href="#counting-the-number-of-observations" id="toc-counting-the-number-of-observations" class="nav-link" data-scroll-target="#counting-the-number-of-observations">Counting the number of observations</a></li>
+  <li><a href="#hands-on-practice" id="toc-hands-on-practice" class="nav-link" data-scroll-target="#hands-on-practice">Hands-on practice</a></li>
+  <li><a href="#hands-on-practice-solution" id="toc-hands-on-practice-solution" class="nav-link" data-scroll-target="#hands-on-practice-solution">Hands-on practice (solution)</a></li>
+  <li><a href="#some-new-functions" id="toc-some-new-functions" class="nav-link" data-scroll-target="#some-new-functions">Some new functions</a></li>
+  <li><a href="#select-specific-columns" id="toc-select-specific-columns" class="nav-link" data-scroll-target="#select-specific-columns"><code>select</code> specific columns</a></li>
+  <li><a href="#part-2-more-complex-wrangling" id="toc-part-2-more-complex-wrangling" class="nav-link" data-scroll-target="#part-2-more-complex-wrangling">Part 2: More complex wrangling</a></li>
+  <li><a href="#missing-values" id="toc-missing-values" class="nav-link" data-scroll-target="#missing-values">Missing values</a></li>
+  <li><a href="#identifying-missing-values" id="toc-identifying-missing-values" class="nav-link" data-scroll-target="#identifying-missing-values">Identifying missing values</a></li>
+  <li><a href="#identify-missing-values-pt.-2" id="toc-identify-missing-values-pt.-2" class="nav-link" data-scroll-target="#identify-missing-values-pt.-2">Identify missing values (pt.&nbsp;2)</a></li>
+  <li><a href="#addressing-missing-values" id="toc-addressing-missing-values" class="nav-link" data-scroll-target="#addressing-missing-values">Addressing missing values</a></li>
+  <li><a href="#the-problem-with-ignoring-na" id="toc-the-problem-with-ignoring-na" class="nav-link" data-scroll-target="#the-problem-with-ignoring-na">The problem with ignoring <code>NA</code></a></li>
+  <li><a href="#removing-missing-values" id="toc-removing-missing-values" class="nav-link" data-scroll-target="#removing-missing-values">Removing missing values</a></li>
+  <li><a href="#not-all-na-values-matter-equally" id="toc-not-all-na-values-matter-equally" class="nav-link" data-scroll-target="#not-all-na-values-matter-equally">Not all <code>NA</code> values matter equally</a></li>
+  <li><a href="#how-do-na-values-distribute" id="toc-how-do-na-values-distribute" class="nav-link" data-scroll-target="#how-do-na-values-distribute">How do <code>NA</code> values distribute?</a></li>
+  <li><a href="#imputing-missing-values" id="toc-imputing-missing-values" class="nav-link" data-scroll-target="#imputing-missing-values">Imputing missing values</a></li>
+  <li><a href="#missing-values-wrap-up" id="toc-missing-values-wrap-up" class="nav-link" data-scroll-target="#missing-values-wrap-up">Missing values: wrap-up</a></li>
+  <li><a href="#reshaping-data" id="toc-reshaping-data" class="nav-link" data-scroll-target="#reshaping-data">Reshaping data</a></li>
+  <li><a href="#pivot_longer-from-wide-to-long" id="toc-pivot_longer-from-wide-to-long" class="nav-link" data-scroll-target="#pivot_longer-from-wide-to-long"><code>pivot_longer</code>: from wide to long</a></li>
+  <li><a href="#pivot_longer-from-wide-to-long-1" id="toc-pivot_longer-from-wide-to-long-1" class="nav-link" data-scroll-target="#pivot_longer-from-wide-to-long-1"><code>pivot_longer</code>: from wide to long</a></li>
+  <li><a href="#pivot_longer-from-wide-to-long-2" id="toc-pivot_longer-from-wide-to-long-2" class="nav-link" data-scroll-target="#pivot_longer-from-wide-to-long-2"><code>pivot_longer</code>: from wide to long</a></li>
+  <li><a href="#pivot_wider-back-to-wide-format" id="toc-pivot_wider-back-to-wide-format" class="nav-link" data-scroll-target="#pivot_wider-back-to-wide-format"><code>pivot_wider</code>: back to wide format!</a></li>
+  <li><a href="#your-turn-pt.-1" id="toc-your-turn-pt.-1" class="nav-link" data-scroll-target="#your-turn-pt.-1">Your turn! (pt.&nbsp;1)</a></li>
+  <li><a href="#your-turn-pt.-2" id="toc-your-turn-pt.-2" class="nav-link" data-scroll-target="#your-turn-pt.-2">Your turn! (pt.&nbsp;2)</a></li>
+  <li><a href="#other-handy-tidyr-functions" id="toc-other-handy-tidyr-functions" class="nav-link" data-scroll-target="#other-handy-tidyr-functions">Other handy <code>tidyr</code> functions</a></li>
+  <li><a href="#joining-data" id="toc-joining-data" class="nav-link" data-scroll-target="#joining-data">Joining data</a></li>
+  <li><a href="#types-of-joins" id="toc-types-of-joins" class="nav-link" data-scroll-target="#types-of-joins">Types of joins</a></li>
+  <li><a href="#simple-join-example" id="toc-simple-join-example" class="nav-link" data-scroll-target="#simple-join-example">Simple join example</a></li>
+  <li><a href="#simple-join-example-1" id="toc-simple-join-example-1" class="nav-link" data-scroll-target="#simple-join-example-1">Simple join example</a></li>
+  <li><a href="#a-more-complex-example" id="toc-a-more-complex-example" class="nav-link" data-scroll-target="#a-more-complex-example">A more complex example</a></li>
+  <li><a href="#a-more-complex-example-pt.-2" id="toc-a-more-complex-example-pt.-2" class="nav-link" data-scroll-target="#a-more-complex-example-pt.-2">A more complex example (pt.&nbsp;2)</a></li>
+  <li><a href="#joining-the-details" id="toc-joining-the-details" class="nav-link" data-scroll-target="#joining-the-details">Joining: the details</a></li>
+  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together">Putting it all together</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="week2-r-wrangling-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Wrangling in R</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="goals-of-the-lecture" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="goals-of-the-lecture">Goals of the lecture</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>What is <em>data wrangling</em> and why should we learn it?</li>
+<li>Principles of <strong>tidy data</strong>.</li>
+<li>Wrangling with the <code>tidyverse</code>.</li>
+</ul>
+</div>
+</section>
+<section id="what-is-data-wrangling" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="what-is-data-wrangling">What is data wrangling?</h2>
+<blockquote class="blockquote">
+<p><strong>Data wrangling</strong> refers to the processes of transforming or manipulating raw data into a useful format for downstream <em>analysis</em> and <em>visualization</em>.</p>
+</blockquote>
+<p>In CSS, you’ll find yourself needing to:</p>
+<div class="incremental">
+<ul class="incremental">
+<li><em>Import</em> data from various sources, in various formats.</li>
+<li><em>Clean</em> messy variables or <em>recast</em> them to different types.</li>
+<li><em>Filter</em> and <em>transform</em> data.</li>
+<li><em>Address</em> missing values.</li>
+<li><em>Reshape</em> data between different formats.</li>
+<li><em>Join</em> multiple datasets together.</li>
+</ul>
+</div>
+<p><span class="fragment">These are all supported by the <code>tidyverse</code>! But what <em>is</em> <strong>tidy data</strong>?</span></p>
+</section>
+<section id="tidy-data" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="tidy-data">Tidy data</h2>
+<p><a href="https://www.jstatsoft.org/article/view/v059i10/0">Wickham (2014)</a> defines <strong>tidy data</strong> as follows:</p>
+<blockquote class="blockquote">
+<p>“Tidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table.”</p>
+</blockquote>
+<p>Let’s address each of these in turn:</p>
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>Each <em>variable</em> is a column.</li>
+<li>Each <em>observation</em> is a row.</li>
+<li>Each <em>type of observational unit</em> is a table.</li>
+</ol>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>With a partner, discuss what each of these criteria might mean.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="each-variable-is-a-column" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="each-variable-is-a-column">Each variable is a <em>column</em></h2>
+<blockquote class="blockquote">
+<p>A <strong>variable</strong> contains values that measure the same attribute across units.</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li><em>Examples</em>: <code>height</code>, <code>age</code>, <code>income</code>, <code>test_score</code>, <code>population</code>.</li>
+<li>Each variable gets its own <em>column</em>.</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Untidy example:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>country</th>
+<th>gdp_2020</th>
+<th>gdp_2021</th>
+<th>gdp_2022</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>USA</td>
+<td>21.35</td>
+<td>23.368</td>
+<td>26.01</td>
+</tr>
+<tr class="even">
+<td>China</td>
+<td>14.72</td>
+<td>18.2</td>
+<td>18.32</td>
+</tr>
+<tr class="odd">
+<td>Germany</td>
+<td>3.94</td>
+<td>4.35</td>
+<td>4.16</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Why is this <em>not tidy</em>? How would you make it tidy?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="each-variable-is-a-column-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="each-variable-is-a-column-1">Each variable is a <em>column</em></h2>
+<p>Now, we have a <em>column</em> for <code>country</code>, <code>year,</code> and <code>gdp</code>.</p>
+<div class="fragment">
+<p><strong>Tidy example:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>country</th>
+<th>year</th>
+<th>gdp_trillion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>USA</td>
+<td>2020</td>
+<td>21.35</td>
+</tr>
+<tr class="even">
+<td>USA</td>
+<td>2021</td>
+<td>23.368</td>
+</tr>
+<tr class="odd">
+<td>USA</td>
+<td>2022</td>
+<td>26.01</td>
+</tr>
+<tr class="even">
+<td>China</td>
+<td>2020</td>
+<td>14.72</td>
+</tr>
+<tr class="odd">
+<td>China</td>
+<td>2021</td>
+<td>18.2</td>
+</tr>
+<tr class="even">
+<td>China</td>
+<td>2022</td>
+<td>18.32</td>
+</tr>
+<tr class="odd">
+<td>Germany</td>
+<td>2020</td>
+<td>3.94</td>
+</tr>
+<tr class="even">
+<td>Germany</td>
+<td>2021</td>
+<td>4.35</td>
+</tr>
+<tr class="odd">
+<td>Germany</td>
+<td>2022</td>
+<td>4.16</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="each-observation-is-a-row" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="each-observation-is-a-row">Each observation is a <em>row</em></h2>
+<blockquote class="blockquote">
+<p>An <strong>observation</strong> contains all values measured on the same <em>unit</em> across attributes.</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li>One row = one complete case or measurement.</li>
+<li>No splitting observations across multiple rows.</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Untidy example:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>state</th>
+<th>measure</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>California</td>
+<td>population</td>
+<td>39.5</td>
+</tr>
+<tr class="even">
+<td>California</td>
+<td>electoral_votes</td>
+<td>54</td>
+</tr>
+<tr class="odd">
+<td>Texas</td>
+<td>population</td>
+<td>31</td>
+</tr>
+<tr class="even">
+<td>Texas</td>
+<td>electoral_votes</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Why is this <em>not tidy</em>? How would you make it tidy?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="each-observation-is-a-row-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="each-observation-is-a-row-1">Each observation is a <em>row</em></h2>
+<p><code>population</code> and <code>electoral_votes</code> are separate <em>measures</em> for the same <em>case</em> (observation), so should be in the same row.</p>
+<div class="fragment">
+<p><strong>Tidy version:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>state</th>
+<th>population_millions</th>
+<th>electoral_votes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>California</td>
+<td>39.5</td>
+<td>54</td>
+</tr>
+<tr class="even">
+<td>Texas</td>
+<td>31.0</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="each-type-of-observational-unit-is-a-table" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="each-type-of-observational-unit-is-a-table">Each type of observational unit is a <em>table</em></h2>
+<blockquote class="blockquote">
+<p>Different types of things being measured should be in separate tables.</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li><em>Example</em>: Record student test scores in one table, and school-level information in another.</li>
+<li><em>Example 2</em>: Record monthly temperatures for cities in one table, and city <em>altitude</em> in another.</li>
+<li>This avoids repeating information (like school name for every student).</li>
+<li>Once we’re ready, we can <strong>join</strong> these tables.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Can you think of other examples of “observational units” you would want to keep in separate tables?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="tidy-data-revisited" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="tidy-data-revisited">Tidy data revisited</h2>
+<blockquote class="blockquote">
+<p>“Tidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table.” (Wickham, 2014)</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li>These guidelines aren’t <em>arbitrary</em>.</li>
+<li>A <strong>standard tidy structure</strong> is helpful for <em>visualizing</em> and <em>analyzing</em> data.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In fact, I often conceptualize “tidy” data in terms of:</p>
+<ul>
+<li>What are the <em>axes</em> in a plot I want to make? (These should be separate <em>columns</em>.)</li>
+<li>What are the <em>terms</em> in a regression formula I want to write? (These should be separate <em>columns</em>.)</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="welcome-to-the-tidyverse" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="welcome-to-the-tidyverse">Welcome to the <code>tidyverse</code></h2>
+<blockquote class="blockquote">
+<p>The <a href="https://www.tidyverse.org/"><code>tidyverse</code></a> is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.”</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li>Fundamentally, the <code>tidyverse</code> rests on the philosophy of <strong>tidy data</strong>.</li>
+<li>Includes a range of functions, from <em>importing data</em> (<code>read_csv</code>) to <em>merging datasets</em> (<code>inner_join</code>).</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Installation Help
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Install the <code>tidyverse</code> using <code>install.packages("tidyverse")</code>.</li>
+<li>Then, <em>load</em> it using <code>library(tidyverse)</code>.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="loading-the-tidyverse" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="loading-the-tidyverse">Loading the <code>tidyverse</code></h2>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="do">### Loading the tidyverse</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>tidyverse<span class="sc">::</span><span class="fu">tidyverse_packages</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "broom"         "conflicted"    "cli"           "dbplyr"       
+ [5] "dplyr"         "dtplyr"        "forcats"       "ggplot2"      
+ [9] "googledrive"   "googlesheets4" "haven"         "hms"          
+[13] "httr"          "jsonlite"      "lubridate"     "magrittr"     
+[17] "modelr"        "pillar"        "purrr"         "ragg"         
+[21] "readr"         "readxl"        "reprex"        "rlang"        
+[25] "rstudioapi"    "rvest"         "stringr"       "tibble"       
+[29] "tidyr"         "xml2"          "tidyverse"    </code></pre>
+</div>
+</div>
+<div class="incremental">
+<ul class="incremental">
+<li>We’ll cover some of these packages later in this class, like <code>broom</code> and <code>ggplot2</code>.</li>
+<li>This week, we’ll focus on functions from <code>readr</code>, <code>magrittr</code>, <code>dplyr</code>, and <code>tidyr</code>.</li>
+</ul>
+</div>
+</section>
+<section id="the-pipe" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="the-pipe">The pipe (<code>%&gt;%</code>)</h2>
+<blockquote class="blockquote">
+<p>The <strong>pipe operator</strong> (<code>%&gt;%</code>) lets you chain functions together in a readable way.</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li>Takes the output from the left side and feeds it as the first argument to the right side.</li>
+<li>Instead of <strong>nesting</strong> functions, can <strong>pipe</strong> outputs into each other.</li>
+<li>Makes code more readable and easier to follow.</li>
+<li>We’ll see examples coming up!</li>
+</ul>
+</div>
+</section>
+<section id="part-1-basic-data-manipulation" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-basic-data-manipulation">Part 1: Basic data manipulation</h2>
+<p>Importing, filtering, mutating, and summarizing data.</p>
+</section>
+<section id="reading-in-a-dataset" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="reading-in-a-dataset">Reading in a dataset</h2>
+<p>One of the most fundamental things you’ll need to do is <em>import</em> data, e.g., from a <code>.csv</code> file.</p>
+<ul>
+<li><code>read_csv</code> takes as input a <em>filepath</em> (either locally, or a URL).</li>
+<li>Output is a <code>tibble</code>.</li>
+</ul>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>df_conc <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/concreteness.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 28612 Columns: 4
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (2): Word, Dom_Pos
+dbl (2): Concreteness, Frequency
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">nrow</span>(df_conc)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 28612</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use of the functions we’ve discussed (<code>nrow</code>, <code>names</code>, <code>head</code>, etc.) to explore the dataset.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="basics-of-dplyr" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="basics-of-dplyr">Basics of <code>dplyr</code></h2>
+<blockquote class="blockquote">
+<p><code>dplyr</code> is a package in the <code>tidyverse</code> that contains functions for <em>transforming</em> and <em>manipulating</em> dataframes.</p>
+</blockquote>
+<p>Each function is a “verb”, for instance:</p>
+<div class="incremental">
+<ul class="incremental">
+<li><code>filter</code> relevant rows.</li>
+<li><code>mutate</code> the dataset by adding new variables.</li>
+<li><code>pull</code> specific columns by name.<br>
+</li>
+<li><code>rename</code> specific columns.</li>
+<li><code>group_by</code> specific values or factors.</li>
+<li><code>summarize</code> dataset with summary statistics.</li>
+</ul>
+</div>
+</section>
+<section id="the-filter" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="the-filter">The <code>filter</code></h2>
+<blockquote class="blockquote">
+<p><code>filter</code> works by selecting a <em>subset</em> of rows based on some <strong>boolean condition</strong>.</p>
+</blockquote>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>df_conc <span class="sc">%&gt;%</span>  <span class="do">### piping!</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">filter</span>(Word <span class="sc">==</span> <span class="st">"class"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  Word  Concreteness Frequency Dom_Pos
+  &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;  
+1 class         3.85      5985 Noun   </code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Try using <code>filter</code> to return words that:</p>
+<ul>
+<li>Have a <code>Concreteness &gt; 4.5</code>.</li>
+<li>Have a <code>Dom_Pos</code> of <code>Noun</code>.</li>
+</ul>
+<p><strong>Hint</strong>: You can <em>chain</em> multiple filter statements together with a <code>%&gt;%</code> operator.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="mutate-your-data" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="mutate-your-data"><code>mutate</code> your data</h2>
+<blockquote class="blockquote">
+<p><code>mutate</code> works by <em>creating</em> a new variable (or <em>overwriting</em> an existing one) via applying some transformation to an existing variable or set of variables.</p>
+</blockquote>
+<p>Let’s create a <strong>log frequency</strong> variable, since <code>Frequency</code> is highly right-skewed.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>df_conc <span class="ot">=</span> df_conc <span class="sc">%&gt;%</span>  <span class="do">### piping!</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">mutate</span>(<span class="at">log_freq =</span> <span class="fu">log10</span>(Frequency))</span>
+<span id="cb11-3"><a href="#cb11-3"></a></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="fu">summary</span>(df_conc<span class="sc">$</span>log_freq)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   -Inf  0.8451  1.4624    -Inf  2.1004  6.3293 </code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Why do you think the <em>mininum</em> <code>log_freq</code> value is <code>-Inf</code>?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="mutate-pt.-2" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="mutate-pt.-2"><code>mutate</code> (pt.&nbsp;2)</h2>
+<p>Some words in our dataset have a <code>Frequency</code> of <code>0</code>. One strategy is to <em>add one</em> to those values before taking the log.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>df_conc <span class="ot">=</span> df_conc <span class="sc">%&gt;%</span>  <span class="do">### piping!</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">mutate</span>(<span class="at">log_freq =</span> <span class="fu">log10</span>(Frequency <span class="sc">+</span> <span class="dv">1</span>))</span>
+<span id="cb13-3"><a href="#cb13-3"></a></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="fu">summary</span>(df_conc<span class="sc">$</span>log_freq)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.0000  0.9031  1.4771  1.5793  2.1038  6.3293 </code></pre>
+</div>
+</div>
+</section>
+<section id="group_by-specific-factors-and-summarise" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="group_by-specific-factors-and-summarise"><code>group_by</code> specific factors and <code>summarise</code></h2>
+<ul>
+<li>The <code>group_by</code> function is extremely useful for <strong>grouping</strong> your data by specific factors.</li>
+<li>You can <code>%&gt;%</code> this into <code>summarise</code> to calculate summary statistics for each group.</li>
+</ul>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>df_conc <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">group_by</span>(Dom_Pos) <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">summarise</span>(<span class="at">mean_conc =</span> <span class="fu">mean</span>(Concreteness)) <span class="sc">%&gt;%</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">head</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  Dom_Pos   mean_conc
+  &lt;chr&gt;         &lt;dbl&gt;
+1 Adjective      2.50
+2 Adverb         2.06</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In addition to calculating <code>mean</code>, try also calculating the <code>sd</code>; additionally, try calculating the <code>mean</code> and <code>sd</code> for <code>log_freq</code> by <code>Dom_Pos</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="counting-the-number-of-observations" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="counting-the-number-of-observations">Counting the number of observations</h2>
+<p>Often relevant for a <code>group_by</code> calculation is the <em>number</em> of observations per group.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>df_conc <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">group_by</span>(Dom_Pos) <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a>  <span class="fu">summarise</span>(<span class="at">mean_conc =</span> <span class="fu">mean</span>(Concreteness),</span>
+<span id="cb17-4"><a href="#cb17-4"></a>            <span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a>  <span class="fu">head</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  Dom_Pos   mean_conc count
+  &lt;chr&gt;         &lt;dbl&gt; &lt;int&gt;
+1 Adjective      2.50  6112
+2 Adverb         2.06  1876</code></pre>
+</div>
+</div>
+</section>
+<section id="hands-on-practice" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="hands-on-practice">Hands-on practice</h2>
+<p>Now let’s get some hands-on practice applying these new techniques.</p>
+<div class="incremental">
+<ul class="incremental">
+<li>Read in the <code>pokemon.csv</code> dataset from the <a href="https://github.com/seantrott/ucsd_css211_datasets"><code>ucsd_211_datasets</code> GitHub</a> using <code>read_csv</code>.</li>
+<li>Use <code>group_by</code> to <em>count</em> the number of Pokemon of each <code>Type 1</code>. Which <code>Type 1</code> is most frequent?</li>
+<li>Then, <code>filter</code> the dataset to only include Pokemon of the most frequent type (based on what you learned).</li>
+<li>Of this filtered dataset, <code>group_by</code> <code>legendary</code> status and calculate the <code>mean(Attack)</code></li>
+</ul>
+</div>
+</section>
+<section id="hands-on-practice-solution" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="hands-on-practice-solution">Hands-on practice (solution)</h2>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="do">### Part 1</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>df_pokemon <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/pokemon.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 800 Columns: 13
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (3): Name, Type 1, Type 2
+dbl (9): #, Total, HP, Attack, Defense, Sp. Atk, Sp. Def, Speed, Generation
+lgl (1): Legendary
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="do">### Part 2</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>max_type <span class="ot">=</span> df_pokemon <span class="sc">%&gt;%</span> </span>
+<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">Type 1</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a>  <span class="fu">slice_max</span>(count) <span class="sc">%&gt;%</span></span>
+<span id="cb21-6"><a href="#cb21-6"></a>  <span class="fu">pull</span>(<span class="st">`</span><span class="at">Type 1</span><span class="st">`</span>)</span>
+<span id="cb21-7"><a href="#cb21-7"></a></span>
+<span id="cb21-8"><a href="#cb21-8"></a><span class="do">### Parts 3-4</span></span>
+<span id="cb21-9"><a href="#cb21-9"></a>df_pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb21-10"><a href="#cb21-10"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Type 1</span><span class="st">`</span> <span class="sc">==</span> max_type) <span class="sc">%&gt;%</span></span>
+<span id="cb21-11"><a href="#cb21-11"></a>  <span class="fu">group_by</span>(Legendary) <span class="sc">%&gt;%</span></span>
+<span id="cb21-12"><a href="#cb21-12"></a>  <span class="fu">summarise</span>(<span class="at">mean_attack =</span> <span class="fu">mean</span>(Attack))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  Legendary mean_attack
+  &lt;lgl&gt;           &lt;dbl&gt;
+1 FALSE            72.8
+2 TRUE            111. </code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Notice any functions we haven’t discussed?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="some-new-functions" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="some-new-functions">Some new functions</h2>
+<p>Above, we used a combination of <code>read_csv</code>, <code>filter</code>, <code>group_by</code>, and <code>summarise</code>. But we also used some other new functions:</p>
+<div class="incremental">
+<ul class="incremental">
+<li><code>slice_max</code>: returns rows with the <strong>max</strong> values of a given column.
+<ul class="incremental">
+<li>Can also use <code>slice_head</code>, <code>slice_tail</code>, <code>slice_min</code>, and <code>slice_sample</code>.</li>
+</ul></li>
+<li><code>pull</code>: returns the individual vector/value from a given column.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Any questions before we move on to more <code>dplyr</code> functions and more aspects of the <code>tidyverse</code> more generally?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="select-specific-columns" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="select-specific-columns"><code>select</code> specific columns</h2>
+<blockquote class="blockquote">
+<p>The <code>select</code> function can be used to <strong>select</strong> certain columns for further analysis.</p>
+</blockquote>
+<p>This is especially useful if you want to <code>%&gt;%</code> those columns into, say, a correlation matrix.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>df_conc <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">select</span>(log_freq, Concreteness, Frequency) <span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">cor</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              log_freq Concreteness   Frequency
+log_freq     1.0000000   0.16983740  0.21158008
+Concreteness 0.1698374   1.00000000 -0.01501261
+Frequency    0.2115801  -0.01501261  1.00000000</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Try building a correlation matrix of the numerical columns from the Pokemon dataset (e.g., <code>Attack</code>, <code>Defense</code>, etc.). Are there any conclusions you can draw?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-2-more-complex-wrangling" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-more-complex-wrangling">Part 2: More complex wrangling</h2>
+<p>Missing data, reshaping, and joining.</p>
+</section>
+<section id="missing-values" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="missing-values">Missing values</h2>
+<blockquote class="blockquote">
+<p>Real-world data often has <strong>missing values</strong>, which are treated as <code>NA</code> (“Not Available”) by R.</p>
+</blockquote>
+<p>There are a few relevant issues here:</p>
+<div class="incremental">
+<ul class="incremental">
+<li>First, you need to <strong>identify</strong> the presence of missing values.</li>
+<li>Second, you need to <strong>address</strong> the issue.
+<ul class="incremental">
+<li>Ignore them?</li>
+<li>Remove any rows with missing values?</li>
+<li>Try to impute their values?</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="identifying-missing-values" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="identifying-missing-values">Identifying missing values</h2>
+<p>We can use the <code>is.na</code> function to check for missing values.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="do">### Reading in dataset</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>df_titanic <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/titanic.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 891 Columns: 12
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (5): Name, Sex, Ticket, Cabin, Embarked
+dbl (7): PassengerId, Survived, Pclass, Age, SibSp, Parch, Fare
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="do">### Check for missing values; returns a vector of boolean values</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="fu">is.na</span>(df_titanic<span class="sc">$</span>Age)[<span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE FALSE FALSE FALSE</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How many missing values are there total in the <code>Age</code> column? What about <code>Survived</code> or <code>Cabin</code>? (<strong>Hint</strong>: You can <code>sum</code> boolean values like <code>TRUE</code> and <code>FALSE</code>).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="identify-missing-values-pt.-2" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="identify-missing-values-pt.-2">Identify missing values (pt.&nbsp;2)</h2>
+<p>We can combine some handy functions (<code>across</code> and <code>everything</code>) to sum up the number of <code>NA</code> values per column.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="do">## Get number of NA across all columns</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a>df_titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb29-3"><a href="#cb29-3"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(.))))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 12
+  PassengerId Survived Pclass  Name   Sex   Age SibSp Parch Ticket  Fare Cabin
+        &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt;
+1           0        0      0     0     0   177     0     0      0     0   687
+# ℹ 1 more variable: Embarked &lt;int&gt;</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>NA</code> values seem disproportionately located in the <code>Cabin</code> column.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="addressing-missing-values" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="addressing-missing-values">Addressing missing values</h2>
+<p>Now that we’ve <strong>identified</strong> missing values, we have a few options:</p>
+<div class="incremental">
+<ul class="incremental">
+<li>We could <em>ignore</em> them, i.e., perform analyses as if they don’t exist.</li>
+<li>We could <em>remove</em> missing values from our dataset.</li>
+<li>We could <em>impute</em> the missing values (guess).</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What do you think are the trade-offs of each approach?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-problem-with-ignoring-na" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="the-problem-with-ignoring-na">The problem with ignoring <code>NA</code></h2>
+<p>Unsurprisingly, ignoring <code>NA</code> values doesn’t mean they go away.</p>
+<ul>
+<li>In some cases, analyses or visualizations may “quietly” ignore them.
+<ul>
+<li>This is bad because it means you’re not <em>fully aware</em> of what goes into an analysis.</li>
+</ul></li>
+<li>In other cases, it’ll interfere with your summary statistics.</li>
+</ul>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="do">## Mean defaults to NA b/c of missing values</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="fu">mean</span>(df_titanic<span class="sc">$</span>Age)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="do">## Temporary fix is to remove them from this calculation...</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a><span class="fu">mean</span>(df_titanic<span class="sc">$</span>Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 29.69912</code></pre>
+</div>
+</div>
+</section>
+<section id="removing-missing-values" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="removing-missing-values">Removing missing values</h2>
+<p>Another common approach to <code>NA</code> values is simply to <strong>remove them</strong>.</p>
+<p>We can do this selectively in a given analysis, like below:</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="do">## Temporary fix is to remove them from this calculation...</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a><span class="fu">mean</span>(df_titanic<span class="sc">$</span>Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 29.69912</code></pre>
+</div>
+</div>
+<p>Or we can actually <code>filter</code> our dataset to remove them entirely (or use <code>drop_na</code>).</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>df_titanic_subset <span class="ot">=</span> df_titanic <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Age))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Do you think we should <em>always</em> just remove all <code>NA</code> values? Why or why not?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="not-all-na-values-matter-equally" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="not-all-na-values-matter-equally">Not all <code>NA</code> values matter equally</h2>
+<p>Whether or not we <em>care</em> that something is <code>NA</code> depends on our research questions!</p>
+<ul>
+<li><code>Age</code> might be relevant for analyses of <code>Survived</code>.</li>
+<li><code>Cabin</code> may not really matter.</li>
+</ul>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="do">### Cabin mostly NA, but maybe that's fine?</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(df_titanic<span class="sc">$</span>Cabin))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 687</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>df_titanic<span class="sc">$</span>Cabin[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] NA     "C85"  NA     "C123" NA     NA     "E46"  NA     NA     NA    </code></pre>
+</div>
+</div>
+</section>
+<section id="how-do-na-values-distribute" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="how-do-na-values-distribute">How do <code>NA</code> values distribute?</h2>
+<p>One factor that might affect our approach is how <code>NA</code> values <strong>distribute</strong>.</p>
+<ul>
+<li>Are they distributed randomly with respect to some other variable (e.g., <code>Survived</code>)?</li>
+<li>Or are they <em>systematic</em>?</li>
+<li>Either way, it’s helpful to know.</li>
+</ul>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="do">### Lower NA information about Cabins for people who survived</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a>df_titanic <span class="sc">%&gt;%</span></span>
+<span id="cb42-3"><a href="#cb42-3"></a>  <span class="fu">group_by</span>(Survived) <span class="sc">%&gt;%</span></span>
+<span id="cb42-4"><a href="#cb42-4"></a>  <span class="fu">summarise</span>(<span class="at">proportion_na =</span> <span class="fu">mean</span>(<span class="fu">is.na</span>(Cabin)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  Survived proportion_na
+     &lt;dbl&gt;         &lt;dbl&gt;
+1        0         0.876
+2        1         0.602</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What is the relative rate of <code>NA</code> values across levels of <code>Survived</code> for <code>Age</code>?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="imputing-missing-values" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="imputing-missing-values">Imputing missing values</h2>
+<blockquote class="blockquote">
+<p><strong>Imputing</strong> values means <em>inferring</em> them based on some other set of properties or set of assumption. I.e., an “educated guess”.</p>
+</blockquote>
+<ul>
+<li>Can set to <code>mean</code> or <code>median</code> value (e.g., <code>mean(Age</code>)).</li>
+<li>Can “guess” value based on some other property (e.g., <code>mean(Age)</code> for that <code>Pclass</code>).</li>
+</ul>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>df_titanic <span class="ot">=</span> df_titanic <span class="sc">%&gt;%</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a>  <span class="fu">group_by</span>(Pclass) <span class="sc">%&gt;%</span> <span class="do">### Group by passenger class</span></span>
+<span id="cb44-3"><a href="#cb44-3"></a>  <span class="fu">mutate</span>(<span class="at">Age_imputed =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb44-4"><a href="#cb44-4"></a>    <span class="fu">is.na</span>(Age), <span class="fu">mean</span>(Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),  <span class="do">### Replace with mean for that Pclass</span></span>
+<span id="cb44-5"><a href="#cb44-5"></a>    Age)) <span class="sc">%&gt;%</span> <span class="do">### otherwise just use original age</span></span>
+<span id="cb44-6"><a href="#cb44-6"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb44-7"><a href="#cb44-7"></a></span>
+<span id="cb44-8"><a href="#cb44-8"></a></span>
+<span id="cb44-9"><a href="#cb44-9"></a>df_titanic <span class="sc">%&gt;%</span></span>
+<span id="cb44-10"><a href="#cb44-10"></a>  <span class="fu">group_by</span>(Pclass) <span class="sc">%&gt;%</span></span>
+<span id="cb44-11"><a href="#cb44-11"></a>  <span class="fu">summarise</span>(<span class="at">mean_age =</span> <span class="fu">mean</span>(Age_imputed))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  Pclass mean_age
+   &lt;dbl&gt;    &lt;dbl&gt;
+1      1     38.2
+2      2     29.9
+3      3     25.1</code></pre>
+</div>
+</div>
+</section>
+<section id="missing-values-wrap-up" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="missing-values-wrap-up">Missing values: wrap-up</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Real-world data often has <strong>missing values</strong>.</li>
+<li>At minimum, it’s important to <em>identify</em> and <em>characterize</em> <code>NA</code> values in your dataset.</li>
+<li>Ideally, you should develop a <em>strategy</em> for dealing with them with intentionality.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sometimes missing values show up when we <strong>join</strong> datasets. We’ll discuss joining soon.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="reshaping-data" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="reshaping-data">Reshaping data</h2>
+<blockquote class="blockquote">
+<p><strong>Reshaping data</strong> means converting it to either a “longer” format (from a “wide” format) or the other way around.</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li>In many cases, this means making data <strong>tidy</strong> (long format).</li>
+<li>The <code>tidyr</code> package contains key functions for this, such as <code>pivot_longer</code> and <code>pivot_wider</code>.</li>
+<li><code>tidyr</code> also includes functions to <code>separate</code> information from a single column across multiple columns (or <code>unite</code>, to do the opposite.)</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The best way to understand this is to look at some examples!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="pivot_longer-from-wide-to-long" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="pivot_longer-from-wide-to-long"><code>pivot_longer</code>: from wide to long</h2>
+<p>Let’s start by creating a <strong>wide</strong> dataset, which might be considered “messy”.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>df_messy_1 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">john =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">11</span>),</span>
+<span id="cb46-2"><a href="#cb46-2"></a>                        <span class="at">mary =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">25</span>),</span>
+<span id="cb46-3"><a href="#cb46-3"></a>                        <span class="at">jane =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>),</span>
+<span id="cb46-4"><a href="#cb46-4"></a>                        <span class="at">treatment =</span> <span class="fu">c</span>(<span class="st">'a'</span>, <span class="st">'b'</span>))</span>
+<span id="cb46-5"><a href="#cb46-5"></a>df_messy_1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  john mary jane treatment
+1   10   20    5         a
+2   11   25   10         b</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Why is this considered “messy”? And what would a “long” version look like?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="pivot_longer-from-wide-to-long-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="pivot_longer-from-wide-to-long-1"><code>pivot_longer</code>: from wide to long</h2>
+<p>We can use the <code>pivot_longer</code> function to transform this into a <strong>long</strong> format.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>df_messy_1 <span class="sc">%&gt;%</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(john, mary, jane), <span class="do">### which columns to pivot</span></span>
+<span id="cb48-3"><a href="#cb48-3"></a>               <span class="at">names_to =</span> <span class="st">'name'</span>, <span class="do">### what to call column with keys</span></span>
+<span id="cb48-4"><a href="#cb48-4"></a>               <span class="at">values_to =</span> <span class="st">'result'</span>) <span class="do">### what to call column with values</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  treatment name  result
+  &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt;
+1 a         john      10
+2 a         mary      20
+3 a         jane       5
+4 b         john      11
+5 b         mary      25
+6 b         jane      10</code></pre>
+</div>
+</div>
+<div class="incremental">
+<ul class="incremental">
+<li>Crucial argument is <code>cols</code> (which columns to pivot).</li>
+<li><code>names_to</code> and <code>values_to</code> are helpful for making the resulting table more readable.</li>
+</ul>
+</div>
+</section>
+<section id="pivot_longer-from-wide-to-long-2" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="pivot_longer-from-wide-to-long-2"><code>pivot_longer</code>: from wide to long</h2>
+<p>Let’s look at another example.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>df_messy_2 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">c</span>(<span class="st">'john'</span>, <span class="st">'mary'</span>, <span class="st">'jane'</span>),</span>
+<span id="cb50-2"><a href="#cb50-2"></a>                        <span class="at">a =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">5</span>),</span>
+<span id="cb50-3"><a href="#cb50-3"></a>                        <span class="at">b =</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">25</span>, <span class="dv">10</span>))</span>
+<span id="cb50-4"><a href="#cb50-4"></a></span>
+<span id="cb50-5"><a href="#cb50-5"></a>df_messy_2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  name  a  b
+1 john 10 11
+2 mary 20 25
+3 jane  5 10</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>df_tidy <span class="ot">=</span> df_messy_2 <span class="sc">%&gt;%</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(a, b),</span>
+<span id="cb52-3"><a href="#cb52-3"></a>               <span class="at">names_to =</span> <span class="st">"treatment"</span>,</span>
+<span id="cb52-4"><a href="#cb52-4"></a>                <span class="at">values_to =</span> <span class="st">"result"</span>)</span>
+<span id="cb52-5"><a href="#cb52-5"></a></span>
+<span id="cb52-6"><a href="#cb52-6"></a>df_tidy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  name  treatment result
+  &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt;
+1 john  a             10
+2 john  b             11
+3 mary  a             20
+4 mary  b             25
+5 jane  a              5
+6 jane  b             10</code></pre>
+</div>
+</div>
+</section>
+<section id="pivot_wider-back-to-wide-format" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="pivot_wider-back-to-wide-format"><code>pivot_wider</code>: back to wide format!</h2>
+<blockquote class="blockquote">
+<p><code>pivot_wider</code> reshapes data into <strong>wide</strong> format.</p>
+</blockquote>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="do">### To recreate first table</span></span>
+<span id="cb54-2"><a href="#cb54-2"></a>df_tidy <span class="sc">%&gt;%</span></span>
+<span id="cb54-3"><a href="#cb54-3"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"name"</span>,</span>
+<span id="cb54-4"><a href="#cb54-4"></a>              <span class="at">values_from =</span> <span class="st">"result"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  treatment  john  mary  jane
+  &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 a            10    20     5
+2 b            11    25    10</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="do">### To recreate second table</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a>df_tidy <span class="sc">%&gt;%</span></span>
+<span id="cb56-3"><a href="#cb56-3"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"treatment"</span>,</span>
+<span id="cb56-4"><a href="#cb56-4"></a>              <span class="at">values_from =</span> <span class="st">"result"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  name      a     b
+  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 john     10    11
+2 mary     20    25
+3 jane      5    10</code></pre>
+</div>
+</div>
+</section>
+<section id="your-turn-pt.-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="your-turn-pt.-1">Your turn! (pt.&nbsp;1)</h2>
+<p>If you’ve loaded <code>tidyverse</code>, you should have access to (at least) the following data tables:</p>
+<ul>
+<li><code>table1</code></li>
+<li><code>table2</code></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How would you <code>pivot_wider</code> <code>table2</code> such that it resembles <code>table1</code>?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="your-turn-pt.-2" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="your-turn-pt.-2">Your turn! (pt.&nbsp;2)</h2>
+<p>Now let’s try <code>pivot_longer</code> with a more complex example. Load the <strong>missing work</strong> example from <a href="https://www.fullstackeconomics.com/p/18-charts-that-explain-the-american-economy">this Full Stack Economics graph</a>.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="do">### Part 1</span></span>
+<span id="cb58-2"><a href="#cb58-2"></a>df_work <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/missing_work.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 110 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (7): Year, Child care problems, Maternity or paternity leave, Other fami...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="fu">head</span>(df_work, <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 7
+   Year `Child care problems` Maternity or paternity le…¹ Other family or pers…²
+  &lt;dbl&gt;                 &lt;dbl&gt;                       &lt;dbl&gt;                  &lt;dbl&gt;
+1  2012                    18                         313                    246
+2  2012                    35                         278                    230
+3  2012                    13                         245                    246
+# ℹ abbreviated names: ¹​`Maternity or paternity leave`,
+#   ²​`Other family or personal obligations`
+# ℹ 3 more variables: `Illness or injury` &lt;dbl&gt;, Vacation &lt;dbl&gt;, Month &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Right now, the table stores different <em>reasons for missing work</em> as different <em>columns</em>.</p>
+<p>Instead, let’s <code>pivot_longer</code> so the table has a column for <code>Reason</code> (for missing) and a column for <code>Count</code> (number of days missed).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="other-handy-tidyr-functions" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="other-handy-tidyr-functions">Other handy <code>tidyr</code> functions</h2>
+<p>Although <strong>pivoting</strong> is probably the <em>main</em> function enabled by <code>tidyr</code>, it also contains other valuable reshaping functions:</p>
+<div class="incremental">
+<ul class="incremental">
+<li><code>separate</code> “splits” values within a given column into multiple columns.</li>
+<li><code>unite</code> does the opposite.</li>
+</ul>
+</div>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a>table3 <span class="sc">%&gt;%</span></span>
+<span id="cb62-2"><a href="#cb62-2"></a>  <span class="fu">separate</span>(rate,  <span class="do">### column to separate</span></span>
+<span id="cb62-3"><a href="#cb62-3"></a>           <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"cases"</span>, <span class="st">"population"</span>),  <span class="do">### columns to split into</span></span>
+<span id="cb62-4"><a href="#cb62-4"></a>           <span class="at">convert =</span> <span class="cn">TRUE</span>, <span class="do">### convert into numeric</span></span>
+<span id="cb62-5"><a href="#cb62-5"></a>           <span class="at">sep =</span> <span class="st">"/"</span>) <span class="do">### separator currently separating values</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year  cases population
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt;      &lt;int&gt;
+1 Afghanistan  1999    745   19987071
+2 Afghanistan  2000   2666   20595360
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+</div>
+</section>
+<section id="joining-data" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="joining-data">Joining data</h2>
+<blockquote class="blockquote">
+<p><strong>Joining</strong> is an operation in which columns from data <code>Y</code> are added to data <code>X</code>, matching observations based on shared variables (or “keys”).</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li>In real-world analysis, data is often stored across multiple sources.</li>
+<li><em>Joining</em> brings together related information from separate tables.</li>
+<li>Key types: <code>left_join()</code>, <code>right_join()</code>, <code>inner_join()</code>, <code>full_join()</code></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Example scenario:</strong></p>
+<ul>
+<li>Table 1: State election results (<code>state</code>, <code>biden_pct</code>, <code>turnout</code>)<br>
+</li>
+<li>Table 2: State demographics (<code>state</code>, <code>median_income</code>, <code>college_pct</code>)</li>
+</ul>
+<p>Here, we might <strong>join</strong> the tables based on the overlapping <code>state</code> variable.</p>
+<p><strong>Goal</strong>: Analyze how <code>median_income</code> and <code>college_pct</code> relates to voting patterns.</p>
+</div>
+</section>
+<section id="types-of-joins" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="types-of-joins">Types of joins</h2>
+<p>Given tables <code>X</code> and <code>Y</code>, you have several options for how to <strong>join</strong> them.</p>
+<div class="incremental">
+<ul class="incremental">
+<li><code>inner_join</code>: only keep observations from <code>X</code> with matching key in <code>Y</code>.</li>
+<li><code>left_join</code>: keep all observations from <code>X</code>, join matching ones from <code>Y</code>.</li>
+<li><code>right-join</code>: keep all observations from <code>Y</code>, join matching ones from <code>X</code>.</li>
+<li><code>full_join</code>: keep all observations in both <code>X</code> and <code>Y</code>.</li>
+</ul>
+</div>
+</section>
+<section id="simple-join-example" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="simple-join-example">Simple join example</h2>
+<p>Suppose we have two tables: <code>table4a</code> contains information about the <strong>cases</strong> in each country (with different columns for different years), and <code>table4b</code> contains information about the <strong>population</strong> of each country (again, with different columns for different years).</p>
+<p>Ideally, we’d like to <em>join</em> these tables.</p>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What steps will we need to take to <em>join</em> them?</p>
+<p>(<strong>Hint</strong>: It may involve more than joining.)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="simple-join-example-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="simple-join-example-1">Simple join example</h2>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="do">### First, tidy each table</span></span>
+<span id="cb64-2"><a href="#cb64-2"></a>tidy4a <span class="ot">=</span> table4a <span class="sc">%&gt;%</span></span>
+<span id="cb64-3"><a href="#cb64-3"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>), <span class="at">names_to =</span> <span class="st">"year"</span>, <span class="at">values_to =</span> <span class="st">"cases"</span>)</span>
+<span id="cb64-4"><a href="#cb64-4"></a>tidy4b <span class="ot">=</span> table4b <span class="sc">%&gt;%</span></span>
+<span id="cb64-5"><a href="#cb64-5"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>), <span class="at">names_to =</span> <span class="st">"year"</span>, <span class="at">values_to =</span> <span class="st">"population"</span>)</span>
+<span id="cb64-6"><a href="#cb64-6"></a></span>
+<span id="cb64-7"><a href="#cb64-7"></a><span class="do">### Then, join</span></span>
+<span id="cb64-8"><a href="#cb64-8"></a><span class="fu">left_join</span>(tidy4a, tidy4b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(country, year)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country     year   cases population
+  &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+1 Afghanistan 1999     745   19987071
+2 Afghanistan 2000    2666   20595360
+3 Brazil      1999   37737  172006362
+4 Brazil      2000   80488  174504898
+5 China       1999  212258 1272915272
+6 China       2000  213766 1280428583</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In this case, would it matter whether we use <code>left_join</code> or <code>inner_join</code>? If not, under what circumstances would this distinction matter?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="a-more-complex-example" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="a-more-complex-example">A more complex example</h2>
+<p>We’ve already loaded information about word <strong>concreteness</strong>. Now let’s load another dataset about the average <strong>age of acquisition</strong> at which words are learned, and <em>combine</em> that with the concreteness dataset.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a>df_aoa <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/AoA.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 31124 Columns: 2
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (1): Word
+dbl (1): AoA
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a><span class="fu">nrow</span>(df_aoa)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 31124</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a><span class="fu">head</span>(df_aoa)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  Word        AoA
+  &lt;chr&gt;     &lt;dbl&gt;
+1 a          2.89
+2 aardvark   9.89
+3 abacus     8.69
+4 abalone   12.2 
+5 abandon    8.32
+6 abandoner 11.9 </code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How would you <strong>join</strong> this dataset with the concreteness dataset? What kind of <em>join</em> operation might you want to use?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="a-more-complex-example-pt.-2" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="a-more-complex-example-pt.-2">A more complex example (pt.&nbsp;2)</h2>
+<p>The concreteness and AoA datasets are not <strong>fully-overlapping</strong>. Concreteness contains words not in AoA and vice versa.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a><span class="do">### Inner join (keep only intersection)</span></span>
+<span id="cb73-2"><a href="#cb73-2"></a>df_inner <span class="ot">=</span> df_conc <span class="sc">%&gt;%</span></span>
+<span id="cb73-3"><a href="#cb73-3"></a>  <span class="fu">inner_join</span>(df_aoa)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(Word)`</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1"></a><span class="fu">nrow</span>(df_inner)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 23568</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a><span class="do">### Left join (keep all concreteness)</span></span>
+<span id="cb77-2"><a href="#cb77-2"></a>df_left <span class="ot">=</span> df_conc <span class="sc">%&gt;%</span></span>
+<span id="cb77-3"><a href="#cb77-3"></a>  <span class="fu">left_join</span>(df_aoa)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(Word)`</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a><span class="fu">nrow</span>(df_left)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 28612</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a><span class="do">### Right join (keep all AoA)</span></span>
+<span id="cb81-2"><a href="#cb81-2"></a>df_right <span class="ot">=</span> df_conc <span class="sc">%&gt;%</span></span>
+<span id="cb81-3"><a href="#cb81-3"></a>  <span class="fu">right_join</span>(df_aoa)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(Word)`</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a><span class="fu">nrow</span>(df_right)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 31124</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1"></a><span class="do">### full join (keep everything)</span></span>
+<span id="cb85-2"><a href="#cb85-2"></a>df_full <span class="ot">=</span> df_conc <span class="sc">%&gt;%</span></span>
+<span id="cb85-3"><a href="#cb85-3"></a>  <span class="fu">full_join</span>(df_aoa)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(Word)`</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1"></a><span class="fu">nrow</span>(df_full)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 36168</code></pre>
+</div>
+</div>
+</section>
+<section id="joining-the-details" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="joining-the-details">Joining: the details</h2>
+<p>When <strong>joining</strong>, there are a few other details we’ve glossed over:</p>
+<ul>
+<li><code>by</code>: this specifies which <em>keys</em> to join on (will default to all overlapping).</li>
+<li><code>multiple</code>: how to handle cases where rows from <code>X</code> match multiple rows from <code>Y</code>.</li>
+<li><code>unmatched</code>: how to handle cases where rows would be dropped.</li>
+</ul>
+</section>
+<section id="putting-it-all-together" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="putting-it-all-together">Putting it all together</h2>
+<p>These lectures have covered the basics of <strong>data wrangling</strong> with the <code>tidyverse</code>.</p>
+<p>A typical workflow will involve:</p>
+<div class="incremental">
+<ul class="incremental">
+<li><strong>Reading</strong> data (<code>read_csv</code>).</li>
+<li><strong>Exploring</strong> the data (<code>is.na</code>, <code>summary</code>, <code>summarise</code>).</li>
+<li><strong>Clean</strong> data (<code>mutate</code>, <code>filter</code>).</li>
+<li><strong>Reshape</strong> if needed <code>(pivot_longer/wider</code>).</li>
+<li><strong>Join</strong> if needed (<code>inner_join</code>, etc.).</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The end result is a dataset ready for further <em>analysis</em> and <em>visualization</em> (coming up!).</p>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

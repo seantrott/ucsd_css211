@@ -1,0 +1,33 @@
+---
+title: "Resources"
+---
+
+CSS 211 has no *required* readings. However, students might benefit from exploring additional content on course topics. The [course schedule](schedule.qmd) lists suggested readings for each week; here, I include those readings, as well as additional resources students might benefit from, organized by topic. 
+
+### General Resources
+
+- Hadley Wickham's [R for Data Science(R4DS)](https://r4ds.had.co.nz/index.html). 
+- [*Introduction to Statistical Learning*](https://www.statlearning.com/) (James et al.)
+
+### Data wrangling and visualization. 
+
+- Wickham, H. (2014). ["Tidy data"](https://vita.had.co.nz/papers/tidy-data.pdf) (Journal of Statistical Software). 
+- Wickham, H. & Grolemund, G. (2017). R for Data Science, [Chapters 5, 10-12]([R4DS, data wrangling](https://r4ds.had.co.nz/wrangle-intro.html). 
+- Healy, K. (2018). [Data Visualization](https://socviz.co/index.html#preface), Chapters 1-3
+
+### Regression 
+- **James, G. et al. (2021).** [*Introduction to Statistical Learning*](https://www.statlearning.com/), Chapter 3
+- **James, G. et al. (2021).** [*Introduction to Statistical Learning*](https://www.statlearning.com/), Chapter 4.1-4.3
+- **James, G. et al. (2021).** [*Introduction to Statistical Learning*](https://www.statlearning.com/), Chapter 6.1-6.2
+
+
+### Mixed Effects Models
+- **Winter, B. (2013).** ["Linear models and linear mixed effects models in R"](https://arxiv.org/abs/1308.5499) (tutorial)
+- **Gelman, A. & Hill, J. (2006).** *Data Analysis Using Regression*, Chapters 11-12
+- **Bates, D. et al. (2015).** ["Fitting linear mixed-effects models using lme4"](https://www.jstatsoft.org/article/view/v067i01/0) (*Journal of Statistical Software*)
+
+### Resampling Methods
+- **James, G. et al. (2021).** [*Introduction to Statistical Learning*](https://www.statlearning.com/), Chapter 5
+
+### Best Practices and Research Design
+- **Gelman, A. & Loken, E. (2014).** ["The garden of forking paths: Why multiple comparisons can be a problem"](https://sites.stat.columbia.edu/gelman/research/unpublished/p_hacking.pdf) (*American Scientist*) 
