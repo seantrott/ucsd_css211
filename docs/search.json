@@ -301,6 +301,349 @@
     "text": "Welcome to CSS 211!"
   },
   {
+    "objectID": "lectures/week3-visualization.html",
+    "href": "lectures/week3-visualization.html",
+    "title": "Data Visualization in R",
+    "section": "",
+    "text": "Data visualization and exploratory data analysis (EDA).\nBasic principles of data visualization.\nggplot: theory and practice.\nOther plotting add-ons (ggridges, ggcorrplot)."
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#goals-of-the-lecture",
+    "href": "lectures/week3-visualization.html#goals-of-the-lecture",
+    "title": "Data Visualization in R",
+    "section": "",
+    "text": "Data visualization and exploratory data analysis (EDA).\nBasic principles of data visualization.\nggplot: theory and practice.\nOther plotting add-ons (ggridges, ggcorrplot)."
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#goals-of-the-lecture",
+    "href": "lectures/week3-r-visualization-slides.html#goals-of-the-lecture",
+    "title": "Data Visualization in R",
+    "section": "Goals of the lecture",
+    "text": "Goals of the lecture\n\nData visualization and exploratory data analysis (EDA).\nBasic principles of data visualization.\nggplot: theory and practice.\nOther plotting add-ons (ggridges, ggcorrplot)."
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "CSS 211 Syllabus",
+    "section": "",
+    "text": "This course is an introduction to statistical methods and computational tools for computational social science (CSS) research. Students will develop proficiency in R programming while learning foundational concepts for working with CSS data, including: data wrangling and visualization, regression, and model selection. The course emphasizes hands-on application of techniques to real-world datasets, as well as discussion of ongoing methodological and epistemological issues in the study of human behavior."
+  },
+  {
+    "objectID": "syllabus.html#course-overview",
+    "href": "syllabus.html#course-overview",
+    "title": "CSS 211 Syllabus",
+    "section": "",
+    "text": "This course is an introduction to statistical methods and computational tools for computational social science (CSS) research. Students will develop proficiency in R programming while learning foundational concepts for working with CSS data, including: data wrangling and visualization, regression, and model selection. The course emphasizes hands-on application of techniques to real-world datasets, as well as discussion of ongoing methodological and epistemological issues in the study of human behavior."
+  },
+  {
+    "objectID": "syllabus.html#learning-outcomes",
+    "href": "syllabus.html#learning-outcomes",
+    "title": "CSS 211 Syllabus",
+    "section": "Learning Outcomes",
+    "text": "Learning Outcomes\nMy goal is that by the end of this course, students will be able to:\n\nDefine and explain key concepts in statistical inference and regression analysis.\nIdentify appropriate visualizations and statistical methods for different kinds of research questions and datasets.\nImplement data wrangling, visualization, and analysis workflows in R.\nInterpret and evaluate results (visualizations, fit models, etc.) in the context of a research question.\nDesign and implement a complete statistical analysis project from research question to interpretation."
+  },
+  {
+    "objectID": "syllabus.html#teaching-team",
+    "href": "syllabus.html#teaching-team",
+    "title": "CSS 211 Syllabus",
+    "section": "Teaching Team",
+    "text": "Teaching Team\n\n\n\nName\nRole\nOH Time\nEmail\n\n\n\n\nSean Trott\nInstructor\nFriday 1-2pm (CSB 259)\nsttrott@ucsd.edu\n\n\nXiaohan Wu\nTA\nMonday 11am-12pm (SSB 104)\nxiw021@ucsd.edu"
+  },
+  {
+    "objectID": "syllabus.html#prerequisites",
+    "href": "syllabus.html#prerequisites",
+    "title": "CSS 211 Syllabus",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nStudents should have a basic understanding of probability theory and statistics; some experience with a programming language (e.g., Python or R) is encouraged but not required."
+  },
+  {
+    "objectID": "syllabus.html#grading-and-assessments",
+    "href": "syllabus.html#grading-and-assessments",
+    "title": "CSS 211 Syllabus",
+    "section": "Grading and Assessments",
+    "text": "Grading and Assessments\n\n\n\nAssessment\nPercentage\n\n\n\n\nLabs\n20%\n\n\nConcept quizzes\n20%\n\n\nMidterm\n25%\n\n\nFinal project\n35%\n\n\n\nLabs (20% total): 4 coding labs, completed in R and submitted via Canvas. Students may collaborate on labs with each other and seek help from their TA/instructor.\nConcept quizzes (20%): 4 short quizzes, held over Canvas, designed to test and improve conceptual intuitions about course topics.\nMidterm (25%): A paper midterm held in-class testing knowledge of course material.\nFinal project (35%): A rigorous replication (and possible extension) of existing empirical work (published or otherwise) in a student’s discipline of interest. Final projects should be completed independently; students will turn in both a written report and present their work in a short in-class presentation the final week of class. (A rubric will be provided separately.)\n\nRounding\nMy course policy is not to round up grades for two reasons:\n\nIf rounding is applied selectively (i.e., only to students who ask), it is unfair to other students.\n\nIf rounding is applied across the board, it simply redefines the boundary between two letter grades (e.g., making an 89% the cut-off for an A-)."
+  },
+  {
+    "objectID": "syllabus.html#using-ai",
+    "href": "syllabus.html#using-ai",
+    "title": "CSS 211 Syllabus",
+    "section": "Using AI",
+    "text": "Using AI\nTools like ChatGPT can be incredibly helpful for learning to code (or speeding up the process). At the same time, I think it’s crucial to learn the foundational skills and concepts that will allow you to use these tools to their full potential. That is the main motivation for having an in-class midterm: ultimately, I cannot force anyone to complete homework on their own without using ChatGPT (or equivalent tools), and I wouldn’t even claim that people shouldn’t consult ChatGPT for additional help or questions; but in order to perform well on the midterm, you will still need to learn the concepts."
+  },
+  {
+    "objectID": "final_project.html",
+    "href": "final_project.html",
+    "title": "CSS 211 Final Project)",
+    "section": "",
+    "text": "Details coming soon!"
+  },
+  {
+    "objectID": "labs/lab1.html",
+    "href": "labs/lab1.html",
+    "title": "Lab 1: Introduction to R",
+    "section": "",
+    "text": "Name: ___________________________\nDate: ___________________________"
+  },
+  {
+    "objectID": "labs/lab1.html#introduction",
+    "href": "labs/lab1.html#introduction",
+    "title": "Lab 1: Introduction to R",
+    "section": "",
+    "text": "Name: ___________________________\nDate: ___________________________"
+  },
+  {
+    "objectID": "labs/lab1.html#introduction-1",
+    "href": "labs/lab1.html#introduction-1",
+    "title": "Lab 1: Introduction to R",
+    "section": "Introduction",
+    "text": "Introduction\nThe goal of this lab is to familiarize you with using R and RStudio. You’ll get hands-on practice with:\n\nPerforming simple calculations (basic arithmetic, mean, etc.).\nWorking with variables.\nCreating simple variables.\n\nNote that this lab will all be in “base R”, meaning we won’t (yet) be working with packages like tidyverse."
+  },
+  {
+    "objectID": "labs/lab1.html#exercise-1-basic-arithmetic",
+    "href": "labs/lab1.html#exercise-1-basic-arithmetic",
+    "title": "Lab 1: Introduction to R",
+    "section": "Exercise 1: Basic Arithmetic",
+    "text": "Exercise 1: Basic Arithmetic\nR can be used as a calculator. Try the following operations:\n\n# Addition\n5 + 3\n\n[1] 8\n\n\n\n# Subtraction\n10 - 4\n\n[1] 6\n\n\n\n# Multiplication\n6 * 7\n\n[1] 42\n\n\n\n# Division\n20 / 4\n\n[1] 5\n\n\nYour turn: Calculate \\(15 + 8 * 3 - 2\\)\n\n# Write your code here:"
+  },
+  {
+    "objectID": "labs/lab1.html#exercise-2-variables-and-assignment",
+    "href": "labs/lab1.html#exercise-2-variables-and-assignment",
+    "title": "Lab 1: Introduction to R",
+    "section": "Exercise 2: Variables and Assignment",
+    "text": "Exercise 2: Variables and Assignment\nIn R, we can store values in variables using the assignment operator &lt;-.\n\n# Create a variable called 'my_age' and assign it your age\nmy_age &lt;- 25  # Replace 25 with your actual age\n\n# Print the variable\nmy_age\n\n[1] 25\n\n\nYour turn: Create two variables representing the number of hours you studied yesterday and today. Calculate the total hours.\n\n# Write your code here:"
+  },
+  {
+    "objectID": "labs/lab1.html#exercise-3-vectors-and-basic-statistics",
+    "href": "labs/lab1.html#exercise-3-vectors-and-basic-statistics",
+    "title": "Lab 1: Introduction to R",
+    "section": "Exercise 3: Vectors and Basic Statistics",
+    "text": "Exercise 3: Vectors and Basic Statistics\nVectors are collections of values. We create them using the c() function.\n\n# Create a vector of test scores\ntest_scores &lt;- c(85, 92, 78, 96, 88, 91, 83)\n\n# Display the vector\ntest_scores\n\n[1] 85 92 78 96 88 91 83\n\n\n\n# Calculate basic statistics\nmean(test_scores)     # Mean (average)\n\n[1] 87.57143\n\nmedian(test_scores)   # Median (middle value)\n\n[1] 88\n\nsd(test_scores)       # Standard deviation\n\n[1] 6.078847\n\nlength(test_scores)   # Number of values\n\n[1] 7\n\n\nYour turn: Create a vector with the ages of 5 family members or friends. Calculate the mean and standard deviation.\n\n# Write your code here:"
+  },
+  {
+    "objectID": "labs/lab1.html#exercise-4-creating-data",
+    "href": "labs/lab1.html#exercise-4-creating-data",
+    "title": "Lab 1: Introduction to R",
+    "section": "Exercise 4: Creating Data",
+    "text": "Exercise 4: Creating Data\nLet’s create some sample data to work with:\n\n# Create a vector of 50 random numbers from a normal distribution\n# with mean = 100 and standard deviation = 15\nrandom_data &lt;- rnorm(50, mean = 100, sd = 15)\n\n# Look at the first 10 values\nhead(random_data, 10)\n\n [1]  97.90974 117.79309  95.28574  96.00688  77.51782  88.21455 114.43590\n [8] 113.36509 101.19029  77.11395\n\n\n\n# Calculate summary statistics for this data\nmean(random_data)\n\n[1] 98.3722\n\nsd(random_data)\n\n[1] 15.7295\n\nmin(random_data)\n\n[1] 58.9765\n\nmax(random_data)\n\n[1] 144.8962\n\n\nYour turn: Create a vector of 30 random numbers with mean = 50 and sd = 5. Calculate its summary statistics.\n\n# Write your code here:"
+  },
+  {
+    "objectID": "labs/lab1.html#exercise-5-basic-plotting",
+    "href": "labs/lab1.html#exercise-5-basic-plotting",
+    "title": "Lab 1: Introduction to R",
+    "section": "Exercise 5: Basic Plotting",
+    "text": "Exercise 5: Basic Plotting\nR has built-in functions for creating plots. Let’s make a histogram:\n\n# Create a histogram of our random data\nhist(random_data, \n     main = \"Histogram of Random Data\",\n     xlab = \"Value\",\n     ylab = \"Frequency\",\n     col = \"lightblue\")\n\n\n\n\n\n\n\n\n\n# Create a simple scatterplot\nx_values &lt;- c(1, 2, 3, 4, 5)\ny_values &lt;- c(2, 4, 1, 5, 3)\n\nplot(x_values, y_values,\n     main = \"Simple Scatterplot\",\n     xlab = \"X Values\",\n     ylab = \"Y Values\",\n     pch = 16,  # Solid circles\n     col = \"red\")\n\n\n\n\n\n\n\n\nYour turn: Create a histogram of the family ages vector you created in Exercise 3. Add appropriate labels.\n\n# Write your code here:"
+  },
+  {
+    "objectID": "labs/lab1.html#submission-instructions",
+    "href": "labs/lab1.html#submission-instructions",
+    "title": "Lab 1: Introduction to R",
+    "section": "Submission Instructions",
+    "text": "Submission Instructions\n\nMake sure all your code chunks run without errors\nSave this file with your name in the filename (e.g., “Lab1_YourLastName.qmd”)\nRender the document to HTML\nSubmit both the .qmd file and the rendered HTML file to Canvas"
+  },
+  {
+    "objectID": "readings.html",
+    "href": "readings.html",
+    "title": "Resources",
+    "section": "",
+    "text": "CSS 211 has no required readings. However, students might benefit from exploring additional content on course topics. The course schedule lists suggested readings for each week; here, I include those readings, as well as additional resources students might benefit from, organized by topic.\n\nGeneral Resources\n\nHadley Wickham’s R for Data Science(R4DS).\nIntroduction to Statistical Learning (James et al.)\n\n\n\nData wrangling and visualization.\n\nWickham, H. (2014). “Tidy data” (Journal of Statistical Software).\nWickham, H. & Grolemund, G. (2017). R for Data Science, [Chapters 5, 10-12](R4DS, data wrangling.\nHealy, K. (2018). Data Visualization, Chapters 1-3\n\n\n\nRegression\n\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 3\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 4.1-4.3\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 6.1-6.2\n\n\n\nMixed Effects Models\n\nWinter, B. (2013). “Linear models and linear mixed effects models in R” (tutorial)\nGelman, A. & Hill, J. (2006). Data Analysis Using Regression, Chapters 11-12\nBates, D. et al. (2015). “Fitting linear mixed-effects models using lme4” (Journal of Statistical Software)\n\n\n\nResampling Methods\n\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 5\n\n\n\nBest Practices and Research Design\n\nGelman, A. & Loken, E. (2014). “The garden of forking paths: Why multiple comparisons can be a problem” (American Scientist)"
+  },
+  {
+    "objectID": "hands_on/week2.html",
+    "href": "hands_on/week2.html",
+    "title": "Week 2: Hands-on data wrangling",
+    "section": "",
+    "text": "The goal of this hands-on exercise is to familiarize you with the basics of data wrangling and descriptive analysis. It will be a “semi-guided session”, with periods for independent (or collaborative) work.\nSpecific topics and skills:\n\nFamiliarity with tools for describing data, e.g., group_by and summarise, as well as simple plots like hist.\nExperience transforming or manipulating data using filter and mutate.\nExperience reshaping and merging datasets using pivot_longer and various joins."
+  },
+  {
+    "objectID": "hands_on/week2.html#introduction",
+    "href": "hands_on/week2.html#introduction",
+    "title": "Week 2: Hands-on data wrangling",
+    "section": "",
+    "text": "The goal of this hands-on exercise is to familiarize you with the basics of data wrangling and descriptive analysis. It will be a “semi-guided session”, with periods for independent (or collaborative) work.\nSpecific topics and skills:\n\nFamiliarity with tools for describing data, e.g., group_by and summarise, as well as simple plots like hist.\nExperience transforming or manipulating data using filter and mutate.\nExperience reshaping and merging datasets using pivot_longer and various joins."
+  },
+  {
+    "objectID": "hands_on/week2.html#the-datasets",
+    "href": "hands_on/week2.html#the-datasets",
+    "title": "Week 2: Hands-on data wrangling",
+    "section": "The dataset(s)",
+    "text": "The dataset(s)\nWe’ll be working with a few Linguistics datasets:\n\nA dataset about word concreteness, which you’ve already seen from class.\n\nA dataset about word iconicity (the extent to which words sound like what they mean).\n\nTo get started, let’s load the datasets.\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n### Concreteness\ndf_concreteness &lt;- read_csv(\"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/concreteness.csv\")\n\nRows: 28612 Columns: 4\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): Word, Dom_Pos\ndbl (2): Concreteness, Frequency\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n### Iconicity\ndf_iconicity &lt;- read_csv(\"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/iconicity.csv\")\n\nRows: 14774 Columns: 6\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): word\ndbl (5): n_ratings, n, prop_known, rating, rating_sd\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
+  },
+  {
+    "objectID": "hands_on/week2.html#exercise-1-understand-the-structure-of-your-data",
+    "href": "hands_on/week2.html#exercise-1-understand-the-structure-of-your-data",
+    "title": "Week 2: Hands-on data wrangling",
+    "section": "Exercise 1: Understand the structure of your data",
+    "text": "Exercise 1: Understand the structure of your data\nFirst, use functions like nrow, colnames, head, and more to understand the structure and content of each dataset.\nTry to answer the following questions:\n\nWhat does each column mean?\nWould you say the datasets are in wide or long format?\n\nDo the datasets have any overlapping columns?\n\nHow many words are in each dataset? Are they the same words?\n\nWhat’s the range of values for iconicity and concreteness ratings?"
+  },
+  {
+    "objectID": "hands_on/week2.html#exercise-2-join-your-data",
+    "href": "hands_on/week2.html#exercise-2-join-your-data",
+    "title": "Week 2: Hands-on data wrangling",
+    "section": "Exercise 2: Join your data",
+    "text": "Exercise 2: Join your data\nUse a join operation to merge the concreteness and iconicity datasets on a common column name. (Hint: You might need to use mutate to create a new column in at least one of the datasets.)\nWhat are the consequences of using left/right/full/inner_join? Which join did you use, and what does the resulting table look like in terms of lost (or gained) rows?"
+  },
+  {
+    "objectID": "hands_on/week2.html#exercise-3-explore-your-data",
+    "href": "hands_on/week2.html#exercise-3-explore-your-data",
+    "title": "Week 2: Hands-on data wrangling",
+    "section": "Exercise 3: Explore your data",
+    "text": "Exercise 3: Explore your data\nNow that you’ve merged your datasets, let’s conduct some initial explorations.\n\n3a: How many ratings?\nThe iconicity dataset contains a number of ratings for each word, but some words were rated more times than others.\n\nWhat is the range of n_ratings?\nWhich word was rated the most times? What about the least?\n\n\n\n3b: Which words are most and least iconic?\n\nWhich(s) word has (or have) the highest iconicity rating in the merged dataset? What about the word(s) with the lowest rating? Do these results make sense to you? (Hint: Use slice_max/min).\nWhat about the top 5 iconic words and the bottom 5 iconic words? (Hint: Use arrange and slice_head.)\nCan you draw any conclusions from this preliminary exploration about which kinds of words are most and least iconic?\nAre the extreme words the same before and after merging?\n\n\n\n3c: Which words have the most and least variance in their iconicity ratings?\nRepeat exercise 3b, but for rating_sd instead of rating.\n\n\n3d: Which words are most and least frequent?\nRepeat exercise 3b, but now for Frequency. Which words are the most and least frequent in the joined dataset?\n\n\n3e: Which words are most and least concrete?\nRepeat exercise 3b, but now for Concreteness. Which words are the most and least concrete in the joined dataset?"
+  },
+  {
+    "objectID": "hands_on/week2.html#exercise-4-grouping-and-summarizing",
+    "href": "hands_on/week2.html#exercise-4-grouping-and-summarizing",
+    "title": "Week 2: Hands-on data wrangling",
+    "section": "Exercise 4: Grouping and summarizing",
+    "text": "Exercise 4: Grouping and summarizing\nThe dataset also includes information about each word’s part-of-speech. Let’s use that information to learn more about our data.\n\n4a: Which part-of-speech is most and least iconic?\nUse group_by and summarise to calculate the mean iconicity for each part of speech.\n\nWhich part-of-speech has the highest iconicity on average, and which has the least?\n\nIs this broadly consistent with your qualitative inspection of the most and least iconic words earlier?\n\n\n\n4b: Which part-of-speech is most and least concrete?\nUse group_by and summarise to calculate the mean frequency for each part of speech.\n\nWhich part-of-speech has the highest frequency on average, and which has the least?\n\nDo you think these estimates might be affected by the distribution shape of Frequency? If necessary, recalculate the above with a log-transformed measure."
+  },
+  {
+    "objectID": "hands_on/week2.html#exercise-5-correlations-between-our-variables",
+    "href": "hands_on/week2.html#exercise-5-correlations-between-our-variables",
+    "title": "Week 2: Hands-on data wrangling",
+    "section": "Exercise 5: Correlations between our variables",
+    "text": "Exercise 5: Correlations between our variables\n\n5a: A correlation matrix\nNow, create a correlation matrix between n_ratings, rating, rating_sd, Concreteness, and Frequency. You might need to use select to first select those columns.\n\nWhat are the strongest correlations?\nAre more concrete words also more iconic?\n\n\n\n5b: Does the strength of correlation depend on part-of-speech?\nFocusing specifically on the relationship between Concreteness and rating, calculate the correlation between these variables for each part-of-speech.\n\nWhich parts-of-speech show the highest correlation? Which show the lowest?\nCompare these values to the count of observations for each part of speech.\n\n\n\n5c: Concrete vs. abstract words\n\nNow, create a binary variable called Concrete that categorizes words with a Concreteness &gt;2.5 as “Concrete”, and words with a Concreteness &lt;= 2.5 as “Abstract”.\n\nThen, calculate the mean iconicity for words categorized as Concrete vs. Abstract."
+  },
+  {
+    "objectID": "hands_on/week2.html#exercise-6-free-exploration",
+    "href": "hands_on/week2.html#exercise-6-free-exploration",
+    "title": "Week 2: Hands-on data wrangling",
+    "section": "Exercise 6: Free exploration!",
+    "text": "Exercise 6: Free exploration!\nTry to come up with at least one additional question to ask about your data.\n\nIf necessary, that could include merging with additional datasets (e.g., the AoA dataset used in class).\n\nAlternatively, you could try to build a regression model using lm to model the relationships between the variables more directly."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "CSS 211: Statistical Methods for Computational Social Science",
+    "section": "",
+    "text": "This is the course website for CSS 211/POLI 279. The current iteration of the course is Fall 2025.\nThe goal of this course is to introduce students to foundational statistical methods and tools for computational social science (CSS), including: data wrangling and visualization, regression, and model selection. Students will also develop proficiency in the R programming, and the course emphasizes hands-on application of techniques to real-world datasets."
+  },
+  {
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "CSS 211: Statistical Methods for Computational Social Science",
+    "section": "",
+    "text": "This is the course website for CSS 211/POLI 279. The current iteration of the course is Fall 2025.\nThe goal of this course is to introduce students to foundational statistical methods and tools for computational social science (CSS), including: data wrangling and visualization, regression, and model selection. Students will also develop proficiency in the R programming, and the course emphasizes hands-on application of techniques to real-world datasets."
+  },
+  {
+    "objectID": "index.html#instructor",
+    "href": "index.html#instructor",
+    "title": "CSS 211: Statistical Methods for Computational Social Science",
+    "section": "Instructor",
+    "text": "Instructor\nSean Trott\nDepartment of Cognitive Science, UCSD"
+  },
+  {
+    "objectID": "index.html#quick-links",
+    "href": "index.html#quick-links",
+    "title": "CSS 211: Statistical Methods for Computational Social Science",
+    "section": "Quick Links",
+    "text": "Quick Links\n\nSyllabus\nCourse Schedule\n\nGitHub Repository"
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#goals-of-the-lecture",
+    "href": "lectures/week1-phil-slides.html#goals-of-the-lecture",
+    "title": "The problem of knowledge",
+    "section": "Goals of the lecture",
+    "text": "Goals of the lecture\n\nWhat is knowledge and how do we produce it?\nPerspectives on scientific knowledge.\nEpistemological and ethical challenges facing CSS."
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#how-do-we-learn-about-the-world",
+    "href": "lectures/week1-phil-slides.html#how-do-we-learn-about-the-world",
+    "title": "The problem of knowledge",
+    "section": "How do we learn about the world?",
+    "text": "How do we learn about the world?\nThere are many ways to construct knowledge.\n\n\n\nSubjective experience\n\n\n\nIntuition and reason\n\n\n\nEmpirical research and measurement"
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#why-not-just-subjective-experience",
+    "href": "lectures/week1-phil-slides.html#why-not-just-subjective-experience",
+    "title": "The problem of knowledge",
+    "section": "Why not just subjective experience?",
+    "text": "Why not just subjective experience?\n\nSubjective experience refers to the thoughts and experiences an individual has.\n\n\nFor many things, no substitute for personal experience.\n“Anecdotal” evidence can still function as a kind of evidence.\nCultural knowledge (rituals, customs, etc.) also functions as a kind of evolved wisdom.\nBut over-reliance on anecdotes can also lead us astray when it comes to building models of the world."
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#why-not-just-intuition-and-reason",
+    "href": "lectures/week1-phil-slides.html#why-not-just-intuition-and-reason",
+    "title": "The problem of knowledge",
+    "section": "Why not just intuition and reason?",
+    "text": "Why not just intuition and reason?\n\nIntuition and reason rely on logic and abstract thinking to understand the world.\n\n\nRationalist tradition: knowledge comes from reasoning logically.\nMathematics and formal logic are powerful tools for understanding\nBut reason alone can lead to elegant theories that seem empirically wrong\n\nSometimes absurdly so, e.g., Zeno’s paradox\nSometimes empiricism is intuitive, e.g., Galileo’s work on gravity."
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#the-rise-of-empirical-science",
+    "href": "lectures/week1-phil-slides.html#the-rise-of-empirical-science",
+    "title": "The problem of knowledge",
+    "section": "The rise of empirical science",
+    "text": "The rise of empirical science\n\nEmpiricism is the idea that knowledge comes primarily from direct sensory experience and observation.\n\n\nCombines experience-based approach with systematic measurement and experimentation.\nOver time, systematic observations can help form theories.\nIn turn, theories guide observation.\nBut how exactly should we do empirical science? Many different philosophies…\n\n\n\n\n\n💭 Check-in\n\n\nWhat’s your intuitive theory of how science works (or should work)?"
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#empiricism-various-philosophies",
+    "href": "lectures/week1-phil-slides.html#empiricism-various-philosophies",
+    "title": "The problem of knowledge",
+    "section": "Empiricism: various philosophies",
+    "text": "Empiricism: various philosophies\nHistorically, scientists and philosophers of science have made different arguments about how science works, both descriptively and prescriptively.\n\n\n\nLogical positivism\n\nStatements are meaningful if and only if they can be verified.\nProblem: Many statements can’t be positively verified; problem of induction.\n\n\n\n\nFalsification\n\nTheories cannot be proven, but can be proven wrong.\nE.g., a single black swan can disprove the claim: All swans are white.\nProblem: Science doesn’t always work this way…\n\n\n\n\nBeyond falsification\n\nScience operates under paradigms or research programmes.\nPragmatism: Focus on producing useful explanations."
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#so-what-makes-a-good-explanation",
+    "href": "lectures/week1-phil-slides.html#so-what-makes-a-good-explanation",
+    "title": "The problem of knowledge",
+    "section": "So what makes a good explanation?",
+    "text": "So what makes a good explanation?\n\nOne goal of science is to produce explanations of natural phenomena.\n\n\n\n\n\n💭 Check-in\n\n\nWhat do you think makes a good explanation?\n\n\n\n\n\nCovering law: show how phenomena emerge from general principles\nCausal-mechanical: identify manipulable causes and trace mechanisms\n\nPragmatic: serve the practical needs of the question-asker\nAlso connects to deep questions about what constitutes “scientific understanding” of a phenomenon."
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#prediction-vs.-understanding",
+    "href": "lectures/week1-phil-slides.html#prediction-vs.-understanding",
+    "title": "The problem of knowledge",
+    "section": "Prediction vs. understanding",
+    "text": "Prediction vs. understanding\n\n\n\n\n💭 Check-in\n\n\nDoes being able to predict something mean we understand it?\n\n\n\n\n\nIncreasingly, machine learning models can make accurate predictions…\n…but we don’t always know why the model works.\n\nA model that predicts which word you’ll say doesn’t mean we know why you said that word.\n\nYet simpler, more interpretable models sometimes trade-off with predictive accuracy.\nThis complexity/accuracy trade-off is pervasive in statistical modeling.\nIt also connects to more general challenges facing CSS."
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#epistemological-challenges-in-css",
+    "href": "lectures/week1-phil-slides.html#epistemological-challenges-in-css",
+    "title": "The problem of knowledge",
+    "section": "Epistemological challenges in CSS",
+    "text": "Epistemological challenges in CSS\n\nAny given empirical claim can be evaluated according to several validities.\n\nHere, we’ll focus on these validities with respect to CSS specifically.\n\n\n\n\nConstruct validity\n\nAre we measuring what we think we’re measuring?\n\n\n\n\nInternal validity\n\nCan we establish causal relationships?\n\n\n\n\n\n\nStatistical validity\n\nAre our analytical methods appropriate?\n\n\n\n\nExternal validity\n\nDo our findings generalize beyond our sample?"
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#construct-validity-in-css",
+    "href": "lectures/week1-phil-slides.html#construct-validity-in-css",
+    "title": "The problem of knowledge",
+    "section": "Construct validity in CSS",
+    "text": "Construct validity in CSS\n\nConstruct validity refers to how well a variable is operationalized.\n\nMany variables are somewhat abstract: how do we measure them?\n\n\n\nExamples of hard constructs to operationalize:\n\nHappiness and well-being.\nSocial connectedness.\nInequality and poverty.\nPolitical polarization.\n\n\n\n\nKey questions:\n\nWhat aspects are we capturing?\n\nWhat are we missing?\n\n\n\n\n\n\n\n\n💭 Check-in\n\n\nWith a partner, choose one of these constructs. How might you operationalize it? What are limitations to this approach?"
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#internal-validity-establishing-causation",
+    "href": "lectures/week1-phil-slides.html#internal-validity-establishing-causation",
+    "title": "The problem of knowledge",
+    "section": "Internal validity: establishing causation",
+    "text": "Internal validity: establishing causation\n\nInternal validity is an indication of a study’s ability to eliminate alternative explanations for the effect of interest.\n\n\nWe’ve all heard correlation does not imply causation.\nBest way to establish causation is through experiments (RCTs), but that’s not always possible (or realistic) in many CSS domains.\n\nExample: social media use and mental health; digital campaigning and voter turnout; and much more.\n\nAdditionally, experimental control sometimes trades off with external validity!\nIf design is observational (no experiment), need to account for possible confounds.\n\n\n\n\n\n💭 Check-in\n\n\nWith a partner, think of some observational CSS studies you’ve read about. What might be alternative explanations for the effect of interest?"
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#statistical-validity-in-css",
+    "href": "lectures/week1-phil-slides.html#statistical-validity-in-css",
+    "title": "The problem of knowledge",
+    "section": "Statistical validity in CSS",
+    "text": "Statistical validity in CSS\n\nStatistical validity is the extent to which a study’s statistical conclusions are accurate.\n\n\nCould include reporting the margin of error associated with a claim (e.g., \\(10 \\pm 2\\)).\nAlso encompasses common pitfalls.\n\nFlexible models applies to large datasets are a recipe for inadvertent p-hacking.\nImportant to use methods like cross-validation to avoid overfitting.\n\nFundamentally an issue of research ethics!\n\n\n\n\n\n💭 Check-in\n\n\nSuppose you analyze the correlation between various personality traits and hundreds of outcome measures (life satisfication, income, etc.). You find significant results for about \\(5 \\%\\) of your analyses. What’s a potential concern here?"
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#external-validity-who-and-when",
+    "href": "lectures/week1-phil-slides.html#external-validity-who-and-when",
+    "title": "The problem of knowledge",
+    "section": "External validity: Who and when?",
+    "text": "External validity: Who and when?\n\nExternal validity refers to how well a given claim generalizes to the population of interest.\n\n\nMuch social science research focuses on WEIRD populations (Western, Educated, Industrialized, Rich, Democratic).\n\nDigital data exhibits even more skew.\n\nHow well do conclusions based on a given sample generalize across populations and times?\n\n\n\n\n\n💭 Check-in\n\n\nWith a partner, talk about a CSS-related study you’ve read about. How well do you think the conclusions generalize from the sample (people, society, time, etc.) studied?"
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#ethical-challenges-in-css",
+    "href": "lectures/week1-phil-slides.html#ethical-challenges-in-css",
+    "title": "The problem of knowledge",
+    "section": "Ethical challenges in CSS",
+    "text": "Ethical challenges in CSS\nCSS research involves many important ethical questions.\n\nPrivacy and consent.\nAlgorithmic bias.\nResearch ethics (reproducibility, etc.)."
+  },
+  {
+    "objectID": "lectures/week1-phil-slides.html#summary-and-moving-forward",
+    "href": "lectures/week1-phil-slides.html#summary-and-moving-forward",
+    "title": "The problem of knowledge",
+    "section": "Summary, and moving forward",
+    "text": "Summary, and moving forward\n\nCSS is pluralistic in terms of methods and research questions: no single “correct” approach.\n\nMultiple epistemological challenges facing empirical science.\nThis course will focus on statistical methods, but we’ll also touch on other core issues, especially construct validity.\n\n\n\n\n\n💭 Key takeaway\n\n\nProducing knowledge is hard, but methodological and theoretical principles can help guide us."
+  },
+  {
     "objectID": "lectures/week1-philosophy.html",
     "href": "lectures/week1-philosophy.html",
     "title": "The problem of knowledge",
@@ -411,328 +754,6 @@
     "title": "The problem of knowledge",
     "section": "Summary, and moving forward",
     "text": "Summary, and moving forward\n\n\nCSS is pluralistic in terms of methods and research questions: no single “correct” approach.\n\nMultiple epistemological challenges facing empirical science.\nThis course will focus on statistical methods, but we’ll also touch on other core issues, especially construct validity.\n\n\n\n\n\n\n\n\n\nNote💭 Key takeaway\n\n\n\nProducing knowledge is hard, but methodological and theoretical principles can help guide us."
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#goals-of-the-lecture",
-    "href": "lectures/week1-phil-slides.html#goals-of-the-lecture",
-    "title": "The problem of knowledge",
-    "section": "Goals of the lecture",
-    "text": "Goals of the lecture\n\nWhat is knowledge and how do we produce it?\nPerspectives on scientific knowledge.\nEpistemological and ethical challenges facing CSS."
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#how-do-we-learn-about-the-world",
-    "href": "lectures/week1-phil-slides.html#how-do-we-learn-about-the-world",
-    "title": "The problem of knowledge",
-    "section": "How do we learn about the world?",
-    "text": "How do we learn about the world?\nThere are many ways to construct knowledge.\n\n\n\nSubjective experience\n\n\n\nIntuition and reason\n\n\n\nEmpirical research and measurement"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#why-not-just-subjective-experience",
-    "href": "lectures/week1-phil-slides.html#why-not-just-subjective-experience",
-    "title": "The problem of knowledge",
-    "section": "Why not just subjective experience?",
-    "text": "Why not just subjective experience?\n\nSubjective experience refers to the thoughts and experiences an individual has.\n\n\nFor many things, no substitute for personal experience.\n“Anecdotal” evidence can still function as a kind of evidence.\nCultural knowledge (rituals, customs, etc.) also functions as a kind of evolved wisdom.\nBut over-reliance on anecdotes can also lead us astray when it comes to building models of the world."
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#why-not-just-intuition-and-reason",
-    "href": "lectures/week1-phil-slides.html#why-not-just-intuition-and-reason",
-    "title": "The problem of knowledge",
-    "section": "Why not just intuition and reason?",
-    "text": "Why not just intuition and reason?\n\nIntuition and reason rely on logic and abstract thinking to understand the world.\n\n\nRationalist tradition: knowledge comes from reasoning logically.\nMathematics and formal logic are powerful tools for understanding\nBut reason alone can lead to elegant theories that seem empirically wrong\n\nSometimes absurdly so, e.g., Zeno’s paradox\nSometimes empiricism is intuitive, e.g., Galileo’s work on gravity."
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#the-rise-of-empirical-science",
-    "href": "lectures/week1-phil-slides.html#the-rise-of-empirical-science",
-    "title": "The problem of knowledge",
-    "section": "The rise of empirical science",
-    "text": "The rise of empirical science\n\nEmpiricism is the idea that knowledge comes primarily from direct sensory experience and observation.\n\n\nCombines experience-based approach with systematic measurement and experimentation.\nOver time, systematic observations can help form theories.\nIn turn, theories guide observation.\nBut how exactly should we do empirical science? Many different philosophies…\n\n\n\n\n\n💭 Check-in\n\n\nWhat’s your intuitive theory of how science works (or should work)?"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#empiricism-various-philosophies",
-    "href": "lectures/week1-phil-slides.html#empiricism-various-philosophies",
-    "title": "The problem of knowledge",
-    "section": "Empiricism: various philosophies",
-    "text": "Empiricism: various philosophies\nHistorically, scientists and philosophers of science have made different arguments about how science works, both descriptively and prescriptively.\n\n\n\nLogical positivism\n\nStatements are meaningful if and only if they can be verified.\nProblem: Many statements can’t be positively verified; problem of induction.\n\n\n\n\nFalsification\n\nTheories cannot be proven, but can be proven wrong.\nE.g., a single black swan can disprove the claim: All swans are white.\nProblem: Science doesn’t always work this way…\n\n\n\n\nBeyond falsification\n\nScience operates under paradigms or research programmes.\nPragmatism: Focus on producing useful explanations."
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#so-what-makes-a-good-explanation",
-    "href": "lectures/week1-phil-slides.html#so-what-makes-a-good-explanation",
-    "title": "The problem of knowledge",
-    "section": "So what makes a good explanation?",
-    "text": "So what makes a good explanation?\n\nOne goal of science is to produce explanations of natural phenomena.\n\n\n\n\n\n💭 Check-in\n\n\nWhat do you think makes a good explanation?\n\n\n\n\n\nCovering law: show how phenomena emerge from general principles\nCausal-mechanical: identify manipulable causes and trace mechanisms\n\nPragmatic: serve the practical needs of the question-asker\nAlso connects to deep questions about what constitutes “scientific understanding” of a phenomenon."
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#prediction-vs.-understanding",
-    "href": "lectures/week1-phil-slides.html#prediction-vs.-understanding",
-    "title": "The problem of knowledge",
-    "section": "Prediction vs. understanding",
-    "text": "Prediction vs. understanding\n\n\n\n\n💭 Check-in\n\n\nDoes being able to predict something mean we understand it?\n\n\n\n\n\nIncreasingly, machine learning models can make accurate predictions…\n…but we don’t always know why the model works.\n\nA model that predicts which word you’ll say doesn’t mean we know why you said that word.\n\nYet simpler, more interpretable models sometimes trade-off with predictive accuracy.\nThis complexity/accuracy trade-off is pervasive in statistical modeling.\nIt also connects to more general challenges facing CSS."
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#epistemological-challenges-in-css",
-    "href": "lectures/week1-phil-slides.html#epistemological-challenges-in-css",
-    "title": "The problem of knowledge",
-    "section": "Epistemological challenges in CSS",
-    "text": "Epistemological challenges in CSS\n\nAny given empirical claim can be evaluated according to several validities.\n\nHere, we’ll focus on these validities with respect to CSS specifically.\n\n\n\n\nConstruct validity\n\nAre we measuring what we think we’re measuring?\n\n\n\n\nInternal validity\n\nCan we establish causal relationships?\n\n\n\n\n\n\nStatistical validity\n\nAre our analytical methods appropriate?\n\n\n\n\nExternal validity\n\nDo our findings generalize beyond our sample?"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#construct-validity-in-css",
-    "href": "lectures/week1-phil-slides.html#construct-validity-in-css",
-    "title": "The problem of knowledge",
-    "section": "Construct validity in CSS",
-    "text": "Construct validity in CSS\n\nConstruct validity refers to how well a variable is operationalized.\n\nMany variables are somewhat abstract: how do we measure them?\n\n\n\nExamples of hard constructs to operationalize:\n\nHappiness and well-being.\nSocial connectedness.\nInequality and poverty.\nPolitical polarization.\n\n\n\n\nKey questions:\n\nWhat aspects are we capturing?\n\nWhat are we missing?\n\n\n\n\n\n\n\n\n💭 Check-in\n\n\nWith a partner, choose one of these constructs. How might you operationalize it? What are limitations to this approach?"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#internal-validity-establishing-causation",
-    "href": "lectures/week1-phil-slides.html#internal-validity-establishing-causation",
-    "title": "The problem of knowledge",
-    "section": "Internal validity: establishing causation",
-    "text": "Internal validity: establishing causation\n\nInternal validity is an indication of a study’s ability to eliminate alternative explanations for the effect of interest.\n\n\nWe’ve all heard correlation does not imply causation.\nBest way to establish causation is through experiments (RCTs), but that’s not always possible (or realistic) in many CSS domains.\n\nExample: social media use and mental health; digital campaigning and voter turnout; and much more.\n\nAdditionally, experimental control sometimes trades off with external validity!\nIf design is observational (no experiment), need to account for possible confounds.\n\n\n\n\n\n💭 Check-in\n\n\nWith a partner, think of some observational CSS studies you’ve read about. What might be alternative explanations for the effect of interest?"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#statistical-validity-in-css",
-    "href": "lectures/week1-phil-slides.html#statistical-validity-in-css",
-    "title": "The problem of knowledge",
-    "section": "Statistical validity in CSS",
-    "text": "Statistical validity in CSS\n\nStatistical validity is the extent to which a study’s statistical conclusions are accurate.\n\n\nCould include reporting the margin of error associated with a claim (e.g., \\(10 \\pm 2\\)).\nAlso encompasses common pitfalls.\n\nFlexible models applies to large datasets are a recipe for inadvertent p-hacking.\nImportant to use methods like cross-validation to avoid overfitting.\n\nFundamentally an issue of research ethics!\n\n\n\n\n\n💭 Check-in\n\n\nSuppose you analyze the correlation between various personality traits and hundreds of outcome measures (life satisfication, income, etc.). You find significant results for about \\(5 \\%\\) of your analyses. What’s a potential concern here?"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#external-validity-who-and-when",
-    "href": "lectures/week1-phil-slides.html#external-validity-who-and-when",
-    "title": "The problem of knowledge",
-    "section": "External validity: Who and when?",
-    "text": "External validity: Who and when?\n\nExternal validity refers to how well a given claim generalizes to the population of interest.\n\n\nMuch social science research focuses on WEIRD populations (Western, Educated, Industrialized, Rich, Democratic).\n\nDigital data exhibits even more skew.\n\nHow well do conclusions based on a given sample generalize across populations and times?\n\n\n\n\n\n💭 Check-in\n\n\nWith a partner, talk about a CSS-related study you’ve read about. How well do you think the conclusions generalize from the sample (people, society, time, etc.) studied?"
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#ethical-challenges-in-css",
-    "href": "lectures/week1-phil-slides.html#ethical-challenges-in-css",
-    "title": "The problem of knowledge",
-    "section": "Ethical challenges in CSS",
-    "text": "Ethical challenges in CSS\nCSS research involves many important ethical questions.\n\nPrivacy and consent.\nAlgorithmic bias.\nResearch ethics (reproducibility, etc.)."
-  },
-  {
-    "objectID": "lectures/week1-phil-slides.html#summary-and-moving-forward",
-    "href": "lectures/week1-phil-slides.html#summary-and-moving-forward",
-    "title": "The problem of knowledge",
-    "section": "Summary, and moving forward",
-    "text": "Summary, and moving forward\n\nCSS is pluralistic in terms of methods and research questions: no single “correct” approach.\n\nMultiple epistemological challenges facing empirical science.\nThis course will focus on statistical methods, but we’ll also touch on other core issues, especially construct validity.\n\n\n\n\n\n💭 Key takeaway\n\n\nProducing knowledge is hard, but methodological and theoretical principles can help guide us."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "CSS 211: Statistical Methods for Computational Social Science",
-    "section": "",
-    "text": "This is the course website for CSS 211/POLI 279. The current iteration of the course is Fall 2025.\nThe goal of this course is to introduce students to foundational statistical methods and tools for computational social science (CSS), including: data wrangling and visualization, regression, and model selection. Students will also develop proficiency in the R programming, and the course emphasizes hands-on application of techniques to real-world datasets."
-  },
-  {
-    "objectID": "index.html#welcome",
-    "href": "index.html#welcome",
-    "title": "CSS 211: Statistical Methods for Computational Social Science",
-    "section": "",
-    "text": "This is the course website for CSS 211/POLI 279. The current iteration of the course is Fall 2025.\nThe goal of this course is to introduce students to foundational statistical methods and tools for computational social science (CSS), including: data wrangling and visualization, regression, and model selection. Students will also develop proficiency in the R programming, and the course emphasizes hands-on application of techniques to real-world datasets."
-  },
-  {
-    "objectID": "index.html#instructor",
-    "href": "index.html#instructor",
-    "title": "CSS 211: Statistical Methods for Computational Social Science",
-    "section": "Instructor",
-    "text": "Instructor\nSean Trott\nDepartment of Cognitive Science, UCSD"
-  },
-  {
-    "objectID": "index.html#quick-links",
-    "href": "index.html#quick-links",
-    "title": "CSS 211: Statistical Methods for Computational Social Science",
-    "section": "Quick Links",
-    "text": "Quick Links\n\nSyllabus\nCourse Schedule\n\nGitHub Repository"
-  },
-  {
-    "objectID": "hands_on/week2.html",
-    "href": "hands_on/week2.html",
-    "title": "Week 2: Hands-on data wrangling",
-    "section": "",
-    "text": "The goal of this hands-on exercise is to familiarize you with the basics of data wrangling and descriptive analysis. It will be a “semi-guided session”, with periods for independent (or collaborative) work.\nSpecific topics and skills:\n\nFamiliarity with tools for describing data, e.g., group_by and summarise, as well as simple plots like hist.\nExperience transforming or manipulating data using filter and mutate.\nExperience reshaping and merging datasets using pivot_longer and various joins."
-  },
-  {
-    "objectID": "hands_on/week2.html#introduction",
-    "href": "hands_on/week2.html#introduction",
-    "title": "Week 2: Hands-on data wrangling",
-    "section": "",
-    "text": "The goal of this hands-on exercise is to familiarize you with the basics of data wrangling and descriptive analysis. It will be a “semi-guided session”, with periods for independent (or collaborative) work.\nSpecific topics and skills:\n\nFamiliarity with tools for describing data, e.g., group_by and summarise, as well as simple plots like hist.\nExperience transforming or manipulating data using filter and mutate.\nExperience reshaping and merging datasets using pivot_longer and various joins."
-  },
-  {
-    "objectID": "hands_on/week2.html#the-datasets",
-    "href": "hands_on/week2.html#the-datasets",
-    "title": "Week 2: Hands-on data wrangling",
-    "section": "The dataset(s)",
-    "text": "The dataset(s)\nWe’ll be working with a few Linguistics datasets:\n\nA dataset about word concreteness, which you’ve already seen from class.\n\nA dataset about word iconicity (the extent to which words sound like what they mean).\n\n\nTo get started, let’s load the datasets.\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n### Concreteness\ndf_concreteness &lt;- read_csv(\"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/concreteness.csv\")\n\nRows: 28612 Columns: 4\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): Word, Dom_Pos\ndbl (2): Concreteness, Frequency\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n### Iconicity\ndf_iconicity &lt;- read_csv(\"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/iconicity.csv\")\n\nRows: 14774 Columns: 6\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): word\ndbl (5): n_ratings, n, prop_known, rating, rating_sd\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
-  },
-  {
-    "objectID": "hands_on/week2.html#exercise-1-understand-the-structure-of-your-data",
-    "href": "hands_on/week2.html#exercise-1-understand-the-structure-of-your-data",
-    "title": "Week 2: Hands-on data wrangling",
-    "section": "Exercise 1: Understand the structure of your data",
-    "text": "Exercise 1: Understand the structure of your data\nFirst, use functions like nrow, colnames, head, and more to understand the structure and content of each dataset.\nTry to answer the following questions:\n\nWhat does each column mean?\nWould you say the datasets are in wide or long format?\n\nDo the datasets have any overlapping columns?\n\nHow many words are in each dataset? Are they the same words?\n\nWhat’s the range of values for iconicity and concreteness ratings?"
-  },
-  {
-    "objectID": "hands_on/week2.html#exercise-2-join-your-data",
-    "href": "hands_on/week2.html#exercise-2-join-your-data",
-    "title": "Week 2: Hands-on data wrangling",
-    "section": "Exercise 2: Join your data",
-    "text": "Exercise 2: Join your data\nUse a join operation to merge the concreteness and iconicity datasets on a common column name. (Hint: You might need to use mutate to create a new column in at least one of the datasets.)\nWhat are the consequences of using left/right/full/inner_join? Which join did you use, and what does the resulting table look like in terms of lost (or gained) rows?"
-  },
-  {
-    "objectID": "hands_on/week2.html#exercise-3-explore-your-data",
-    "href": "hands_on/week2.html#exercise-3-explore-your-data",
-    "title": "Week 2: Hands-on data wrangling",
-    "section": "Exercise 3: Explore your data",
-    "text": "Exercise 3: Explore your data\nNow that you’ve merged your datasets, let’s conduct some initial explorations.\n\n3a: How many ratings?\nThe iconicity dataset contains a number of ratings for each word, but some words were rated more times than others.\n\nWhat is the range of n_ratings?\nWhich word was rated the most times? What about the least?\n\n\n\n3b: Which words are most and least iconic?\n\nWhich(s) word has (or have) the highest iconicity rating in the merged dataset? What about the word(s) with the lowest rating? Do these results make sense to you? (Hint: Use slice_max/min).\nWhat about the top 5 iconic words and the bottom 5 iconic words? (Hint: Use arrange and slice_head.)\nCan you draw any conclusions from this preliminary exploration about which kinds of words are most and least iconic?\nAre the extreme words the same before and after merging?\n\n\n\n3c: Which words have the most and least variance in their iconicity ratings?\nRepeat exercise 3b, but for rating_sd instead of rating.\n\n\n3d: Which words are most and least frequent?\nRepeat exercise 3b, but now for Frequency. Which words are the most and least frequent in the joined dataset?\n\n\n3e: Which words are most and least concrete?\nRepeat exercise 3b, but now for Concreteness. Which words are the most and least concrete in the joined dataset?"
-  },
-  {
-    "objectID": "hands_on/week2.html#exercise-4-grouping-and-summarizing",
-    "href": "hands_on/week2.html#exercise-4-grouping-and-summarizing",
-    "title": "Week 2: Hands-on data wrangling",
-    "section": "Exercise 4: Grouping and summarizing",
-    "text": "Exercise 4: Grouping and summarizing\nThe dataset also includes information about each word’s part-of-speech. Let’s use that information to learn more about our data.\n\n4a: Which part-of-speech is most and least iconic?\nUse group_by and summarise to calculate the mean iconicity for each part of speech.\n\nWhich part-of-speech has the highest iconicity on average, and which has the least?\n\nIs this broadly consistent with your qualitative inspection of the most and least iconic words earlier?\n\n\n\n4b: Which part-of-speech is most and least concrete?\nUse group_by and summarise to calculate the mean frequency for each part of speech.\n\nWhich part-of-speech has the highest frequency on average, and which has the least?\n\nDo you think these estimates might be affected by the distribution shape of Frequency? If necessary, recalculate the above with a log-transformed measure."
-  },
-  {
-    "objectID": "hands_on/week2.html#exercise-5-correlations-between-our-variables",
-    "href": "hands_on/week2.html#exercise-5-correlations-between-our-variables",
-    "title": "Week 2: Hands-on data wrangling",
-    "section": "Exercise 5: Correlations between our variables",
-    "text": "Exercise 5: Correlations between our variables\n\n5a: A correlation matrix\nNow, create a correlation matrix between n_ratings, rating, rating_sd, Concreteness, and Frequency. You might need to use select to first select those columns.\n\nWhat are the strongest correlations?\nAre more concrete words also more iconic?\n\n\n\n5b: Does the strength of correlation depend on part-of-speech?\nFocusing specifically on the relationship between Concreteness and rating, calculate the correlation between these variables for each part-of-speech.\n\nWhich parts-of-speech show the highest correlation? Which show the lowest?\nCompare these values to the count of observations for each part of speech.\n\n\n\n5c: Concrete vs. abstract words\n\nNow, create a binary variable called Concrete that categorizes words with a Concreteness &gt;2.5 as “Concrete”, and words with a Concreteness &lt;= 2.5 as “Abstract”.\n\nThen, calculate the mean iconicity for words categorized as Concrete vs. Abstract."
-  },
-  {
-    "objectID": "hands_on/week2.html#exercise-6-free-exploration",
-    "href": "hands_on/week2.html#exercise-6-free-exploration",
-    "title": "Week 2: Hands-on data wrangling",
-    "section": "Exercise 6: Free exploration!",
-    "text": "Exercise 6: Free exploration!\nTry to come up with at least one additional question to ask about your data.\n\nIf necessary, that could include merging with additional datasets (e.g., the AoA dataset used in class).\n\nAlternatively, you could try to build a regression model using lm to model the relationships between the variables more directly."
-  },
-  {
-    "objectID": "readings.html",
-    "href": "readings.html",
-    "title": "Resources",
-    "section": "",
-    "text": "CSS 211 has no required readings. However, students might benefit from exploring additional content on course topics. The course schedule lists suggested readings for each week; here, I include those readings, as well as additional resources students might benefit from, organized by topic.\n\nGeneral Resources\n\nHadley Wickham’s R for Data Science(R4DS).\nIntroduction to Statistical Learning (James et al.)\n\n\n\nData wrangling and visualization.\n\nWickham, H. (2014). “Tidy data” (Journal of Statistical Software).\nWickham, H. & Grolemund, G. (2017). R for Data Science, [Chapters 5, 10-12](R4DS, data wrangling.\nHealy, K. (2018). Data Visualization, Chapters 1-3\n\n\n\nRegression\n\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 3\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 4.1-4.3\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 6.1-6.2\n\n\n\nMixed Effects Models\n\nWinter, B. (2013). “Linear models and linear mixed effects models in R” (tutorial)\nGelman, A. & Hill, J. (2006). Data Analysis Using Regression, Chapters 11-12\nBates, D. et al. (2015). “Fitting linear mixed-effects models using lme4” (Journal of Statistical Software)\n\n\n\nResampling Methods\n\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 5\n\n\n\nBest Practices and Research Design\n\nGelman, A. & Loken, E. (2014). “The garden of forking paths: Why multiple comparisons can be a problem” (American Scientist)"
-  },
-  {
-    "objectID": "labs/lab1.html",
-    "href": "labs/lab1.html",
-    "title": "Lab 1: Introduction to R",
-    "section": "",
-    "text": "Name: ___________________________\nDate: ___________________________"
-  },
-  {
-    "objectID": "labs/lab1.html#introduction",
-    "href": "labs/lab1.html#introduction",
-    "title": "Lab 1: Introduction to R",
-    "section": "",
-    "text": "Name: ___________________________\nDate: ___________________________"
-  },
-  {
-    "objectID": "labs/lab1.html#introduction-1",
-    "href": "labs/lab1.html#introduction-1",
-    "title": "Lab 1: Introduction to R",
-    "section": "Introduction",
-    "text": "Introduction\nThe goal of this lab is to familiarize you with using R and RStudio. You’ll get hands-on practice with:\n\nPerforming simple calculations (basic arithmetic, mean, etc.).\nWorking with variables.\nCreating simple variables.\n\nNote that this lab will all be in “base R”, meaning we won’t (yet) be working with packages like tidyverse."
-  },
-  {
-    "objectID": "labs/lab1.html#exercise-1-basic-arithmetic",
-    "href": "labs/lab1.html#exercise-1-basic-arithmetic",
-    "title": "Lab 1: Introduction to R",
-    "section": "Exercise 1: Basic Arithmetic",
-    "text": "Exercise 1: Basic Arithmetic\nR can be used as a calculator. Try the following operations:\n\n# Addition\n5 + 3\n\n[1] 8\n\n\n\n# Subtraction\n10 - 4\n\n[1] 6\n\n\n\n# Multiplication\n6 * 7\n\n[1] 42\n\n\n\n# Division\n20 / 4\n\n[1] 5\n\n\nYour turn: Calculate \\(15 + 8 * 3 - 2\\)\n\n# Write your code here:"
-  },
-  {
-    "objectID": "labs/lab1.html#exercise-2-variables-and-assignment",
-    "href": "labs/lab1.html#exercise-2-variables-and-assignment",
-    "title": "Lab 1: Introduction to R",
-    "section": "Exercise 2: Variables and Assignment",
-    "text": "Exercise 2: Variables and Assignment\nIn R, we can store values in variables using the assignment operator &lt;-.\n\n# Create a variable called 'my_age' and assign it your age\nmy_age &lt;- 25  # Replace 25 with your actual age\n\n# Print the variable\nmy_age\n\n[1] 25\n\n\nYour turn: Create two variables representing the number of hours you studied yesterday and today. Calculate the total hours.\n\n# Write your code here:"
-  },
-  {
-    "objectID": "labs/lab1.html#exercise-3-vectors-and-basic-statistics",
-    "href": "labs/lab1.html#exercise-3-vectors-and-basic-statistics",
-    "title": "Lab 1: Introduction to R",
-    "section": "Exercise 3: Vectors and Basic Statistics",
-    "text": "Exercise 3: Vectors and Basic Statistics\nVectors are collections of values. We create them using the c() function.\n\n# Create a vector of test scores\ntest_scores &lt;- c(85, 92, 78, 96, 88, 91, 83)\n\n# Display the vector\ntest_scores\n\n[1] 85 92 78 96 88 91 83\n\n\n\n# Calculate basic statistics\nmean(test_scores)     # Mean (average)\n\n[1] 87.57143\n\nmedian(test_scores)   # Median (middle value)\n\n[1] 88\n\nsd(test_scores)       # Standard deviation\n\n[1] 6.078847\n\nlength(test_scores)   # Number of values\n\n[1] 7\n\n\nYour turn: Create a vector with the ages of 5 family members or friends. Calculate the mean and standard deviation.\n\n# Write your code here:"
-  },
-  {
-    "objectID": "labs/lab1.html#exercise-4-creating-data",
-    "href": "labs/lab1.html#exercise-4-creating-data",
-    "title": "Lab 1: Introduction to R",
-    "section": "Exercise 4: Creating Data",
-    "text": "Exercise 4: Creating Data\nLet’s create some sample data to work with:\n\n# Create a vector of 50 random numbers from a normal distribution\n# with mean = 100 and standard deviation = 15\nrandom_data &lt;- rnorm(50, mean = 100, sd = 15)\n\n# Look at the first 10 values\nhead(random_data, 10)\n\n [1] 106.01288 113.61603  88.12104  97.07324 114.06139 108.89746  94.03218\n [8] 102.11290 123.67646 118.07987\n\n\n\n# Calculate summary statistics for this data\nmean(random_data)\n\n[1] 99.90466\n\nsd(random_data)\n\n[1] 13.7721\n\nmin(random_data)\n\n[1] 67.90082\n\nmax(random_data)\n\n[1] 131.2222\n\n\nYour turn: Create a vector of 30 random numbers with mean = 50 and sd = 5. Calculate its summary statistics.\n\n# Write your code here:"
-  },
-  {
-    "objectID": "labs/lab1.html#exercise-5-basic-plotting",
-    "href": "labs/lab1.html#exercise-5-basic-plotting",
-    "title": "Lab 1: Introduction to R",
-    "section": "Exercise 5: Basic Plotting",
-    "text": "Exercise 5: Basic Plotting\nR has built-in functions for creating plots. Let’s make a histogram:\n\n# Create a histogram of our random data\nhist(random_data, \n     main = \"Histogram of Random Data\",\n     xlab = \"Value\",\n     ylab = \"Frequency\",\n     col = \"lightblue\")\n\n\n\n\n\n\n\n\n\n# Create a simple scatterplot\nx_values &lt;- c(1, 2, 3, 4, 5)\ny_values &lt;- c(2, 4, 1, 5, 3)\n\nplot(x_values, y_values,\n     main = \"Simple Scatterplot\",\n     xlab = \"X Values\",\n     ylab = \"Y Values\",\n     pch = 16,  # Solid circles\n     col = \"red\")\n\n\n\n\n\n\n\n\nYour turn: Create a histogram of the family ages vector you created in Exercise 3. Add appropriate labels.\n\n# Write your code here:"
-  },
-  {
-    "objectID": "labs/lab1.html#submission-instructions",
-    "href": "labs/lab1.html#submission-instructions",
-    "title": "Lab 1: Introduction to R",
-    "section": "Submission Instructions",
-    "text": "Submission Instructions\n\nMake sure all your code chunks run without errors\nSave this file with your name in the filename (e.g., “Lab1_YourLastName.qmd”)\nRender the document to HTML\nSubmit both the .qmd file and the rendered HTML file to Canvas"
-  },
-  {
-    "objectID": "final_project.html",
-    "href": "final_project.html",
-    "title": "CSS 211 Final Project)",
-    "section": "",
-    "text": "Details coming soon!"
-  },
-  {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "CSS 211 Syllabus",
-    "section": "",
-    "text": "This course is an introduction to statistical methods and computational tools for computational social science (CSS) research. Students will develop proficiency in R programming while learning foundational concepts for working with CSS data, including: data wrangling and visualization, regression, and model selection. The course emphasizes hands-on application of techniques to real-world datasets, as well as discussion of ongoing methodological and epistemological issues in the study of human behavior."
-  },
-  {
-    "objectID": "syllabus.html#course-overview",
-    "href": "syllabus.html#course-overview",
-    "title": "CSS 211 Syllabus",
-    "section": "",
-    "text": "This course is an introduction to statistical methods and computational tools for computational social science (CSS) research. Students will develop proficiency in R programming while learning foundational concepts for working with CSS data, including: data wrangling and visualization, regression, and model selection. The course emphasizes hands-on application of techniques to real-world datasets, as well as discussion of ongoing methodological and epistemological issues in the study of human behavior."
-  },
-  {
-    "objectID": "syllabus.html#learning-outcomes",
-    "href": "syllabus.html#learning-outcomes",
-    "title": "CSS 211 Syllabus",
-    "section": "Learning Outcomes",
-    "text": "Learning Outcomes\nMy goal is that by the end of this course, students will be able to:\n\nDefine and explain key concepts in statistical inference and regression analysis.\nIdentify appropriate visualizations and statistical methods for different kinds of research questions and datasets.\nImplement data wrangling, visualization, and analysis workflows in R.\nInterpret and evaluate results (visualizations, fit models, etc.) in the context of a research question.\nDesign and implement a complete statistical analysis project from research question to interpretation."
-  },
-  {
-    "objectID": "syllabus.html#teaching-team",
-    "href": "syllabus.html#teaching-team",
-    "title": "CSS 211 Syllabus",
-    "section": "Teaching Team",
-    "text": "Teaching Team\n\n\n\nName\nRole\nOH Time\nEmail\n\n\n\n\nSean Trott\nInstructor\nFriday 1-2pm (CSB 259)\nsttrott@ucsd.edu\n\n\nXiaohan Wu\nTA\nMonday 11am-12pm (SSB 104)\nxiw021@ucsd.edu"
-  },
-  {
-    "objectID": "syllabus.html#prerequisites",
-    "href": "syllabus.html#prerequisites",
-    "title": "CSS 211 Syllabus",
-    "section": "Prerequisites",
-    "text": "Prerequisites\nStudents should have a basic understanding of probability theory and statistics; some experience with a programming language (e.g., Python or R) is encouraged but not required."
-  },
-  {
-    "objectID": "syllabus.html#grading-and-assessments",
-    "href": "syllabus.html#grading-and-assessments",
-    "title": "CSS 211 Syllabus",
-    "section": "Grading and Assessments",
-    "text": "Grading and Assessments\n\n\n\nAssessment\nPercentage\n\n\n\n\nLabs\n20%\n\n\nConcept quizzes\n20%\n\n\nMidterm\n25%\n\n\nFinal project\n35%\n\n\n\nLabs (20% total): 4 coding labs, completed in R and submitted via Canvas. Students may collaborate on labs with each other and seek help from their TA/instructor.\nConcept quizzes (20%): 4 short quizzes, held over Canvas, designed to test and improve conceptual intuitions about course topics.\nMidterm (25%): A paper midterm held in-class testing knowledge of course material.\nFinal project (35%): A rigorous replication (and possible extension) of existing empirical work (published or otherwise) in a student’s discipline of interest. Final projects should be completed independently; students will turn in both a written report and present their work in a short in-class presentation the final week of class. (A rubric will be provided separately.)\n\nRounding\nMy course policy is not to round up grades for two reasons:\n\nIf rounding is applied selectively (i.e., only to students who ask), it is unfair to other students.\n\nIf rounding is applied across the board, it simply redefines the boundary between two letter grades (e.g., making an 89% the cut-off for an A-)."
-  },
-  {
-    "objectID": "syllabus.html#using-ai",
-    "href": "syllabus.html#using-ai",
-    "title": "CSS 211 Syllabus",
-    "section": "Using AI",
-    "text": "Using AI\nTools like ChatGPT can be incredibly helpful for learning to code (or speeding up the process). At the same time, I think it’s crucial to learn the foundational skills and concepts that will allow you to use these tools to their full potential. That is the main motivation for having an in-class midterm: ultimately, I cannot force anyone to complete homework on their own without using ChatGPT (or equivalent tools), and I wouldn’t even claim that people shouldn’t consult ChatGPT for additional help or questions; but in order to perform well on the midterm, you will still need to learn the concepts."
   },
   {
     "objectID": "lectures/week1-r-intro-slides.html#goals-of-the-lecture",
@@ -900,7 +921,7 @@
     "href": "lectures/week1-r-intro-slides.html#simulating-data",
     "title": "Introduction to R",
     "section": "Simulating data",
-    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.850456"
+    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8251315"
   },
   {
     "objectID": "lectures/week1-r-intro-slides.html#a-conceptual-preview-of-the-tidyverse",
@@ -1089,7 +1110,7 @@
     "href": "lectures/week1-r-intro.html#simulating-data",
     "title": "Introduction to R",
     "section": "Simulating data",
-    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\n\n\n\n\n\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8240943"
+    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\n\n\n\n\n\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8161554"
   },
   {
     "objectID": "lectures/week1-r-intro.html#a-conceptual-preview-of-the-tidyverse",
