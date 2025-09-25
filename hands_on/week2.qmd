@@ -18,7 +18,6 @@ We'll be working with a few Linguistics datasets:
 
 - A dataset about word **concreteness**, which you've already seen from class.  
 - A dataset about word **iconicity** (the extent to which words sound like what they mean). 
-- 
 
 
 To get started, let's load the datasets.
@@ -133,3 +132,7 @@ Try to come up with at least one additional question to ask about your data.
 
 - If necessary, that could include merging with *additional datasets* (e.g., the AoA dataset used in class).  
 - Alternatively, you could try to build a regression model using `lm` to model the relationships between the variables more directly. 
+
+
+
+
