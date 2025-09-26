@@ -15,7 +15,7 @@ Readings are option; "ISLR" refers to ["Introduction to Statistical Learning in 
 | 1 | F | 10-03 | [R basics **[HANDS-ON]**](labs/lab1.qmd) | **Lab 1** | |
 | 2 | M | 10-06 | [Data wrangling](lectures/week2-wrangling.qmd) | |[Tidy data (Wickham, 2011)](https://vita.had.co.nz/papers/tidy-data.pdf) |
 | 2 | W | 10-08 | [Data wrangling](lectures/week2-wrangling.qmd) | |
-| 2 | F | 10-10 | Hands-on data cleaning **[HANDS-ON]** | **Concept quiz** |
+| 2 | F | 10-10 | [Hands-on data cleaning **[HANDS-ON]**](hands_on/week2.qmd) | **Concept quiz** |
 | 3 | M | 10-13 | Data visualization (principles) | |[Introduction to Data Visualization in R](https://r4ds.had.co.nz/data-visualisation.html)|
 | 3 | W | 10-15 | Data visualization (*ggplot*) | |
 | 3 | F | 10-17 | Exploratory data analysis **[HANDS-ON]** | Lab 2 |

@@ -424,7 +424,7 @@
     "href": "labs/lab1.html#exercise-4-creating-data",
     "title": "Lab 1: Introduction to R",
     "section": "Exercise 4: Creating Data",
-    "text": "Exercise 4: Creating Data\nLet’s create some sample data to work with:\n\n# Create a vector of 50 random numbers from a normal distribution\n# with mean = 100 and standard deviation = 15\nrandom_data &lt;- rnorm(50, mean = 100, sd = 15)\n\n# Look at the first 10 values\nhead(random_data, 10)\n\n [1]  97.90974 117.79309  95.28574  96.00688  77.51782  88.21455 114.43590\n [8] 113.36509 101.19029  77.11395\n\n\n\n# Calculate summary statistics for this data\nmean(random_data)\n\n[1] 98.3722\n\nsd(random_data)\n\n[1] 15.7295\n\nmin(random_data)\n\n[1] 58.9765\n\nmax(random_data)\n\n[1] 144.8962\n\n\nYour turn: Create a vector of 30 random numbers with mean = 50 and sd = 5. Calculate its summary statistics.\n\n# Write your code here:"
+    "text": "Exercise 4: Creating Data\nLet’s create some sample data to work with:\n\n# Create a vector of 50 random numbers from a normal distribution\n# with mean = 100 and standard deviation = 15\nrandom_data &lt;- rnorm(50, mean = 100, sd = 15)\n\n# Look at the first 10 values\nhead(random_data, 10)\n\n [1]  70.49300 105.89109 105.34779  85.31829  85.47119 123.82059  81.76553\n [8] 115.40936  91.79384  87.35015\n\n\n\n# Calculate summary statistics for this data\nmean(random_data)\n\n[1] 99.613\n\nsd(random_data)\n\n[1] 15.80305\n\nmin(random_data)\n\n[1] 65.90864\n\nmax(random_data)\n\n[1] 128.8129\n\n\nYour turn: Create a vector of 30 random numbers with mean = 50 and sd = 5. Calculate its summary statistics.\n\n# Write your code here:"
   },
   {
     "objectID": "labs/lab1.html#exercise-5-basic-plotting",
@@ -921,7 +921,7 @@
     "href": "lectures/week1-r-intro-slides.html#simulating-data",
     "title": "Introduction to R",
     "section": "Simulating data",
-    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8251315"
+    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8860554"
   },
   {
     "objectID": "lectures/week1-r-intro-slides.html#a-conceptual-preview-of-the-tidyverse",
@@ -1110,7 +1110,7 @@
     "href": "lectures/week1-r-intro.html#simulating-data",
     "title": "Introduction to R",
     "section": "Simulating data",
-    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\n\n\n\n\n\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8161554"
+    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\n\n\n\n\n\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8495715"
   },
   {
     "objectID": "lectures/week1-r-intro.html#a-conceptual-preview-of-the-tidyverse",
