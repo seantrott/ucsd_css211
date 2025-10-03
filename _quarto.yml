@@ -24,6 +24,8 @@ website:
             text: "Week 1: Introduction to R"
           - href: lectures/week2-wrangling.qmd
             text: "Week 2: Data Wrangling"
+          - href: lectures/week3-visualization.qmd
+            text: "Week 3: Data Visualization"
       - text: "Labs"
         icon: fas fa-laptop-code
         menu:
