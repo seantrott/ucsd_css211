@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -190,6 +225,44 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#goals-of-the-lecture" id="toc-goals-of-the-lecture" class="nav-link active" data-scroll-target="#goals-of-the-lecture">Goals of the lecture</a></li>
+  <li><a href="#what-is-data-visualization" id="toc-what-is-data-visualization" class="nav-link" data-scroll-target="#what-is-data-visualization">What is data visualization?</a></li>
+  <li><a href="#why-visualization" id="toc-why-visualization" class="nav-link" data-scroll-target="#why-visualization">Why visualization?</a></li>
+  <li><a href="#eda-checking-your-assumptions" id="toc-eda-checking-your-assumptions" class="nav-link" data-scroll-target="#eda-checking-your-assumptions">EDA: Checking your assumptions</a></li>
+  <li><a href="#dataviz-impacting-the-world-1" id="toc-dataviz-impacting-the-world-1" class="nav-link" data-scroll-target="#dataviz-impacting-the-world-1">DataViz: impacting the world (1)</a></li>
+  <li><a href="#dataviz-impacting-the-world-2" id="toc-dataviz-impacting-the-world-2" class="nav-link" data-scroll-target="#dataviz-impacting-the-world-2">DataViz: impacting the world (2)</a></li>
+  <li><a href="#what-makes-a-good-data-visualization" id="toc-what-makes-a-good-data-visualization" class="nav-link" data-scroll-target="#what-makes-a-good-data-visualization">What makes a good data visualization?</a></li>
+  <li><a href="#principle-1-use-your-ink-wisely" id="toc-principle-1-use-your-ink-wisely" class="nav-link" data-scroll-target="#principle-1-use-your-ink-wisely">Principle 1: Use your ink wisely</a></li>
+  <li><a href="#principle-2-be-true-to-the-data" id="toc-principle-2-be-true-to-the-data" class="nav-link" data-scroll-target="#principle-2-be-true-to-the-data">Principle 2: Be true to the data</a></li>
+  <li><a href="#principle-3-consider-the-visual-logic" id="toc-principle-3-consider-the-visual-logic" class="nav-link" data-scroll-target="#principle-3-consider-the-visual-logic">Principle 3: Consider the <em>visual logic</em></a></li>
+  <li><a href="#principle-4-order-matters" id="toc-principle-4-order-matters" class="nav-link" data-scroll-target="#principle-4-order-matters">Principle 4: Order matters</a></li>
+  <li><a href="#principle-5-keep-scales-consistent" id="toc-principle-5-keep-scales-consistent" class="nav-link" data-scroll-target="#principle-5-keep-scales-consistent">Principle 5: Keep scales consistent</a></li>
+  <li><a href="#ggplot2-theory-and-practice" id="toc-ggplot2-theory-and-practice" class="nav-link" data-scroll-target="#ggplot2-theory-and-practice"><code>ggplot2</code>: theory and practice</a></li>
+  <li><a href="#anatomy-of-a-ggplot" id="toc-anatomy-of-a-ggplot" class="nav-link" data-scroll-target="#anatomy-of-a-ggplot">Anatomy of a “ggplot”</a></li>
+  <li><a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms">Histograms</a></li>
+  <li><a href="#histograms-1" id="toc-histograms-1" class="nav-link" data-scroll-target="#histograms-1">Histograms</a></li>
+  <li><a href="#histograms-are-very-useful" id="toc-histograms-are-very-useful" class="nav-link" data-scroll-target="#histograms-are-very-useful">Histograms are very useful!</a></li>
+  <li><a href="#histograms-vs.-density-plots" id="toc-histograms-vs.-density-plots" class="nav-link" data-scroll-target="#histograms-vs.-density-plots">Histograms vs.&nbsp;density plots</a></li>
+  <li><a href="#overlaying-multiple-distributions" id="toc-overlaying-multiple-distributions" class="nav-link" data-scroll-target="#overlaying-multiple-distributions">Overlaying multiple distributions</a></li>
+  <li><a href="#scatterplots" id="toc-scatterplots" class="nav-link" data-scroll-target="#scatterplots">Scatterplots</a></li>
+  <li><a href="#adding-layers-to-a-scatterplot" id="toc-adding-layers-to-a-scatterplot" class="nav-link" data-scroll-target="#adding-layers-to-a-scatterplot">Adding <em>layers</em> to a scatterplot</a></li>
+  <li><a href="#plotting-a-regression-line" id="toc-plotting-a-regression-line" class="nav-link" data-scroll-target="#plotting-a-regression-line">Plotting a regression line</a></li>
+  <li><a href="#bar-plots" id="toc-bar-plots" class="nav-link" data-scroll-target="#bar-plots">Bar plots</a></li>
+  <li><a href="#bar-plots-counts" id="toc-bar-plots-counts" class="nav-link" data-scroll-target="#bar-plots-counts">Bar plots: counts</a></li>
+  <li><a href="#bar-plots-summaries" id="toc-bar-plots-summaries" class="nav-link" data-scroll-target="#bar-plots-summaries">Bar plots: summaries</a></li>
+  <li><a href="#bar-plots-with-group_by" id="toc-bar-plots-with-group_by" class="nav-link" data-scroll-target="#bar-plots-with-group_by">Bar plots with <code>group_by</code></a></li>
+  <li><a href="#error-bars-stat_summary" id="toc-error-bars-stat_summary" class="nav-link" data-scroll-target="#error-bars-stat_summary">Error bars: <code>stat_summary</code></a></li>
+  <li><a href="#error-bars-with-group_by" id="toc-error-bars-with-group_by" class="nav-link" data-scroll-target="#error-bars-with-group_by">Error bars with <code>group_by</code></a></li>
+  <li><a href="#error-bars-with-group_by-1" id="toc-error-bars-with-group_by-1" class="nav-link" data-scroll-target="#error-bars-with-group_by-1">Error bars with <code>group_by</code></a></li>
+  <li><a href="#bar-plots-with-fill" id="toc-bar-plots-with-fill" class="nav-link" data-scroll-target="#bar-plots-with-fill">Bar plots with <code>fill</code></a></li>
+  <li><a href="#boxplots-and-violin-plots" id="toc-boxplots-and-violin-plots" class="nav-link" data-scroll-target="#boxplots-and-violin-plots">Boxplots and violin plots</a></li>
+  <li><a href="#boxplots-with-geom_boxplot" id="toc-boxplots-with-geom_boxplot" class="nav-link" data-scroll-target="#boxplots-with-geom_boxplot">Boxplots with <code>geom_boxplot</code></a></li>
+  <li><a href="#violin-plots-with-geom_violin" id="toc-violin-plots-with-geom_violin" class="nav-link" data-scroll-target="#violin-plots-with-geom_violin">Violin plots with <code>geom_violin</code></a></li>
+  <li><a href="#adding-styling-to-a-plot" id="toc-adding-styling-to-a-plot" class="nav-link" data-scroll-target="#adding-styling-to-a-plot">Adding styling to a plot</a></li>
+  <li><a href="#labeling-specific-points" id="toc-labeling-specific-points" class="nav-link" data-scroll-target="#labeling-specific-points">Labeling specific points</a></li>
+  <li><a href="#other-plotting-packages" id="toc-other-plotting-packages" class="nav-link" data-scroll-target="#other-plotting-packages">Other plotting packages</a></li>
+  <li><a href="#using-ggcorrplot" id="toc-using-ggcorrplot" class="nav-link" data-scroll-target="#using-ggcorrplot">Using <code>ggcorrplot</code></a></li>
+  <li><a href="#using-ggridges" id="toc-using-ggridges" class="nav-link" data-scroll-target="#using-ggridges">Using <code>ggridges</code></a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="week3-r-visualization-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
@@ -223,6 +296,824 @@ ul.task-list li input[type="checkbox"] {
 <li>Basic principles of <em>data visualization</em>.</li>
 <li><code>ggplot</code>: theory and practice.</li>
 <li>Other plotting add-ons (<code>ggridges</code>, <code>ggcorrplot</code>).</li>
+</ul>
+</div>
+</section>
+<section id="what-is-data-visualization" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="what-is-data-visualization">What is data visualization?</h2>
+<blockquote class="blockquote">
+<p><strong>Data visualization</strong> is the process (and result) of representing data graphically.</p>
+</blockquote>
+<p>We’ll be focusing on common visualization techniques, such as:</p>
+<div class="incremental">
+<ul class="incremental">
+<li>Histograms.</li>
+<li>Scatterplots.</li>
+<li>Barplots.</li>
+<li>Boxplots.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We’ll also discuss <em>why</em> visualization is so crucial.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="why-visualization" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="why-visualization">Why visualization?</h2>
+<p>Data visualization serves (at least) a few different purposes:</p>
+<div class="incremental">
+<ul class="incremental">
+<li><strong>Exploratory data analysis (EDA)</strong>: discovering relationships in your data, generating hypotheses, confirming intuitions.<br>
+</li>
+<li><strong>Communicating insights</strong>: given some finding, conveying that <em>clearly</em> and <em>accurately</em>.</li>
+<li><strong>Impacting the world</strong>: a good (or bad) visualization can change attitudes!</li>
+</ul>
+</div>
+</section>
+<section id="eda-checking-your-assumptions" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="eda-checking-your-assumptions">EDA: Checking your assumptions</h2>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="do">### Loading the tidyverse</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="do">### Plot anscombe's quartet</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>anscombe <span class="sc">%&gt;%</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb1-6"><a href="#cb1-6"></a>    <span class="at">cols =</span> <span class="fu">everything</span>(),</span>
+<span id="cb1-7"><a href="#cb1-7"></a>    <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">".value"</span>, <span class="st">"dataset"</span>),</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    <span class="at">names_pattern =</span> <span class="st">"(x|y)(.*)"</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>dataset)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/loading-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="dataviz-impacting-the-world-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="dataviz-impacting-the-world-1">DataViz: impacting the world (1)</h2>
+<p><a href="https://en.wikipedia.org/wiki/Florence_Nightingale">Florence Nightingale</a> (1820-1910) was a social reformer, statistician, and founder of modern nursing.</p>
+<p><img src="images/week3/polar.jpeg" class="img-fluid" style="width:70.0%"></p>
+</section>
+<section id="dataviz-impacting-the-world-2" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="dataviz-impacting-the-world-2">DataViz: impacting the world (2)</h2>
+<p><a href="https://en.wikipedia.org/wiki/John_Snow">John Snow</a> (1813-1858) was a physician whose visualization of cholera outbreaks helped identify the source and spreading mechanism (water supply).</p>
+<p><img src="images/week3/cholera.jpeg" class="img-fluid" style="width:70.0%"></p>
+</section>
+<section id="what-makes-a-good-data-visualization" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="what-makes-a-good-data-visualization">What makes a good data visualization?</h2>
+<p><a href="https://en.wikipedia.org/wiki/Edward_Tufte">Edward Tufte</a> argues:</p>
+<blockquote class="blockquote">
+<p>Graphical excellence is the well-designed presentation of interesting data—a matter of substance, of statistics, and of design … [It] <strong>consists of complex ideas communicated with clarity, precision, and efficiency</strong>. … [It] is that which gives to the viewer <strong>the greatest number of ideas in the shortest time with the least ink in the smallest space</strong> … [It] is nearly always multivariate … And graphical excellence requires telling the truth about the data. (Tufte, 1983, p.&nbsp;51).</p>
+</blockquote>
+<p>Some <strong>principles</strong>:</p>
+<div class="incremental">
+<ul class="incremental">
+<li>Use your <em>ink</em> wisely.</li>
+<li>Be true to the <em>data</em>.</li>
+<li>Consider the <em>visual logic</em> of the figure.</li>
+<li><em>Order</em> matters.</li>
+<li>Keep <em>scales</em> consistent.</li>
+</ul>
+</div>
+</section>
+<section id="principle-1-use-your-ink-wisely" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="principle-1-use-your-ink-wisely">Principle 1: Use your ink wisely</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Every element in your visualization should serve a purpose.</li>
+<li>Remove “chart junk”: unnecessary gridlines, borders, 3D effects, decorations.</li>
+<li>Maximize your <strong>data-ink ratio</strong>: the proportion of ink used to display actual data.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Tufte’s principle
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>“Above all else show the data.” - Edward Tufte</p>
+</div>
+</div>
+</div>
+</section>
+<section id="principle-2-be-true-to-the-data" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="principle-2-be-true-to-the-data">Principle 2: Be true to the data</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Don’t manipulate scales to exaggerate or hide effects.</li>
+<li>Include zero baseline for bar charts (unless there’s good reason not to).</li>
+<li>Avoid cherry-picking data or timeframes.</li>
+<li>Represent uncertainty when appropriate (e.g., error bars, confidence intervals).</li>
+</ul>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/misleading-1.png" class="img-fluid figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="principle-3-consider-the-visual-logic" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="principle-3-consider-the-visual-logic">Principle 3: Consider the <em>visual logic</em></h2>
+<div class="incremental">
+<ul class="incremental">
+<li><em>Position</em> is probably easiest to judge accurately.</li>
+<li><em>Angle</em> and <em>area</em> are harder (e.g., pie charts).</li>
+<li>Color <em>hue</em> can work for categorical data.
+<ul class="incremental">
+<li>Use distinctive and meaningful colors!</li>
+</ul></li>
+<li>Stacked bar plots often hard to interpret!</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This will be relevant when thinking about the <em>layers</em> in <code>ggplot</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="principle-4-order-matters" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="principle-4-order-matters">Principle 4: Order matters</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>For <strong>categorical data</strong>: order by <em>frequency</em> or a <em>meaningful sequence</em>.</li>
+<li>For <strong>ordinal data</strong>: maintain the <em>natural order</em> (e.g., Strongly Disagree → Strongly Agree).</li>
+<li>For <strong>time series</strong>: always order <em>chronologically.</em></li>
+</ul>
+</div>
+</section>
+<section id="principle-5-keep-scales-consistent" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="principle-5-keep-scales-consistent">Principle 5: Keep scales consistent</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Use the same axis ranges for meaningful comparison.</li>
+<li>In faceted plots, decide: fixed scales (scales = “fixed”) or free scales (scales = “free”)?
+<ul class="incremental">
+<li>Free scales can be misleading but useful when ranges differ greatly.</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Rule of thumb
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use consistent scales when inviting direct comparison; use free scales when showing patterns within each group.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="ggplot2-theory-and-practice" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="ggplot2-theory-and-practice"><code>ggplot2</code>: theory and practice</h2>
+<blockquote class="blockquote">
+<p><code>ggplot2</code> is a <a href="https://ggplot2.tidyverse.org/">system for creating graphics</a>, based on <a href="https://link.springer.com/book/10.1007/0-387-28695-0">the Grammar of Graphics</a>.</p>
+</blockquote>
+<p>Just like natural language has a grammar (nouns, verbs, adjectives), graphics have a grammar too:</p>
+<div class="incremental">
+<ul class="incremental">
+<li><strong>Data</strong>: What you want to visualize.</li>
+<li><strong>Aesthetics (<code>aes</code>)</strong>: How variables map to visual properties (x, y, color, size).</li>
+<li><strong>Geometries (<code>geom</code>)</strong>: The type of plot (points, lines, bars).</li>
+<li><strong>Scales</strong>: Control how aesthetic mappings appear.</li>
+<li><strong>Facets</strong>: Split into multiple subplots.</li>
+<li><strong>Themes</strong>: Control non-data appearance (fonts, backgrounds).</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>`<code>gplot</code> builds plots by adding <strong>layers</strong> with the <code>+</code> operator.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="anatomy-of-a-ggplot" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="anatomy-of-a-ggplot">Anatomy of a “ggplot”</h2>
+<p>Every <code>ggplot</code> needs, at <em>minimum</em>:</p>
+<ul>
+<li><strong>Data</strong>: a dataframe or tibble.</li>
+<li><strong>Aesthetic mappings</strong>: which variables map to which visual properties.</li>
+<li><strong>Geometry</strong>: how to represent the data visually.</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg,                          <span class="co"># 1. Data</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class)) <span class="sc">+</span> <span class="co"># 2. Aesthetics</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="fu">geom_point</span>() <span class="co"># 3. Geometry</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/basic_ggplot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="histograms" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="histograms">Histograms</h2>
+<blockquote class="blockquote">
+<p>A histogram is a visualization of a single continuous, quantitative variable (e.g., income or temperature).</p>
+</blockquote>
+<p>A histogram can be created with <code>geom_histogram</code>.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> cty)) <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/basic_hist-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What happens if you modify <code>bins</code> <em>or</em> <code>binwidth</code>?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="histograms-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="histograms-1">Histograms</h2>
+<blockquote class="blockquote">
+<p>A histogram is a visualization of a single continuous, quantitative variable (e.g., income or temperature).</p>
+</blockquote>
+<p>A histogram can be created with <code>geom_histogram</code>.</p>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What happens if you modify <code>bins</code> <em>or</em> <code>binwidth</code>?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="histograms-are-very-useful" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="histograms-are-very-useful">Histograms are very useful!</h2>
+<p>Histograms show important visual information about a <strong>distribution</strong>:</p>
+<div class="incremental">
+<ul class="incremental">
+<li><strong>Shape</strong>: is it symmetric, skewed, etc.?</li>
+<li><strong>Center</strong>: Where is the “typical” value?</li>
+<li><strong>Spread</strong> : How variable is the data?</li>
+<li><strong>Outliers</strong>: Are there unusual values?</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How does the <em>skew</em> of a distribution affect measures of central tendency such as the <code>mean</code> or <code>median</code>?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="histograms-vs.-density-plots" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="histograms-vs.-density-plots">Histograms vs.&nbsp;density plots</h2>
+<blockquote class="blockquote">
+<p>A <strong>density plot</strong> is a smoothed alternative to a histogram, created using <em>kernel density estimation (KDE)</em>.</p>
+</blockquote>
+<p>A density plot can be created with <code>geom_density</code>.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty)) <span class="sc">+</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/basic_dens-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="overlaying-multiple-distributions" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="overlaying-multiple-distributions">Overlaying multiple distributions</h2>
+<p>One benefit of a density plot is that it’s easier to <em>overlay</em> multiple distributions on the same plot. The <code>alpha</code> parameter controls the <strong>opacity</strong> of each distribution.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(class <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"compact"</span>, <span class="st">"suv"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">fill =</span> class)) <span class="sc">+</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"City MPG: Compact vs. SUV"</span>, <span class="at">fill =</span> <span class="st">"Car Type"</span>) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/dens_with_fill-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="scatterplots" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="scatterplots">Scatterplots</h2>
+<blockquote class="blockquote">
+<p>A <strong>scatterplot</strong> shows the relationship between two continuous variables, where each point represents an observation.</p>
+</blockquote>
+<p>A scatterplot can be created with <code>geom_point</code>.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/scatter-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-layers-to-a-scatterplot" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="adding-layers-to-a-scatterplot">Adding <em>layers</em> to a scatterplot</h2>
+<p>We can further modify the <em>color</em>, <em>size</em>, and <em>shape</em> of individual dots.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy, <span class="at">color =</span> class, <span class="at">size =</span> cyl, <span class="at">shape =</span> drv)) <span class="sc">+</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/scatter_layers-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use categorical variables for <code>shape</code>, categorical or continuous variables for <code>color</code>, and ordinal or continuous variables for <code>size</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="plotting-a-regression-line" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="plotting-a-regression-line">Plotting a regression line</h2>
+<p>We can also use <code>geom_smooth</code> to plot a <em>regression line</em> (or another non-linear function) over our scatterplot.</p>
+<p>(If there are multiple colors, etc., a different line will be plotted for each color.)</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/scatter_line-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="bar-plots" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="bar-plots">Bar plots</h2>
+<blockquote class="blockquote">
+<p>A barplot visualizes the relationship between one continuous variable and (at least one) categorical variable.</p>
+</blockquote>
+<p>A barplot can be created with <code>geom_bar</code>.</p>
+<div class="incremental">
+<ul class="incremental">
+<li>By default, <code>geom_bar</code> will <em>count</em> occurrences (like a histogram for categorical variables).</li>
+<li>You can also calculate values like the <code>mean</code> using <code>geom_bar(stat = "summary")</code>.</li>
+<li>If you already have values computed (e.g., a mean or count), you can use <code>geom_col</code> <em>or</em> `geom_bar(stat = “identity”).</li>
+</ul>
+</div>
+</section>
+<section id="bar-plots-counts" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="bar-plots-counts">Bar plots: counts</h2>
+<p>By default, <code>geom_bar</code> will count the occurrences of each class.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> drv)) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/bar_counts-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Create a barplot showing the counts of some other <em>categorical variable</em> in the <code>mpg</code> dataframe.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="bar-plots-summaries" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="bar-plots-summaries">Bar plots: summaries</h2>
+<p>You can also calculate <em>summary statistics</em>, i.e., the <code>mean</code> of some <code>y</code> variable for each level of the <code>x</code> variable.</p>
+<p>Use <code>reorder</code> to reorder the bars in terms of their values.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(drv, hwy), <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>, <span class="at">fun =</span> <span class="st">"mean"</span>) <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/bar_summary-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="bar-plots-with-group_by" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="bar-plots-with-group_by">Bar plots with <code>group_by</code></h2>
+<p>Alternatively, you can calculate summary statistics using <code>group_by %&gt;% summarise</code>, and <em>pipe</em> the output into a <code>ggplot</code> call.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(drv) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_hwy =</span> <span class="fu">mean</span>(hwy)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(drv, mean_hwy), <span class="at">y =</span> mean_hwy)) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/bar_groupby-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How would you instead plot the mean <code>cty</code> miles per gallon?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="error-bars-stat_summary" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="error-bars-stat_summary">Error bars: <code>stat_summary</code></h2>
+<p>Often, you want to display some measure of <em>dispersion</em> in addition to the mean. One approach is to use <code>stat_summary</code>.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(drv, hwy), <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>, <span class="at">fun =</span> <span class="st">"mean"</span>) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se, <span class="at">geom =</span> <span class="st">"errorbar"</span>, <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Drive Type"</span>, <span class="at">y =</span> <span class="st">"Mean Highway MPG"</span>) <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/bar_errors-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="error-bars-with-group_by" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="error-bars-with-group_by">Error bars with <code>group_by</code></h2>
+<p>Alternatively, with the <code>group_by</code> method, you can use first calculate the <strong>standard error</strong>, then pipe the result into <code>geom_errorbar</code>.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(drv) <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_hwy =</span> <span class="fu">mean</span>(hwy),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">se_hwy =</span> <span class="fu">sd</span>(hwy) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>())</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(drv, mean_hwy), <span class="at">y =</span> mean_hwy)) <span class="sc">+</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> mean_hwy <span class="sc">-</span> se_hwy, </span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymax =</span> mean_hwy <span class="sc">+</span> se_hwy),</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Drive Type"</span>, <span class="at">y =</span> <span class="st">"Mean Highway MPG"</span>) <span class="sc">+</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/bar_errors_groupby-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How would you plot a confidence interval for two standard errors?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="error-bars-with-group_by-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="error-bars-with-group_by-1">Error bars with <code>group_by</code></h2>
+<p>Alternatively, with the <code>group_by</code> method, you can use first calculate the <strong>standard error</strong>, then pipe the result into <code>geom_errorbar</code>.</p>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How would you plot a confidence interval for two standard errors?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="bar-plots-with-fill" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="bar-plots-with-fill">Bar plots with <code>fill</code></h2>
+<p>You can add further information to a barplot using the <code>fill</code> parameter. Use <code>position_dodge</code> to show the bars side by side (rather than <em>stacked</em>).</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(drv, hwy), <span class="at">y =</span> hwy, <span class="at">fill =</span> class)) <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>, <span class="at">fun =</span> <span class="st">"mean"</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.9</span>)) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se, </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">"errorbar"</span>, </span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.9</span>), </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/bar_fill_errors-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="boxplots-and-violin-plots" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="boxplots-and-violin-plots">Boxplots and violin plots</h2>
+<blockquote class="blockquote">
+<p><strong>Boxplots</strong> and <strong>violin plots</strong> show more detailed information about underlying distribution for a given category.</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li>A <strong>boxplot</strong> shows the <code>median</code>, along with the <em>inter-quartile range</em>.</li>
+<li>A <strong>violinplot</strong> shows the full distribution as a density curve, rotated and mirrored.</li>
+<li>As with barplots, you can also modify the <em>color</em> of each box/violin.</li>
+</ul>
+</div>
+</section>
+<section id="boxplots-with-geom_boxplot" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="boxplots-with-geom_boxplot">Boxplots with <code>geom_boxplot</code></h2>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(drv, hwy), <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/boxplot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="violin-plots-with-geom_violin" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="violin-plots-with-geom_violin">Violin plots with <code>geom_violin</code></h2>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(drv, hwy), <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/violinplot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-styling-to-a-plot" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="adding-styling-to-a-plot">Adding styling to a plot</h2>
+<p>Let’s revisit a plot we worked on earlier, with better labels and styling.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy, <span class="at">color =</span> drv, <span class="at">size =</span> cyl, <span class="at">shape =</span> drv)) <span class="sc">+</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"City mpg"</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Highway mpg"</span>,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">size =</span> <span class="st">"Number of cylinders"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Drive Train"</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">shape =</span> <span class="st">"Drive Train"</span>) <span class="sc">+</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/scatter_styling-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="labeling-specific-points" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="labeling-specific-points">Labeling specific points</h2>
+<p>Let’s revisit a plot we worked on earlier, with better labels and styling.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>mpg_labeled <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(hwy <span class="sc">&gt;</span> <span class="dv">42</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(class <span class="sc">==</span> <span class="st">"compact"</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy, <span class="at">color =</span> drv, <span class="at">size =</span> cyl, <span class="at">shape =</span> drv)) <span class="sc">+</span> </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> mpg_labeled, </span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">label =</span> model), </span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">hjust =</span> <span class="fl">1.2</span>, <span class="at">vjust =</span> <span class="dv">0</span>, </span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">4</span>, </span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/scatter_annotation-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="other-plotting-packages" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="other-plotting-packages">Other plotting packages</h2>
+<p><code>ggplot</code> has a <em>ton</em> of useful functions and <code>geom</code> types, and it’s probably all you “need”——but there are other options too.</p>
+<div class="incremental">
+<ul class="incremental">
+<li><code>ggcorrplot</code>: gg-style correlation matrices.</li>
+<li><code>ggridges</code>: gg-style “ridge” plots (density plots).</li>
+</ul>
+</div>
+</section>
+<section id="using-ggcorrplot" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="using-ggcorrplot">Using <code>ggcorrplot</code></h2>
+<blockquote class="blockquote">
+<p><code>ggcorrplot</code> is a library (and function) that visualizes a correlation matrix.</p>
+</blockquote>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggcorrplot)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>cor_matrix <span class="ot">=</span> mpg <span class="sc">%&gt;%</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(hwy, cty, displ, cyl) <span class="sc">%&gt;%</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>()</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggcorrplot</span>(cor_matrix)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/gccorrplot-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="using-ggridges" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="using-ggridges">Using <code>ggridges</code></h2>
+<blockquote class="blockquote">
+<p><code>ggridges</code> is a library for arranging density plots in a staggered fashion.</p>
+</blockquote>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hwy, <span class="at">y =</span> <span class="fu">reorder</span>(class, hwy), <span class="at">fill =</span> drv)) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density_ridges</span>(<span class="at">alpha =</span> .<span class="dv">7</span>, <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ridges</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Picking joint bandwidth of 2.29</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week3-visualization_files/figure-html/ggridges-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="summary" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="summary">Summary</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><strong>Data visualization</strong> is central to CSS.
+<ul class="incremental">
+<li>Crucial for <em>exploring data</em>, <em>communicating insights</em>, and <em>impacting decisions</em>.</li>
+</ul></li>
+<li><code>ggplot</code> is a versatile and powerful library for creating clear, elegant figures.</li>
+<li>R also supports a number of additional libraries for visualization.</li>
+<li>The best way to learn to make visualizations is to make them!</li>
 </ul>
 </div>
 

@@ -29,7 +29,7 @@ Readings are option; "ISLR" refers to ["Introduction to Statistical Learning in 
 | 6 | W | 11-05 | Regularization | |[ISLR, 6.2](https://www.statlearning.com/)|
 | 6 | F | 11-07 | Interpreting logistic models **[HANDS-ON]** | **Concept quiz** |
 | 7 | M | 11-10 | Mixed effects models | |[Winter, 2013](https://arxiv.org/abs/1308.5499)|
-| 7 | W | 11-12 | Mixed models + model selection | |
+| 7 | W | 11-12 | Mixed models + model selection (**PRE-RECORDED**) | |
 | 7 | F | 11-14 | **In-class midterm** | **Midterm!** |
 | 8 | M | 11-17 | Resampling | |[ISLR, 5.2](https://www.statlearning.com/)|
 | 8 | W | 11-19 | Resampling | Lab 4 |
