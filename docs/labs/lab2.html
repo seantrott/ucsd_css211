@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -146,6 +181,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../labs/lab1.html">
  <span class="dropdown-text">Lab 1: R Basics</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../labs/lab2.html">
+ <span class="dropdown-text">Lab 2: Wrangling and visualization</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -194,7 +233,29 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#part-1-exploring-datasets" id="toc-part-1-exploring-datasets" class="nav-link" data-scroll-target="#part-1-exploring-datasets">Part 1: Exploring datasets</a>
+  <ul class="collapse">
+  <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">Load data</a></li>
+  <li><a href="#exercise-1-explore-the-blp-data" id="toc-exercise-1-explore-the-blp-data" class="nav-link" data-scroll-target="#exercise-1-explore-the-blp-data">Exercise 1: Explore the BLP data</a></li>
+  <li><a href="#exercise-2-join-with-concreteness" id="toc-exercise-2-join-with-concreteness" class="nav-link" data-scroll-target="#exercise-2-join-with-concreteness">Exercise 2: Join with concreteness</a></li>
+  <li><a href="#exercise-3-are-concreteness-and-response-patterns-related" id="toc-exercise-3-are-concreteness-and-response-patterns-related" class="nav-link" data-scroll-target="#exercise-3-are-concreteness-and-response-patterns-related">Exercise 3: Are concreteness and response patterns related?</a>
+  <ul class="collapse">
+  <li><a href="#a-create-a-scatterplot-showing-the-relationship-between-rt-and-concreteness" id="toc-a-create-a-scatterplot-showing-the-relationship-between-rt-and-concreteness" class="nav-link" data-scroll-target="#a-create-a-scatterplot-showing-the-relationship-between-rt-and-concreteness">3a: Create a scatterplot showing the relationship between <code>rt</code> and <code>Concreteness</code></a></li>
+  <li><a href="#b-create-a-scatterplot-showing-the-relationship-between-accuracy-and-concreteness" id="toc-b-create-a-scatterplot-showing-the-relationship-between-accuracy-and-concreteness" class="nav-link" data-scroll-target="#b-create-a-scatterplot-showing-the-relationship-between-accuracy-and-concreteness">3b: Create a scatterplot showing the relationship between <code>accuracy</code> and <code>Concreteness</code></a></li>
+  <li><a href="#c-calculate-a-correlation-coefficient" id="toc-c-calculate-a-correlation-coefficient" class="nav-link" data-scroll-target="#c-calculate-a-correlation-coefficient">3c: Calculate a correlation coefficient</a></li>
+  </ul></li>
+  <li><a href="#exercise-4-other-variables" id="toc-exercise-4-other-variables" class="nav-link" data-scroll-target="#exercise-4-other-variables">Exercise 4: Other variables!</a>
+  <ul class="collapse">
+  <li><a href="#a-is-frequency-related-to-rt-or-accuracy" id="toc-a-is-frequency-related-to-rt-or-accuracy" class="nav-link" data-scroll-target="#a-is-frequency-related-to-rt-or-accuracy">4a: Is <code>Frequency</code> related to <code>rt</code> or <code>accuracy</code>?</a></li>
+  <li><a href="#b-is-part-of-speech-related-to-rt-or-accuracy" id="toc-b-is-part-of-speech-related-to-rt-or-accuracy" class="nav-link" data-scroll-target="#b-is-part-of-speech-related-to-rt-or-accuracy">4b: Is <code>Part of Speech</code> related to <code>rt</code> or <code>accuracy</code>?</a></li>
+  <li><a href="#c-what-about-number-of-letters" id="toc-c-what-about-number-of-letters" class="nav-link" data-scroll-target="#c-what-about-number-of-letters">4c: What about number of <em>letters</em>?</a></li>
+  </ul></li>
+  <li><a href="#exercise-5-create-a-correlation-matrix" id="toc-exercise-5-create-a-correlation-matrix" class="nav-link" data-scroll-target="#exercise-5-create-a-correlation-matrix">Exercise 5: Create a correlation matrix</a></li>
+  </ul></li>
+  <li><a href="#part-2-recreate-a-visualization-in-the-wild" id="toc-part-2-recreate-a-visualization-in-the-wild" class="nav-link" data-scroll-target="#part-2-recreate-a-visualization-in-the-wild">Part 2: Recreate a visualization “in the wild”</a>
+  <ul class="collapse">
   <li><a href="#submission-instructions" id="toc-submission-instructions" class="nav-link" data-scroll-target="#submission-instructions">Submission Instructions</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -220,11 +281,163 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p><strong>Name:</strong> ___________________________</p>
 <p><strong>Date:</strong> ___________________________</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>The goal of this lab is to familiarize you with the basics of <strong>data wrangling and visualization</strong> in R.</p>
+<p>You’ll be:</p>
+<ul>
+<li>Merging, filtering, and summarizing datasets.</li>
+<li>Producing visualizations to explore your data.</li>
+<li>Recreating a visualization you find “in the wild”.</li>
+</ul>
 </section>
+<section id="part-1-exploring-datasets" class="level1">
+<h1>Part 1: Exploring datasets</h1>
+<p>We’ll be working with two datasets:</p>
+<ul>
+<li>A dataset including the <strong>concreteness</strong> (and <strong>frequency</strong>) of English words (Brysbaert et al., 2014).</li>
+<li>A new dataset including information about the <strong>response time</strong> of people responding to individual English words, called the <strong>British Lexicon Project</strong> (Keuleers et al., 2012).</li>
+</ul>
+<p>These datasets have been used to ask theoretical questions about the <em>mental lexicon</em>, e.g., whether concrete words enjoy an “advantage” over more abstract words in terms of how quickly and accurately people recognize them.</p>
+<section id="load-data" class="level2">
+<h2 class="anchored" data-anchor-id="load-data">Load data</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggcorrplot)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="do">### Concreteness dataset</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df_concreteness <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/concreteness.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 28612 Columns: 4
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (2): Word, Dom_Pos
+dbl (2): Concreteness, Frequency
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">### New dataset with response times and accuracy</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_blp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/blp.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 55867 Columns: 8
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (2): spelling, lexicality
+dbl (6): rt, zscore, accuracy, rt.sd, zscore.sd, accuracy.sd
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-1-explore-the-blp-data" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1-explore-the-blp-data">Exercise 1: Explore the BLP data</h2>
+<p>The British Lexicon Project was a large-scale study asking participants to make <em>lexical decision</em> (“is this a word?”) about a series of <em>actual words</em> and <em>non-words</em>. The authors recorded the response time (<code>rt</code>) and accuracy for each word and non-word.</p>
+<p>Take a moment to explore the data and each of the columns:</p>
+<ul>
+<li>Which column contains the word or non-word itself?</li>
+<li>The <code>lexicality</code> column indicates whether something is a word (<code>W</code>) or not (<code>N</code>). How many of each category are there?<br>
+</li>
+<li>Are there any missing values anywhere? If so, exclude those rows from the dataset using <code>drop_na</code>.</li>
+<li>Use <code>group_by</code> and <code>summarise</code> to calculate the average <code>rt</code> and average <code>accuracy</code> for words and non-words.</li>
+</ul>
+</section>
+<section id="exercise-2-join-with-concreteness" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2-join-with-concreteness">Exercise 2: Join with concreteness</h2>
+<p>Now, <em>join</em> the BLP dataset with the concreteness dataset.</p>
+<ul>
+<li>First, you should <em>drop</em> any non-words from the dataset using the <code>lexicality</code> column and <code>filter</code>.</li>
+<li>You might need to first <em>rename</em> one of the BLP columns to find a common “key”.</li>
+<li>You’ll also need to decide what kind of <em>join</em> operation to use. My suggestion is to use a join that <em>only includes words that appear in both datasets</em>.</li>
+<li>How many words are in this merged dataset?</li>
+</ul>
+</section>
+<section id="exercise-3-are-concreteness-and-response-patterns-related" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3-are-concreteness-and-response-patterns-related">Exercise 3: Are concreteness and response patterns related?</h2>
+<p>Let’s try to figure out whether people respond faster or slower to more concrete words.</p>
+<section id="a-create-a-scatterplot-showing-the-relationship-between-rt-and-concreteness" class="level3">
+<h3 class="anchored" data-anchor-id="a-create-a-scatterplot-showing-the-relationship-between-rt-and-concreteness">3a: Create a scatterplot showing the relationship between <code>rt</code> and <code>Concreteness</code></h3>
+<p>Use <code>geom_point</code> to make the scatterplot and <code>geom_smooth(method = "lm")</code> to plot a regression line over it. Try modifying the <code>alpha</code> of the points. Also make sure to clearly label your axes and choose a <em>theme</em>!</p>
+<p>Some questions to consider:</p>
+<ul>
+<li>Does this relationship look positive, negative, or neutral (no relationship)?</li>
+<li>Conceptually, what might this mean in terms of a <em>concreteness advantage</em>?</li>
+</ul>
+</section>
+<section id="b-create-a-scatterplot-showing-the-relationship-between-accuracy-and-concreteness" class="level3">
+<h3 class="anchored" data-anchor-id="b-create-a-scatterplot-showing-the-relationship-between-accuracy-and-concreteness">3b: Create a scatterplot showing the relationship between <code>accuracy</code> and <code>Concreteness</code></h3>
+<p>Again, use <code>geom_point</code> to make the scatterplot and <code>geom_smooth(method = "lm")</code> to plot a regression line over it. Try modifying the <code>alpha</code> of the points. Also make sure to clearly label your axes and choose a <em>theme</em>!</p>
+<p>Some questions to consider:</p>
+<ul>
+<li>Does this relationship look positive, negative, or neutral (no relationship)?</li>
+<li>Conceptually, what might this mean in terms of a <em>concreteness advantage</em>?</li>
+</ul>
+</section>
+<section id="c-calculate-a-correlation-coefficient" class="level3">
+<h3 class="anchored" data-anchor-id="c-calculate-a-correlation-coefficient">3c: Calculate a correlation coefficient</h3>
+<p>Now, for each of the relationships above, calculate a <strong>correlation coefficient</strong> using <code>cor.test</code>. What can you conclude? Does it match your intuitions from the visualization?</p>
+</section>
+</section>
+<section id="exercise-4-other-variables" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4-other-variables">Exercise 4: Other variables!</h2>
+<p>Recall that the concreteness dataset also includes information about word <em>frequency</em> and <em>part of speech</em>. Let’s dig into those variables now to figure out how they relate to <code>rt</code>/<code>accuracy</code>.</p>
+<section id="a-is-frequency-related-to-rt-or-accuracy" class="level3">
+<h3 class="anchored" data-anchor-id="a-is-frequency-related-to-rt-or-accuracy">4a: Is <code>Frequency</code> related to <code>rt</code> or <code>accuracy</code>?</h3>
+<ul>
+<li>Reproduce 3a-3c but using <code>Frequency</code> instead of <code>Concreteness</code>.</li>
+<li>You should also check whether using <em>log frequency</em> affects your results. Create a new variable called <code>log_frequency</code> and redo the above with that.</li>
+</ul>
+</section>
+<section id="b-is-part-of-speech-related-to-rt-or-accuracy" class="level3">
+<h3 class="anchored" data-anchor-id="b-is-part-of-speech-related-to-rt-or-accuracy">4b: Is <code>Part of Speech</code> related to <code>rt</code> or <code>accuracy</code>?</h3>
+<ul>
+<li>Now, <code>group_by</code> part-of-speech (<code>Dom_Pos</code>) and calculate the mean <code>rt</code> and <code>accuracy</code>. Which part of speech has the faster <code>rt</code> and highest <code>accuracy</code>?<br>
+</li>
+<li>Create a <em>violin plot</em> showing <code>rt`` by</code>Dom_Pos<code>. Reorder the levels in terms of increasing</code>rt`.</li>
+</ul>
+</section>
+<section id="c-what-about-number-of-letters" class="level3">
+<h3 class="anchored" data-anchor-id="c-what-about-number-of-letters">4c: What about number of <em>letters</em>?</h3>
+<p>Some words are longer than others. Does that matter?</p>
+<ul>
+<li>Use <code>mutate</code>, as well as the <code>nchar</code> function, to create a new variable called <code>num_letters</code> (for each <code>Word</code>).</li>
+<li>Then recreate exercises 3a-3c for <code>num_letters</code>.</li>
+</ul>
+</section>
+</section>
+<section id="exercise-5-create-a-correlation-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5-create-a-correlation-matrix">Exercise 5: Create a correlation matrix</h2>
+<p>To round things off, let’s create a <strong>correlation matrix</strong> between our numeric variables:</p>
+<ul>
+<li>First, use <code>select</code> and <code>cor</code> to get the correlation between our variables: <code>Frequency</code>, <code>log_frequency</code>, <code>Concreteness</code>, <code>num_letters</code>, <code>rt</code>, and <code>accuracy</code>.</li>
+<li>Next, use <code>ggcorrplot</code> to visualize that correlation matrix.</li>
+</ul>
+</section>
+</section>
+<section id="part-2-recreate-a-visualization-in-the-wild" class="level1">
+<h1>Part 2: Recreate a visualization “in the wild”</h1>
+<p>One of the best ways to learn about data visualization is to try to <em>reproduce</em> visualizations that others have recreated. This part of the lab is much more open-ended:</p>
+<ul>
+<li>Find an example of a visualization online, ideally with the <em>data made available</em>. (Good places to look are 538 or Our World in Data).<br>
+</li>
+<li>Try to recreate that visualization as closely as possible using <code>ggplot2</code>.</li>
+<li>If you can identify any issues in the original visualization, try to <em>improve</em> upon them.</li>
+</ul>
 <section id="submission-instructions" class="level2">
 <h2 class="anchored" data-anchor-id="submission-instructions">Submission Instructions</h2>
 <ol type="1">
@@ -235,6 +448,7 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

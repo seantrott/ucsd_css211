@@ -31,6 +31,8 @@ website:
         menu:
           - text: "Lab 1: R Basics"
             href: labs/lab1.html
+          - text: "Lab 2: Wrangling and visualization"
+            href: labs/lab2.html
       - text: "Hands-on exercises"
         menu:
           - text: "Week 2: Wrangling"

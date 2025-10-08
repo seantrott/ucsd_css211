@@ -1,0 +1,141 @@
+---
+title: "Lab 2: Data Visualization in R"
+---
+
+
+**Name:** ___________________________
+
+**Date:** ___________________________
+
+# Introduction
+
+
+The goal of this lab is to familiarize you with the basics of **data wrangling and visualization** in R. 
+
+You'll be:
+
+- Merging, filtering, and summarizing datasets. 
+- Producing visualizations to explore your data. 
+- Recreating a visualization you find "in the wild".
+
+# Part 1: Exploring datasets
+
+We'll be working with two datasets:
+
+- A dataset including the **concreteness** (and **frequency**) of English words (Brysbaert et al., 2014).
+- A new dataset including information about the **response time** of people responding to individual English words, called the **British Lexicon Project** (Keuleers et al., 2012).
+
+These datasets have been used to ask theoretical questions about the *mental lexicon*, e.g., whether concrete words enjoy an "advantage" over more abstract words in terms of how quickly and accurately people recognize them.
+
+## Load data
+
+```{r}
+library(tidyverse)
+library(ggcorrplot)
+
+### Concreteness dataset
+df_concreteness <- read_csv("https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/concreteness.csv")
+
+### New dataset with response times and accuracy
+df_blp <- read_csv("https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/blp.csv")
+
+
+```
+
+
+## Exercise 1: Explore the BLP data
+
+The British Lexicon Project was a large-scale study asking participants to make *lexical decision* ("is this a word?") about a series of *actual words* and *non-words*. The authors recorded the response time (`rt`) and accuracy for each word and non-word.
+
+Take a moment to explore the data and each of the columns:
+
+- Which column contains the word or non-word itself? 
+- The `lexicality` column indicates whether something is a word (`W`) or not (`N`). How many of each category are there?  
+- Are there any missing values anywhere? If so, exclude those rows from the dataset using `drop_na`.
+- Use `group_by` and `summarise` to calculate the average `rt` and average `accuracy` for words and non-words.
+
+
+## Exercise 2: Join with concreteness
+
+Now, *join* the BLP dataset with the concreteness dataset. 
+
+- First, you should *drop* any non-words from the dataset using the `lexicality` column and `filter`. 
+- You might need to first *rename* one of the BLP columns to find a common "key". 
+- You'll also need to decide what kind of *join* operation to use. My suggestion is to use a join that *only includes words that appear in both datasets*. 
+- How many words are in this merged dataset? 
+
+
+## Exercise 3: Are concreteness and response patterns related?
+
+Let's try to figure out whether people respond faster or slower to more concrete words.
+
+### 3a: Create a scatterplot showing the relationship between `rt` and `Concreteness` 
+
+Use `geom_point` to make the scatterplot and `geom_smooth(method = "lm")` to plot a regression line over it. Try modifying the `alpha` of the points. Also make sure to clearly label your axes and choose a *theme*!
+
+Some questions to consider:
+
+- Does this relationship look positive, negative, or neutral (no relationship)? 
+- Conceptually, what might this mean in terms of a *concreteness advantage*?
+
+### 3b: Create a scatterplot showing the relationship between `accuracy` and `Concreteness` 
+
+Again, use `geom_point` to make the scatterplot and `geom_smooth(method = "lm")` to plot a regression line over it. Try modifying the `alpha` of the points. Also make sure to clearly label your axes and choose a *theme*!
+
+Some questions to consider:
+
+- Does this relationship look positive, negative, or neutral (no relationship)? 
+- Conceptually, what might this mean in terms of a *concreteness advantage*?
+
+### 3c: Calculate a correlation coefficient
+
+Now, for each of the relationships above, calculate a **correlation coefficient** using `cor.test`. What can you conclude? Does it match your intuitions from the visualization?
+
+
+## Exercise 4: Other variables!
+
+Recall that the concreteness dataset also includes information about word *frequency* and *part of speech*. Let's dig into those variables now to figure out how they relate to `rt`/`accuracy`.
+
+### 4a: Is `Frequency` related to `rt` or `accuracy`?
+
+- Reproduce 3a-3c but using `Frequency` instead of `Concreteness`. 
+- You should also check whether using *log frequency* affects your results. Create a new variable called `log_frequency` and redo the above with that.
+
+
+### 4b: Is `Part of Speech` related to `rt` or `accuracy`?
+
+- Now, `group_by` part-of-speech (`Dom_Pos`) and calculate the mean `rt` and `accuracy`. Which part of speech has the faster `rt` and highest `accuracy`?  
+- Create a *violin plot* showing `rt`` by `Dom_Pos`. Reorder the levels in terms of increasing `rt`. 
+
+### 4c: What about number of *letters*?
+
+Some words are longer than others. Does that matter?
+
+- Use `mutate`, as well as the `nchar` function, to create a new variable called `num_letters` (for each `Word`). 
+- Then recreate exercises 3a-3c for `num_letters`. 
+
+## Exercise 5: Create a correlation matrix
+
+To round things off, let's create a **correlation matrix** between our numeric variables:
+
+- First, use `select` and `cor` to get the correlation between our variables: `Frequency`, `log_frequency`, `Concreteness`, `num_letters`, `rt`, and `accuracy`. 
+- Next, use `ggcorrplot` to visualize that correlation matrix.
+
+
+
+# Part 2: Recreate a visualization "in the wild"
+
+One of the best ways to learn about data visualization is to try to *reproduce* visualizations that others have recreated. This part of the lab is much more open-ended:
+
+- Find an example of a visualization online, ideally with the *data made available*. (Good places to look are 538 or Our World in Data).  
+- Try to recreate that visualization as closely as possible using `ggplot2`. 
+- If you can identify any issues in the original visualization, try to *improve* upon them.
+
+
+
+## Submission Instructions
+
+1. Make sure all your code chunks run without errors
+2. Save this file with your name in the filename (e.g., "Lab1_YourLastName.qmd")
+3. Render the document to HTML 
+4. Submit both the .qmd file and the rendered HTML file to Canvas

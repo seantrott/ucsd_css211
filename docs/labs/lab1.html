@@ -210,6 +210,10 @@ window.Quarto = {
     <a class="dropdown-item" href="../labs/lab1.html">
  <span class="dropdown-text">Lab 1: R Basics</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../labs/lab2.html">
+ <span class="dropdown-text">Lab 2: Wrangling and visualization</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -407,27 +411,27 @@ window.Quarto = {
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the first 10 values</span></span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(random_data, <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  91.24915 153.73723 117.40755 100.69431 100.00572  80.17076 106.54457
- [8]  96.37246  75.41222  94.55428</code></pre>
+<pre><code> [1]  87.04577 103.73971  82.22171  90.86396  96.40873  96.65485  70.17165
+ [8] 129.65739  97.98306  80.04394</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate summary statistics for this data</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(random_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 98.00394</code></pre>
+<pre><code>[1] 99.23982</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(random_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 16.4664</code></pre>
+<pre><code>[1] 14.37646</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(random_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 63.13654</code></pre>
+<pre><code>[1] 70.17165</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(random_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 153.7372</code></pre>
+<pre><code>[1] 133.1301</code></pre>
 </div>
 </div>
 <p><strong>Your turn:</strong> Create a vector of 30 random numbers with mean = 50 and sd = 5. Calculate its summary statistics.</p>
