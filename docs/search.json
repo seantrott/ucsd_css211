@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "CSS 211 Schedule",
     "section": "",
-    "text": "This is a tentative schedule of which topics I plan to cover. Note that while all lectures will have an interactive component, Fridays are reserved for more hands-on labs—typically involving a CSS-relevant dataset—with active participation encouraged.\nReadings are option; “ISLR” refers to “Introduction to Statistical Learning in R” (James et al.), which can be downloaded here.\n\n\n\nWeek\nDay\nDate\nTopic(s)\nAssignments Due\nSuggested readings\n\n\n\n\n0\nF\n09-26\nCourse Introduction\n\n\n\n\n1\nM\n09-30\nPhilosophy of Science in CSS\n\nIntroduction to R for Data Science\n\n\n1\nW\n10-01\nIntroduction to R and RStudio\n\n\n\n\n1\nF\n10-03\nR basics [HANDS-ON]\nLab 1\n\n\n\n2\nM\n10-06\nData wrangling\n\nTidy data (Wickham, 2011)\n\n\n2\nW\n10-08\nData wrangling\n\n\n\n\n2\nF\n10-10\nHands-on data cleaning [HANDS-ON]\nConcept quiz\n\n\n\n3\nM\n10-13\nData visualization (principles)\n\nIntroduction to Data Visualization in R\n\n\n3\nW\n10-15\nData visualization (ggplot)\n\n\n\n\n3\nF\n10-17\nExploratory data analysis [HANDS-ON]\nLab 2\n\n\n\n4\nM\n10-20\nLinear regression\n\nISLR, 3.1\n\n\n4\nW\n10-22\nLinear regression\n\n\n\n\n4\nF\n10-24\nHands-on regression [HANDS-ON]\nConcept quiz\n\n\n\n5\nM\n10-27\nMultiple regression\n\nISLR, 3.2\n\n\n5\nW\n10-29\nRegression: issues\n\n\n\n\n5\nF\n10-31\nBuilding complex models [HANDS-ON]\nLab 3\n\n\n\n6\nM\n11-03\nLogistic regression\n\nISLR, 4.3\n\n\n6\nW\n11-05\nRegularization\n\nISLR, 6.2\n\n\n6\nF\n11-07\nInterpreting logistic models [HANDS-ON]\nConcept quiz\n\n\n\n7\nM\n11-10\nMixed effects models\n\nWinter, 2013\n\n\n7\nW\n11-12\nMixed models + model selection\n\n\n\n\n7\nF\n11-14\nIn-class midterm\nMidterm!\n\n\n\n8\nM\n11-17\nResampling\n\nISLR, 5.2\n\n\n8\nW\n11-19\nResampling\nLab 4\n\n\n\n8\nF\n11-21\nBuild your own baseline [HANDS-ON]\nConcept quiz\n\n\n\n9\nM\n11-24\nFinal project check-in\n\n\n\n\n9\nW\n11-26\nHOLIDAY (Thanksgiving)\n\n\n\n\n9\nF\n11-28\nHOLIDAY (Thanksgiving)\n\n\n\n\n10\nM\n12-01\nBest practices, Wrap-up\n\n\n\n\n10\nW\n12-03\nFinal project presentations (pt. 1)\n\n\n\n\n10\nF\n12-05\nFinal project presentations (pt. 2)\n\n\n\n\n11\nW\n12-10\n\nFinal report due"
+    "text": "This is a tentative schedule of which topics I plan to cover. Note that while all lectures will have an interactive component, Fridays are reserved for more hands-on labs—typically involving a CSS-relevant dataset—with active participation encouraged.\nReadings are option; “ISLR” refers to “Introduction to Statistical Learning in R” (James et al.), which can be downloaded here.\n\n\n\nWeek\nDay\nDate\nTopic(s)\nAssignments Due\nSuggested readings\n\n\n\n\n0\nF\n09-26\nCourse Introduction\n\n\n\n\n1\nM\n09-30\nPhilosophy of Science in CSS\n\nIntroduction to R for Data Science\n\n\n1\nW\n10-01\nIntroduction to R and RStudio\n\n\n\n\n1\nF\n10-03\nR basics [HANDS-ON]\nLab 1\n\n\n\n2\nM\n10-06\nData wrangling\n\nTidy data (Wickham, 2011)\n\n\n2\nW\n10-08\nData wrangling\n\n\n\n\n2\nF\n10-10\nHands-on data cleaning [HANDS-ON]\nConcept quiz\n\n\n\n3\nM\n10-13\nData visualization (principles)\n\nIntroduction to Data Visualization in R\n\n\n3\nW\n10-15\nData visualization (ggplot)\n\n\n\n\n3\nF\n10-17\nExploratory data analysis [HANDS-ON]\nLab 2\n\n\n\n4\nM\n10-20\nLinear regression\n\nISLR, 3.1\n\n\n4\nW\n10-22\nLinear regression\n\n\n\n\n4\nF\n10-24\nHands-on regression [HANDS-ON]\nConcept quiz\n\n\n\n5\nM\n10-27\nMultiple regression\n\nISLR, 3.2\n\n\n5\nW\n10-29\nRegression: issues\n\n\n\n\n5\nF\n10-31\nBuilding complex models [HANDS-ON]\nLab 3\n\n\n\n6\nM\n11-03\nLogistic regression\n\nISLR, 4.3\n\n\n6\nW\n11-05\nRegularization\n\nISLR, 6.2\n\n\n6\nF\n11-07\nInterpreting logistic models [HANDS-ON]\nConcept quiz\n\n\n\n7\nM\n11-10\nMixed effects models\n\nWinter, 2013\n\n\n7\nW\n11-12\nMixed models + model selection (PRE-RECORDED)\n\n\n\n\n7\nF\n11-14\nIn-class midterm\nMidterm!\n\n\n\n8\nM\n11-17\nResampling\n\nISLR, 5.2\n\n\n8\nW\n11-19\nResampling\nLab 4\n\n\n\n8\nF\n11-21\nBuild your own baseline [HANDS-ON]\nConcept quiz\n\n\n\n9\nM\n11-24\nFinal project check-in\n\n\n\n\n9\nW\n11-26\nHOLIDAY (Thanksgiving)\n\n\n\n\n9\nF\n11-28\nHOLIDAY (Thanksgiving)\n\n\n\n\n10\nM\n12-01\nBest practices, Wrap-up\n\n\n\n\n10\nW\n12-03\nFinal project presentations (pt. 1)\n\n\n\n\n10\nF\n12-05\nFinal project presentations (pt. 2)\n\n\n\n\n11\nW\n12-10\n\nFinal report due"
   },
   {
     "objectID": "lectures/week0-intro.html",
@@ -315,11 +315,543 @@
     "text": "Data visualization and exploratory data analysis (EDA).\nBasic principles of data visualization.\nggplot: theory and practice.\nOther plotting add-ons (ggridges, ggcorrplot)."
   },
   {
+    "objectID": "lectures/week3-visualization.html#what-is-data-visualization",
+    "href": "lectures/week3-visualization.html#what-is-data-visualization",
+    "title": "Data Visualization in R",
+    "section": "What is data visualization?",
+    "text": "What is data visualization?\n\nData visualization is the process (and result) of representing data graphically.\n\nWe’ll be focusing on common visualization techniques, such as:\n\n\nHistograms.\nScatterplots.\nBarplots.\nBoxplots.\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nWe’ll also discuss why visualization is so crucial."
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#why-visualization",
+    "href": "lectures/week3-visualization.html#why-visualization",
+    "title": "Data Visualization in R",
+    "section": "Why visualization?",
+    "text": "Why visualization?\nData visualization serves (at least) a few different purposes:\n\n\nExploratory data analysis (EDA): discovering relationships in your data, generating hypotheses, confirming intuitions.\n\nCommunicating insights: given some finding, conveying that clearly and accurately.\nImpacting the world: a good (or bad) visualization can change attitudes!"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#eda-checking-your-assumptions",
+    "href": "lectures/week3-visualization.html#eda-checking-your-assumptions",
+    "title": "Data Visualization in R",
+    "section": "EDA: Checking your assumptions",
+    "text": "EDA: Checking your assumptions\n\n### Loading the tidyverse\nlibrary(tidyverse)\n### Plot anscombe's quartet\nanscombe %&gt;%\n  pivot_longer(\n    cols = everything(),\n    names_to = c(\".value\", \"dataset\"),\n    names_pattern = \"(x|y)(.*)\"\n  ) %&gt;%\n  ggplot(aes(x = x, y = y)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  facet_wrap(~dataset)"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#dataviz-impacting-the-world-1",
+    "href": "lectures/week3-visualization.html#dataviz-impacting-the-world-1",
+    "title": "Data Visualization in R",
+    "section": "DataViz: impacting the world (1)",
+    "text": "DataViz: impacting the world (1)\nFlorence Nightingale (1820-1910) was a social reformer, statistician, and founder of modern nursing."
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#dataviz-impacting-the-world-2",
+    "href": "lectures/week3-visualization.html#dataviz-impacting-the-world-2",
+    "title": "Data Visualization in R",
+    "section": "DataViz: impacting the world (2)",
+    "text": "DataViz: impacting the world (2)\nJohn Snow (1813-1858) was a physician whose visualization of cholera outbreaks helped identify the source and spreading mechanism (water supply)."
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#what-makes-a-good-data-visualization",
+    "href": "lectures/week3-visualization.html#what-makes-a-good-data-visualization",
+    "title": "Data Visualization in R",
+    "section": "What makes a good data visualization?",
+    "text": "What makes a good data visualization?\nEdward Tufte argues:\n\nGraphical excellence is the well-designed presentation of interesting data—a matter of substance, of statistics, and of design … [It] consists of complex ideas communicated with clarity, precision, and efficiency. … [It] is that which gives to the viewer the greatest number of ideas in the shortest time with the least ink in the smallest space … [It] is nearly always multivariate … And graphical excellence requires telling the truth about the data. (Tufte, 1983, p. 51).\n\nSome principles:\n\n\nUse your ink wisely.\nBe true to the data.\nConsider the visual logic of the figure.\nOrder matters.\nKeep scales consistent."
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#principle-1-use-your-ink-wisely",
+    "href": "lectures/week3-visualization.html#principle-1-use-your-ink-wisely",
+    "title": "Data Visualization in R",
+    "section": "Principle 1: Use your ink wisely",
+    "text": "Principle 1: Use your ink wisely\n\n\nEvery element in your visualization should serve a purpose.\nRemove “chart junk”: unnecessary gridlines, borders, 3D effects, decorations.\nMaximize your data-ink ratio: the proportion of ink used to display actual data.\n\n\n\n\n\n\n\n\n\nTipTufte’s principle\n\n\n\n“Above all else show the data.” - Edward Tufte"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#principle-2-be-true-to-the-data",
+    "href": "lectures/week3-visualization.html#principle-2-be-true-to-the-data",
+    "title": "Data Visualization in R",
+    "section": "Principle 2: Be true to the data",
+    "text": "Principle 2: Be true to the data\n\n\nDon’t manipulate scales to exaggerate or hide effects.\nInclude zero baseline for bar charts (unless there’s good reason not to).\nAvoid cherry-picking data or timeframes.\nRepresent uncertainty when appropriate (e.g., error bars, confidence intervals)."
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#principle-3-consider-the-visual-logic",
+    "href": "lectures/week3-visualization.html#principle-3-consider-the-visual-logic",
+    "title": "Data Visualization in R",
+    "section": "Principle 3: Consider the visual logic",
+    "text": "Principle 3: Consider the visual logic\n\n\nPosition is probably easiest to judge accurately.\nAngle and area are harder (e.g., pie charts).\nColor hue can work for categorical data.\n\nUse distinctive and meaningful colors!\n\nStacked bar plots often hard to interpret!\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nThis will be relevant when thinking about the layers in ggplot."
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#principle-4-order-matters",
+    "href": "lectures/week3-visualization.html#principle-4-order-matters",
+    "title": "Data Visualization in R",
+    "section": "Principle 4: Order matters",
+    "text": "Principle 4: Order matters\n\n\nFor categorical data: order by frequency or a meaningful sequence.\nFor ordinal data: maintain the natural order (e.g., Strongly Disagree → Strongly Agree).\nFor time series: always order chronologically."
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#principle-5-keep-scales-consistent",
+    "href": "lectures/week3-visualization.html#principle-5-keep-scales-consistent",
+    "title": "Data Visualization in R",
+    "section": "Principle 5: Keep scales consistent",
+    "text": "Principle 5: Keep scales consistent\n\n\nUse the same axis ranges for meaningful comparison.\nIn faceted plots, decide: fixed scales (scales = “fixed”) or free scales (scales = “free”)?\n\nFree scales can be misleading but useful when ranges differ greatly.\n\n\n\n\n\n\n\n\n\n\nTipRule of thumb\n\n\n\nUse consistent scales when inviting direct comparison; use free scales when showing patterns within each group."
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#ggplot2-theory-and-practice",
+    "href": "lectures/week3-visualization.html#ggplot2-theory-and-practice",
+    "title": "Data Visualization in R",
+    "section": "ggplot2: theory and practice",
+    "text": "ggplot2: theory and practice\n\nggplot2 is a system for creating graphics, based on the Grammar of Graphics.\n\nJust like natural language has a grammar (nouns, verbs, adjectives), graphics have a grammar too:\n\n\nData: What you want to visualize.\nAesthetics (aes): How variables map to visual properties (x, y, color, size).\nGeometries (geom): The type of plot (points, lines, bars).\nScales: Control how aesthetic mappings appear.\nFacets: Split into multiple subplots.\nThemes: Control non-data appearance (fonts, backgrounds).\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n`gplot builds plots by adding layers with the + operator."
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#anatomy-of-a-ggplot",
+    "href": "lectures/week3-visualization.html#anatomy-of-a-ggplot",
+    "title": "Data Visualization in R",
+    "section": "Anatomy of a “ggplot”",
+    "text": "Anatomy of a “ggplot”\nEvery ggplot needs, at minimum:\n\nData: a dataframe or tibble.\nAesthetic mappings: which variables map to which visual properties.\nGeometry: how to represent the data visually.\n\n\nggplot(data = mpg,                          # 1. Data\n       aes(x = displ, y = hwy, color = class)) + # 2. Aesthetics\n  geom_point() # 3. Geometry"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#histograms",
+    "href": "lectures/week3-visualization.html#histograms",
+    "title": "Data Visualization in R",
+    "section": "Histograms",
+    "text": "Histograms\n\nA histogram is a visualization of a single continuous, quantitative variable (e.g., income or temperature).\n\nA histogram can be created with geom_histogram.\n\nmpg %&gt;%\n  ggplot(aes(x = cty)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip💭 Check-in\n\n\n\nWhat happens if you modify bins or binwidth?"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#histograms-1",
+    "href": "lectures/week3-visualization.html#histograms-1",
+    "title": "Data Visualization in R",
+    "section": "Histograms",
+    "text": "Histograms\n\nA histogram is a visualization of a single continuous, quantitative variable (e.g., income or temperature).\n\nA histogram can be created with geom_histogram.\n\n\n\n\n\n\n\nTip💭 Check-in\n\n\n\nWhat happens if you modify bins or binwidth?"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#histograms-are-very-useful",
+    "href": "lectures/week3-visualization.html#histograms-are-very-useful",
+    "title": "Data Visualization in R",
+    "section": "Histograms are very useful!",
+    "text": "Histograms are very useful!\nHistograms show important visual information about a distribution:\n\n\nShape: is it symmetric, skewed, etc.?\nCenter: Where is the “typical” value?\nSpread : How variable is the data?\nOutliers: Are there unusual values?\n\n\n\n\n\n\n\n\n\nTip💭 Check-in\n\n\n\nHow does the skew of a distribution affect measures of central tendency such as the mean or median?"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#histograms-vs.-density-plots",
+    "href": "lectures/week3-visualization.html#histograms-vs.-density-plots",
+    "title": "Data Visualization in R",
+    "section": "Histograms vs. density plots",
+    "text": "Histograms vs. density plots\n\nA density plot is a smoothed alternative to a histogram, created using kernel density estimation (KDE).\n\nA density plot can be created with geom_density.\n\nggplot(mpg, aes(x = cty)) + \n  geom_density(fill = \"steelblue\")"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#overlaying-multiple-distributions",
+    "href": "lectures/week3-visualization.html#overlaying-multiple-distributions",
+    "title": "Data Visualization in R",
+    "section": "Overlaying multiple distributions",
+    "text": "Overlaying multiple distributions\nOne benefit of a density plot is that it’s easier to overlay multiple distributions on the same plot. The alpha parameter controls the opacity of each distribution.\n\nmpg %&gt;%\n  filter(class %in% c(\"compact\", \"suv\")) %&gt;%\n  ggplot(aes(x = cty, fill = class)) + \n  geom_density(alpha = .5) +\n  labs(title = \"City MPG: Compact vs. SUV\", fill = \"Car Type\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#scatterplots",
+    "href": "lectures/week3-visualization.html#scatterplots",
+    "title": "Data Visualization in R",
+    "section": "Scatterplots",
+    "text": "Scatterplots\n\nA scatterplot shows the relationship between two continuous variables, where each point represents an observation.\n\nA scatterplot can be created with geom_point.\n\nmpg %&gt;%\n  ggplot(aes(x = cty, y = hwy)) + \n  geom_point()"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#adding-layers-to-a-scatterplot",
+    "href": "lectures/week3-visualization.html#adding-layers-to-a-scatterplot",
+    "title": "Data Visualization in R",
+    "section": "Adding layers to a scatterplot",
+    "text": "Adding layers to a scatterplot\nWe can further modify the color, size, and shape of individual dots.\n\nmpg %&gt;%\n  ggplot(aes(x = cty, y = hwy, color = class, size = cyl, shape = drv)) + \n  geom_point(alpha = .5) \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nUse categorical variables for shape, categorical or continuous variables for color, and ordinal or continuous variables for size."
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#plotting-a-regression-line",
+    "href": "lectures/week3-visualization.html#plotting-a-regression-line",
+    "title": "Data Visualization in R",
+    "section": "Plotting a regression line",
+    "text": "Plotting a regression line\nWe can also use geom_smooth to plot a regression line (or another non-linear function) over our scatterplot.\n(If there are multiple colors, etc., a different line will be plotted for each color.)\n\nmpg %&gt;%\n  ggplot(aes(x = cty, y = hwy)) + \n  geom_smooth(method = \"lm\") +\n  geom_point(alpha = .5) \n\n`geom_smooth()` using formula = 'y ~ x'"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#bar-plots",
+    "href": "lectures/week3-visualization.html#bar-plots",
+    "title": "Data Visualization in R",
+    "section": "Bar plots",
+    "text": "Bar plots\n\nA barplot visualizes the relationship between one continuous variable and (at least one) categorical variable.\n\nA barplot can be created with geom_bar.\n\n\nBy default, geom_bar will count occurrences (like a histogram for categorical variables).\nYou can also calculate values like the mean using geom_bar(stat = \"summary\").\nIf you already have values computed (e.g., a mean or count), you can use geom_col or `geom_bar(stat = “identity”)."
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#bar-plots-counts",
+    "href": "lectures/week3-visualization.html#bar-plots-counts",
+    "title": "Data Visualization in R",
+    "section": "Bar plots: counts",
+    "text": "Bar plots: counts\nBy default, geom_bar will count the occurrences of each class.\n\nmpg %&gt;%\n  ggplot(aes(x = drv)) +\n  geom_bar() +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip💭 Check-in\n\n\n\nCreate a barplot showing the counts of some other categorical variable in the mpg dataframe."
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#bar-plots-summaries",
+    "href": "lectures/week3-visualization.html#bar-plots-summaries",
+    "title": "Data Visualization in R",
+    "section": "Bar plots: summaries",
+    "text": "Bar plots: summaries\nYou can also calculate summary statistics, i.e., the mean of some y variable for each level of the x variable.\nUse reorder to reorder the bars in terms of their values.\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(drv, hwy), y = hwy)) +\n  geom_bar(stat = \"summary\", fun = \"mean\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#bar-plots-with-group_by",
+    "href": "lectures/week3-visualization.html#bar-plots-with-group_by",
+    "title": "Data Visualization in R",
+    "section": "Bar plots with group_by",
+    "text": "Bar plots with group_by\nAlternatively, you can calculate summary statistics using group_by %&gt;% summarise, and pipe the output into a ggplot call.\n\nmpg %&gt;%\n  group_by(drv) %&gt;%\n  summarise(mean_hwy = mean(hwy)) %&gt;%\n  ggplot(aes(x = reorder(drv, mean_hwy), y = mean_hwy)) +\n  geom_bar(stat = \"identity\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip💭 Check-in\n\n\n\nHow would you instead plot the mean cty miles per gallon?"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#error-bars-stat_summary",
+    "href": "lectures/week3-visualization.html#error-bars-stat_summary",
+    "title": "Data Visualization in R",
+    "section": "Error bars: stat_summary",
+    "text": "Error bars: stat_summary\nOften, you want to display some measure of dispersion in addition to the mean. One approach is to use stat_summary.\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(drv, hwy), y = hwy)) +\n  geom_bar(stat = \"summary\", fun = \"mean\") +\n  stat_summary(fun.data = mean_se, geom = \"errorbar\", width = 0.2) +\n  labs(x = \"Drive Type\", y = \"Mean Highway MPG\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#error-bars-with-group_by",
+    "href": "lectures/week3-visualization.html#error-bars-with-group_by",
+    "title": "Data Visualization in R",
+    "section": "Error bars with group_by",
+    "text": "Error bars with group_by\nAlternatively, with the group_by method, you can use first calculate the standard error, then pipe the result into geom_errorbar.\n\nmpg %&gt;%\n  group_by(drv) %&gt;%\n  summarise(\n    mean_hwy = mean(hwy),\n    se_hwy = sd(hwy) / sqrt(n())\n  ) %&gt;%\n  ggplot(aes(x = reorder(drv, mean_hwy), y = mean_hwy)) +\n  geom_bar(stat = \"identity\") +\n  geom_errorbar(aes(ymin = mean_hwy - se_hwy, \n                    ymax = mean_hwy + se_hwy),\n                width = 0.2) +\n  labs(x = \"Drive Type\", y = \"Mean Highway MPG\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip💭 Check-in\n\n\n\nHow would you plot a confidence interval for two standard errors?"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#error-bars-with-group_by-1",
+    "href": "lectures/week3-visualization.html#error-bars-with-group_by-1",
+    "title": "Data Visualization in R",
+    "section": "Error bars with group_by",
+    "text": "Error bars with group_by\nAlternatively, with the group_by method, you can use first calculate the standard error, then pipe the result into geom_errorbar.\n\n\n\n\n\n\n\nTip💭 Check-in\n\n\n\nHow would you plot a confidence interval for two standard errors?"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#bar-plots-with-fill",
+    "href": "lectures/week3-visualization.html#bar-plots-with-fill",
+    "title": "Data Visualization in R",
+    "section": "Bar plots with fill",
+    "text": "Bar plots with fill\nYou can add further information to a barplot using the fill parameter. Use position_dodge to show the bars side by side (rather than stacked).\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(drv, hwy), y = hwy, fill = class)) +\n  geom_bar(stat = \"summary\", fun = \"mean\", position = position_dodge(width = 0.9)) +\n  stat_summary(fun.data = mean_se, \n               geom = \"errorbar\", \n               position = position_dodge(width = 0.9), \n               width = 0.2) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#boxplots-and-violin-plots",
+    "href": "lectures/week3-visualization.html#boxplots-and-violin-plots",
+    "title": "Data Visualization in R",
+    "section": "Boxplots and violin plots",
+    "text": "Boxplots and violin plots\n\nBoxplots and violin plots show more detailed information about underlying distribution for a given category.\n\n\n\nA boxplot shows the median, along with the inter-quartile range.\nA violinplot shows the full distribution as a density curve, rotated and mirrored.\nAs with barplots, you can also modify the color of each box/violin."
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#boxplots-with-geom_boxplot",
+    "href": "lectures/week3-visualization.html#boxplots-with-geom_boxplot",
+    "title": "Data Visualization in R",
+    "section": "Boxplots with geom_boxplot",
+    "text": "Boxplots with geom_boxplot\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(drv, hwy), y = hwy)) +\n  geom_boxplot() +\n  theme_minimal()"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#violin-plots-with-geom_violin",
+    "href": "lectures/week3-visualization.html#violin-plots-with-geom_violin",
+    "title": "Data Visualization in R",
+    "section": "Violin plots with geom_violin",
+    "text": "Violin plots with geom_violin\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(drv, hwy), y = hwy)) +\n  geom_violin() +\n  theme_minimal()"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#adding-styling-to-a-plot",
+    "href": "lectures/week3-visualization.html#adding-styling-to-a-plot",
+    "title": "Data Visualization in R",
+    "section": "Adding styling to a plot",
+    "text": "Adding styling to a plot\nLet’s revisit a plot we worked on earlier, with better labels and styling.\n\nmpg %&gt;%\n  ggplot(aes(x = cty, y = hwy, color = drv, size = cyl, shape = drv)) + \n  geom_point(alpha = .5) +\n  labs(x = \"City mpg\",\n       y = \"Highway mpg\",\n       size = \"Number of cylinders\",\n       color = \"Drive Train\",\n       shape = \"Drive Train\") +\n  theme_minimal() +\n  scale_color_viridis_d() +\n  theme(\n    axis.title = element_text(size = 16),\n    legend.title = element_text(size = 12),\n    legend.text = element_text(size = 10)\n  )"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#labeling-specific-points",
+    "href": "lectures/week3-visualization.html#labeling-specific-points",
+    "title": "Data Visualization in R",
+    "section": "Labeling specific points",
+    "text": "Labeling specific points\nLet’s revisit a plot we worked on earlier, with better labels and styling.\n\nmpg_labeled &lt;- mpg %&gt;%\n  filter(hwy &gt; 42) %&gt;%\n  filter(class == \"compact\")\n\nmpg %&gt;%\n  ggplot(aes(x = cty, y = hwy, color = drv, size = cyl, shape = drv)) + \n  geom_point(alpha = .5) +\n  geom_text(data = mpg_labeled, \n            aes(label = model), \n            hjust = 1.2, vjust = 0, \n            size = 4, \n            color = \"black\",\n            show.legend = FALSE) +\n  theme_minimal(base_size = 14)"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#other-plotting-packages",
+    "href": "lectures/week3-visualization.html#other-plotting-packages",
+    "title": "Data Visualization in R",
+    "section": "Other plotting packages",
+    "text": "Other plotting packages\nggplot has a ton of useful functions and geom types, and it’s probably all you “need”——but there are other options too.\n\n\nggcorrplot: gg-style correlation matrices.\nggridges: gg-style “ridge” plots (density plots)."
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#using-ggcorrplot",
+    "href": "lectures/week3-visualization.html#using-ggcorrplot",
+    "title": "Data Visualization in R",
+    "section": "Using ggcorrplot",
+    "text": "Using ggcorrplot\n\nggcorrplot is a library (and function) that visualizes a correlation matrix.\n\n\nlibrary(ggcorrplot)\n\ncor_matrix = mpg %&gt;%\n  select(hwy, cty, displ, cyl) %&gt;%\n  cor()\nggcorrplot(cor_matrix)"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#using-ggridges",
+    "href": "lectures/week3-visualization.html#using-ggridges",
+    "title": "Data Visualization in R",
+    "section": "Using ggridges",
+    "text": "Using ggridges\n\nggridges is a library for arranging density plots in a staggered fashion.\n\n\nlibrary(ggridges)\nmpg %&gt;%\n  ggplot(aes(x = hwy, y = reorder(class, hwy), fill = drv)) +\n  geom_density_ridges(alpha = .7, color = NA) +\n  theme_ridges()\n\nPicking joint bandwidth of 2.29"
+  },
+  {
+    "objectID": "lectures/week3-visualization.html#summary",
+    "href": "lectures/week3-visualization.html#summary",
+    "title": "Data Visualization in R",
+    "section": "Summary",
+    "text": "Summary\n\n\nData visualization is central to CSS.\n\nCrucial for exploring data, communicating insights, and impacting decisions.\n\nggplot is a versatile and powerful library for creating clear, elegant figures.\nR also supports a number of additional libraries for visualization.\nThe best way to learn to make visualizations is to make them!"
+  },
+  {
     "objectID": "lectures/week3-r-visualization-slides.html#goals-of-the-lecture",
     "href": "lectures/week3-r-visualization-slides.html#goals-of-the-lecture",
     "title": "Data Visualization in R",
     "section": "Goals of the lecture",
     "text": "Goals of the lecture\n\nData visualization and exploratory data analysis (EDA).\nBasic principles of data visualization.\nggplot: theory and practice.\nOther plotting add-ons (ggridges, ggcorrplot)."
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#what-is-data-visualization",
+    "href": "lectures/week3-r-visualization-slides.html#what-is-data-visualization",
+    "title": "Data Visualization in R",
+    "section": "What is data visualization?",
+    "text": "What is data visualization?\n\nData visualization is the process (and result) of representing data graphically.\n\nWe’ll be focusing on common visualization techniques, such as:\n\nHistograms.\nScatterplots.\nBarplots.\nBoxplots.\n\n\n\n\n\nNote\n\n\nWe’ll also discuss why visualization is so crucial."
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#why-visualization",
+    "href": "lectures/week3-r-visualization-slides.html#why-visualization",
+    "title": "Data Visualization in R",
+    "section": "Why visualization?",
+    "text": "Why visualization?\nData visualization serves (at least) a few different purposes:\n\nExploratory data analysis (EDA): discovering relationships in your data, generating hypotheses, confirming intuitions.\n\nCommunicating insights: given some finding, conveying that clearly and accurately.\nImpacting the world: a good (or bad) visualization can change attitudes!"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#eda-checking-your-assumptions",
+    "href": "lectures/week3-r-visualization-slides.html#eda-checking-your-assumptions",
+    "title": "Data Visualization in R",
+    "section": "EDA: Checking your assumptions",
+    "text": "EDA: Checking your assumptions\n\n### Loading the tidyverse\nlibrary(tidyverse)\n### Plot anscombe's quartet\nanscombe %&gt;%\n  pivot_longer(\n    cols = everything(),\n    names_to = c(\".value\", \"dataset\"),\n    names_pattern = \"(x|y)(.*)\"\n  ) %&gt;%\n  ggplot(aes(x = x, y = y)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  facet_wrap(~dataset)"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#dataviz-impacting-the-world-1",
+    "href": "lectures/week3-r-visualization-slides.html#dataviz-impacting-the-world-1",
+    "title": "Data Visualization in R",
+    "section": "DataViz: impacting the world (1)",
+    "text": "DataViz: impacting the world (1)\nFlorence Nightingale (1820-1910) was a social reformer, statistician, and founder of modern nursing."
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#dataviz-impacting-the-world-2",
+    "href": "lectures/week3-r-visualization-slides.html#dataviz-impacting-the-world-2",
+    "title": "Data Visualization in R",
+    "section": "DataViz: impacting the world (2)",
+    "text": "DataViz: impacting the world (2)\nJohn Snow (1813-1858) was a physician whose visualization of cholera outbreaks helped identify the source and spreading mechanism (water supply)."
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#what-makes-a-good-data-visualization",
+    "href": "lectures/week3-r-visualization-slides.html#what-makes-a-good-data-visualization",
+    "title": "Data Visualization in R",
+    "section": "What makes a good data visualization?",
+    "text": "What makes a good data visualization?\nEdward Tufte argues:\n\nGraphical excellence is the well-designed presentation of interesting data—a matter of substance, of statistics, and of design … [It] consists of complex ideas communicated with clarity, precision, and efficiency. … [It] is that which gives to the viewer the greatest number of ideas in the shortest time with the least ink in the smallest space … [It] is nearly always multivariate … And graphical excellence requires telling the truth about the data. (Tufte, 1983, p. 51).\n\nSome principles:\n\nUse your ink wisely.\nBe true to the data.\nConsider the visual logic of the figure.\nOrder matters.\nKeep scales consistent."
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#principle-1-use-your-ink-wisely",
+    "href": "lectures/week3-r-visualization-slides.html#principle-1-use-your-ink-wisely",
+    "title": "Data Visualization in R",
+    "section": "Principle 1: Use your ink wisely",
+    "text": "Principle 1: Use your ink wisely\n\nEvery element in your visualization should serve a purpose.\nRemove “chart junk”: unnecessary gridlines, borders, 3D effects, decorations.\nMaximize your data-ink ratio: the proportion of ink used to display actual data.\n\n\n\n\n\nTufte’s principle\n\n\n“Above all else show the data.” - Edward Tufte"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#principle-2-be-true-to-the-data",
+    "href": "lectures/week3-r-visualization-slides.html#principle-2-be-true-to-the-data",
+    "title": "Data Visualization in R",
+    "section": "Principle 2: Be true to the data",
+    "text": "Principle 2: Be true to the data\n\nDon’t manipulate scales to exaggerate or hide effects.\nInclude zero baseline for bar charts (unless there’s good reason not to).\nAvoid cherry-picking data or timeframes.\nRepresent uncertainty when appropriate (e.g., error bars, confidence intervals)."
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#principle-3-consider-the-visual-logic",
+    "href": "lectures/week3-r-visualization-slides.html#principle-3-consider-the-visual-logic",
+    "title": "Data Visualization in R",
+    "section": "Principle 3: Consider the visual logic",
+    "text": "Principle 3: Consider the visual logic\n\nPosition is probably easiest to judge accurately.\nAngle and area are harder (e.g., pie charts).\nColor hue can work for categorical data.\n\nUse distinctive and meaningful colors!\n\nStacked bar plots often hard to interpret!\n\n\n\n\n\nTip\n\n\nThis will be relevant when thinking about the layers in ggplot."
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#principle-4-order-matters",
+    "href": "lectures/week3-r-visualization-slides.html#principle-4-order-matters",
+    "title": "Data Visualization in R",
+    "section": "Principle 4: Order matters",
+    "text": "Principle 4: Order matters\n\nFor categorical data: order by frequency or a meaningful sequence.\nFor ordinal data: maintain the natural order (e.g., Strongly Disagree → Strongly Agree).\nFor time series: always order chronologically."
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#principle-5-keep-scales-consistent",
+    "href": "lectures/week3-r-visualization-slides.html#principle-5-keep-scales-consistent",
+    "title": "Data Visualization in R",
+    "section": "Principle 5: Keep scales consistent",
+    "text": "Principle 5: Keep scales consistent\n\nUse the same axis ranges for meaningful comparison.\nIn faceted plots, decide: fixed scales (scales = “fixed”) or free scales (scales = “free”)?\n\nFree scales can be misleading but useful when ranges differ greatly.\n\n\n\n\n\n\nRule of thumb\n\n\nUse consistent scales when inviting direct comparison; use free scales when showing patterns within each group."
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#ggplot2-theory-and-practice",
+    "href": "lectures/week3-r-visualization-slides.html#ggplot2-theory-and-practice",
+    "title": "Data Visualization in R",
+    "section": "ggplot2: theory and practice",
+    "text": "ggplot2: theory and practice\n\nggplot2 is a system for creating graphics, based on the Grammar of Graphics.\n\nJust like natural language has a grammar (nouns, verbs, adjectives), graphics have a grammar too:\n\nData: What you want to visualize.\nAesthetics (aes): How variables map to visual properties (x, y, color, size).\nGeometries (geom): The type of plot (points, lines, bars).\nScales: Control how aesthetic mappings appear.\nFacets: Split into multiple subplots.\nThemes: Control non-data appearance (fonts, backgrounds).\n\n\n\n\n\nTip\n\n\n`gplot builds plots by adding layers with the + operator."
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#anatomy-of-a-ggplot",
+    "href": "lectures/week3-r-visualization-slides.html#anatomy-of-a-ggplot",
+    "title": "Data Visualization in R",
+    "section": "Anatomy of a “ggplot”",
+    "text": "Anatomy of a “ggplot”\nEvery ggplot needs, at minimum:\n\nData: a dataframe or tibble.\nAesthetic mappings: which variables map to which visual properties.\nGeometry: how to represent the data visually.\n\n\nggplot(data = mpg,                          # 1. Data\n       aes(x = displ, y = hwy, color = class)) + # 2. Aesthetics\n  geom_point() # 3. Geometry"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#histograms",
+    "href": "lectures/week3-r-visualization-slides.html#histograms",
+    "title": "Data Visualization in R",
+    "section": "Histograms",
+    "text": "Histograms\n\nA histogram is a visualization of a single continuous, quantitative variable (e.g., income or temperature).\n\nA histogram can be created with geom_histogram.\n\nmpg %&gt;%\n  ggplot(aes(x = cty)) +\n  geom_histogram()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💭 Check-in\n\n\nWhat happens if you modify bins or binwidth?"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#histograms-1",
+    "href": "lectures/week3-r-visualization-slides.html#histograms-1",
+    "title": "Data Visualization in R",
+    "section": "Histograms",
+    "text": "Histograms\n\nA histogram is a visualization of a single continuous, quantitative variable (e.g., income or temperature).\n\nA histogram can be created with geom_histogram.\n\n\n\n\n💭 Check-in\n\n\nWhat happens if you modify bins or binwidth?"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#histograms-are-very-useful",
+    "href": "lectures/week3-r-visualization-slides.html#histograms-are-very-useful",
+    "title": "Data Visualization in R",
+    "section": "Histograms are very useful!",
+    "text": "Histograms are very useful!\nHistograms show important visual information about a distribution:\n\nShape: is it symmetric, skewed, etc.?\nCenter: Where is the “typical” value?\nSpread : How variable is the data?\nOutliers: Are there unusual values?\n\n\n\n\n\n💭 Check-in\n\n\nHow does the skew of a distribution affect measures of central tendency such as the mean or median?"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#histograms-vs.-density-plots",
+    "href": "lectures/week3-r-visualization-slides.html#histograms-vs.-density-plots",
+    "title": "Data Visualization in R",
+    "section": "Histograms vs. density plots",
+    "text": "Histograms vs. density plots\n\nA density plot is a smoothed alternative to a histogram, created using kernel density estimation (KDE).\n\nA density plot can be created with geom_density.\n\nggplot(mpg, aes(x = cty)) + \n  geom_density(fill = \"steelblue\")"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#overlaying-multiple-distributions",
+    "href": "lectures/week3-r-visualization-slides.html#overlaying-multiple-distributions",
+    "title": "Data Visualization in R",
+    "section": "Overlaying multiple distributions",
+    "text": "Overlaying multiple distributions\nOne benefit of a density plot is that it’s easier to overlay multiple distributions on the same plot. The alpha parameter controls the opacity of each distribution.\n\nmpg %&gt;%\n  filter(class %in% c(\"compact\", \"suv\")) %&gt;%\n  ggplot(aes(x = cty, fill = class)) + \n  geom_density(alpha = .5) +\n  labs(title = \"City MPG: Compact vs. SUV\", fill = \"Car Type\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#scatterplots",
+    "href": "lectures/week3-r-visualization-slides.html#scatterplots",
+    "title": "Data Visualization in R",
+    "section": "Scatterplots",
+    "text": "Scatterplots\n\nA scatterplot shows the relationship between two continuous variables, where each point represents an observation.\n\nA scatterplot can be created with geom_point.\n\nmpg %&gt;%\n  ggplot(aes(x = cty, y = hwy)) + \n  geom_point()"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#adding-layers-to-a-scatterplot",
+    "href": "lectures/week3-r-visualization-slides.html#adding-layers-to-a-scatterplot",
+    "title": "Data Visualization in R",
+    "section": "Adding layers to a scatterplot",
+    "text": "Adding layers to a scatterplot\nWe can further modify the color, size, and shape of individual dots.\n\nmpg %&gt;%\n  ggplot(aes(x = cty, y = hwy, color = class, size = cyl, shape = drv)) + \n  geom_point(alpha = .5) \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\nUse categorical variables for shape, categorical or continuous variables for color, and ordinal or continuous variables for size."
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#plotting-a-regression-line",
+    "href": "lectures/week3-r-visualization-slides.html#plotting-a-regression-line",
+    "title": "Data Visualization in R",
+    "section": "Plotting a regression line",
+    "text": "Plotting a regression line\nWe can also use geom_smooth to plot a regression line (or another non-linear function) over our scatterplot.\n(If there are multiple colors, etc., a different line will be plotted for each color.)\n\nmpg %&gt;%\n  ggplot(aes(x = cty, y = hwy)) + \n  geom_smooth(method = \"lm\") +\n  geom_point(alpha = .5)"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#bar-plots",
+    "href": "lectures/week3-r-visualization-slides.html#bar-plots",
+    "title": "Data Visualization in R",
+    "section": "Bar plots",
+    "text": "Bar plots\n\nA barplot visualizes the relationship between one continuous variable and (at least one) categorical variable.\n\nA barplot can be created with geom_bar.\n\nBy default, geom_bar will count occurrences (like a histogram for categorical variables).\nYou can also calculate values like the mean using geom_bar(stat = \"summary\").\nIf you already have values computed (e.g., a mean or count), you can use geom_col or `geom_bar(stat = “identity”)."
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#bar-plots-counts",
+    "href": "lectures/week3-r-visualization-slides.html#bar-plots-counts",
+    "title": "Data Visualization in R",
+    "section": "Bar plots: counts",
+    "text": "Bar plots: counts\nBy default, geom_bar will count the occurrences of each class.\n\nmpg %&gt;%\n  ggplot(aes(x = drv)) +\n  geom_bar() +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💭 Check-in\n\n\nCreate a barplot showing the counts of some other categorical variable in the mpg dataframe."
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#bar-plots-summaries",
+    "href": "lectures/week3-r-visualization-slides.html#bar-plots-summaries",
+    "title": "Data Visualization in R",
+    "section": "Bar plots: summaries",
+    "text": "Bar plots: summaries\nYou can also calculate summary statistics, i.e., the mean of some y variable for each level of the x variable.\nUse reorder to reorder the bars in terms of their values.\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(drv, hwy), y = hwy)) +\n  geom_bar(stat = \"summary\", fun = \"mean\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#bar-plots-with-group_by",
+    "href": "lectures/week3-r-visualization-slides.html#bar-plots-with-group_by",
+    "title": "Data Visualization in R",
+    "section": "Bar plots with group_by",
+    "text": "Bar plots with group_by\nAlternatively, you can calculate summary statistics using group_by %&gt;% summarise, and pipe the output into a ggplot call.\n\nmpg %&gt;%\n  group_by(drv) %&gt;%\n  summarise(mean_hwy = mean(hwy)) %&gt;%\n  ggplot(aes(x = reorder(drv, mean_hwy), y = mean_hwy)) +\n  geom_bar(stat = \"identity\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💭 Check-in\n\n\nHow would you instead plot the mean cty miles per gallon?"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#error-bars-stat_summary",
+    "href": "lectures/week3-r-visualization-slides.html#error-bars-stat_summary",
+    "title": "Data Visualization in R",
+    "section": "Error bars: stat_summary",
+    "text": "Error bars: stat_summary\nOften, you want to display some measure of dispersion in addition to the mean. One approach is to use stat_summary.\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(drv, hwy), y = hwy)) +\n  geom_bar(stat = \"summary\", fun = \"mean\") +\n  stat_summary(fun.data = mean_se, geom = \"errorbar\", width = 0.2) +\n  labs(x = \"Drive Type\", y = \"Mean Highway MPG\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#error-bars-with-group_by",
+    "href": "lectures/week3-r-visualization-slides.html#error-bars-with-group_by",
+    "title": "Data Visualization in R",
+    "section": "Error bars with group_by",
+    "text": "Error bars with group_by\nAlternatively, with the group_by method, you can use first calculate the standard error, then pipe the result into geom_errorbar.\n\nmpg %&gt;%\n  group_by(drv) %&gt;%\n  summarise(\n    mean_hwy = mean(hwy),\n    se_hwy = sd(hwy) / sqrt(n())\n  ) %&gt;%\n  ggplot(aes(x = reorder(drv, mean_hwy), y = mean_hwy)) +\n  geom_bar(stat = \"identity\") +\n  geom_errorbar(aes(ymin = mean_hwy - se_hwy, \n                    ymax = mean_hwy + se_hwy),\n                width = 0.2) +\n  labs(x = \"Drive Type\", y = \"Mean Highway MPG\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💭 Check-in\n\n\nHow would you plot a confidence interval for two standard errors?"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#error-bars-with-group_by-1",
+    "href": "lectures/week3-r-visualization-slides.html#error-bars-with-group_by-1",
+    "title": "Data Visualization in R",
+    "section": "Error bars with group_by",
+    "text": "Error bars with group_by\nAlternatively, with the group_by method, you can use first calculate the standard error, then pipe the result into geom_errorbar.\n\n\n\n\n💭 Check-in\n\n\nHow would you plot a confidence interval for two standard errors?"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#bar-plots-with-fill",
+    "href": "lectures/week3-r-visualization-slides.html#bar-plots-with-fill",
+    "title": "Data Visualization in R",
+    "section": "Bar plots with fill",
+    "text": "Bar plots with fill\nYou can add further information to a barplot using the fill parameter. Use position_dodge to show the bars side by side (rather than stacked).\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(drv, hwy), y = hwy, fill = class)) +\n  geom_bar(stat = \"summary\", fun = \"mean\", position = position_dodge(width = 0.9)) +\n  stat_summary(fun.data = mean_se, \n               geom = \"errorbar\", \n               position = position_dodge(width = 0.9), \n               width = 0.2) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#boxplots-and-violin-plots",
+    "href": "lectures/week3-r-visualization-slides.html#boxplots-and-violin-plots",
+    "title": "Data Visualization in R",
+    "section": "Boxplots and violin plots",
+    "text": "Boxplots and violin plots\n\nBoxplots and violin plots show more detailed information about underlying distribution for a given category.\n\n\nA boxplot shows the median, along with the inter-quartile range.\nA violinplot shows the full distribution as a density curve, rotated and mirrored.\nAs with barplots, you can also modify the color of each box/violin."
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#boxplots-with-geom_boxplot",
+    "href": "lectures/week3-r-visualization-slides.html#boxplots-with-geom_boxplot",
+    "title": "Data Visualization in R",
+    "section": "Boxplots with geom_boxplot",
+    "text": "Boxplots with geom_boxplot\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(drv, hwy), y = hwy)) +\n  geom_boxplot() +\n  theme_minimal()"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#violin-plots-with-geom_violin",
+    "href": "lectures/week3-r-visualization-slides.html#violin-plots-with-geom_violin",
+    "title": "Data Visualization in R",
+    "section": "Violin plots with geom_violin",
+    "text": "Violin plots with geom_violin\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(drv, hwy), y = hwy)) +\n  geom_violin() +\n  theme_minimal()"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#adding-styling-to-a-plot",
+    "href": "lectures/week3-r-visualization-slides.html#adding-styling-to-a-plot",
+    "title": "Data Visualization in R",
+    "section": "Adding styling to a plot",
+    "text": "Adding styling to a plot\nLet’s revisit a plot we worked on earlier, with better labels and styling.\n\nmpg %&gt;%\n  ggplot(aes(x = cty, y = hwy, color = drv, size = cyl, shape = drv)) + \n  geom_point(alpha = .5) +\n  labs(x = \"City mpg\",\n       y = \"Highway mpg\",\n       size = \"Number of cylinders\",\n       color = \"Drive Train\",\n       shape = \"Drive Train\") +\n  theme_minimal() +\n  scale_color_viridis_d() +\n  theme(\n    axis.title = element_text(size = 16),\n    legend.title = element_text(size = 12),\n    legend.text = element_text(size = 10)\n  )"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#labeling-specific-points",
+    "href": "lectures/week3-r-visualization-slides.html#labeling-specific-points",
+    "title": "Data Visualization in R",
+    "section": "Labeling specific points",
+    "text": "Labeling specific points\nLet’s revisit a plot we worked on earlier, with better labels and styling.\n\nmpg_labeled &lt;- mpg %&gt;%\n  filter(hwy &gt; 42) %&gt;%\n  filter(class == \"compact\")\n\nmpg %&gt;%\n  ggplot(aes(x = cty, y = hwy, color = drv, size = cyl, shape = drv)) + \n  geom_point(alpha = .5) +\n  geom_text(data = mpg_labeled, \n            aes(label = model), \n            hjust = 1.2, vjust = 0, \n            size = 4, \n            color = \"black\",\n            show.legend = FALSE) +\n  theme_minimal(base_size = 14)"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#other-plotting-packages",
+    "href": "lectures/week3-r-visualization-slides.html#other-plotting-packages",
+    "title": "Data Visualization in R",
+    "section": "Other plotting packages",
+    "text": "Other plotting packages\nggplot has a ton of useful functions and geom types, and it’s probably all you “need”——but there are other options too.\n\nggcorrplot: gg-style correlation matrices.\nggridges: gg-style “ridge” plots (density plots)."
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#using-ggcorrplot",
+    "href": "lectures/week3-r-visualization-slides.html#using-ggcorrplot",
+    "title": "Data Visualization in R",
+    "section": "Using ggcorrplot",
+    "text": "Using ggcorrplot\n\nggcorrplot is a library (and function) that visualizes a correlation matrix.\n\n\nlibrary(ggcorrplot)\n\ncor_matrix = mpg %&gt;%\n  select(hwy, cty, displ, cyl) %&gt;%\n  cor()\nggcorrplot(cor_matrix)"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#using-ggridges",
+    "href": "lectures/week3-r-visualization-slides.html#using-ggridges",
+    "title": "Data Visualization in R",
+    "section": "Using ggridges",
+    "text": "Using ggridges\n\nggridges is a library for arranging density plots in a staggered fashion.\n\n\nlibrary(ggridges)\nmpg %&gt;%\n  ggplot(aes(x = hwy, y = reorder(class, hwy), fill = drv)) +\n  geom_density_ridges(alpha = .7, color = NA) +\n  theme_ridges()"
+  },
+  {
+    "objectID": "lectures/week3-r-visualization-slides.html#summary",
+    "href": "lectures/week3-r-visualization-slides.html#summary",
+    "title": "Data Visualization in R",
+    "section": "Summary",
+    "text": "Summary\n\nData visualization is central to CSS.\n\nCrucial for exploring data, communicating insights, and impacting decisions.\n\nggplot is a versatile and powerful library for creating clear, elegant figures.\nR also supports a number of additional libraries for visualization.\nThe best way to learn to make visualizations is to make them!"
   },
   {
     "objectID": "syllabus.html",
@@ -376,76 +908,6 @@
     "title": "CSS 211 Final Project)",
     "section": "",
     "text": "Details coming soon!"
-  },
-  {
-    "objectID": "labs/lab1.html",
-    "href": "labs/lab1.html",
-    "title": "Lab 1: Introduction to R",
-    "section": "",
-    "text": "Name: ___________________________\nDate: ___________________________"
-  },
-  {
-    "objectID": "labs/lab1.html#introduction",
-    "href": "labs/lab1.html#introduction",
-    "title": "Lab 1: Introduction to R",
-    "section": "",
-    "text": "Name: ___________________________\nDate: ___________________________"
-  },
-  {
-    "objectID": "labs/lab1.html#introduction-1",
-    "href": "labs/lab1.html#introduction-1",
-    "title": "Lab 1: Introduction to R",
-    "section": "Introduction",
-    "text": "Introduction\nThe goal of this lab is to familiarize you with using R and RStudio. You’ll get hands-on practice with:\n\nPerforming simple calculations (basic arithmetic, mean, etc.).\nWorking with variables.\nCreating simple variables.\n\nNote that this lab will all be in “base R”, meaning we won’t (yet) be working with packages like tidyverse."
-  },
-  {
-    "objectID": "labs/lab1.html#exercise-1-basic-arithmetic",
-    "href": "labs/lab1.html#exercise-1-basic-arithmetic",
-    "title": "Lab 1: Introduction to R",
-    "section": "Exercise 1: Basic Arithmetic",
-    "text": "Exercise 1: Basic Arithmetic\nR can be used as a calculator. Try the following operations:\n\n# Addition\n5 + 3\n\n[1] 8\n\n\n\n# Subtraction\n10 - 4\n\n[1] 6\n\n\n\n# Multiplication\n6 * 7\n\n[1] 42\n\n\n\n# Division\n20 / 4\n\n[1] 5\n\n\nYour turn: Calculate \\(15 + 8 * 3 - 2\\)\n\n# Write your code here:"
-  },
-  {
-    "objectID": "labs/lab1.html#exercise-2-variables-and-assignment",
-    "href": "labs/lab1.html#exercise-2-variables-and-assignment",
-    "title": "Lab 1: Introduction to R",
-    "section": "Exercise 2: Variables and Assignment",
-    "text": "Exercise 2: Variables and Assignment\nIn R, we can store values in variables using the assignment operator &lt;-.\n\n# Create a variable called 'my_age' and assign it your age\nmy_age &lt;- 25  # Replace 25 with your actual age\n\n# Print the variable\nmy_age\n\n[1] 25\n\n\nYour turn: Create two variables representing the number of hours you studied yesterday and today. Calculate the total hours.\n\n# Write your code here:"
-  },
-  {
-    "objectID": "labs/lab1.html#exercise-3-vectors-and-basic-statistics",
-    "href": "labs/lab1.html#exercise-3-vectors-and-basic-statistics",
-    "title": "Lab 1: Introduction to R",
-    "section": "Exercise 3: Vectors and Basic Statistics",
-    "text": "Exercise 3: Vectors and Basic Statistics\nVectors are collections of values. We create them using the c() function.\n\n# Create a vector of test scores\ntest_scores &lt;- c(85, 92, 78, 96, 88, 91, 83)\n\n# Display the vector\ntest_scores\n\n[1] 85 92 78 96 88 91 83\n\n\n\n# Calculate basic statistics\nmean(test_scores)     # Mean (average)\n\n[1] 87.57143\n\nmedian(test_scores)   # Median (middle value)\n\n[1] 88\n\nsd(test_scores)       # Standard deviation\n\n[1] 6.078847\n\nlength(test_scores)   # Number of values\n\n[1] 7\n\n\nYour turn: Create a vector with the ages of 5 family members or friends. Calculate the mean and standard deviation.\n\n# Write your code here:"
-  },
-  {
-    "objectID": "labs/lab1.html#exercise-4-creating-data",
-    "href": "labs/lab1.html#exercise-4-creating-data",
-    "title": "Lab 1: Introduction to R",
-    "section": "Exercise 4: Creating Data",
-    "text": "Exercise 4: Creating Data\nLet’s create some sample data to work with:\n\n# Create a vector of 50 random numbers from a normal distribution\n# with mean = 100 and standard deviation = 15\nrandom_data &lt;- rnorm(50, mean = 100, sd = 15)\n\n# Look at the first 10 values\nhead(random_data, 10)\n\n [1]  70.49300 105.89109 105.34779  85.31829  85.47119 123.82059  81.76553\n [8] 115.40936  91.79384  87.35015\n\n\n\n# Calculate summary statistics for this data\nmean(random_data)\n\n[1] 99.613\n\nsd(random_data)\n\n[1] 15.80305\n\nmin(random_data)\n\n[1] 65.90864\n\nmax(random_data)\n\n[1] 128.8129\n\n\nYour turn: Create a vector of 30 random numbers with mean = 50 and sd = 5. Calculate its summary statistics.\n\n# Write your code here:"
-  },
-  {
-    "objectID": "labs/lab1.html#exercise-5-basic-plotting",
-    "href": "labs/lab1.html#exercise-5-basic-plotting",
-    "title": "Lab 1: Introduction to R",
-    "section": "Exercise 5: Basic Plotting",
-    "text": "Exercise 5: Basic Plotting\nR has built-in functions for creating plots. Let’s make a histogram:\n\n# Create a histogram of our random data\nhist(random_data, \n     main = \"Histogram of Random Data\",\n     xlab = \"Value\",\n     ylab = \"Frequency\",\n     col = \"lightblue\")\n\n\n\n\n\n\n\n\n\n# Create a simple scatterplot\nx_values &lt;- c(1, 2, 3, 4, 5)\ny_values &lt;- c(2, 4, 1, 5, 3)\n\nplot(x_values, y_values,\n     main = \"Simple Scatterplot\",\n     xlab = \"X Values\",\n     ylab = \"Y Values\",\n     pch = 16,  # Solid circles\n     col = \"red\")\n\n\n\n\n\n\n\n\nYour turn: Create a histogram of the family ages vector you created in Exercise 3. Add appropriate labels.\n\n# Write your code here:"
-  },
-  {
-    "objectID": "labs/lab1.html#submission-instructions",
-    "href": "labs/lab1.html#submission-instructions",
-    "title": "Lab 1: Introduction to R",
-    "section": "Submission Instructions",
-    "text": "Submission Instructions\n\nMake sure all your code chunks run without errors\nSave this file with your name in the filename (e.g., “Lab1_YourLastName.qmd”)\nRender the document to HTML\nSubmit both the .qmd file and the rendered HTML file to Canvas"
-  },
-  {
-    "objectID": "readings.html",
-    "href": "readings.html",
-    "title": "Resources",
-    "section": "",
-    "text": "CSS 211 has no required readings. However, students might benefit from exploring additional content on course topics. The course schedule lists suggested readings for each week; here, I include those readings, as well as additional resources students might benefit from, organized by topic.\n\nGeneral Resources\n\nHadley Wickham’s R for Data Science(R4DS).\nIntroduction to Statistical Learning (James et al.)\n\n\n\nData wrangling and visualization.\n\nWickham, H. (2014). “Tidy data” (Journal of Statistical Software).\nWickham, H. & Grolemund, G. (2017). R for Data Science, [Chapters 5, 10-12](R4DS, data wrangling.\nHealy, K. (2018). Data Visualization, Chapters 1-3\n\n\n\nRegression\n\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 3\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 4.1-4.3\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 6.1-6.2\n\n\n\nMixed Effects Models\n\nWinter, B. (2013). “Linear models and linear mixed effects models in R” (tutorial)\nGelman, A. & Hill, J. (2006). Data Analysis Using Regression, Chapters 11-12\nBates, D. et al. (2015). “Fitting linear mixed-effects models using lme4” (Journal of Statistical Software)\n\n\n\nResampling Methods\n\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 5\n\n\n\nBest Practices and Research Design\n\nGelman, A. & Loken, E. (2014). “The garden of forking paths: Why multiple comparisons can be a problem” (American Scientist)"
   },
   {
     "objectID": "hands_on/week2.html",
@@ -509,6 +971,111 @@
     "title": "Week 2: Hands-on data wrangling",
     "section": "Exercise 6: Free exploration!",
     "text": "Exercise 6: Free exploration!\nTry to come up with at least one additional question to ask about your data.\n\nIf necessary, that could include merging with additional datasets (e.g., the AoA dataset used in class).\n\nAlternatively, you could try to build a regression model using lm to model the relationships between the variables more directly."
+  },
+  {
+    "objectID": "labs/lab1.html",
+    "href": "labs/lab1.html",
+    "title": "Lab 1: Introduction to R",
+    "section": "",
+    "text": "Name: ___________________________\nDate: ___________________________"
+  },
+  {
+    "objectID": "labs/lab1.html#introduction",
+    "href": "labs/lab1.html#introduction",
+    "title": "Lab 1: Introduction to R",
+    "section": "",
+    "text": "Name: ___________________________\nDate: ___________________________"
+  },
+  {
+    "objectID": "labs/lab1.html#introduction-1",
+    "href": "labs/lab1.html#introduction-1",
+    "title": "Lab 1: Introduction to R",
+    "section": "Introduction",
+    "text": "Introduction\nThe goal of this lab is to familiarize you with using R and RStudio. You’ll get hands-on practice with:\n\nPerforming simple calculations (basic arithmetic, mean, etc.).\nWorking with variables.\nCreating simple variables.\n\nNote that this lab will all be in “base R”, meaning we won’t (yet) be working with packages like tidyverse."
+  },
+  {
+    "objectID": "labs/lab1.html#exercise-1-basic-arithmetic",
+    "href": "labs/lab1.html#exercise-1-basic-arithmetic",
+    "title": "Lab 1: Introduction to R",
+    "section": "Exercise 1: Basic Arithmetic",
+    "text": "Exercise 1: Basic Arithmetic\nR can be used as a calculator. Try the following operations:\n\n# Addition\n5 + 3\n\n[1] 8\n\n\n\n# Subtraction\n10 - 4\n\n[1] 6\n\n\n\n# Multiplication\n6 * 7\n\n[1] 42\n\n\n\n# Division\n20 / 4\n\n[1] 5\n\n\nYour turn: Calculate \\(15 + 8 * 3 - 2\\)\n\n# Write your code here:"
+  },
+  {
+    "objectID": "labs/lab1.html#exercise-2-variables-and-assignment",
+    "href": "labs/lab1.html#exercise-2-variables-and-assignment",
+    "title": "Lab 1: Introduction to R",
+    "section": "Exercise 2: Variables and Assignment",
+    "text": "Exercise 2: Variables and Assignment\nIn R, we can store values in variables using the assignment operator &lt;-.\n\n# Create a variable called 'my_age' and assign it your age\nmy_age &lt;- 25  # Replace 25 with your actual age\n\n# Print the variable\nmy_age\n\n[1] 25\n\n\nYour turn: Create two variables representing the number of hours you studied yesterday and today. Calculate the total hours.\n\n# Write your code here:"
+  },
+  {
+    "objectID": "labs/lab1.html#exercise-3-vectors-and-basic-statistics",
+    "href": "labs/lab1.html#exercise-3-vectors-and-basic-statistics",
+    "title": "Lab 1: Introduction to R",
+    "section": "Exercise 3: Vectors and Basic Statistics",
+    "text": "Exercise 3: Vectors and Basic Statistics\nVectors are collections of values. We create them using the c() function.\n\n# Create a vector of test scores\ntest_scores &lt;- c(85, 92, 78, 96, 88, 91, 83)\n\n# Display the vector\ntest_scores\n\n[1] 85 92 78 96 88 91 83\n\n\n\n# Calculate basic statistics\nmean(test_scores)     # Mean (average)\n\n[1] 87.57143\n\nmedian(test_scores)   # Median (middle value)\n\n[1] 88\n\nsd(test_scores)       # Standard deviation\n\n[1] 6.078847\n\nlength(test_scores)   # Number of values\n\n[1] 7\n\n\nYour turn: Create a vector with the ages of 5 family members or friends. Calculate the mean and standard deviation.\n\n# Write your code here:"
+  },
+  {
+    "objectID": "labs/lab1.html#exercise-4-creating-data",
+    "href": "labs/lab1.html#exercise-4-creating-data",
+    "title": "Lab 1: Introduction to R",
+    "section": "Exercise 4: Creating Data",
+    "text": "Exercise 4: Creating Data\nLet’s create some sample data to work with:\n\n# Create a vector of 50 random numbers from a normal distribution\n# with mean = 100 and standard deviation = 15\nrandom_data &lt;- rnorm(50, mean = 100, sd = 15)\n\n# Look at the first 10 values\nhead(random_data, 10)\n\n [1]  91.24915 153.73723 117.40755 100.69431 100.00572  80.17076 106.54457\n [8]  96.37246  75.41222  94.55428\n\n\n\n# Calculate summary statistics for this data\nmean(random_data)\n\n[1] 98.00394\n\nsd(random_data)\n\n[1] 16.4664\n\nmin(random_data)\n\n[1] 63.13654\n\nmax(random_data)\n\n[1] 153.7372\n\n\nYour turn: Create a vector of 30 random numbers with mean = 50 and sd = 5. Calculate its summary statistics.\n\n# Write your code here:"
+  },
+  {
+    "objectID": "labs/lab1.html#exercise-5-basic-plotting",
+    "href": "labs/lab1.html#exercise-5-basic-plotting",
+    "title": "Lab 1: Introduction to R",
+    "section": "Exercise 5: Basic Plotting",
+    "text": "Exercise 5: Basic Plotting\nR has built-in functions for creating plots. Let’s make a histogram:\n\n# Create a histogram of our random data\nhist(random_data, \n     main = \"Histogram of Random Data\",\n     xlab = \"Value\",\n     ylab = \"Frequency\",\n     col = \"lightblue\")\n\n\n\n\n\n\n\n\n\n# Create a simple scatterplot\nx_values &lt;- c(1, 2, 3, 4, 5)\ny_values &lt;- c(2, 4, 1, 5, 3)\n\nplot(x_values, y_values,\n     main = \"Simple Scatterplot\",\n     xlab = \"X Values\",\n     ylab = \"Y Values\",\n     pch = 16,  # Solid circles\n     col = \"red\")\n\n\n\n\n\n\n\n\nYour turn: Create a histogram of the family ages vector you created in Exercise 3. Add appropriate labels.\n\n# Write your code here:"
+  },
+  {
+    "objectID": "labs/lab1.html#submission-instructions",
+    "href": "labs/lab1.html#submission-instructions",
+    "title": "Lab 1: Introduction to R",
+    "section": "Submission Instructions",
+    "text": "Submission Instructions\n\nMake sure all your code chunks run without errors\nSave this file with your name in the filename (e.g., “Lab1_YourLastName.qmd”)\nRender the document to HTML\nSubmit both the .qmd file and the rendered HTML file to Canvas"
+  },
+  {
+    "objectID": "readings.html",
+    "href": "readings.html",
+    "title": "Resources",
+    "section": "",
+    "text": "CSS 211 has no required readings. However, students might benefit from exploring additional content on course topics. The course schedule lists suggested readings for each week; here, I include those readings, as well as additional resources students might benefit from, organized by topic.\n\nGeneral Resources\n\nHadley Wickham’s R for Data Science(R4DS).\nIntroduction to Statistical Learning (James et al.)\n\n\n\nData wrangling and visualization.\n\nWickham, H. (2014). “Tidy data” (Journal of Statistical Software).\nWickham, H. & Grolemund, G. (2017). R for Data Science, [Chapters 5, 10-12](R4DS, data wrangling.\nHealy, K. (2018). Data Visualization, Chapters 1-3\n\n\n\nRegression\n\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 3\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 4.1-4.3\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 6.1-6.2\n\n\n\nMixed Effects Models\n\nWinter, B. (2013). “Linear models and linear mixed effects models in R” (tutorial)\nGelman, A. & Hill, J. (2006). Data Analysis Using Regression, Chapters 11-12\nBates, D. et al. (2015). “Fitting linear mixed-effects models using lme4” (Journal of Statistical Software)\n\n\n\nResampling Methods\n\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 5\n\n\n\nBest Practices and Research Design\n\nGelman, A. & Loken, E. (2014). “The garden of forking paths: Why multiple comparisons can be a problem” (American Scientist)"
+  },
+  {
+    "objectID": "labs/lab2.html",
+    "href": "labs/lab2.html",
+    "title": "Lab 2: Data Visualization in R",
+    "section": "",
+    "text": "Name: ___________________________\nDate: ___________________________"
+  },
+  {
+    "objectID": "labs/lab2.html#introduction",
+    "href": "labs/lab2.html#introduction",
+    "title": "Lab 2: Data Visualization in R",
+    "section": "",
+    "text": "Name: ___________________________\nDate: ___________________________"
+  },
+  {
+    "objectID": "labs/lab2.html#submission-instructions",
+    "href": "labs/lab2.html#submission-instructions",
+    "title": "Lab 2: Data Visualization in R",
+    "section": "Submission Instructions",
+    "text": "Submission Instructions\n\nMake sure all your code chunks run without errors\nSave this file with your name in the filename (e.g., “Lab1_YourLastName.qmd”)\nRender the document to HTML\nSubmit both the .qmd file and the rendered HTML file to Canvas"
+  },
+  {
+    "objectID": "hands_on/week3.html",
+    "href": "hands_on/week3.html",
+    "title": "Week 3: Hands-on data visualization",
+    "section": "",
+    "text": "The goal of this hands-on exercise is to familiarize you with data visualization, particularly with an emphasis on exploring a dataset and creating clear visualizations that communicate basic insights.\nExamples:\n\nLancaster sensorimotor norms?\n\nmaybe merge with concreteness dataset first\nthen make scatterplots, bar plots by POS, etc.\nmake correlation matrix"
+  },
+  {
+    "objectID": "hands_on/week3.html#introduction",
+    "href": "hands_on/week3.html#introduction",
+    "title": "Week 3: Hands-on data visualization",
+    "section": "",
+    "text": "The goal of this hands-on exercise is to familiarize you with data visualization, particularly with an emphasis on exploring a dataset and creating clear visualizations that communicate basic insights.\nExamples:\n\nLancaster sensorimotor norms?\n\nmaybe merge with concreteness dataset first\nthen make scatterplots, bar plots by POS, etc.\nmake correlation matrix"
   },
   {
     "objectID": "index.html",
@@ -921,7 +1488,7 @@
     "href": "lectures/week1-r-intro-slides.html#simulating-data",
     "title": "Introduction to R",
     "section": "Simulating data",
-    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8860554"
+    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8716726"
   },
   {
     "objectID": "lectures/week1-r-intro-slides.html#a-conceptual-preview-of-the-tidyverse",
@@ -1110,7 +1677,7 @@
     "href": "lectures/week1-r-intro.html#simulating-data",
     "title": "Introduction to R",
     "section": "Simulating data",
-    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\n\n\n\n\n\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8495715"
+    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\n\n\n\n\n\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8200611"
   },
   {
     "objectID": "lectures/week1-r-intro.html#a-conceptual-preview-of-the-tidyverse",
@@ -1846,586 +2413,5 @@
     "title": "Data Wrangling in R",
     "section": "Putting it all together",
     "text": "Putting it all together\nThese lectures have covered the basics of data wrangling with the tidyverse.\nA typical workflow will involve:\n\n\nReading data (read_csv).\nExploring the data (is.na, summary, summarise).\nClean data (mutate, filter).\nReshape if needed (pivot_longer/wider).\nJoin if needed (inner_join, etc.).\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe end result is a dataset ready for further analysis and visualization (coming up!)."
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#what-is-data-visualization",
-    "href": "lectures/week3-visualization.html#what-is-data-visualization",
-    "title": "Data Visualization in R",
-    "section": "What is data visualization?",
-    "text": "What is data visualization?\n\nData visualization is the process (and result) of representing data graphically.\n\nWe’ll be focusing on common visualization techniques, such as:\n\n\nHistograms.\nScatterplots.\nBarplots.\nBoxplots.\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nWe’ll also discuss why visualization is so crucial."
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#why-visualization",
-    "href": "lectures/week3-visualization.html#why-visualization",
-    "title": "Data Visualization in R",
-    "section": "Why visualization?",
-    "text": "Why visualization?\nData visualization serves (at least) a few different purposes:\n\n\nExploratory data analysis (EDA): discovering relationships in your data, generating hypotheses, confirming intuitions.\n\nCommunicating insights: given some finding, conveying that clearly and accurately.\nImpacting the world: a good (or bad) visualization can change attitudes!"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#eda-checking-your-assumptions",
-    "href": "lectures/week3-visualization.html#eda-checking-your-assumptions",
-    "title": "Data Visualization in R",
-    "section": "EDA: Checking your assumptions",
-    "text": "EDA: Checking your assumptions\n\n### Loading the tidyverse\nlibrary(tidyverse)\n### Plot anscombe's quartet\nanscombe %&gt;%\n  pivot_longer(\n    cols = everything(),\n    names_to = c(\".value\", \"dataset\"),\n    names_pattern = \"(x|y)(.*)\"\n  ) %&gt;%\n  ggplot(aes(x = x, y = y)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  facet_wrap(~dataset)"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#dataviz-impacting-the-world",
-    "href": "lectures/week3-visualization.html#dataviz-impacting-the-world",
-    "title": "Data Visualization in R",
-    "section": "DataViz: impacting the world",
-    "text": "DataViz: impacting the world\n\nTopics:\n\nBackground, why visualize?\n\nList of why it matters\nAnscombe, dinosaurs, etc.\nEDA: useful for hypothesis generation, etc.\n\nBasic principles\nggplot, how it works\n\ntheory\ndifferent plot types\n\nother plotting packages / add-ons"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#what-is-data-visualization",
-    "href": "lectures/week3-r-visualization-slides.html#what-is-data-visualization",
-    "title": "Data Visualization in R",
-    "section": "What is data visualization?",
-    "text": "What is data visualization?\n\nData visualization is the process (and result) of representing data graphically.\n\nWe’ll be focusing on common visualization techniques, such as:\n\nHistograms.\nScatterplots.\nBarplots.\nBoxplots.\n\n\n\n\n\nNote\n\n\nWe’ll also discuss why visualization is so crucial."
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#why-visualization",
-    "href": "lectures/week3-r-visualization-slides.html#why-visualization",
-    "title": "Data Visualization in R",
-    "section": "Why visualization?",
-    "text": "Why visualization?\nData visualization serves (at least) a few different purposes:\n\nExploratory data analysis (EDA): discovering relationships in your data, generating hypotheses, confirming intuitions.\n\nCommunicating insights: given some finding, conveying that clearly and accurately.\nImpacting the world: a good (or bad) visualization can change attitudes!"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#eda-checking-your-assumptions",
-    "href": "lectures/week3-r-visualization-slides.html#eda-checking-your-assumptions",
-    "title": "Data Visualization in R",
-    "section": "EDA: Checking your assumptions",
-    "text": "EDA: Checking your assumptions\n\n### Loading the tidyverse\nlibrary(tidyverse)\n### Plot anscombe's quartet\nanscombe %&gt;%\n  pivot_longer(\n    cols = everything(),\n    names_to = c(\".value\", \"dataset\"),\n    names_pattern = \"(x|y)(.*)\"\n  ) %&gt;%\n  ggplot(aes(x = x, y = y)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  facet_wrap(~dataset)"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#dataviz-impacting-the-world",
-    "href": "lectures/week3-r-visualization-slides.html#dataviz-impacting-the-world",
-    "title": "Data Visualization in R",
-    "section": "DataViz: impacting the world",
-    "text": "DataViz: impacting the world\n\nTopics:\n\nBackground, why visualize?\n\nList of why it matters\nAnscombe, dinosaurs, etc.\nEDA: useful for hypothesis generation, etc.\n\nBasic principles\nggplot, how it works\n\ntheory\ndifferent plot types\n\nother plotting packages / add-ons"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#dataviz-impacting-the-world-1",
-    "href": "lectures/week3-visualization.html#dataviz-impacting-the-world-1",
-    "title": "Data Visualization in R",
-    "section": "DataViz: impacting the world (1)",
-    "text": "DataViz: impacting the world (1)\nFlorence Nightingale (1820-1910) was a social reformer, statistician, and founder of modern nursing."
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#dataviz-impacting-the-world-2",
-    "href": "lectures/week3-visualization.html#dataviz-impacting-the-world-2",
-    "title": "Data Visualization in R",
-    "section": "DataViz: impacting the world (2)",
-    "text": "DataViz: impacting the world (2)\nJohn Snow (1813-1858) was a physician whose visualization of cholera outbreaks helped identify the source and spreading mechanism (water supply)."
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#what-makes-a-good-data-visualization",
-    "href": "lectures/week3-visualization.html#what-makes-a-good-data-visualization",
-    "title": "Data Visualization in R",
-    "section": "What makes a good data visualization?",
-    "text": "What makes a good data visualization?\nEdward Tufte argues:\n\nGraphical excellence is the well-designed presentation of interesting data—a matter of substance, of statistics, and of design … [It] consists of complex ideas communicated with clarity, precision, and efficiency. … [It] is that which gives to the viewer the greatest number of ideas in the shortest time with the least ink in the smallest space … [It] is nearly always multivariate … And graphical excellence requires telling the truth about the data. (Tufte, 1983, p. 51).\n\nSome principles:\n\n\nUse your ink wisely.\nBe true to the data.\nConsider the visual logic of the figure.\nOrder matters.\nKeep scales consistent."
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#dataviz-impacting-the-world-1",
-    "href": "lectures/week3-r-visualization-slides.html#dataviz-impacting-the-world-1",
-    "title": "Data Visualization in R",
-    "section": "DataViz: impacting the world (1)",
-    "text": "DataViz: impacting the world (1)\nFlorence Nightingale (1820-1910) was a social reformer, statistician, and founder of modern nursing."
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#dataviz-impacting-the-world-2",
-    "href": "lectures/week3-r-visualization-slides.html#dataviz-impacting-the-world-2",
-    "title": "Data Visualization in R",
-    "section": "DataViz: impacting the world (2)",
-    "text": "DataViz: impacting the world (2)\nJohn Snow (1813-1858) was a physician whose visualization of cholera outbreaks helped identify the source and spreading mechanism (water supply)."
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#what-makes-a-good-data-visualization",
-    "href": "lectures/week3-r-visualization-slides.html#what-makes-a-good-data-visualization",
-    "title": "Data Visualization in R",
-    "section": "What makes a good data visualization?",
-    "text": "What makes a good data visualization?\nEdward Tufte argues:\n\nGraphical excellence is the well-designed presentation of interesting data—a matter of substance, of statistics, and of design … [It] consists of complex ideas communicated with clarity, precision, and efficiency. … [It] is that which gives to the viewer the greatest number of ideas in the shortest time with the least ink in the smallest space … [It] is nearly always multivariate … And graphical excellence requires telling the truth about the data. (Tufte, 1983, p. 51).\n\nSome principles:\n\nUse your ink wisely.\nBe true to the data.\nConsider the visual logic of the figure.\nOrder matters.\nKeep scales consistent."
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#principle-1-use-your-ink-wisely",
-    "href": "lectures/week3-visualization.html#principle-1-use-your-ink-wisely",
-    "title": "Data Visualization in R",
-    "section": "Principle 1: Use your ink wisely",
-    "text": "Principle 1: Use your ink wisely\n\n\nEvery element in your visualization should serve a purpose.\nRemove “chart junk”: unnecessary gridlines, borders, 3D effects, decorations.\nMaximize your data-ink ratio: the proportion of ink used to display actual data.\n\n\n\n\n\n\n\n\n\nTipTufte’s principle\n\n\n\n“Above all else show the data.” - Edward Tufte"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#principle-2-be-true-to-the-data",
-    "href": "lectures/week3-visualization.html#principle-2-be-true-to-the-data",
-    "title": "Data Visualization in R",
-    "section": "Principle 2: Be true to the data",
-    "text": "Principle 2: Be true to the data\n\n\nDon’t manipulate scales to exaggerate or hide effects.\nInclude zero baseline for bar charts (unless there’s good reason not to).\nAvoid cherry-picking data or timeframes.\nRepresent uncertainty when appropriate (e.g., error bars, confidence intervals)."
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#principle-3-consider-the-visual-logic",
-    "href": "lectures/week3-visualization.html#principle-3-consider-the-visual-logic",
-    "title": "Data Visualization in R",
-    "section": "Principle 3: Consider the visual logic",
-    "text": "Principle 3: Consider the visual logic\n\n\nPosition is probably easiest to judge accurately.\nAngle and area are harder (e.g., pie charts).\nColor hue can work for categorical data.\n\nUse distinctive and meaningful colors!\n\nStacked bar plots often hard to interpret!\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nThis will be relevant when thinking about the layers in ggplot."
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#principle-4-order-matters",
-    "href": "lectures/week3-visualization.html#principle-4-order-matters",
-    "title": "Data Visualization in R",
-    "section": "Principle 4: Order matters",
-    "text": "Principle 4: Order matters\n\n\nFor categorical data: order by frequency or a meaningful sequence.\nFor ordinal data: maintain the natural order (e.g., Strongly Disagree → Strongly Agree).\nFor time series: always order chronologically."
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#principle-5-keep-scales-consistent",
-    "href": "lectures/week3-visualization.html#principle-5-keep-scales-consistent",
-    "title": "Data Visualization in R",
-    "section": "Principle 5: Keep scales consistent",
-    "text": "Principle 5: Keep scales consistent\n\n\nUse the same axis ranges for meaningful comparison.\nIn faceted plots, decide: fixed scales (scales = “fixed”) or free scales (scales = “free”)?\n\nFree scales can be misleading but useful when ranges differ greatly.\n\n\n\n\n\n\n\n\n\n\nTipRule of thumb\n\n\n\nUse consistent scales when inviting direct comparison; use free scales when showing patterns within each group."
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#principle-1-use-your-ink-wisely",
-    "href": "lectures/week3-r-visualization-slides.html#principle-1-use-your-ink-wisely",
-    "title": "Data Visualization in R",
-    "section": "Principle 1: Use your ink wisely",
-    "text": "Principle 1: Use your ink wisely\n\nEvery element in your visualization should serve a purpose.\nRemove “chart junk”: unnecessary gridlines, borders, 3D effects, decorations.\nMaximize your data-ink ratio: the proportion of ink used to display actual data.\n\n\n\n\n\nTufte’s principle\n\n\n“Above all else show the data.” - Edward Tufte"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#principle-2-be-true-to-the-data",
-    "href": "lectures/week3-r-visualization-slides.html#principle-2-be-true-to-the-data",
-    "title": "Data Visualization in R",
-    "section": "Principle 2: Be true to the data",
-    "text": "Principle 2: Be true to the data\n\nDon’t manipulate scales to exaggerate or hide effects.\nInclude zero baseline for bar charts (unless there’s good reason not to).\nAvoid cherry-picking data or timeframes.\nRepresent uncertainty when appropriate (e.g., error bars, confidence intervals)."
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#principle-3-consider-the-visual-logic",
-    "href": "lectures/week3-r-visualization-slides.html#principle-3-consider-the-visual-logic",
-    "title": "Data Visualization in R",
-    "section": "Principle 3: Consider the visual logic",
-    "text": "Principle 3: Consider the visual logic\n\nPosition is probably easiest to judge accurately.\nAngle and area are harder (e.g., pie charts).\nColor hue can work for categorical data.\n\nUse distinctive and meaningful colors!\n\nStacked bar plots often hard to interpret!\n\n\n\n\n\nTip\n\n\nThis will be relevant when thinking about the layers in ggplot."
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#principle-4-order-matters",
-    "href": "lectures/week3-r-visualization-slides.html#principle-4-order-matters",
-    "title": "Data Visualization in R",
-    "section": "Principle 4: Order matters",
-    "text": "Principle 4: Order matters\n\nFor categorical data: order by frequency or a meaningful sequence.\nFor ordinal data: maintain the natural order (e.g., Strongly Disagree → Strongly Agree).\nFor time series: always order chronologically."
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#principle-5-keep-scales-consistent",
-    "href": "lectures/week3-r-visualization-slides.html#principle-5-keep-scales-consistent",
-    "title": "Data Visualization in R",
-    "section": "Principle 5: Keep scales consistent",
-    "text": "Principle 5: Keep scales consistent\n\nUse the same axis ranges for meaningful comparison.\nIn faceted plots, decide: fixed scales (scales = “fixed”) or free scales (scales = “free”)?\n\nFree scales can be misleading but useful when ranges differ greatly.\n\n\n\n\n\n\nRule of thumb\n\n\nUse consistent scales when inviting direct comparison; use free scales when showing patterns within each group."
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#ggplot-theory-and-practice",
-    "href": "lectures/week3-visualization.html#ggplot-theory-and-practice",
-    "title": "Data Visualization in R",
-    "section": "ggplot: theory and practice",
-    "text": "ggplot: theory and practice\nTopics:\n\nBackground, why visualize?\n\nList of why it matters\nAnscombe, dinosaurs, etc.\nEDA: useful for hypothesis generation, etc.\n\nBasic principles\nggplot, how it works\n\ntheory\ndifferent plot types\n\nother plotting packages / add-ons\nMore on EDA"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#ggplot-theory-and-practice",
-    "href": "lectures/week3-r-visualization-slides.html#ggplot-theory-and-practice",
-    "title": "Data Visualization in R",
-    "section": "ggplot: theory and practice",
-    "text": "ggplot: theory and practice\nTopics:\n\nBackground, why visualize?\n\nList of why it matters\nAnscombe, dinosaurs, etc.\nEDA: useful for hypothesis generation, etc.\n\nBasic principles\nggplot, how it works\n\ntheory\ndifferent plot types\n\nother plotting packages / add-ons\nMore on EDA"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#ggplot2-theory-and-practice",
-    "href": "lectures/week3-visualization.html#ggplot2-theory-and-practice",
-    "title": "Data Visualization in R",
-    "section": "ggplot2: theory and practice",
-    "text": "ggplot2: theory and practice\n\nggplot2 is a system for creating graphics, based on the Grammar of Graphics.\n\nJust like natural language has a grammar (nouns, verbs, adjectives), graphics have a grammar too:\n\n\nData: What you want to visualize.\nAesthetics (aes): How variables map to visual properties (x, y, color, size).\nGeometries (geom): The type of plot (points, lines, bars).\nScales: Control how aesthetic mappings appear.\nFacets: Split into multiple subplots.\nThemes: Control non-data appearance (fonts, backgrounds).\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n`gplot builds plots by adding layers with the + operator."
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#anatomy-of-a-ggplot",
-    "href": "lectures/week3-visualization.html#anatomy-of-a-ggplot",
-    "title": "Data Visualization in R",
-    "section": "Anatomy of a “ggplot”",
-    "text": "Anatomy of a “ggplot”\nEvery ggplot needs, at minimum:\n\nData: a dataframe or tibble.\nAesthetic mappings: which variables map to which visual properties.\nGeometry: how to represent the data visually.\n\n\nggplot(data = mpg,                          # 1. Data\n       aes(x = displ, y = hwy, color = class)) + # 2. Aesthetics\n  geom_point() # 3. Geometry"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#histograms",
-    "href": "lectures/week3-visualization.html#histograms",
-    "title": "Data Visualization in R",
-    "section": "Histograms",
-    "text": "Histograms\n\nA histogram is a visualization of a single continuous, quantitative variable (e.g., income or temperature).\n\nA histogram can be created with geom_histogram.\n\nmpg %&gt;%\n  ggplot(aes(x = cty)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip💭 Check-in\n\n\n\nWhat happens if you modify bins or binwidth?"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#ggplot2-theory-and-practice",
-    "href": "lectures/week3-r-visualization-slides.html#ggplot2-theory-and-practice",
-    "title": "Data Visualization in R",
-    "section": "ggplot2: theory and practice",
-    "text": "ggplot2: theory and practice\n\nggplot2 is a system for creating graphics, based on the Grammar of Graphics.\n\nJust like natural language has a grammar (nouns, verbs, adjectives), graphics have a grammar too:\n\nData: What you want to visualize.\nAesthetics (aes): How variables map to visual properties (x, y, color, size).\nGeometries (geom): The type of plot (points, lines, bars).\nScales: Control how aesthetic mappings appear.\nFacets: Split into multiple subplots.\nThemes: Control non-data appearance (fonts, backgrounds).\n\n\n\n\n\nTip\n\n\n`gplot builds plots by adding layers with the + operator."
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#anatomy-of-a-ggplot",
-    "href": "lectures/week3-r-visualization-slides.html#anatomy-of-a-ggplot",
-    "title": "Data Visualization in R",
-    "section": "Anatomy of a “ggplot”",
-    "text": "Anatomy of a “ggplot”\nEvery ggplot needs, at minimum:\n\nData: a dataframe or tibble.\nAesthetic mappings: which variables map to which visual properties.\nGeometry: how to represent the data visually.\n\n\nggplot(data = mpg,                          # 1. Data\n       aes(x = displ, y = hwy, color = class)) + # 2. Aesthetics\n  geom_point() # 3. Geometry"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#histograms",
-    "href": "lectures/week3-r-visualization-slides.html#histograms",
-    "title": "Data Visualization in R",
-    "section": "Histograms",
-    "text": "Histograms\n\nA histogram is a visualization of a single continuous, quantitative variable (e.g., income or temperature).\n\nA histogram can be created with geom_histogram.\n\nmpg %&gt;%\n  ggplot(aes(x = cty)) +\n  geom_histogram()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💭 Check-in\n\n\nWhat happens if you modify bins or binwidth?"
-  },
-  {
-    "objectID": "labs/lab2.html",
-    "href": "labs/lab2.html",
-    "title": "Lab 2: Data Visualization in R",
-    "section": "",
-    "text": "Name: ___________________________\nDate: ___________________________"
-  },
-  {
-    "objectID": "labs/lab2.html#introduction",
-    "href": "labs/lab2.html#introduction",
-    "title": "Lab 2: Data Visualization in R",
-    "section": "",
-    "text": "Name: ___________________________\nDate: ___________________________"
-  },
-  {
-    "objectID": "labs/lab2.html#submission-instructions",
-    "href": "labs/lab2.html#submission-instructions",
-    "title": "Lab 2: Data Visualization in R",
-    "section": "Submission Instructions",
-    "text": "Submission Instructions\n\nMake sure all your code chunks run without errors\nSave this file with your name in the filename (e.g., “Lab1_YourLastName.qmd”)\nRender the document to HTML\nSubmit both the .qmd file and the rendered HTML file to Canvas"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#histograms-are-very-useful",
-    "href": "lectures/week3-visualization.html#histograms-are-very-useful",
-    "title": "Data Visualization in R",
-    "section": "Histograms are very useful!",
-    "text": "Histograms are very useful!\nHistograms show important visual information about a distribution:\n\n\nShape: is it symmetric, skewed, etc.?\nCenter: Where is the “typical” value?\nSpread : How variable is the data?\nOutliers: Are there unusual values?\n\n\n\n\n\n\n\n\n\nTip💭 Check-in\n\n\n\nHow does the skew of a distribution affect measures of central tendency such as the mean or median?"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#histograms-vs.-density-plots",
-    "href": "lectures/week3-visualization.html#histograms-vs.-density-plots",
-    "title": "Data Visualization in R",
-    "section": "Histograms vs. density plots",
-    "text": "Histograms vs. density plots\n\nA density plot is a smoothed alternative to a histogram, created using kernel density estimation (KDE).\n\nA density plot can be created with geom_density.\n\nggplot(mpg, aes(x = cty)) + \n  geom_density(fill = \"steelblue\")"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#overlaying-multiple-distributions",
-    "href": "lectures/week3-visualization.html#overlaying-multiple-distributions",
-    "title": "Data Visualization in R",
-    "section": "Overlaying multiple distributions",
-    "text": "Overlaying multiple distributions\nOne benefit of a density plot is that it’s easier to overlay multiple distributions on the same plot. The alpha parameter controls the opacity of each distribution.\n\nmpg %&gt;%\n  filter(class %in% c(\"compact\", \"suv\")) %&gt;%\n  ggplot(aes(x = cty, fill = class)) + \n  geom_density(alpha = .5) +\n  labs(title = \"City MPG: Compact vs. SUV\", fill = \"Car Type\") +\n  theme_minimal()"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#scatterplots",
-    "href": "lectures/week3-visualization.html#scatterplots",
-    "title": "Data Visualization in R",
-    "section": "Scatterplots",
-    "text": "Scatterplots\n\nA scatterplot shows the relationship between two continuous variables, where each point represents an observation.\n\nA scatterplot can be created with geom_point.\n\nmpg %&gt;%\n  ggplot(aes(x = cty, y = hwy)) + \n  geom_point()"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#adding-layers-to-a-scatterplot",
-    "href": "lectures/week3-visualization.html#adding-layers-to-a-scatterplot",
-    "title": "Data Visualization in R",
-    "section": "Adding layers to a scatterplot",
-    "text": "Adding layers to a scatterplot\nWe can further modify the color, size, and shape of individual dots.\n\nmpg %&gt;%\n  ggplot(aes(x = cty, y = hwy, color = class, size = cyl, shape = drv)) + \n  geom_point(alpha = .5) \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nUse categorical variables for shape, categorical or continuous variables for color, and ordinal or continuous variables for size."
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#plotting-a-regression-line",
-    "href": "lectures/week3-visualization.html#plotting-a-regression-line",
-    "title": "Data Visualization in R",
-    "section": "Plotting a regression line",
-    "text": "Plotting a regression line\nWe can also use geom_smooth to plot a regression line (or another non-linear function) over our scatterplot.\n(If there are multiple colors, etc., a different line will be plotted for each color.)\n\nmpg %&gt;%\n  ggplot(aes(x = cty, y = hwy)) + \n  geom_smooth(method = \"lm\") +\n  geom_point(alpha = .5) \n\n`geom_smooth()` using formula = 'y ~ x'"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#bar-plots",
-    "href": "lectures/week3-visualization.html#bar-plots",
-    "title": "Data Visualization in R",
-    "section": "Bar plots",
-    "text": "Bar plots\n\nA barplot visualizes the relationship between one continuous variable and (at least one) categorical variable.\n\nA barplot can be created with geom_bar.\n\n\nBy default, geom_bar will count occurrences (like a histogram for categorical variables).\nYou can also calculate values like the mean using geom_bar(stat = \"summary\").\nIf you already have values computed (e.g., a mean or count), you can use geom_col or `geom_bar(stat = “identity”)."
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#bar-plots-counts",
-    "href": "lectures/week3-visualization.html#bar-plots-counts",
-    "title": "Data Visualization in R",
-    "section": "Bar plots: counts",
-    "text": "Bar plots: counts\nBy default, geom_bar will count the occurrences of each class.\n\nmpg %&gt;%\n  ggplot(aes(x = drv)) +\n  geom_bar() +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip💭 Check-in\n\n\n\nCreate a barplot showing the counts of some other categorical variable in the mpg dataframe."
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#bar-plots-summaries",
-    "href": "lectures/week3-visualization.html#bar-plots-summaries",
-    "title": "Data Visualization in R",
-    "section": "Bar plots: summaries",
-    "text": "Bar plots: summaries\nYou can also calculate summary statistics, i.e., the mean of some y variable for each level of the x variable.\nUse reorder to reorder the bars in terms of their values.\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(drv, hwy), y = hwy)) +\n  geom_bar(stat = \"summary\", fun = \"mean\") +\n  theme_minimal()"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#bar-plots-with-group_by",
-    "href": "lectures/week3-visualization.html#bar-plots-with-group_by",
-    "title": "Data Visualization in R",
-    "section": "Bar plots with group_by",
-    "text": "Bar plots with group_by\nAlternatively, you can calculate summary statistics using group_by %&gt;% summarise, and pipe the output into a ggplot call.\n\nmpg %&gt;%\n  group_by(drv) %&gt;%\n  summarise(mean_hwy = mean(hwy)) %&gt;%\n  ggplot(aes(x = reorder(drv, mean_hwy), y = mean_hwy)) +\n  geom_bar(stat = \"identity\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip💭 Check-in\n\n\n\nHow would you instead plot the mean cty miles per gallon?"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#error-bars-stat_summary",
-    "href": "lectures/week3-visualization.html#error-bars-stat_summary",
-    "title": "Data Visualization in R",
-    "section": "Error bars: stat_summary",
-    "text": "Error bars: stat_summary\nOften, you want to display some measure of dispersion in addition to the mean. One approach is to use stat_summary.\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(drv, hwy), y = hwy)) +\n  geom_bar(stat = \"summary\", fun = \"mean\") +\n  stat_summary(fun.data = mean_se, geom = \"errorbar\", width = 0.2) +\n  labs(x = \"Drive Type\", y = \"Mean Highway MPG\") +\n  theme_minimal()"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#error-bars-with-group_by",
-    "href": "lectures/week3-visualization.html#error-bars-with-group_by",
-    "title": "Data Visualization in R",
-    "section": "Error bars with group_by",
-    "text": "Error bars with group_by\nAlternatively, with the group_by method, you can use first calculate the standard error, then pipe the result into geom_errorbar.\n\nmpg %&gt;%\n  group_by(drv) %&gt;%\n  summarise(\n    mean_hwy = mean(hwy),\n    se_hwy = sd(hwy) / sqrt(n())\n  ) %&gt;%\n  ggplot(aes(x = reorder(drv, mean_hwy), y = mean_hwy)) +\n  geom_bar(stat = \"identity\") +\n  geom_errorbar(aes(ymin = mean_hwy - se_hwy, \n                    ymax = mean_hwy + se_hwy),\n                width = 0.2) +\n  labs(x = \"Drive Type\", y = \"Mean Highway MPG\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip💭 Check-in\n\n\n\nHow would you plot a confidence interval for two standard errors?"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#error-bars-with-group_by-1",
-    "href": "lectures/week3-visualization.html#error-bars-with-group_by-1",
-    "title": "Data Visualization in R",
-    "section": "Error bars with group_by",
-    "text": "Error bars with group_by\nAlternatively, with the group_by method, you can use first calculate the standard error, then pipe the result into geom_errorbar.\n\n\n\n\n\n\n\nTip💭 Check-in\n\n\n\nHow would you plot a confidence interval for two standard errors?"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#histograms-are-very-useful",
-    "href": "lectures/week3-r-visualization-slides.html#histograms-are-very-useful",
-    "title": "Data Visualization in R",
-    "section": "Histograms are very useful!",
-    "text": "Histograms are very useful!\nHistograms show important visual information about a distribution:\n\nShape: is it symmetric, skewed, etc.?\nCenter: Where is the “typical” value?\nSpread : How variable is the data?\nOutliers: Are there unusual values?\n\n\n\n\n\n💭 Check-in\n\n\nHow does the skew of a distribution affect measures of central tendency such as the mean or median?"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#histograms-vs.-density-plots",
-    "href": "lectures/week3-r-visualization-slides.html#histograms-vs.-density-plots",
-    "title": "Data Visualization in R",
-    "section": "Histograms vs. density plots",
-    "text": "Histograms vs. density plots\n\nA density plot is a smoothed alternative to a histogram, created using kernel density estimation (KDE).\n\nA density plot can be created with geom_density.\n\nggplot(mpg, aes(x = cty)) + \n  geom_density(fill = \"steelblue\")"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#overlaying-multiple-distributions",
-    "href": "lectures/week3-r-visualization-slides.html#overlaying-multiple-distributions",
-    "title": "Data Visualization in R",
-    "section": "Overlaying multiple distributions",
-    "text": "Overlaying multiple distributions\nOne benefit of a density plot is that it’s easier to overlay multiple distributions on the same plot. The alpha parameter controls the opacity of each distribution.\n\nmpg %&gt;%\n  filter(class %in% c(\"compact\", \"suv\")) %&gt;%\n  ggplot(aes(x = cty, fill = class)) + \n  geom_density(alpha = .5) +\n  labs(title = \"City MPG: Compact vs. SUV\", fill = \"Car Type\") +\n  theme_minimal()"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#scatterplots",
-    "href": "lectures/week3-r-visualization-slides.html#scatterplots",
-    "title": "Data Visualization in R",
-    "section": "Scatterplots",
-    "text": "Scatterplots\n\nA scatterplot shows the relationship between two continuous variables, where each point represents an observation.\n\nA scatterplot can be created with geom_point.\n\nmpg %&gt;%\n  ggplot(aes(x = cty, y = hwy)) + \n  geom_point()"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#adding-layers-to-a-scatterplot",
-    "href": "lectures/week3-r-visualization-slides.html#adding-layers-to-a-scatterplot",
-    "title": "Data Visualization in R",
-    "section": "Adding layers to a scatterplot",
-    "text": "Adding layers to a scatterplot\nWe can further modify the color, size, and shape of individual dots.\n\nmpg %&gt;%\n  ggplot(aes(x = cty, y = hwy, color = class, size = cyl, shape = drv)) + \n  geom_point(alpha = .5) \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\nUse categorical variables for shape, categorical or continuous variables for color, and ordinal or continuous variables for size."
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#plotting-a-regression-line",
-    "href": "lectures/week3-r-visualization-slides.html#plotting-a-regression-line",
-    "title": "Data Visualization in R",
-    "section": "Plotting a regression line",
-    "text": "Plotting a regression line\nWe can also use geom_smooth to plot a regression line (or another non-linear function) over our scatterplot.\n(If there are multiple colors, etc., a different line will be plotted for each color.)\n\nmpg %&gt;%\n  ggplot(aes(x = cty, y = hwy)) + \n  geom_smooth(method = \"lm\") +\n  geom_point(alpha = .5)"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#bar-plots",
-    "href": "lectures/week3-r-visualization-slides.html#bar-plots",
-    "title": "Data Visualization in R",
-    "section": "Bar plots",
-    "text": "Bar plots\n\nA barplot visualizes the relationship between one continuous variable and (at least one) categorical variable.\n\nA barplot can be created with geom_bar.\n\nBy default, geom_bar will count occurrences (like a histogram for categorical variables).\nYou can also calculate values like the mean using geom_bar(stat = \"summary\").\nIf you already have values computed (e.g., a mean or count), you can use geom_col or `geom_bar(stat = “identity”)."
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#bar-plots-counts",
-    "href": "lectures/week3-r-visualization-slides.html#bar-plots-counts",
-    "title": "Data Visualization in R",
-    "section": "Bar plots: counts",
-    "text": "Bar plots: counts\nBy default, geom_bar will count the occurrences of each class.\n\nmpg %&gt;%\n  ggplot(aes(x = drv)) +\n  geom_bar() +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💭 Check-in\n\n\nCreate a barplot showing the counts of some other categorical variable in the mpg dataframe."
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#bar-plots-summaries",
-    "href": "lectures/week3-r-visualization-slides.html#bar-plots-summaries",
-    "title": "Data Visualization in R",
-    "section": "Bar plots: summaries",
-    "text": "Bar plots: summaries\nYou can also calculate summary statistics, i.e., the mean of some y variable for each level of the x variable.\nUse reorder to reorder the bars in terms of their values.\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(drv, hwy), y = hwy)) +\n  geom_bar(stat = \"summary\", fun = \"mean\") +\n  theme_minimal()"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#bar-plots-with-group_by",
-    "href": "lectures/week3-r-visualization-slides.html#bar-plots-with-group_by",
-    "title": "Data Visualization in R",
-    "section": "Bar plots with group_by",
-    "text": "Bar plots with group_by\nAlternatively, you can calculate summary statistics using group_by %&gt;% summarise, and pipe the output into a ggplot call.\n\nmpg %&gt;%\n  group_by(drv) %&gt;%\n  summarise(mean_hwy = mean(hwy)) %&gt;%\n  ggplot(aes(x = reorder(drv, mean_hwy), y = mean_hwy)) +\n  geom_bar(stat = \"identity\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💭 Check-in\n\n\nHow would you instead plot the mean cty miles per gallon?"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#error-bars-stat_summary",
-    "href": "lectures/week3-r-visualization-slides.html#error-bars-stat_summary",
-    "title": "Data Visualization in R",
-    "section": "Error bars: stat_summary",
-    "text": "Error bars: stat_summary\nOften, you want to display some measure of dispersion in addition to the mean. One approach is to use stat_summary.\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(drv, hwy), y = hwy)) +\n  geom_bar(stat = \"summary\", fun = \"mean\") +\n  stat_summary(fun.data = mean_se, geom = \"errorbar\", width = 0.2) +\n  labs(x = \"Drive Type\", y = \"Mean Highway MPG\") +\n  theme_minimal()"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#error-bars-with-group_by",
-    "href": "lectures/week3-r-visualization-slides.html#error-bars-with-group_by",
-    "title": "Data Visualization in R",
-    "section": "Error bars with group_by",
-    "text": "Error bars with group_by\nAlternatively, with the group_by method, you can use first calculate the standard error, then pipe the result into geom_errorbar.\n\nmpg %&gt;%\n  group_by(drv) %&gt;%\n  summarise(\n    mean_hwy = mean(hwy),\n    se_hwy = sd(hwy) / sqrt(n())\n  ) %&gt;%\n  ggplot(aes(x = reorder(drv, mean_hwy), y = mean_hwy)) +\n  geom_bar(stat = \"identity\") +\n  geom_errorbar(aes(ymin = mean_hwy - se_hwy, \n                    ymax = mean_hwy + se_hwy),\n                width = 0.2) +\n  labs(x = \"Drive Type\", y = \"Mean Highway MPG\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n💭 Check-in\n\n\nHow would you plot a confidence interval for two standard errors?"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#error-bars-with-group_by-1",
-    "href": "lectures/week3-r-visualization-slides.html#error-bars-with-group_by-1",
-    "title": "Data Visualization in R",
-    "section": "Error bars with group_by",
-    "text": "Error bars with group_by\nAlternatively, with the group_by method, you can use first calculate the standard error, then pipe the result into geom_errorbar.\n\n\n\n\n💭 Check-in\n\n\nHow would you plot a confidence interval for two standard errors?"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#histograms-1",
-    "href": "lectures/week3-visualization.html#histograms-1",
-    "title": "Data Visualization in R",
-    "section": "Histograms",
-    "text": "Histograms\n\nA histogram is a visualization of a single continuous, quantitative variable (e.g., income or temperature).\n\nA histogram can be created with geom_histogram.\n\n\n\n\n\n\n\nTip💭 Check-in\n\n\n\nWhat happens if you modify bins or binwidth?"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#histograms-1",
-    "href": "lectures/week3-r-visualization-slides.html#histograms-1",
-    "title": "Data Visualization in R",
-    "section": "Histograms",
-    "text": "Histograms\n\nA histogram is a visualization of a single continuous, quantitative variable (e.g., income or temperature).\n\nA histogram can be created with geom_histogram.\n\n\n\n\n💭 Check-in\n\n\nWhat happens if you modify bins or binwidth?"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#bar-plots-with-fill",
-    "href": "lectures/week3-visualization.html#bar-plots-with-fill",
-    "title": "Data Visualization in R",
-    "section": "Bar plots with fill",
-    "text": "Bar plots with fill\nYou can add further information to a barplot using the fill parameter. Use position_dodge to show the bars side by side (rather than stacked).\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(drv, hwy), y = hwy, fill = class)) +\n  geom_bar(stat = \"summary\", fun = \"mean\", position = position_dodge(width = 0.9)) +\n  stat_summary(fun.data = mean_se, \n               geom = \"errorbar\", \n               position = position_dodge(width = 0.9), \n               width = 0.2) +\n  theme_minimal()"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#boxplots-and-violin-plots",
-    "href": "lectures/week3-visualization.html#boxplots-and-violin-plots",
-    "title": "Data Visualization in R",
-    "section": "Boxplots and violin plots",
-    "text": "Boxplots and violin plots\n\nBoxplots and violin plots show more detailed information about underlying distribution for a given category.\n\n\n\nA boxplot shows the median, along with the inter-quartile range.\nA violinplot shows the full distribution as a density curve, rotated and mirrored.\nAs with barplots, you can also modify the color of each box/violin."
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#boxplots-with-geom_boxplot",
-    "href": "lectures/week3-visualization.html#boxplots-with-geom_boxplot",
-    "title": "Data Visualization in R",
-    "section": "Boxplots with geom_boxplot",
-    "text": "Boxplots with geom_boxplot\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(drv, hwy), y = hwy)) +\n  geom_boxplot() +\n  theme_minimal()"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#violin-plots-with-geom_violin",
-    "href": "lectures/week3-visualization.html#violin-plots-with-geom_violin",
-    "title": "Data Visualization in R",
-    "section": "Violin plots with geom_violin",
-    "text": "Violin plots with geom_violin\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(drv, hwy), y = hwy)) +\n  geom_violin() +\n  theme_minimal()"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#adding-styling-to-a-plot",
-    "href": "lectures/week3-visualization.html#adding-styling-to-a-plot",
-    "title": "Data Visualization in R",
-    "section": "Adding styling to a plot",
-    "text": "Adding styling to a plot\nLet’s revisit a plot we worked on earlier, with better labels and styling.\n\nmpg %&gt;%\n  ggplot(aes(x = cty, y = hwy, color = drv, size = cyl, shape = drv)) + \n  geom_point(alpha = .5) +\n  labs(x = \"City mpg\",\n       y = \"Highway mpg\",\n       size = \"Number of cylinders\",\n       color = \"Drive Train\",\n       shape = \"Drive Train\") +\n  theme_minimal() +\n  scale_color_viridis_d() +\n  theme(\n    axis.title = element_text(size = 16),\n    legend.title = element_text(size = 12),\n    legend.text = element_text(size = 10)\n  )"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#labeling-specific-points",
-    "href": "lectures/week3-visualization.html#labeling-specific-points",
-    "title": "Data Visualization in R",
-    "section": "Labeling specific points",
-    "text": "Labeling specific points\nLet’s revisit a plot we worked on earlier, with better labels and styling.\n\nmpg_labeled &lt;- mpg %&gt;%\n  filter(hwy &gt; 42) %&gt;%\n  filter(class == \"compact\")\n\nmpg %&gt;%\n  ggplot(aes(x = cty, y = hwy, color = drv, size = cyl, shape = drv)) + \n  geom_point(alpha = .5) +\n  geom_text(data = mpg_labeled, \n            aes(label = model), \n            hjust = 1.2, vjust = 0, \n            size = 4, \n            color = \"black\",\n            show.legend = FALSE) +\n  theme_minimal(base_size = 14)"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#other-plotting-packages",
-    "href": "lectures/week3-visualization.html#other-plotting-packages",
-    "title": "Data Visualization in R",
-    "section": "Other plotting packages",
-    "text": "Other plotting packages\nggplot has a ton of useful functions and geom types, and it’s probably all you “need”——but there are other options too.\n\n\nggcorrplot: gg-style correlation matrices.\nggridges: gg-style “ridge” plots (density plots)."
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#using-ggcorrplot",
-    "href": "lectures/week3-visualization.html#using-ggcorrplot",
-    "title": "Data Visualization in R",
-    "section": "Using ggcorrplot",
-    "text": "Using ggcorrplot\n\nggcorrplot is a library (and function) that visualizes a correlation matrix.\n\n\nlibrary(ggcorrplot)\n\ncor_matrix = mpg %&gt;%\n  select(hwy, cty, displ, cyl) %&gt;%\n  cor()\nggcorrplot(cor_matrix)"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#using-ggridges",
-    "href": "lectures/week3-visualization.html#using-ggridges",
-    "title": "Data Visualization in R",
-    "section": "Using ggridges",
-    "text": "Using ggridges\n\nggridges is a library for arranging density plots in a staggered fashion.\n\n\nlibrary(ggridges)\nmpg %&gt;%\n  ggplot(aes(x = hwy, y = reorder(class, hwy), fill = drv)) +\n  geom_density_ridges(alpha = .7, color = NA) +\n  theme_ridges()\n\nPicking joint bandwidth of 2.29"
-  },
-  {
-    "objectID": "lectures/week3-visualization.html#summary",
-    "href": "lectures/week3-visualization.html#summary",
-    "title": "Data Visualization in R",
-    "section": "Summary",
-    "text": "Summary\n\n\nData visualization is central to CSS.\n\nCrucial for exploring data, communicating insights, and impacting decisions.\n\nggplot is a versatile and powerful library for creating clear, elegant figures.\nR also supports a number of additional libraries for visualization.\nThe best way to learn to make visualizations is to make them!"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#bar-plots-with-fill",
-    "href": "lectures/week3-r-visualization-slides.html#bar-plots-with-fill",
-    "title": "Data Visualization in R",
-    "section": "Bar plots with fill",
-    "text": "Bar plots with fill\nYou can add further information to a barplot using the fill parameter. Use position_dodge to show the bars side by side (rather than stacked).\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(drv, hwy), y = hwy, fill = class)) +\n  geom_bar(stat = \"summary\", fun = \"mean\", position = position_dodge(width = 0.9)) +\n  stat_summary(fun.data = mean_se, \n               geom = \"errorbar\", \n               position = position_dodge(width = 0.9), \n               width = 0.2) +\n  theme_minimal()"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#boxplots-and-violin-plots",
-    "href": "lectures/week3-r-visualization-slides.html#boxplots-and-violin-plots",
-    "title": "Data Visualization in R",
-    "section": "Boxplots and violin plots",
-    "text": "Boxplots and violin plots\n\nBoxplots and violin plots show more detailed information about underlying distribution for a given category.\n\n\nA boxplot shows the median, along with the inter-quartile range.\nA violinplot shows the full distribution as a density curve, rotated and mirrored.\nAs with barplots, you can also modify the color of each box/violin."
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#boxplots-with-geom_boxplot",
-    "href": "lectures/week3-r-visualization-slides.html#boxplots-with-geom_boxplot",
-    "title": "Data Visualization in R",
-    "section": "Boxplots with geom_boxplot",
-    "text": "Boxplots with geom_boxplot\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(drv, hwy), y = hwy)) +\n  geom_boxplot() +\n  theme_minimal()"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#violin-plots-with-geom_violin",
-    "href": "lectures/week3-r-visualization-slides.html#violin-plots-with-geom_violin",
-    "title": "Data Visualization in R",
-    "section": "Violin plots with geom_violin",
-    "text": "Violin plots with geom_violin\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(drv, hwy), y = hwy)) +\n  geom_violin() +\n  theme_minimal()"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#adding-styling-to-a-plot",
-    "href": "lectures/week3-r-visualization-slides.html#adding-styling-to-a-plot",
-    "title": "Data Visualization in R",
-    "section": "Adding styling to a plot",
-    "text": "Adding styling to a plot\nLet’s revisit a plot we worked on earlier, with better labels and styling.\n\nmpg %&gt;%\n  ggplot(aes(x = cty, y = hwy, color = drv, size = cyl, shape = drv)) + \n  geom_point(alpha = .5) +\n  labs(x = \"City mpg\",\n       y = \"Highway mpg\",\n       size = \"Number of cylinders\",\n       color = \"Drive Train\",\n       shape = \"Drive Train\") +\n  theme_minimal() +\n  scale_color_viridis_d() +\n  theme(\n    axis.title = element_text(size = 16),\n    legend.title = element_text(size = 12),\n    legend.text = element_text(size = 10)\n  )"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#labeling-specific-points",
-    "href": "lectures/week3-r-visualization-slides.html#labeling-specific-points",
-    "title": "Data Visualization in R",
-    "section": "Labeling specific points",
-    "text": "Labeling specific points\nLet’s revisit a plot we worked on earlier, with better labels and styling.\n\nmpg_labeled &lt;- mpg %&gt;%\n  filter(hwy &gt; 42) %&gt;%\n  filter(class == \"compact\")\n\nmpg %&gt;%\n  ggplot(aes(x = cty, y = hwy, color = drv, size = cyl, shape = drv)) + \n  geom_point(alpha = .5) +\n  geom_text(data = mpg_labeled, \n            aes(label = model), \n            hjust = 1.2, vjust = 0, \n            size = 4, \n            color = \"black\",\n            show.legend = FALSE) +\n  theme_minimal(base_size = 14)"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#other-plotting-packages",
-    "href": "lectures/week3-r-visualization-slides.html#other-plotting-packages",
-    "title": "Data Visualization in R",
-    "section": "Other plotting packages",
-    "text": "Other plotting packages\nggplot has a ton of useful functions and geom types, and it’s probably all you “need”——but there are other options too.\n\nggcorrplot: gg-style correlation matrices.\nggridges: gg-style “ridge” plots (density plots)."
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#using-ggcorrplot",
-    "href": "lectures/week3-r-visualization-slides.html#using-ggcorrplot",
-    "title": "Data Visualization in R",
-    "section": "Using ggcorrplot",
-    "text": "Using ggcorrplot\n\nggcorrplot is a library (and function) that visualizes a correlation matrix.\n\n\nlibrary(ggcorrplot)\n\ncor_matrix = mpg %&gt;%\n  select(hwy, cty, displ, cyl) %&gt;%\n  cor()\nggcorrplot(cor_matrix)"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#using-ggridges",
-    "href": "lectures/week3-r-visualization-slides.html#using-ggridges",
-    "title": "Data Visualization in R",
-    "section": "Using ggridges",
-    "text": "Using ggridges\n\nggridges is a library for arranging density plots in a staggered fashion.\n\n\nlibrary(ggridges)\nmpg %&gt;%\n  ggplot(aes(x = hwy, y = reorder(class, hwy), fill = drv)) +\n  geom_density_ridges(alpha = .7, color = NA) +\n  theme_ridges()"
-  },
-  {
-    "objectID": "lectures/week3-r-visualization-slides.html#summary",
-    "href": "lectures/week3-r-visualization-slides.html#summary",
-    "title": "Data Visualization in R",
-    "section": "Summary",
-    "text": "Summary\n\nData visualization is central to CSS.\n\nCrucial for exploring data, communicating insights, and impacting decisions.\n\nggplot is a versatile and powerful library for creating clear, elegant figures.\nR also supports a number of additional libraries for visualization.\nThe best way to learn to make visualizations is to make them!"
   }
 ]
