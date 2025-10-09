@@ -37,6 +37,8 @@ website:
         menu:
           - text: "Week 2: Wrangling"
             href: hands_on/week2.qmd
+          - text: "Week 3: Visualization"
+            href: hands_on/week3.qmd
       - text: "Resources"
         menu:
           - text: "Readings"

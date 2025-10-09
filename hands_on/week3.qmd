@@ -1,0 +1,80 @@
+---
+title: "Week 3: Hands-on data visualization"
+---
+
+## Introduction
+
+The goal of this hands-on exercise is to familiarize you with **data visualization**, particularly with an emphasis on *exploring a dataset* and creating clear visualizations that *communicate* basic insights.
+
+We'll be working with the **CLEAR Corpus**, a dataset of text excerpts rated for their *readability* (Crossley et al., 2021).
+
+## Load dataset
+
+To get started, let's load the dataset. 
+
+
+```{r}
+library(tidyverse)
+library(ggcorrplot)
+
+### Lancaster norms
+df_clear <- read_csv("https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/viz/CLEAR_corpus_final.csv")
+```
+
+## Exercise 1: Understand the structure of your data
+
+As always, let's try to understand our data first. 
+
+Use functions like `nrow`, `colnames`, `head`, and more to understand the structure and content of our dataset.
+
+Try to answer the following questions:
+
+- What does each column mean? (**Hint**: some of these columns represent *automated reading indices*, and `BT_easiness` is the normalized human readability judgments.)
+- Would you say the dataset is in wide or long format?  
+- Any missing values? What should you do about them?
+
+## Exercise 2: Which metrics correlate, and how much?
+
+Focusing on the various *metrics* of readability (E.g., Flesch-Kincaid, etc.) as well as the metrics reflecting passage length (e.g., `Paragraphs`, `Sentence Count`), create a *correlation matrix* and plot it with `ggcorrplot`. Which metrics correlate the most with `BT_easiness` (the "gold standard")?
+
+(**Note**: Some of the metrics may be *negatively correlated*, because they capture reading *difficulty* as opposed to reading *ease*; if it helps, you can always take the absolute value of the correlations when determining which one is strongest.)
+
+
+## Exercise 3: Create a scatterplot
+
+Choose 1-2 of the metrics and create a *scatterplot* showing how it relates to `BT_easiness`. Does this roughly match what you found in the correlation exercise above?
+
+## Exercise 4: Modify your scatterplot
+
+Now, add a new *layer* to your scatterplot. That could be a categorical factor (e.g., `Categ`) or another continuous metric: you can decide! What did this layer reveal to you?
+
+
+## Exercise 5: Are certain categories more readable?
+
+- Now create a plot showing whether `BT_easiness` varies by `Categ` directly. You can choose to use either a barplot (with standard errors) or a violin plot (or barplot).  
+- Then put some *numbers* to it: use `group_by %>% summarise` to get the mean `BT_easiness` by `Categ`. 
+
+
+
+## Exercise 6: Are passages from different locations more readable?
+
+The corpus also contains information about *where* in a passage text was excerpted from (e.g., the beginning or the end). Repeat exercise 5 above but using `Location` instead of `Categ`. What do you find? (**Note**: Make sure to `reorder` your plot in terms of increasing or decreasing `BT_easiness`).
+
+Now create a plot showing whether `BT_easiness` varies by `Categ` directly. You can choose to use either a barplot (with standard errors) or a violin plot (or barplot).
+
+
+## Exercise 7: What about `Sub Cat`? 
+
+Some of the excerpts also contain information about the *sub category* they are drawn from. Repeat exercise 5 again, this time for `Sub Cat`. 
+
+- Does anything stick out to you? 
+- What might be a limitation to this analysis? (**Hint**: You might want to *count* how many observations there are per `Sub Cat`.)
+
+
+## Exercise 8: Most and least readable texts?
+
+Finally, use `slice_max` and `slice_min` to find the *most* and *least* readable texts in the corpus. Do you agree with this assessment?
+
+
+
+
