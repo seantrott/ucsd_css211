@@ -301,6 +301,27 @@
     "text": "Welcome to CSS 211!"
   },
   {
+    "objectID": "lectures/week5-regression_advanced.html",
+    "href": "lectures/week5-regression_advanced.html",
+    "title": "Regression: Advanced Issues",
+    "section": "",
+    "text": "Multiple regression: beyond single predictors.\n\nModeling interaction effects.\n\nAdvanced topics in regression:\n\nUnderstanding standard errors and coefficient sampling distributions.\nHeteroscedasticity.\nMulticollinearity."
+  },
+  {
+    "objectID": "lectures/week5-regression_advanced.html#goals-of-the-lecture",
+    "href": "lectures/week5-regression_advanced.html#goals-of-the-lecture",
+    "title": "Regression: Advanced Issues",
+    "section": "",
+    "text": "Multiple regression: beyond single predictors.\n\nModeling interaction effects.\n\nAdvanced topics in regression:\n\nUnderstanding standard errors and coefficient sampling distributions.\nHeteroscedasticity.\nMulticollinearity."
+  },
+  {
+    "objectID": "lectures/week5-r-regression-slides.html#goals-of-the-lecture",
+    "href": "lectures/week5-r-regression-slides.html#goals-of-the-lecture",
+    "title": "Regression: Advanced Issues",
+    "section": "Goals of the lecture",
+    "text": "Goals of the lecture\n\nMultiple regression: beyond single predictors.\n\nModeling interaction effects.\n\nAdvanced topics in regression:\n\nUnderstanding standard errors and coefficient sampling distributions.\nHeteroscedasticity.\nMulticollinearity."
+  },
+  {
     "objectID": "lectures/week3-visualization.html",
     "href": "lectures/week3-visualization.html",
     "title": "Data Visualization in R",
@@ -973,6 +994,27 @@
     "text": "Exercise 6: Free exploration!\nTry to come up with at least one additional question to ask about your data.\n\nIf necessary, that could include merging with additional datasets (e.g., the AoA dataset used in class).\n\nAlternatively, you could try to build a regression model using lm to model the relationships between the variables more directly."
   },
   {
+    "objectID": "labs/lab3.html",
+    "href": "labs/lab3.html",
+    "title": "Lab 3: Regression in R",
+    "section": "",
+    "text": "Name: ___________________________\nDate: ___________________________"
+  },
+  {
+    "objectID": "labs/lab3.html#submission-instructions",
+    "href": "labs/lab3.html#submission-instructions",
+    "title": "Lab 3: Regression in R",
+    "section": "Submission Instructions",
+    "text": "Submission Instructions\n\nMake sure all your code chunks run without errors\nSave this file with your name in the filename (e.g., “Lab1_YourLastName.qmd”)\nRender the document to HTML\nSubmit both the .qmd file and the rendered HTML file to Canvas"
+  },
+  {
+    "objectID": "readings.html",
+    "href": "readings.html",
+    "title": "Resources",
+    "section": "",
+    "text": "CSS 211 has no required readings. However, students might benefit from exploring additional content on course topics. The course schedule lists suggested readings for each week; here, I include those readings, as well as additional resources students might benefit from, organized by topic.\n\nGeneral Resources\n\nHadley Wickham’s R for Data Science(R4DS).\nIntroduction to Statistical Learning (James et al.)\n\n\n\nData wrangling and visualization.\n\nWickham, H. (2014). “Tidy data” (Journal of Statistical Software).\nWickham, H. & Grolemund, G. (2017). R for Data Science, [Chapters 5, 10-12](R4DS, data wrangling.\nHealy, K. (2018). Data Visualization, Chapters 1-3\n\n\n\nRegression\n\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 3\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 4.1-4.3\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 6.1-6.2\n\n\n\nMixed Effects Models\n\nWinter, B. (2013). “Linear models and linear mixed effects models in R” (tutorial)\nGelman, A. & Hill, J. (2006). Data Analysis Using Regression, Chapters 11-12\nBates, D. et al. (2015). “Fitting linear mixed-effects models using lme4” (Journal of Statistical Software)\n\n\n\nResampling Methods\n\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 5\n\n\n\nBest Practices and Research Design\n\nGelman, A. & Loken, E. (2014). “The garden of forking paths: Why multiple comparisons can be a problem” (American Scientist)"
+  },
+  {
     "objectID": "labs/lab1.html",
     "href": "labs/lab1.html",
     "title": "Lab 1: Introduction to R",
@@ -1019,7 +1061,7 @@
     "href": "labs/lab1.html#exercise-4-creating-data",
     "title": "Lab 1: Introduction to R",
     "section": "Exercise 4: Creating Data",
-    "text": "Exercise 4: Creating Data\nLet’s create some sample data to work with:\n\n# Create a vector of 50 random numbers from a normal distribution\n# with mean = 100 and standard deviation = 15\nrandom_data &lt;- rnorm(50, mean = 100, sd = 15)\n\n# Look at the first 10 values\nhead(random_data, 10)\n\n [1]  87.04577 103.73971  82.22171  90.86396  96.40873  96.65485  70.17165\n [8] 129.65739  97.98306  80.04394\n\n\n\n# Calculate summary statistics for this data\nmean(random_data)\n\n[1] 99.23982\n\nsd(random_data)\n\n[1] 14.37646\n\nmin(random_data)\n\n[1] 70.17165\n\nmax(random_data)\n\n[1] 133.1301\n\n\nYour turn: Create a vector of 30 random numbers with mean = 50 and sd = 5. Calculate its summary statistics.\n\n# Write your code here:"
+    "text": "Exercise 4: Creating Data\nLet’s create some sample data to work with:\n\n# Create a vector of 50 random numbers from a normal distribution\n# with mean = 100 and standard deviation = 15\nrandom_data &lt;- rnorm(50, mean = 100, sd = 15)\n\n# Look at the first 10 values\nhead(random_data, 10)\n\n [1] 113.95680  97.16662  69.45752 118.09571  79.83757  78.15231  92.65896\n [8]  79.97319  96.00045  79.30504\n\n\n\n# Calculate summary statistics for this data\nmean(random_data)\n\n[1] 96.77891\n\nsd(random_data)\n\n[1] 14.78474\n\nmin(random_data)\n\n[1] 69.45752\n\nmax(random_data)\n\n[1] 127.2576\n\n\nYour turn: Create a vector of 30 random numbers with mean = 50 and sd = 5. Calculate its summary statistics.\n\n# Write your code here:"
   },
   {
     "objectID": "labs/lab1.html#exercise-5-basic-plotting",
@@ -1034,13 +1076,6 @@
     "title": "Lab 1: Introduction to R",
     "section": "Submission Instructions",
     "text": "Submission Instructions\n\nMake sure all your code chunks run without errors\nSave this file with your name in the filename (e.g., “Lab1_YourLastName.qmd”)\nRender the document to HTML\nSubmit both the .qmd file and the rendered HTML file to Canvas"
-  },
-  {
-    "objectID": "readings.html",
-    "href": "readings.html",
-    "title": "Resources",
-    "section": "",
-    "text": "CSS 211 has no required readings. However, students might benefit from exploring additional content on course topics. The course schedule lists suggested readings for each week; here, I include those readings, as well as additional resources students might benefit from, organized by topic.\n\nGeneral Resources\n\nHadley Wickham’s R for Data Science(R4DS).\nIntroduction to Statistical Learning (James et al.)\n\n\n\nData wrangling and visualization.\n\nWickham, H. (2014). “Tidy data” (Journal of Statistical Software).\nWickham, H. & Grolemund, G. (2017). R for Data Science, [Chapters 5, 10-12](R4DS, data wrangling.\nHealy, K. (2018). Data Visualization, Chapters 1-3\n\n\n\nRegression\n\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 3\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 4.1-4.3\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 6.1-6.2\n\n\n\nMixed Effects Models\n\nWinter, B. (2013). “Linear models and linear mixed effects models in R” (tutorial)\nGelman, A. & Hill, J. (2006). Data Analysis Using Regression, Chapters 11-12\nBates, D. et al. (2015). “Fitting linear mixed-effects models using lme4” (Journal of Statistical Software)\n\n\n\nResampling Methods\n\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 5\n\n\n\nBest Practices and Research Design\n\nGelman, A. & Loken, E. (2014). “The garden of forking paths: Why multiple comparisons can be a problem” (American Scientist)"
   },
   {
     "objectID": "labs/lab2.html",
@@ -1103,14 +1138,77 @@
     "href": "hands_on/week3.html",
     "title": "Week 3: Hands-on data visualization",
     "section": "",
-    "text": "The goal of this hands-on exercise is to familiarize you with data visualization, particularly with an emphasis on exploring a dataset and creating clear visualizations that communicate basic insights.\nExamples:\n\nLancaster sensorimotor norms?\n\nmaybe merge with concreteness dataset first\nthen make scatterplots, bar plots by POS, etc.\nmake correlation matrix"
+    "text": "The goal of this hands-on exercise is to familiarize you with data visualization, particularly with an emphasis on exploring a dataset and creating clear visualizations that communicate basic insights.\nWe’ll be working with the CLEAR Corpus, a dataset of text excerpts rated for their readability (Crossley et al., 2021)."
   },
   {
     "objectID": "hands_on/week3.html#introduction",
     "href": "hands_on/week3.html#introduction",
     "title": "Week 3: Hands-on data visualization",
     "section": "",
-    "text": "The goal of this hands-on exercise is to familiarize you with data visualization, particularly with an emphasis on exploring a dataset and creating clear visualizations that communicate basic insights.\nExamples:\n\nLancaster sensorimotor norms?\n\nmaybe merge with concreteness dataset first\nthen make scatterplots, bar plots by POS, etc.\nmake correlation matrix"
+    "text": "The goal of this hands-on exercise is to familiarize you with data visualization, particularly with an emphasis on exploring a dataset and creating clear visualizations that communicate basic insights.\nWe’ll be working with the CLEAR Corpus, a dataset of text excerpts rated for their readability (Crossley et al., 2021)."
+  },
+  {
+    "objectID": "hands_on/week3.html#load-dataset",
+    "href": "hands_on/week3.html#load-dataset",
+    "title": "Week 3: Hands-on data visualization",
+    "section": "Load dataset",
+    "text": "Load dataset\nTo get started, let’s load the dataset.\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(ggcorrplot)\n\n### Lancaster norms\ndf_clear &lt;- read_csv(\"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/viz/CLEAR_corpus_final.csv\")\n\nRows: 4724 Columns: 28\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (11): Author, Title, Anthology, URL, Categ, Sub Cat, Lexile Band, Locati...\ndbl (17): ID, Pub Year, MPAA #Max, MPAA# Avg, Google WC, Sentence Count, Par...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
+  },
+  {
+    "objectID": "hands_on/week3.html#exercise-1-understand-the-structure-of-your-data",
+    "href": "hands_on/week3.html#exercise-1-understand-the-structure-of-your-data",
+    "title": "Week 3: Hands-on data visualization",
+    "section": "Exercise 1: Understand the structure of your data",
+    "text": "Exercise 1: Understand the structure of your data\nAs always, let’s try to understand our data first.\nUse functions like nrow, colnames, head, and more to understand the structure and content of our dataset.\nTry to answer the following questions:\n\nWhat does each column mean? (Hint: some of these columns represent automated reading indices, and BT_easiness is the normalized human readability judgments.)\nWould you say the dataset is in wide or long format?\n\nAny missing values? What should you do about them?"
+  },
+  {
+    "objectID": "hands_on/week3.html#exercise-2-which-metrics-correlate-and-how-much",
+    "href": "hands_on/week3.html#exercise-2-which-metrics-correlate-and-how-much",
+    "title": "Week 3: Hands-on data visualization",
+    "section": "Exercise 2: Which metrics correlate, and how much?",
+    "text": "Exercise 2: Which metrics correlate, and how much?\nFocusing on the various metrics of readability (E.g., Flesch-Kincaid, etc.) as well as the metrics reflecting passage length (e.g., Paragraphs, Sentence Count), create a correlation matrix and plot it with ggcorrplot. Which metrics correlate the most with BT_easiness (the “gold standard”)?\n(Note: Some of the metrics may be negatively correlated, because they capture reading difficulty as opposed to reading ease; if it helps, you can always take the absolute value of the correlations when determining which one is strongest.)"
+  },
+  {
+    "objectID": "hands_on/week3.html#exercise-3-create-a-scatterplot",
+    "href": "hands_on/week3.html#exercise-3-create-a-scatterplot",
+    "title": "Week 3: Hands-on data visualization",
+    "section": "Exercise 3: Create a scatterplot",
+    "text": "Exercise 3: Create a scatterplot\nChoose 1-2 of the metrics and create a scatterplot showing how it relates to BT_easiness. Does this roughly match what you found in the correlation exercise above?"
+  },
+  {
+    "objectID": "hands_on/week3.html#exercise-4-modify-your-scatterplot",
+    "href": "hands_on/week3.html#exercise-4-modify-your-scatterplot",
+    "title": "Week 3: Hands-on data visualization",
+    "section": "Exercise 4: Modify your scatterplot",
+    "text": "Exercise 4: Modify your scatterplot\nNow, add a new layer to your scatterplot. That could be a categorical factor (e.g., Categ) or another continuous metric: you can decide! What did this layer reveal to you?"
+  },
+  {
+    "objectID": "hands_on/week3.html#exercise-5-are-certain-categories-more-readable",
+    "href": "hands_on/week3.html#exercise-5-are-certain-categories-more-readable",
+    "title": "Week 3: Hands-on data visualization",
+    "section": "Exercise 5: Are certain categories more readable?",
+    "text": "Exercise 5: Are certain categories more readable?\n\nNow create a plot showing whether BT_easiness varies by Categ directly. You can choose to use either a barplot (with standard errors) or a violin plot (or barplot).\n\nThen put some numbers to it: use group_by %&gt;% summarise to get the mean BT_easiness by Categ."
+  },
+  {
+    "objectID": "hands_on/week3.html#exercise-6-are-passages-from-different-locations-more-readable",
+    "href": "hands_on/week3.html#exercise-6-are-passages-from-different-locations-more-readable",
+    "title": "Week 3: Hands-on data visualization",
+    "section": "Exercise 6: Are passages from different locations more readable?",
+    "text": "Exercise 6: Are passages from different locations more readable?\nThe corpus also contains information about where in a passage text was excerpted from (e.g., the beginning or the end). Repeat exercise 5 above but using Location instead of Categ. What do you find? (Note: Make sure to reorder your plot in terms of increasing or decreasing BT_easiness).\nNow create a plot showing whether BT_easiness varies by Categ directly. You can choose to use either a barplot (with standard errors) or a violin plot (or barplot)."
+  },
+  {
+    "objectID": "hands_on/week3.html#exercise-7-what-about-sub-cat",
+    "href": "hands_on/week3.html#exercise-7-what-about-sub-cat",
+    "title": "Week 3: Hands-on data visualization",
+    "section": "Exercise 7: What about Sub Cat?",
+    "text": "Exercise 7: What about Sub Cat?\nSome of the excerpts also contain information about the sub category they are drawn from. Repeat exercise 5 again, this time for Sub Cat.\n\nDoes anything stick out to you?\nWhat might be a limitation to this analysis? (Hint: You might want to count how many observations there are per Sub Cat.)"
+  },
+  {
+    "objectID": "hands_on/week3.html#exercise-8-most-and-least-readable-texts",
+    "href": "hands_on/week3.html#exercise-8-most-and-least-readable-texts",
+    "title": "Week 3: Hands-on data visualization",
+    "section": "Exercise 8: Most and least readable texts?",
+    "text": "Exercise 8: Most and least readable texts?\nFinally, use slice_max and slice_min to find the most and least readable texts in the corpus. Do you agree with this assessment?"
   },
   {
     "objectID": "index.html",
@@ -1523,7 +1621,7 @@
     "href": "lectures/week1-r-intro-slides.html#simulating-data",
     "title": "Introduction to R",
     "section": "Simulating data",
-    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8227182"
+    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8326028"
   },
   {
     "objectID": "lectures/week1-r-intro-slides.html#a-conceptual-preview-of-the-tidyverse",
@@ -1712,7 +1810,7 @@
     "href": "lectures/week1-r-intro.html#simulating-data",
     "title": "Introduction to R",
     "section": "Simulating data",
-    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\n\n\n\n\n\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8179102"
+    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\n\n\n\n\n\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8660277"
   },
   {
     "objectID": "lectures/week1-r-intro.html#a-conceptual-preview-of-the-tidyverse",
@@ -1727,6 +1825,251 @@
     "title": "Introduction to R",
     "section": "Lecture wrap-up",
     "text": "Lecture wrap-up\nThis course is not primarily about programming in R, but programming in R is a foundational skill for other parts of this course.\nThis lecture (and accompanying lab) is intended to give you more comfort with the following concepts:\n\n\nWorking with variables and different types of data.\nCreating and working with vectors.\n\nSimple plotting.\nWorking with data.frame objects."
+  },
+  {
+    "objectID": "lectures/week4-r-regression-slides.html#goals-of-the-lecture",
+    "href": "lectures/week4-r-regression-slides.html#goals-of-the-lecture",
+    "title": "Linear regression in R",
+    "section": "Goals of the lecture",
+    "text": "Goals of the lecture\n\nFoundations of statistical modeling.\nBasic goals and assumptions of univariate linear regression.\n\nMeasuring error.\n\nLinear regression in R with lm.\n\nInterpreting lm model outputs: coefficients, p-values, and \\(R^2\\)."
+  },
+  {
+    "objectID": "lectures/week4-r-regression-slides.html#part-1-modeling",
+    "href": "lectures/week4-r-regression-slides.html#part-1-modeling",
+    "title": "Linear regression in R",
+    "section": "Part 1: Modeling",
+    "text": "Part 1: Modeling\nWhat are “models”, and why should we build them?"
+  },
+  {
+    "objectID": "lectures/week4-r-regression-slides.html#from-descriptions-to-models",
+    "href": "lectures/week4-r-regression-slides.html#from-descriptions-to-models",
+    "title": "Linear regression in R",
+    "section": "From descriptions to models",
+    "text": "From descriptions to models\n\nA statistical model is a mathematical model representing a data-generating process.\n\n\nSo far, we’ve focused on describing and visualizing data.\nBut often, we want to model our data.\n\nTypically involves learning some function mapping \\(X\\) to \\(Y\\).\n\nAll models are wrong, but some are useful."
+  },
+  {
+    "objectID": "lectures/week4-r-regression-slides.html#why-models",
+    "href": "lectures/week4-r-regression-slides.html#why-models",
+    "title": "Linear regression in R",
+    "section": "Why models?",
+    "text": "Why models?\n\nStatistical models help us understand our data, and also predict new data.\n\n\nPrediction: Try to predict/estimate unseen values of \\(Y\\), given \\(X\\).\nInference: Try to understand how and why \\(X\\) relates to \\(Y\\), test hypotheses, and more.\n\n\n\n\n\nNote\n\n\nBoth serve a useful function, and both are compatible! In general, models can help you think more clearly about your data."
+  },
+  {
+    "objectID": "lectures/week4-r-regression-slides.html#models-encode-functions",
+    "href": "lectures/week4-r-regression-slides.html#models-encode-functions",
+    "title": "Linear regression in R",
+    "section": "Models encode functions",
+    "text": "Models encode functions\n\nA statistical model often represents a function mapping from \\(X\\) (inputs) to \\(Y\\) (outputs).\n\n\\(Y = \\beta X + \\epsilon\\)\n\n\\(Y\\): What we want to predict.\n\\(X\\): The features we’re using to predict \\(Y\\).\n\\(\\beta\\): The coefficients (or weights) mapping \\(X\\) to \\(Y\\).\n\\(\\epsilon\\): Residual variance or “error”.\n\n\n\n\n\n💭 Check-in\n\n\nThink of a research question from your domain. What would the \\(X\\) and \\(Y\\) be, if it was “translated” into a statistical model?"
+  },
+  {
+    "objectID": "lectures/week4-r-regression-slides.html#models-arent-perfect",
+    "href": "lectures/week4-r-regression-slides.html#models-arent-perfect",
+    "title": "Linear regression in R",
+    "section": "Models aren’t perfect",
+    "text": "Models aren’t perfect\n\nNo model is perfect; all models have some amount of prediction error, typically called residuals or error."
+  },
+  {
+    "objectID": "lectures/week4-r-regression-slides.html#models-have-trade-offs",
+    "href": "lectures/week4-r-regression-slides.html#models-have-trade-offs",
+    "title": "Linear regression in R",
+    "section": "Models have trade-offs",
+    "text": "Models have trade-offs\n\nIn general, there is often a trade-off between the flexibility of a model and the interpretability of that model.\n\n\nMore flexible models can learn more complex functions/relationships, but they are often harder to interpret.\n\nThey’re also more likely to **overfitt*.\n\nLess flexible models (e.g., linear regression) have higher bias, but are often easier to interpret, and less likely to overfit."
+  },
+  {
+    "objectID": "lectures/week4-r-regression-slides.html#part-2-univariate-linear-regression",
+    "href": "lectures/week4-r-regression-slides.html#part-2-univariate-linear-regression",
+    "title": "Linear regression in R",
+    "section": "Part 2: Univariate linear regression",
+    "text": "Part 2: Univariate linear regression\nLinear equation, basic premise, key assumptions."
+  },
+  {
+    "objectID": "lectures/week4-r-regression-slides.html#linear-regression-basics",
+    "href": "lectures/week4-r-regression-slides.html#linear-regression-basics",
+    "title": "Linear regression in R",
+    "section": "Linear regression: basics",
+    "text": "Linear regression: basics\n\nThe goal of linear regression is to find the line of best fit between some variable(s) \\(X\\) and the continuous dependent variable \\(Y\\).\n\n\nAssuming a linear relationship between \\(X\\) and \\(Y\\)…\n…find parameters \\(\\beta\\) that minimize prediction error.\nAllows for many predictors, but we’ll start with univariate regression: a *single predictor (variable)."
+  },
+  {
+    "objectID": "lectures/week4-r-regression-slides.html#the-line-of-best-fit",
+    "href": "lectures/week4-r-regression-slides.html#the-line-of-best-fit",
+    "title": "Linear regression in R",
+    "section": "The line of best fit",
+    "text": "The line of best fit\nGiven some bivariate data, there are many possible lines we could draw. Each line is defined by the linear equation:\n\\(Y = \\beta_1 X_1 + \\beta_0\\)\n\n\\(\\beta_0\\): Intercept.\n\\(\\beta_1\\): Slope for \\(X_1\\)."
+  },
+  {
+    "objectID": "lectures/week4-r-regression-slides.html#the-best-fitting-line-pt.-1",
+    "href": "lectures/week4-r-regression-slides.html#the-best-fitting-line-pt.-1",
+    "title": "Linear regression in R",
+    "section": "The best-fitting line (pt. 1)",
+    "text": "The best-fitting line (pt. 1)\nTo illustrate this, let’s simulate some data:\n\nset.seed(123)\nn &lt;- 50\nx &lt;- rnorm(n, mean = 10, sd = 2)\ny &lt;- 3 + 0.5 * x + rnorm(n, mean = 0, sd = 1.5)\ndf &lt;- data.frame(x = x, y = y)\n# Create the plot\nggplot(df, aes(x = x, y = y)) +\n  # Add data points\n  geom_point(color = \"steelblue\", size = 3, alpha = 0.7) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "lectures/week4-r-regression-slides.html#the-best-fitting-line-pt.-2",
+    "href": "lectures/week4-r-regression-slides.html#the-best-fitting-line-pt.-2",
+    "title": "Linear regression in R",
+    "section": "The best-fitting line (pt. 2)",
+    "text": "The best-fitting line (pt. 2)\nNow let’s plot different lines with the same slope but different intercepts.\n\n# Create the plot\nggplot(df, aes(x = x, y = y)) +\n  # Add several \"possible\" lines\n  geom_abline(intercept = 2, slope = 0.5, color = \"gray60\", linetype = \"dashed\", linewidth = 1) +\n  geom_abline(intercept = 3, slope = 0.5, color = \"gray60\", linetype = \"dashed\", linewidth = 1) +\n  geom_abline(intercept = 4, slope = 0.5, color = \"gray60\", linetype = \"dashed\", linewidth = 1) +\n  # Add data points\n  geom_point(color = \"steelblue\", size = 3, alpha = 0.7) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "lectures/week4-r-regression-slides.html#the-best-fitting-line-pt.-3",
+    "href": "lectures/week4-r-regression-slides.html#the-best-fitting-line-pt.-3",
+    "title": "Linear regression in R",
+    "section": "The best-fitting line (pt. 3)",
+    "text": "The best-fitting line (pt. 3)\nWe can also try the same intercept but different slopes.\n\n# Create the plot\nggplot(df, aes(x = x, y = y)) +\n  # Add several \"possible\" lines\n  geom_abline(intercept = 3, slope = 0.75, color = \"gray60\", linetype = \"dashed\", linewidth = 1) +\n  geom_abline(intercept = 3, slope = 0.5, color = \"gray60\", linetype = \"dashed\", linewidth = 1) +\n  geom_abline(intercept = 3, slope = 0.25, color = \"gray60\", linetype = \"dashed\", linewidth = 1) +\n  # Add data points\n  geom_point(color = \"steelblue\", size = 3, alpha = 0.7) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "lectures/week4-r-regression-slides.html#some-lines-are-better-than-others",
+    "href": "lectures/week4-r-regression-slides.html#some-lines-are-better-than-others",
+    "title": "Linear regression in R",
+    "section": "Some lines are better than others",
+    "text": "Some lines are better than others\n\nThe line of best fit minimizes the residual error, i.e., the difference between the predictions (the line) and the actual values.\n\n\\(RSS = \\sum_{i=1}^{N} (\\hat{y_i} - y_i^2)\\)\n\nFor each data point \\(i\\), subtract the actual value \\(y_i\\) from the predicted value \\(\\hat{y_i}\\).\nThen, square that difference.\nThen, sum all those squared differences.\n\n\n\n\n\nTip\n\n\nIntuition: A “better” line is one that has smaller differences between the predicted and actual values."
+  },
+  {
+    "objectID": "lectures/week4-r-regression-slides.html#mse-mean-squared-error",
+    "href": "lectures/week4-r-regression-slides.html#mse-mean-squared-error",
+    "title": "Linear regression in R",
+    "section": "MSE: Mean-squared error",
+    "text": "MSE: Mean-squared error\n\nThe mean-squared error (MSE) is the average squared error (as opposed to the sum).\n\n\nCalculate \\(RSS\\).\nThen, divide by \\(N\\).\nNote that RMSE is the root of MSE."
+  },
+  {
+    "objectID": "lectures/week4-r-regression-slides.html#calculating-mse-for-a-line",
+    "href": "lectures/week4-r-regression-slides.html#calculating-mse-for-a-line",
+    "title": "Linear regression in R",
+    "section": "Calculating MSE for a line",
+    "text": "Calculating MSE for a line\nWe can compare the MSE for two different lines for the same data.\n\ny_pred1 = x * 1.5 + 2 ### Predictions from slope = 1.5 and intercept = 2\ny_pred2 = x * .5 + 3 ### Predictions from slope = .5 and intercept = 3\n\nmse_1 = sum((y_pred1 - y)**2)/length(y_pred1)\nmse_2 = sum((y_pred2 - y)**2)/length(y_pred2)\nprint(mse_1)\n\n\n\n[1] 83.65316\n\nprint(mse_2)\n\n[1] 1.855965\n\n\nNext:\n\nline of best fit; many possible lines\nlinear equation\nMSE as a measure of the best-fitting line\nKey assumptions"
+  },
+  {
+    "objectID": "lectures/week4-r-regression-slides.html#part-3-linear-regression-in-r",
+    "href": "lectures/week4-r-regression-slides.html#part-3-linear-regression-in-r",
+    "title": "Linear regression in R",
+    "section": "Part 3: Linear regression in R",
+    "text": "Part 3: Linear regression in R\nUsing and interpreting fit lm models, using broom.\n(Briefly touch on interpreting p-values and SEs for coefficients.)\n(Categorical predictors)\n(Interpreting lm model outputs: coefficients, p-values, and MSE + \\(R^2\\).)\nDatasets:\n\nincome and education.\ncongruent/incongruent RT (categorical)."
+  },
+  {
+    "objectID": "lectures/week4-regression.html",
+    "href": "lectures/week4-regression.html",
+    "title": "Linear regression in R",
+    "section": "",
+    "text": "Foundations of statistical modeling.\nBasic goals and assumptions of univariate linear regression.\n\nMeasuring error.\n\nLinear regression in R with lm.\n\nInterpreting lm model outputs: coefficients, p-values, and \\(R^2\\).\n\n\n\n\n### Loading the tidyverse\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
+  },
+  {
+    "objectID": "lectures/week4-regression.html#goals-of-the-lecture",
+    "href": "lectures/week4-regression.html#goals-of-the-lecture",
+    "title": "Linear regression in R",
+    "section": "",
+    "text": "Foundations of statistical modeling.\nBasic goals and assumptions of univariate linear regression.\n\nMeasuring error.\n\nLinear regression in R with lm.\n\nInterpreting lm model outputs: coefficients, p-values, and \\(R^2\\).\n\n\n\n\n### Loading the tidyverse\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
+  },
+  {
+    "objectID": "lectures/week4-regression.html#part-1-modeling",
+    "href": "lectures/week4-regression.html#part-1-modeling",
+    "title": "Linear regression in R",
+    "section": "Part 1: Modeling",
+    "text": "Part 1: Modeling\nWhat are “models”, and why should we build them?"
+  },
+  {
+    "objectID": "lectures/week4-regression.html#from-descriptions-to-models",
+    "href": "lectures/week4-regression.html#from-descriptions-to-models",
+    "title": "Linear regression in R",
+    "section": "From descriptions to models",
+    "text": "From descriptions to models\n\nA statistical model is a mathematical model representing a data-generating process.\n\n\n\nSo far, we’ve focused on describing and visualizing data.\nBut often, we want to model our data.\n\nTypically involves learning some function mapping \\(X\\) to \\(Y\\).\n\nAll models are wrong, but some are useful."
+  },
+  {
+    "objectID": "lectures/week4-regression.html#why-models",
+    "href": "lectures/week4-regression.html#why-models",
+    "title": "Linear regression in R",
+    "section": "Why models?",
+    "text": "Why models?\n\nStatistical models help us understand our data, and also predict new data.\n\n\n\nPrediction: Try to predict/estimate unseen values of \\(Y\\), given \\(X\\).\nInference: Try to understand how and why \\(X\\) relates to \\(Y\\), test hypotheses, and more.\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nBoth serve a useful function, and both are compatible! In general, models can help you think more clearly about your data."
+  },
+  {
+    "objectID": "lectures/week4-regression.html#models-encode-functions",
+    "href": "lectures/week4-regression.html#models-encode-functions",
+    "title": "Linear regression in R",
+    "section": "Models encode functions",
+    "text": "Models encode functions\n\nA statistical model often represents a function mapping from \\(X\\) (inputs) to \\(Y\\) (outputs).\n\n\\(Y = \\beta X + \\epsilon\\)\n\n\n\\(Y\\): What we want to predict.\n\\(X\\): The features we’re using to predict \\(Y\\).\n\\(\\beta\\): The coefficients (or weights) mapping \\(X\\) to \\(Y\\).\n\\(\\epsilon\\): Residual variance or “error”.\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nThink of a research question from your domain. What would the \\(X\\) and \\(Y\\) be, if it was “translated” into a statistical model?"
+  },
+  {
+    "objectID": "lectures/week4-regression.html#models-arent-perfect",
+    "href": "lectures/week4-regression.html#models-arent-perfect",
+    "title": "Linear regression in R",
+    "section": "Models aren’t perfect",
+    "text": "Models aren’t perfect\n\nNo model is perfect; all models have some amount of prediction error, typically called residuals or error."
+  },
+  {
+    "objectID": "lectures/week4-regression.html#models-have-trade-offs",
+    "href": "lectures/week4-regression.html#models-have-trade-offs",
+    "title": "Linear regression in R",
+    "section": "Models have trade-offs",
+    "text": "Models have trade-offs\n\nIn general, there is often a trade-off between the flexibility of a model and the interpretability of that model.\n\n\n\nMore flexible models can learn more complex functions/relationships, but they are often harder to interpret.\n\nThey’re also more likely to **overfitt*.\n\nLess flexible models (e.g., linear regression) have higher bias, but are often easier to interpret, and less likely to overfit."
+  },
+  {
+    "objectID": "lectures/week4-regression.html#part-2-univariate-linear-regression",
+    "href": "lectures/week4-regression.html#part-2-univariate-linear-regression",
+    "title": "Linear regression in R",
+    "section": "Part 2: Univariate linear regression",
+    "text": "Part 2: Univariate linear regression\nLinear equation, basic premise, key assumptions."
+  },
+  {
+    "objectID": "lectures/week4-regression.html#linear-regression-basics",
+    "href": "lectures/week4-regression.html#linear-regression-basics",
+    "title": "Linear regression in R",
+    "section": "Linear regression: basics",
+    "text": "Linear regression: basics\n\nThe goal of linear regression is to find the line of best fit between some variable(s) \\(X\\) and the continuous dependent variable \\(Y\\).\n\n\n\nAssuming a linear relationship between \\(X\\) and \\(Y\\)…\n…find parameters \\(\\beta\\) that minimize prediction error.\nAllows for many predictors, but we’ll start with univariate regression: a *single predictor (variable)."
+  },
+  {
+    "objectID": "lectures/week4-regression.html#the-line-of-best-fit",
+    "href": "lectures/week4-regression.html#the-line-of-best-fit",
+    "title": "Linear regression in R",
+    "section": "The line of best fit",
+    "text": "The line of best fit\nGiven some bivariate data, there are many possible lines we could draw. Each line is defined by the linear equation:\n\\(Y = \\beta_1 X_1 + \\beta_0\\)\n\n\n\\(\\beta_0\\): Intercept.\n\\(\\beta_1\\): Slope for \\(X_1\\)."
+  },
+  {
+    "objectID": "lectures/week4-regression.html#the-best-fitting-line-pt.-1",
+    "href": "lectures/week4-regression.html#the-best-fitting-line-pt.-1",
+    "title": "Linear regression in R",
+    "section": "The best-fitting line (pt. 1)",
+    "text": "The best-fitting line (pt. 1)\nTo illustrate this, let’s simulate some data:\n\nset.seed(123)\nn &lt;- 50\nx &lt;- rnorm(n, mean = 10, sd = 2)\ny &lt;- 3 + 0.5 * x + rnorm(n, mean = 0, sd = 1.5)\ndf &lt;- data.frame(x = x, y = y)\n# Create the plot\nggplot(df, aes(x = x, y = y)) +\n  # Add data points\n  geom_point(color = \"steelblue\", size = 3, alpha = 0.7) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "lectures/week4-regression.html#the-best-fitting-line-pt.-2",
+    "href": "lectures/week4-regression.html#the-best-fitting-line-pt.-2",
+    "title": "Linear regression in R",
+    "section": "The best-fitting line (pt. 2)",
+    "text": "The best-fitting line (pt. 2)\nNow let’s plot different lines with the same slope but different intercepts.\n\n# Create the plot\nggplot(df, aes(x = x, y = y)) +\n  # Add several \"possible\" lines\n  geom_abline(intercept = 2, slope = 0.5, color = \"gray60\", linetype = \"dashed\", linewidth = 1) +\n  geom_abline(intercept = 3, slope = 0.5, color = \"gray60\", linetype = \"dashed\", linewidth = 1) +\n  geom_abline(intercept = 4, slope = 0.5, color = \"gray60\", linetype = \"dashed\", linewidth = 1) +\n  # Add data points\n  geom_point(color = \"steelblue\", size = 3, alpha = 0.7) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "lectures/week4-regression.html#the-best-fitting-line-pt.-3",
+    "href": "lectures/week4-regression.html#the-best-fitting-line-pt.-3",
+    "title": "Linear regression in R",
+    "section": "The best-fitting line (pt. 3)",
+    "text": "The best-fitting line (pt. 3)\nWe can also try the same intercept but different slopes.\n\n# Create the plot\nggplot(df, aes(x = x, y = y)) +\n  # Add several \"possible\" lines\n  geom_abline(intercept = 3, slope = 0.75, color = \"gray60\", linetype = \"dashed\", linewidth = 1) +\n  geom_abline(intercept = 3, slope = 0.5, color = \"gray60\", linetype = \"dashed\", linewidth = 1) +\n  geom_abline(intercept = 3, slope = 0.25, color = \"gray60\", linetype = \"dashed\", linewidth = 1) +\n  # Add data points\n  geom_point(color = \"steelblue\", size = 3, alpha = 0.7) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "lectures/week4-regression.html#some-lines-are-better-than-others",
+    "href": "lectures/week4-regression.html#some-lines-are-better-than-others",
+    "title": "Linear regression in R",
+    "section": "Some lines are better than others",
+    "text": "Some lines are better than others\n\nThe line of best fit minimizes the residual error, i.e., the difference between the predictions (the line) and the actual values.\n\n\\(RSS = \\sum_{i=1}^{N} (\\hat{y_i} - y_i^2)\\)\n\n\nFor each data point \\(i\\), subtract the actual value \\(y_i\\) from the predicted value \\(\\hat{y_i}\\).\nThen, square that difference.\nThen, sum all those squared differences.\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nIntuition: A “better” line is one that has smaller differences between the predicted and actual values."
+  },
+  {
+    "objectID": "lectures/week4-regression.html#mse-mean-squared-error",
+    "href": "lectures/week4-regression.html#mse-mean-squared-error",
+    "title": "Linear regression in R",
+    "section": "MSE: Mean-squared error",
+    "text": "MSE: Mean-squared error\n\nThe mean-squared error (MSE) is the average squared error (as opposed to the sum).\n\n\n\nCalculate \\(RSS\\).\nThen, divide by \\(N\\).\nNote that RMSE is the root of MSE."
+  },
+  {
+    "objectID": "lectures/week4-regression.html#calculating-mse-for-a-line",
+    "href": "lectures/week4-regression.html#calculating-mse-for-a-line",
+    "title": "Linear regression in R",
+    "section": "Calculating MSE for a line",
+    "text": "Calculating MSE for a line\nWe can compare the MSE for two different lines for the same data.\n\ny_pred1 = x * 1.5 + 2 ### Predictions from slope = 1.5 and intercept = 2\ny_pred2 = x * .5 + 3 ### Predictions from slope = .5 and intercept = 3\n\nmse_1 = sum((y_pred1 - y)**2)/length(y_pred1)\nmse_2 = sum((y_pred2 - y)**2)/length(y_pred2)\nprint(mse_1)\n\n[1] 83.65316\n\nprint(mse_2)\n\n[1] 1.855965\n\n\nNext:\n\nline of best fit; many possible lines\nlinear equation\nMSE as a measure of the best-fitting line\nKey assumptions"
+  },
+  {
+    "objectID": "lectures/week4-regression.html#part-3-linear-regression-in-r",
+    "href": "lectures/week4-regression.html#part-3-linear-regression-in-r",
+    "title": "Linear regression in R",
+    "section": "Part 3: Linear regression in R",
+    "text": "Part 3: Linear regression in R\nUsing and interpreting fit lm models, using broom.\n(Briefly touch on interpreting p-values and SEs for coefficients.)\n(Categorical predictors)\n(Interpreting lm model outputs: coefficients, p-values, and MSE + \\(R^2\\).)\nDatasets:\n\nincome and education.\ncongruent/incongruent RT (categorical)."
   },
   {
     "objectID": "lectures/week2-r-wrangling-slides.html#goals-of-the-lecture",

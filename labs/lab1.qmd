@@ -1,5 +1,8 @@
 ---
 title: "Lab 1: Introduction to R"
+format:
+  html:
+    embed-resources: true
 ---
 
 
