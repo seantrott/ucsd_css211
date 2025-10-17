@@ -26,6 +26,8 @@ website:
             text: "Week 2: Data Wrangling"
           - href: lectures/week3-visualization.qmd
             text: "Week 3: Data Visualization"
+          - href: lectures/week4-regression.qmd
+            text: "Week 4: Linear Regression"
       - text: "Labs"
         icon: fas fa-laptop-code
         menu:
@@ -39,6 +41,8 @@ website:
             href: hands_on/week2.qmd
           - text: "Week 3: Visualization"
             href: hands_on/week3.qmd
+          - text: "Week 4: Regression"
+            href: hands_on/week4.qmd
       - text: "Resources"
         menu:
           - text: "Readings"
