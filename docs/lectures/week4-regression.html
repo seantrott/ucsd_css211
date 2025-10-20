@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.23">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Linear regression in R – CSS 211: Statistical Methods for Computational Social Science</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-f93c2b1f3f0577f377aefa4848a86a36.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CSS 211: Statistical Methods for Computational Social Science</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../final_project.html"> 
+<span class="menu-text">Final Project</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lectures" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lectures</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures">    
+        <li>
+    <a class="dropdown-item" href="../lectures/week0-intro.html">
+ <span class="dropdown-text">Week 0: Course Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lectures/week1-philosophy.html">
+ <span class="dropdown-text">Week 1: Philosophy of Science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lectures/week1-r-intro.html">
+ <span class="dropdown-text">Week 1: Introduction to R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lectures/week2-wrangling.html">
+ <span class="dropdown-text">Week 2: Data Wrangling</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lectures/week3-visualization.html">
+ <span class="dropdown-text">Week 3: Data Visualization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lectures/week4-regression.html">
+ <span class="dropdown-text">Week 4: Linear Regression</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-labs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-fas fa-laptop-code" role="img">
+</i> 
+ <span class="menu-text">Labs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-labs">    
+        <li>
+    <a class="dropdown-item" href="../labs/lab1.html">
+ <span class="dropdown-text">Lab 1: R Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../labs/lab2.html">
+ <span class="dropdown-text">Lab 2: Wrangling and visualization</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-hands-on-exercises" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Hands-on exercises</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-hands-on-exercises">    
+        <li>
+    <a class="dropdown-item" href="../hands_on/week2.html">
+ <span class="dropdown-text">Week 2: Wrangling</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../hands_on/week3.html">
+ <span class="dropdown-text">Week 3: Visualization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../hands_on/week4.html">
+ <span class="dropdown-text">Week 4: Regression</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="../readings.html">
+ <span class="dropdown-text">Readings</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/seantrott/ucsd_css211"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#goals-of-the-lecture" id="toc-goals-of-the-lecture" class="nav-link active" data-scroll-target="#goals-of-the-lecture">Goals of the lecture</a></li>
+  <li><a href="#part-1-modeling" id="toc-part-1-modeling" class="nav-link" data-scroll-target="#part-1-modeling">Part 1: Modeling</a></li>
+  <li><a href="#from-descriptions-to-models" id="toc-from-descriptions-to-models" class="nav-link" data-scroll-target="#from-descriptions-to-models">From <em>descriptions</em> to <em>models</em></a></li>
+  <li><a href="#why-models" id="toc-why-models" class="nav-link" data-scroll-target="#why-models">Why models?</a></li>
+  <li><a href="#models-encode-functions" id="toc-models-encode-functions" class="nav-link" data-scroll-target="#models-encode-functions">Models encode <em>functions</em></a></li>
+  <li><a href="#models-arent-perfect" id="toc-models-arent-perfect" class="nav-link" data-scroll-target="#models-arent-perfect">Models aren’t perfect</a></li>
+  <li><a href="#models-have-trade-offs" id="toc-models-have-trade-offs" class="nav-link" data-scroll-target="#models-have-trade-offs">Models have <em>trade-offs</em></a></li>
+  <li><a href="#part-2-univariate-linear-regression" id="toc-part-2-univariate-linear-regression" class="nav-link" data-scroll-target="#part-2-univariate-linear-regression">Part 2: Univariate linear regression</a></li>
+  <li><a href="#linear-regression-basics" id="toc-linear-regression-basics" class="nav-link" data-scroll-target="#linear-regression-basics">Linear regression: basics</a></li>
+  <li><a href="#the-line-of-best-fit" id="toc-the-line-of-best-fit" class="nav-link" data-scroll-target="#the-line-of-best-fit">The line of best fit</a></li>
+  <li><a href="#the-best-fitting-line-pt.-1" id="toc-the-best-fitting-line-pt.-1" class="nav-link" data-scroll-target="#the-best-fitting-line-pt.-1">The best-fitting line (pt.&nbsp;1)</a></li>
+  <li><a href="#the-best-fitting-line-pt.-2" id="toc-the-best-fitting-line-pt.-2" class="nav-link" data-scroll-target="#the-best-fitting-line-pt.-2">The best-fitting line (pt.&nbsp;2)</a></li>
+  <li><a href="#the-best-fitting-line-pt.-3" id="toc-the-best-fitting-line-pt.-3" class="nav-link" data-scroll-target="#the-best-fitting-line-pt.-3">The best-fitting line (pt.&nbsp;3)</a></li>
+  <li><a href="#some-lines-are-better-than-others" id="toc-some-lines-are-better-than-others" class="nav-link" data-scroll-target="#some-lines-are-better-than-others">Some lines are better than others</a></li>
+  <li><a href="#mse-mean-squared-error" id="toc-mse-mean-squared-error" class="nav-link" data-scroll-target="#mse-mean-squared-error">MSE: Mean-squared error</a></li>
+  <li><a href="#calculating-mse-for-a-line" id="toc-calculating-mse-for-a-line" class="nav-link" data-scroll-target="#calculating-mse-for-a-line">Calculating MSE for a line</a></li>
+  <li><a href="#standard-error-of-the-estimate" id="toc-standard-error-of-the-estimate" class="nav-link" data-scroll-target="#standard-error-of-the-estimate">Standard error of the estimate</a></li>
+  <li><a href="#calculating-standard-error-of-the-estimate" id="toc-calculating-standard-error-of-the-estimate" class="nav-link" data-scroll-target="#calculating-standard-error-of-the-estimate">Calculating standard error of the estimate</a></li>
+  <li><a href="#evaluating-with-r-squared" id="toc-evaluating-with-r-squared" class="nav-link" data-scroll-target="#evaluating-with-r-squared">Evaluating with R-squared</a></li>
+  <li><a href="#decomposing-r2" id="toc-decomposing-r2" class="nav-link" data-scroll-target="#decomposing-r2">Decomposing <span class="math inline">\(R^2\)</span></a></li>
+  <li><a href="#key-assumptions-of-linear-regression" id="toc-key-assumptions-of-linear-regression" class="nav-link" data-scroll-target="#key-assumptions-of-linear-regression">Key assumptions of linear regression</a></li>
+  <li><a href="#interim-summary" id="toc-interim-summary" class="nav-link" data-scroll-target="#interim-summary">Interim summary</a></li>
+  <li><a href="#part-3-linear-regression-in-r" id="toc-part-3-linear-regression-in-r" class="nav-link" data-scroll-target="#part-3-linear-regression-in-r">Part 3: Linear regression in R</a></li>
+  <li><a href="#the-lm-function" id="toc-the-lm-function" class="nav-link" data-scroll-target="#the-lm-function">The <code>lm</code> function</a></li>
+  <li><a href="#loading-a-dataset" id="toc-loading-a-dataset" class="nav-link" data-scroll-target="#loading-a-dataset">Loading a dataset</a></li>
+  <li><a href="#visualizing-the-model-fit" id="toc-visualizing-the-model-fit" class="nav-link" data-scroll-target="#visualizing-the-model-fit">Visualizing the model fit</a></li>
+  <li><a href="#fitting-an-lm-model" id="toc-fitting-an-lm-model" class="nav-link" data-scroll-target="#fitting-an-lm-model">Fitting an <code>lm</code> model</a></li>
+  <li><a href="#understanding-summary-output" id="toc-understanding-summary-output" class="nav-link" data-scroll-target="#understanding-summary-output">Understanding <code>summary</code> output</a></li>
+  <li><a href="#interpreting-coefficients" id="toc-interpreting-coefficients" class="nav-link" data-scroll-target="#interpreting-coefficients">Interpreting coefficients</a></li>
+  <li><a href="#the-broom-package" id="toc-the-broom-package" class="nav-link" data-scroll-target="#the-broom-package">The <code>broom</code> package</a></li>
+  <li><a href="#plotting-coefficients" id="toc-plotting-coefficients" class="nav-link" data-scroll-target="#plotting-coefficients">Plotting coefficients</a></li>
+  <li><a href="#overall-model-fit-with-glance" id="toc-overall-model-fit-with-glance" class="nav-link" data-scroll-target="#overall-model-fit-with-glance">Overall model fit with <code class="smaller">glance</code></a></li>
+  <li><a href="#using-lm-with" id="toc-using-lm-with" class="nav-link" data-scroll-target="#using-lm-with">Using <code>lm</code> with <code>%&gt;%</code></a></li>
+  <li><a href="#making-predictions" id="toc-making-predictions" class="nav-link" data-scroll-target="#making-predictions">Making predictions</a></li>
+  <li><a href="#visualizing-residuals" id="toc-visualizing-residuals" class="nav-link" data-scroll-target="#visualizing-residuals">Visualizing residuals</a></li>
+  <li><a href="#what-about-categorical-predictors" id="toc-what-about-categorical-predictors" class="nav-link" data-scroll-target="#what-about-categorical-predictors">What about <em>categorical predictors</em>?</a></li>
+  <li><a href="#contrast-coding" id="toc-contrast-coding" class="nav-link" data-scroll-target="#contrast-coding">Contrast coding</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="week4-r-regression-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Linear regression in R</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="goals-of-the-lecture" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="goals-of-the-lecture">Goals of the lecture</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Foundations of <em>statistical modeling</em>.</li>
+<li>Basic goals and assumptions of <em>univariate linear regression</em>.
+<ul class="incremental">
+<li>Measuring <em>error</em>.</li>
+</ul></li>
+<li>Linear regression in R with <code>lm</code>.
+<ul class="incremental">
+<li>Interpreting <code>lm</code> model outputs: coefficients, p-values, and <span class="math inline">\(R^2\)</span>.</li>
+</ul></li>
+</ul>
+</div>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="do">### Loading the tidyverse</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(broom)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="part-1-modeling" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-modeling">Part 1: Modeling</h2>
+<p>What are “models”, and why should we build them?</p>
+</section>
+<section id="from-descriptions-to-models" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="from-descriptions-to-models">From <em>descriptions</em> to <em>models</em></h2>
+<blockquote class="blockquote">
+<p>A <strong>statistical model</strong> is a mathematical model representing a <em>data-generating process</em>.</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li>So far, we’ve focused on <em>describing</em> and <em>visualizing</em> data.</li>
+<li>But often, we want to <strong>model</strong> our data.
+<ul class="incremental">
+<li>Typically involves learning some <em>function</em> mapping <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span>.</li>
+</ul></li>
+<li><a href="https://en.wikipedia.org/wiki/All_models_are_wrong">All models are wrong, but some are useful.</a></li>
+</ul>
+</div>
+</section>
+<section id="why-models" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="why-models">Why models?</h2>
+<blockquote class="blockquote">
+<p>Statistical models help us <strong>understand</strong> our data, and also <strong>predict</strong> new data.</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li><strong>Prediction</strong>: Try to predict/estimate unseen values of <span class="math inline">\(Y\)</span>, given <span class="math inline">\(X\)</span>.</li>
+<li><strong>Inference</strong>: Try to understand <em>how</em> and <em>why</em> <span class="math inline">\(X\)</span> relates to <span class="math inline">\(Y\)</span>, test hypotheses, and more.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Both serve a useful function, and both are compatible! In general, models can help you think <em>more clearly</em> about your data.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="models-encode-functions" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="models-encode-functions">Models encode <em>functions</em></h2>
+<blockquote class="blockquote">
+<p>A statistical model often represents a function mapping from <span class="math inline">\(X\)</span> (inputs) to <span class="math inline">\(Y\)</span> (outputs).</p>
+</blockquote>
+<p><span class="math inline">\(Y = \beta X + \epsilon\)</span></p>
+<div class="incremental">
+<ul class="incremental">
+<li><span class="math inline">\(Y\)</span>: What we want to predict.</li>
+<li><span class="math inline">\(X\)</span>: The features we’re using to <em>predict</em> <span class="math inline">\(Y\)</span>.</li>
+<li><span class="math inline">\(\beta\)</span>: The <em>coefficients</em> (or <em>weights</em>) mapping <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span>.</li>
+<li><span class="math inline">\(\epsilon\)</span>: Residual variance or “error”.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Think of a research question from your domain. What would the <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be, if it was “translated” into a statistical model?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="models-arent-perfect" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="models-arent-perfect">Models aren’t perfect</h2>
+<blockquote class="blockquote">
+<p>No model is perfect; all models have some amount of prediction error, typically called <strong>residuals</strong> or <strong>error</strong>.</p>
+</blockquote>
+<div class="center">
+<p><img src="images/week4/education.png" class="img-fluid" style="width:75.0%"></p>
+</div>
+</section>
+<section id="models-have-trade-offs" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="models-have-trade-offs">Models have <em>trade-offs</em></h2>
+<blockquote class="blockquote">
+<p>In general, there is often a trade-off between the <em>flexibility</em> of a model and the <em>interpretability</em> of that model.</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li>More flexible models can learn more complex functions/relationships, but they are often harder to interpret.
+<ul class="incremental">
+<li>They’re also more likely to **overfitt*.</li>
+</ul></li>
+<li>Less flexible models (e.g., linear regression) have higher <strong>bias</strong>, but are often easier to interpret, and less likely to overfit.</li>
+</ul>
+</div>
+</section>
+<section id="part-2-univariate-linear-regression" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-univariate-linear-regression">Part 2: Univariate linear regression</h2>
+<p>Linear equation, basic premise, key assumptions.</p>
+</section>
+<section id="linear-regression-basics" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="linear-regression-basics">Linear regression: basics</h2>
+<blockquote class="blockquote">
+<p>The goal of linear regression is to find the <strong>line of best fit</strong> between some variable(s) <span class="math inline">\(X\)</span> and the continuous dependent variable <span class="math inline">\(Y\)</span>.</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li>Assuming a linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>…</li>
+<li>…find parameters <span class="math inline">\(\beta\)</span> that minimize <strong>prediction error</strong>.</li>
+<li>Allows for many predictors, but we’ll start with univariate regression: a *single predictor (variable).</li>
+</ul>
+</div>
+</section>
+<section id="the-line-of-best-fit" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="the-line-of-best-fit">The line of best fit</h2>
+<p>Given some <em>bivariate data</em>, there are many possible <em>lines we could draw</em>. Each line is defined by the <strong>linear equation</strong>:</p>
+<p><span class="math inline">\(Y = \beta_1 X_1 + \beta_0\)</span></p>
+<div class="incremental">
+<ul class="incremental">
+<li><span class="math inline">\(\beta_0\)</span>: Intercept.</li>
+<li><span class="math inline">\(\beta_1\)</span>: Slope for <span class="math inline">\(X_1\)</span>.</li>
+</ul>
+</div>
+</section>
+<section id="the-best-fitting-line-pt.-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="the-best-fitting-line-pt.-1">The best-fitting line (pt.&nbsp;1)</h2>
+<p>To illustrate this, let’s simulate some data:</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>n <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb4-4"><a href="#cb4-4"></a>y <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">+</span> <span class="fl">0.5</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="fl">1.5</span>)</span>
+<span id="cb4-5"><a href="#cb4-5"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)</span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co"># Create the plot</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>  <span class="co"># Add data points</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>  <span class="fu">theme_minimal</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week4-regression_files/figure-html/line_best_fit-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="the-best-fitting-line-pt.-2" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="the-best-fitting-line-pt.-2">The best-fitting line (pt.&nbsp;2)</h2>
+<p>Now let’s plot different lines with the same <strong>slope</strong> but different <strong>intercepts</strong>.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Create the plot</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="co"># Add several "possible" lines</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">2</span>, <span class="at">slope =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"gray60"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">3</span>, <span class="at">slope =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"gray60"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">4</span>, <span class="at">slope =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"gray60"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>  <span class="co"># Add data points</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>  <span class="fu">theme_minimal</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week4-regression_files/figure-html/line_best_fit2-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="the-best-fitting-line-pt.-3" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="the-best-fitting-line-pt.-3">The best-fitting line (pt.&nbsp;3)</h2>
+<p>We can also try the same <strong>intercept</strong> but different <strong>slopes</strong>.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Create the plot</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="co"># Add several "possible" lines</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">3</span>, <span class="at">slope =</span> <span class="fl">0.75</span>, <span class="at">color =</span> <span class="st">"gray60"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">3</span>, <span class="at">slope =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"gray60"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">3</span>, <span class="at">slope =</span> <span class="fl">0.25</span>, <span class="at">color =</span> <span class="st">"gray60"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a>  <span class="co"># Add data points</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a>  <span class="fu">theme_minimal</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week4-regression_files/figure-html/line_best_fit3-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="some-lines-are-better-than-others" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="some-lines-are-better-than-others">Some lines are better than others</h2>
+<blockquote class="blockquote">
+<p>The line of best fit <em>minimizes</em> the <strong>residual error</strong>, i.e., the <em>difference</em> between the predictions (the line) and the actual values.</p>
+</blockquote>
+<p><span class="math inline">\(RSS = \sum_{i=1}^{N} (\hat{y_i} - y_i^2)\)</span></p>
+<div class="incremental">
+<ul class="incremental">
+<li>For each data point <span class="math inline">\(i\)</span>, subtract the <em>actual</em> value <span class="math inline">\(y_i\)</span> from the predicted value <span class="math inline">\(\hat{y_i}\)</span>.</li>
+<li>Then, <em>square</em> that difference.</li>
+<li>Then, <em>sum</em> all those squared differences.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Intuition</strong>: A “better” line is one that has smaller differences between the predicted and actual values.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="mse-mean-squared-error" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="mse-mean-squared-error">MSE: Mean-squared error</h2>
+<blockquote class="blockquote">
+<p>The <strong>mean-squared error</strong> (MSE) is the <em>average</em> squared error (as opposed to the sum).</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li>Calculate <span class="math inline">\(RSS\)</span>.</li>
+<li>Then, divide by <span class="math inline">\(N\)</span>.</li>
+<li>Note that <em>RMSE</em> is the <em>root</em> of MSE.</li>
+</ul>
+</div>
+</section>
+<section id="calculating-mse-for-a-line" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="calculating-mse-for-a-line">Calculating MSE for a line</h2>
+<p>We can compare the MSE for two different lines for the same data.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>y_pred1 <span class="ot">=</span> x <span class="sc">*</span> <span class="fl">1.5</span> <span class="sc">+</span> <span class="dv">2</span> <span class="do">### Predictions from slope = 1.5 and intercept = 2</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>y_pred2 <span class="ot">=</span> x <span class="sc">*</span> .<span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span> <span class="do">### Predictions from slope = .5 and intercept = 3</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a>mse_1 <span class="ot">=</span> <span class="fu">sum</span>((y_pred1 <span class="sc">-</span> y)<span class="sc">**</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">length</span>(y_pred1)</span>
+<span id="cb7-5"><a href="#cb7-5"></a>mse_2 <span class="ot">=</span> <span class="fu">sum</span>((y_pred2 <span class="sc">-</span> y)<span class="sc">**</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">length</span>(y_pred2)</span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="fu">print</span>(mse_1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 83.65316</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">print</span>(mse_2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.855965</code></pre>
+</div>
+</div>
+</section>
+<section id="standard-error-of-the-estimate" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="standard-error-of-the-estimate">Standard error of the estimate</h2>
+<blockquote class="blockquote">
+<p>The <strong>standard error of the estimate</strong> is a measure of the expected prediction error, i.e., how much your predictions are “wrong” on average.</p>
+</blockquote>
+<p><span class="math inline">\(S_{Y|X} = \sqrt{\frac{RSS}{n-2}}\)</span></p>
+<div class="incremental">
+<ul class="incremental">
+<li>How much, on average, do we expect <span class="math inline">\(\hat{Y}\)</span> to deviate from <span class="math inline">\(Y\)</span>?</li>
+<li>A smaller number means a better fit.</li>
+</ul>
+</div>
+</section>
+<section id="calculating-standard-error-of-the-estimate" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="calculating-standard-error-of-the-estimate">Calculating standard error of the estimate</h2>
+<p>We can calculate <strong>standard error of the estimate</strong>:</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>sy_1 <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>((y_pred1 <span class="sc">-</span> y)<span class="sc">**</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="fu">length</span>(y_pred1)<span class="sc">-</span><span class="dv">2</span>))</span>
+<span id="cb11-2"><a href="#cb11-2"></a>sy_2 <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>((y_pred2 <span class="sc">-</span> y)<span class="sc">**</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="fu">length</span>(y_pred2)<span class="sc">-</span><span class="dv">2</span>))</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="fu">print</span>(sy_1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9.334812</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">print</span>(sy_2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.39043</code></pre>
+</div>
+</div>
+</section>
+<section id="evaluating-with-r-squared" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="evaluating-with-r-squared">Evaluating with R-squared</h2>
+<blockquote class="blockquote">
+<p>The <span class="math inline">\(R^2\)</span>, or <strong>coefficient of determination</strong>, measures the proportion of variance in <span class="math inline">\(Y\)</span> explained by the model.</p>
+</blockquote>
+<p><span class="math inline">\(R^2 = 1 - \frac{RSS}{SS_Y}\)</span></p>
+<p>Where <span class="math inline">\(SS_Y\)</span> is the <em>sum of squared error in <span class="math inline">\(Y\)</span></em>.</p>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What does this formula mean and why does it measure the proportion of variance in <span class="math inline">\(Y\)</span> explained by the model?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="decomposing-r2" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="decomposing-r2">Decomposing <span class="math inline">\(R^2\)</span></h2>
+<p><span class="math inline">\(R^2 = 1 - \frac{RSS}{SS_Y}\)</span></p>
+<div class="incremental">
+<ul class="incremental">
+<li><span class="math inline">\(RSS\)</span> refers to the <em>unexplained (residual) variance</em> in <span class="math inline">\(Y\)</span> from the model.</li>
+<li><span class="math inline">\(SS_Y\)</span> is the <em>total variance</em> in <span class="math inline">\(Y\)</span> (i.e., before even fitting the model).</li>
+<li>Thus, <span class="math inline">\(\frac{RSS}{SS_Y}\)</span> captures the proportion of <em>unexplained variance</em> by the model.
+<ul class="incremental">
+<li>If <span class="math inline">\(\frac{RSS}{SS_Y} = 1\)</span>, the model has explained no variance.</li>
+<li>If <span class="math inline">\(\frac{RSS}{SS_Y} = 0\)</span>, the model has explained <em>all</em> variance.</li>
+</ul></li>
+<li>And <span class="math inline">\(1 - \frac{RSS}{SS_Y}\)</span> captures the proportion of <em>explained variance</em>.</li>
+</ul>
+</div>
+</section>
+<section id="key-assumptions-of-linear-regression" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="key-assumptions-of-linear-regression">Key assumptions of linear regression</h2>
+<p>Ordinary least squares (OLS) regression has a few key assumptions.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 34%">
+<col style="width: 37%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Assumption</th>
+<th>What it means</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Linearity</strong></td>
+<td>The relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is linear</td>
+<td>OLS fits a straight line, so if the true relationship is curved, predictions will be systematically biased</td>
+</tr>
+<tr class="even">
+<td><strong>Independence</strong></td>
+<td>The observations are independent of each other</td>
+<td>Dependent observations (e.g., repeated measures, time series) violate the assumption that errors are uncorrelated, leading to underestimated standard errors and invalid p-values</td>
+</tr>
+<tr class="odd">
+<td><strong>Homoscedasticity</strong></td>
+<td>The variance of residuals is constant across all levels of <span class="math inline">\(X\)</span> (equal spread)</td>
+<td>If variance changes with <span class="math inline">\(X\)</span> (heteroscedasticity), standard errors will be incorrect: some coefficients appear more/less significant than they truly are</td>
+</tr>
+<tr class="even">
+<td><strong>Normality of residuals</strong></td>
+<td>The errors are approximately normally distributed</td>
+<td>Needed for valid confidence intervals and hypothesis tests (p-values). Less critical with large samples due to the Central Limit Theorem.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="interim-summary" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="interim-summary">Interim summary</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>In statistical modeling, we aim to construct <em>models</em> of our data.</li>
+<li>Linear regression is a specific (<em>high-bias</em>) model.</li>
+<li>The goal of linear regression is to identify the <em>best-fitting line</em> for our data, i.e., to <em>reduce the residual sum of squares (RSS)</em>.</li>
+<li>Linear regression rests on a few assumptions about the data (more on this in an upcoming lecture).</li>
+</ul>
+</div>
+</section>
+<section id="part-3-linear-regression-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="part-3-linear-regression-in-r">Part 3: Linear regression in R</h2>
+<p>Using and interpreting fit <code>lm</code> models, using <code>broom</code>.</p>
+</section>
+<section id="the-lm-function" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="the-lm-function">The <code>lm</code> function</h2>
+<blockquote class="blockquote">
+<p>A linear model can be fit using the <code>lm</code> function.</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li>Supply a <strong>formula</strong> (i.e., <code>y ~ x</code>).</li>
+<li>Supply the <strong>data</strong> (i.e., a <em>dataframe</em>).</li>
+<li>Usage: <code>lm(data = df_name, y ~ x</code>).
+<ul class="incremental">
+<li>Where <code>y</code> and <code>x</code> are columns in <code>df_name</code>.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="loading-a-dataset" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="loading-a-dataset">Loading a dataset</h2>
+<p>To illustrate linear regression in R, we’ll work with a sample dataset.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>df_income <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/regression/income.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 30 Columns: 3
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (3): Education, Seniority, Income
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>df_income <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Education, <span class="at">y =</span> Income)) <span class="sc">+</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week4-regression_files/figure-html/read_education-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizing-the-model-fit" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="visualizing-the-model-fit">Visualizing the model fit</h2>
+<p>As we discussed before, <code>geom_smooth(method = "lm")</code> can be used to plot a regression line over your data.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_income <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Education, <span class="at">y =</span> Income)) <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week4-regression_files/figure-html/visualizing_model-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>But to actually <em>fit</em> a model, we need to use <code>lm</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="fitting-an-lm-model" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="fitting-an-lm-model">Fitting an <code>lm</code> model</h2>
+<p>Calling <code>summary</code> on a fit <code>lm</code> model object returns information about the coefficients and the overall model fit.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>mod <span class="ot">=</span> <span class="fu">lm</span>(<span class="at">data =</span> df_income, Income <span class="sc">~</span> Education)</span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="fu">summary</span>(mod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Income ~ Education, data = df_income)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-19.568  -8.012   1.474   5.754  23.701 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -41.9166     9.7689  -4.291 0.000192 ***
+Education     6.3872     0.5812  10.990 1.15e-11 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 11.93 on 28 degrees of freedom
+Multiple R-squared:  0.8118,    Adjusted R-squared:  0.8051 
+F-statistic: 120.8 on 1 and 28 DF,  p-value: 1.151e-11</code></pre>
+</div>
+</div>
+</section>
+<section id="understanding-summary-output" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="understanding-summary-output">Understanding <code>summary</code> output</h2>
+<p>Calling <code>summary</code> returns information about the <em>coefficients</em> of our model, as well as indicators of model fit.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>summ <span class="ot">=</span> <span class="fu">summary</span>(mod) </span>
+<span id="cb22-2"><a href="#cb22-2"></a>summ<span class="sc">$</span>coefficients</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Estimate Std. Error   t value     Pr(&gt;|t|)
+(Intercept) -41.916612  9.7689490 -4.290801 1.918257e-04
+Education     6.387161  0.5811716 10.990148 1.150567e-11</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>summ<span class="sc">$</span>r.squared</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8118069</code></pre>
+</div>
+</div>
+<div class="incremental">
+<ul class="incremental">
+<li><em>Estimate</em>: fit intercept and slope coefficients.</li>
+<li><em>Std. Error</em>: estimated standard error for those coefficients.</li>
+<li><em>t value</em>: the t-statistic for those coefficients (slope / SE).</li>
+<li><em>p-value</em>: the probability of obtaining a t-statistic that large <em>assuming the null hypothesis</em>.</li>
+<li><em>Multiple R-squared</em>: proportion of variance in <code>y</code> explained by <code>x</code>.</li>
+<li><em>Residual standard error</em>: The standard error of the estimate.</li>
+</ul>
+</div>
+</section>
+<section id="interpreting-coefficients" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="interpreting-coefficients">Interpreting coefficients</h2>
+<p>There are a few relevant things to note about coefficients:</p>
+<div class="incremental">
+<ul class="incremental">
+<li>The <strong>estimate</strong> tells you the direction (sign) and degree (magnitude) of the relationship.</li>
+<li>The <strong>p-value</strong> tells you whether a relationship of this size would be expected assuming there was no effect (i.e., the <em>null hypothesis</em>).
+<ul class="incremental">
+<li>More on this in an upcoming lecture!</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How would you report and interpret the intercept and slope we obtained for <code>Income ~ Education</code>? (As a reminder, <span class="math inline">\(\beta_0 = -41.9\)</span> and <span class="math inline">\(\beta_1 = 6.4\)</span>.)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-broom-package" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="the-broom-package">The <code>broom</code> package</h2>
+<p>The <code>broom</code> package is also an easy way to quickly (and tidily) <em>extract</em> coefficient estimates.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>df_coef <span class="ot">=</span> broom<span class="sc">::</span><span class="fu">tidy</span>(mod)</span>
+<span id="cb26-2"><a href="#cb26-2"></a>df_coef</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  term        estimate std.error statistic  p.value
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 (Intercept)   -41.9      9.77      -4.29 1.92e- 4
+2 Education       6.39     0.581     11.0  1.15e-11</code></pre>
+</div>
+</div>
+</section>
+<section id="plotting-coefficients" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="plotting-coefficients">Plotting coefficients</h2>
+<p>Once coefficients are in a <em>dataframe</em>, we can <em>plot</em> them using <code>ggplot</code>: a great way to visualize model fits!</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df_coef <span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> term, <span class="at">y =</span> estimate)) <span class="sc">+</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">x =</span> term, <span class="at">y =</span> estimate, </span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymin =</span> estimate <span class="sc">-</span> std.error, </span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymax =</span> estimate <span class="sc">+</span> std.error)) <span class="sc">+</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week4-regression_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="overall-model-fit-with-glance" class="level2">
+<h2 class="anchored" data-anchor-id="overall-model-fit-with-glance">Overall model fit with <code class="smaller">glance</code></h2>
+<p><code>broom::glance()</code> provides a tidy summary of overall model statistics.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>broom<span class="sc">::</span><span class="fu">glance</span>(mod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 12
+  r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
+      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1     0.812         0.805  11.9      121. 1.15e-11     1  -116.  238.  242.
+# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+</div>
+</div>
+<div class="incremental">
+<ul class="incremental">
+<li><code>r.squared</code>: proportion of variance explained</li>
+<li><code>adj.r.squared</code>: adjusted for number of predictors</li>
+<li><code>sigma</code>: residual standard error</li>
+<li><code>p.value</code>: p-value for the F-statistic</li>
+</ul>
+</div>
+</section>
+<section id="using-lm-with" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="using-lm-with">Using <code>lm</code> with <code>%&gt;%</code></h2>
+<p>If you like the <code>%&gt;%</code> syntax, you can integrate <code>lm</code> into a series of <em>pipe</em> operations.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df_income <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="do">## fit model</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(Income <span class="sc">~</span> Education, <span class="at">data =</span> .) <span class="sc">%&gt;%</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="do">## tidy into dataframe</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  term        estimate std.error statistic  p.value
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 (Intercept)   -41.9      9.77      -4.29 1.92e- 4
+2 Education       6.39     0.581     11.0  1.15e-11</code></pre>
+</div>
+</div>
+</section>
+<section id="making-predictions" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="making-predictions">Making predictions</h2>
+<p>Once we’ve fit a model, we can use it to make predictions for <em>new data</em>!</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict income for someone with 16 years of education</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>new_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Education =</span> <span class="dv">16</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mod, <span class="at">newdata =</span> new_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       1 
+60.27797 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Or for multiple values</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>new_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Education =</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">16</span>, <span class="dv">20</span>))</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mod, <span class="at">newdata =</span> new_data, <span class="at">interval =</span> <span class="st">"confidence"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       fit      lwr      upr
+1 34.72932 27.86206 41.59659
+2 60.27797 55.79413 64.76181
+3 85.82661 79.62969 92.02353</code></pre>
+</div>
+</div>
+</section>
+<section id="visualizing-residuals" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="visualizing-residuals">Visualizing residuals</h2>
+<p>We can also assess the <em>residuals</em>.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>df_income <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">resid =</span> <span class="fu">residuals</span>(mod)) <span class="sc">%&gt;%</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Income, <span class="at">y =</span> resid)) <span class="sc">+</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week4-regression_files/figure-html/residuals-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="what-about-categorical-predictors" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="what-about-categorical-predictors">What about <em>categorical predictors</em>?</h2>
+<blockquote class="blockquote">
+<p>A <strong>categorical</strong> (or qualitative) variable takes on one of several discrete values.</p>
+</blockquote>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>df_stroop <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/regression/stroop.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 48 Columns: 2
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (1): Condition
+dbl (1): RT
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_stroop, <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  Condition    RT
+  &lt;chr&gt;     &lt;dbl&gt;
+1 Congruent 12.1 
+2 Congruent 16.8 
+3 Congruent  9.56</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How might you model and interpret the effect of a <em>categorical</em> variable?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="contrast-coding" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="contrast-coding">Contrast coding</h2>
+<p>A common approach is to use the <code>mean</code> of one <em>level</em> (e.g., <code>Congruent</code>) as the <em>intercept</em>; the slope then represents the <em>difference in means</em> across those levels.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Actual means</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>df_stroop <span class="sc">%&gt;%</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Condition) <span class="sc">%&gt;%</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_RT =</span> <span class="fu">mean</span>(RT))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  Condition   mean_RT
+  &lt;chr&gt;         &lt;dbl&gt;
+1 Congruent      14.1
+2 Incongruent    22.0</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Fit coefficients</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">data =</span> df_stroop, RT <span class="sc">~</span> Condition)<span class="sc">$</span>coefficients</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         (Intercept) ConditionIncongruent 
+           14.051125             7.964792 </code></pre>
+</div>
+</div>
+</section>
+<section id="conclusion" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="conclusion">Conclusion</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Linear regression is a foundational <em>tool</em> in your modeling toolbox.</li>
+<li>R simplifies fitting and interpreting regressions:
+<ul class="incremental">
+<li><code>lm</code>: fit the model.</li>
+<li><code>summary/broom::tidy/broom::glance</code>: interpret the model coefficients and <span class="math inline">\(R^2\)</span>.</li>
+<li><code>predict</code>: get predictions from the model.</li>
+</ul></li>
+<li>Next time, we’ll discuss advanced issues, like <em>multiple predictors</em>.</li>
+</ul>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

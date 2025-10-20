@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.23">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Regression: Advanced Issues – CSS 211: Statistical Methods for Computational Social Science</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-f93c2b1f3f0577f377aefa4848a86a36.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CSS 211: Statistical Methods for Computational Social Science</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../final_project.html"> 
+<span class="menu-text">Final Project</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lectures" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lectures</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures">    
+        <li>
+    <a class="dropdown-item" href="../lectures/week0-intro.html">
+ <span class="dropdown-text">Week 0: Course Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lectures/week1-philosophy.html">
+ <span class="dropdown-text">Week 1: Philosophy of Science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lectures/week1-r-intro.html">
+ <span class="dropdown-text">Week 1: Introduction to R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lectures/week2-wrangling.html">
+ <span class="dropdown-text">Week 2: Data Wrangling</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lectures/week3-visualization.html">
+ <span class="dropdown-text">Week 3: Data Visualization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lectures/week4-regression.html">
+ <span class="dropdown-text">Week 4: Linear Regression</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-labs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-fas fa-laptop-code" role="img">
+</i> 
+ <span class="menu-text">Labs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-labs">    
+        <li>
+    <a class="dropdown-item" href="../labs/lab1.html">
+ <span class="dropdown-text">Lab 1: R Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../labs/lab2.html">
+ <span class="dropdown-text">Lab 2: Wrangling and visualization</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-hands-on-exercises" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Hands-on exercises</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-hands-on-exercises">    
+        <li>
+    <a class="dropdown-item" href="../hands_on/week2.html">
+ <span class="dropdown-text">Week 2: Wrangling</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../hands_on/week3.html">
+ <span class="dropdown-text">Week 3: Visualization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../hands_on/week4.html">
+ <span class="dropdown-text">Week 4: Regression</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="../readings.html">
+ <span class="dropdown-text">Readings</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/seantrott/ucsd_css211"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#goals-of-the-lecture" id="toc-goals-of-the-lecture" class="nav-link active" data-scroll-target="#goals-of-the-lecture">Goals of the lecture</a></li>
+  <li><a href="#part-1-multiple-regression" id="toc-part-1-multiple-regression" class="nav-link" data-scroll-target="#part-1-multiple-regression">Part 1: Multiple regression</a></li>
+  <li><a href="#what-is-multiple-regression" id="toc-what-is-multiple-regression" class="nav-link" data-scroll-target="#what-is-multiple-regression">What is <em>multiple regression</em></a></li>
+  <li><a href="#loading-a-dataset" id="toc-loading-a-dataset" class="nav-link" data-scroll-target="#loading-a-dataset">Loading a dataset</a></li>
+  <li><a href="#building-a-multiple-regression-model" id="toc-building-a-multiple-regression-model" class="nav-link" data-scroll-target="#building-a-multiple-regression-model">Building a multiple regression model</a></li>
+  <li><a href="#comparing-coefficients-to-single-predictors" id="toc-comparing-coefficients-to-single-predictors" class="nav-link" data-scroll-target="#comparing-coefficients-to-single-predictors">Comparing coefficients to single predictors</a></li>
+  <li><a href="#comparing-fit-to-single-predictors" id="toc-comparing-fit-to-single-predictors" class="nav-link" data-scroll-target="#comparing-fit-to-single-predictors">Comparing <em>fit</em> to single predictors</a></li>
+  <li><a href="#using-adjusted-r-squared" id="toc-using-adjusted-r-squared" class="nav-link" data-scroll-target="#using-adjusted-r-squared">Using <em>adjusted</em> R-squared</a></li>
+  <li><a href="#aic-another-metric-of-fit" id="toc-aic-another-metric-of-fit" class="nav-link" data-scroll-target="#aic-another-metric-of-fit">AIC: Another metric of fit</a></li>
+  <li><a href="#your-turn-using-mtcars" id="toc-your-turn-using-mtcars" class="nav-link" data-scroll-target="#your-turn-using-mtcars">Your turn: using <code>mtcars</code></a></li>
+  <li><a href="#writing-out-the-linear-equation" id="toc-writing-out-the-linear-equation" class="nav-link" data-scroll-target="#writing-out-the-linear-equation">Writing out the linear equation</a></li>
+  <li><a href="#interaction-effects" id="toc-interaction-effects" class="nav-link" data-scroll-target="#interaction-effects">Interaction effects</a></li>
+  <li><a href="#examples-of-interaction-effects" id="toc-examples-of-interaction-effects" class="nav-link" data-scroll-target="#examples-of-interaction-effects">Examples of interaction effects</a></li>
+  <li><a href="#building-an-interaction-effect" id="toc-building-an-interaction-effect" class="nav-link" data-scroll-target="#building-an-interaction-effect">Building an interaction effect</a></li>
+  <li><a href="#visualizing-an-interaction" id="toc-visualizing-an-interaction" class="nav-link" data-scroll-target="#visualizing-an-interaction">Visualizing an interaction</a></li>
+  <li><a href="#interim-summary" id="toc-interim-summary" class="nav-link" data-scroll-target="#interim-summary">Interim summary</a></li>
+  <li><a href="#part-2-advanced-topics" id="toc-part-2-advanced-topics" class="nav-link" data-scroll-target="#part-2-advanced-topics">Part 2: Advanced topics</a>
+  <ul class="collapse">
+  <li><a href="#coefficient-standard-errors-ses" id="toc-coefficient-standard-errors-ses" class="nav-link" data-scroll-target="#coefficient-standard-errors-ses">Coefficient standard errors (SEs)</a></li>
+  <li><a href="#understanding-ses" id="toc-understanding-ses" class="nav-link" data-scroll-target="#understanding-ses">Understanding SEs</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="week5-r-regression-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Regression: Advanced Issues</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="goals-of-the-lecture" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="goals-of-the-lecture">Goals of the lecture</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><strong>Multiple regression</strong>: beyond single predictors.
+<ul class="incremental">
+<li>Modeling <em>interaction</em> effects.</li>
+</ul></li>
+<li>Advanced topics in regression:
+<ul class="incremental">
+<li>Understanding <strong>standard errors</strong> and coefficient <em>sampling distributions</em>.</li>
+<li>Heteroscedasticity.</li>
+<li>Multicollinearity.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="part-1-multiple-regression" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-multiple-regression">Part 1: Multiple regression</h2>
+<p>Multiple predictors, interpreting coefficients, and interaction effects.</p>
+</section>
+<section id="what-is-multiple-regression" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="what-is-multiple-regression">What is <em>multiple regression</em></h2>
+<blockquote class="blockquote">
+<p><strong>Multiple regression</strong> means building a regression model (e.g., linear regression) with more than one predictor.</p>
+</blockquote>
+<p>There are a few reasons to do this:</p>
+<div class="incremental">
+<ul class="incremental">
+<li>Multiple predictors helps “adjust for” multiple correlated effects, i.e., <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span>.
+<ul class="incremental">
+<li>Tells us the effect of <span class="math inline">\(X_1\)</span> on <span class="math inline">\(Y\)</span>, holding constant the effect of <span class="math inline">\(X_2\)</span> on <span class="math inline">\(Y\)</span>.</li>
+<li>Important for addressing <strong>confounding variables</strong>.</li>
+</ul></li>
+<li>In general, adding more predictors often results in more <em>powerful models</em>.
+<ul class="incremental">
+<li>Better for predicting things in the real world!</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="loading-a-dataset" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="loading-a-dataset">Loading a dataset</h2>
+<p>Fortunately, we can still use <code>lm</code> to build <em>multiple regression models</em> in R. To get started, let’s load the <em>income</em> dataset we used in previous lecutres.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="do">### Loading the tidyverse</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>df_income <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/regression/income.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 30 Columns: 3
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (3): Education, Seniority, Income
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">nrow</span>(df_income)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30</code></pre>
+</div>
+</div>
+</section>
+<section id="building-a-multiple-regression-model" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="building-a-multiple-regression-model">Building a multiple regression model</h2>
+<p>To add multiple predictors to our <code>formula</code>, simply use the <code>+</code> syntax.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>mod_multiple <span class="ot">=</span> <span class="fu">lm</span>(<span class="at">data =</span> df_income,</span>
+<span id="cb7-2"><a href="#cb7-2"></a>                  Income <span class="sc">~</span> Seniority <span class="sc">+</span> Education)</span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="fu">summary</span>(mod_multiple)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Income ~ Seniority + Education, data = df_income)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-9.113 -5.718 -1.095  3.134 17.235 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -50.08564    5.99878  -8.349 5.85e-09 ***
+Seniority     0.17286    0.02442   7.079 1.30e-07 ***
+Education     5.89556    0.35703  16.513 1.23e-15 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 7.187 on 27 degrees of freedom
+Multiple R-squared:  0.9341,    Adjusted R-squared:  0.9292 
+F-statistic: 191.4 on 2 and 27 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Try building two models with each of those predictors on their own. Compare the coefficient values and <span class="math inline">\(R^2\)</span>. Any differences?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="comparing-coefficients-to-single-predictors" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="comparing-coefficients-to-single-predictors">Comparing coefficients to single predictors</h2>
+<p>In general, we see that the coefficients are <em>pretty similar</em> from the single-variable models and the multiple-variable models, though generally <em>reduced</em> in the multiple-variable model.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Model 1: Single predictor - Seniority only</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>mod_seniority <span class="ot">&lt;-</span> <span class="fu">lm</span>(Income <span class="sc">~</span> Seniority, <span class="at">data =</span> df_income)</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co"># Model 2: Single predictor - Education only  </span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>mod_education <span class="ot">&lt;-</span> <span class="fu">lm</span>(Income <span class="sc">~</span> Education, <span class="at">data =</span> df_income)</span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co"># Model 3: Multiple regression - Both predictors</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a>mod_multiple <span class="ot">&lt;-</span> <span class="fu">lm</span>(Income <span class="sc">~</span> Seniority <span class="sc">+</span> Education, <span class="at">data =</span> df_income)</span>
+<span id="cb9-7"><a href="#cb9-7"></a></span>
+<span id="cb9-8"><a href="#cb9-8"></a>mod_seniority<span class="sc">$</span>coefficients</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)   Seniority 
+  39.158326    0.251288 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>mod_education<span class="sc">$</span>coefficients</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)   Education 
+ -41.916612    6.387161 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>mod_multiple<span class="sc">$</span>coefficients</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)   Seniority   Education 
+-50.0856388   0.1728555   5.8955560 </code></pre>
+</div>
+</div>
+</section>
+<section id="comparing-fit-to-single-predictors" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="comparing-fit-to-single-predictors">Comparing <em>fit</em> to single predictors</h2>
+<p>We also see that the model with <em>multiple predictors</em> achieves a better <span class="math inline">\(R^2\)</span>.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">summary</span>(mod_seniority)<span class="sc">$</span>r.squared</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2686226</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">summary</span>(mod_education)<span class="sc">$</span>r.squared</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8118069</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">summary</span>(mod_multiple)<span class="sc">$</span>r.squared</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9341035</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Are there any potential concerns with using standard <span class="math inline">\(R^2\)</span> here?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="using-adjusted-r-squared" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="using-adjusted-r-squared">Using <em>adjusted</em> R-squared</h2>
+<blockquote class="blockquote">
+<p><strong>Adjusted</strong> <span class="math inline">\(R^2\)</span> is a modified version of <span class="math inline">\(R^2\)</span> that accounts for the fact that adding more variables will always <em>slightly improve model fit</em>.</p>
+</blockquote>
+<p><span class="math inline">\(R^2_{adj} = 1 - \frac{RSS/(n - p - 1)}{SS_Y/(n - 1)}\)</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(n\)</span>: number of observations.</li>
+<li><span class="math inline">\(p\)</span>: number of parameters in model.</li>
+</ul>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">summary</span>(mod_seniority)<span class="sc">$</span>adj.r.squared</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.242502</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">summary</span>(mod_education)<span class="sc">$</span>adj.r.squared</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8050857</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">summary</span>(mod_multiple)<span class="sc">$</span>adj.r.squared</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9292223</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As <span class="math inline">\(p\)</span> increases, the <em>numerator</em> decreases, i.e., it’s a <em>penalty</em> for adding more predictors.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="aic-another-metric-of-fit" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="aic-another-metric-of-fit">AIC: Another metric of fit</h2>
+<blockquote class="blockquote">
+<p><strong>Akaike Information Criterion</strong> (or <strong>AIC</strong>) is another commonly used metric of <em>model fit</em>.</p>
+</blockquote>
+<p><span class="math inline">\(AIC = 2k - 2\ln(L)\)</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(k\)</span> is the number of parameters.</li>
+<li><span class="math inline">\(L\)</span> is the <em>likelihood</em> of the data under the model (we’ll discuss this soon!).</li>
+</ul>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">AIC</span>(mod_seniority)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 278.5142</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">AIC</span>(mod_education)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 237.7904</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">AIC</span>(mod_multiple)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 208.3089</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Unlike <span class="math inline">\(R^2\)</span>, a <em>lower AIC</em> is better. We’ll talk more about model likelihood later in the course!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="your-turn-using-mtcars" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="your-turn-using-mtcars">Your turn: using <code>mtcars</code></h2>
+<p>Now, let’s apply this using the <code>mtcars</code> dataset:</p>
+<ul>
+<li>Try to predict <code>mpg</code> from <code>wt</code>. Interpret the coefficients and model fit.</li>
+<li>Then try to predict <code>mpg</code> from <code>am</code>. Interpret the coefficients and model fit. Note that you might need to convert <code>am</code> into a <em>factor</em> first.</li>
+<li>Finally, predict <code>mpg</code> from both variables. Interpret the coefficients and model fit.</li>
+</ul>
+</section>
+<section id="writing-out-the-linear-equation" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="writing-out-the-linear-equation">Writing out the linear equation</h2>
+<p>It’s often helpful to practice <em>writing out</em> the <strong>linear equations</strong> for a fit <code>lm</code>. Let’s write out the equations for the multiple variable model above.</p>
+<p><span class="math inline">\(Y_{mpg} = 37.32 - 5.35X_{wt} - 0.02X_{am}\)</span></p>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What about <strong>interactions</strong> between our terms?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="interaction-effects" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="interaction-effects">Interaction effects</h2>
+<blockquote class="blockquote">
+<p>An <strong>interaction effect</strong> occurs when the effect of one variable (<span class="math inline">\(X_1\)</span>) depends on the value of another variable (<span class="math inline">\(X_2\)</span>).</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li>So far, we’ve assumed variables have roughly <em>additive effects</em>.</li>
+<li>An <em>interaction</em> removes that assumption.</li>
+<li>In model, allows for <span class="math inline">\(X_1 * X_2\)</span>, i.e., a <em>multiplicative effect</em>.</li>
+</ul>
+</div>
+</section>
+<section id="examples-of-interaction-effects" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="examples-of-interaction-effects">Examples of interaction effects</h2>
+<p>Any set of variables could interact (including more than two!), but it’s often easiest to interpret interactions with <em>categorical variables</em>.</p>
+<div class="incremental">
+<ul class="incremental">
+<li><code>Food x Condiment</code>: The enjoyment of a <code>Food</code> (ice cream vs.&nbsp;hot dog) depends on the <code>Condiment</code> (<code>Chocolate vs. Ketchup</code>).</li>
+<li><code>Treatment x Gender</code>: The effect of some <em>treatment</em> depends on the <code>Gender</code> of the recipient.</li>
+<li><code>Brain Region x Task</code>: The activation in different <code>Brain Regions</code> depends on the <code>Task</code> (e.g., motor vs.&nbsp;visual).</li>
+</ul>
+</div>
+</section>
+<section id="building-an-interaction-effect" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="building-an-interaction-effect">Building an interaction effect</h2>
+<p>We can interpret the coefficients as follows:</p>
+<ul>
+<li><strong>Intercept</strong>: Automatic cars (<code>am = 0</code>) with <code>wt = 0</code> have expected <code>mpg</code> of 31.</li>
+<li><code>wt</code>: As <code>wt</code> increases, we expect automatic cars to decrease <code>mpg</code> by about 3.7.</li>
+<li><code>factor(am</code>): Holding <code>wt</code> constant, manual cars have an expected <code>mpg</code> of about 14 more than automatic cars.</li>
+<li><strong>Interaction</strong>: Among <em>manual cars</em>, increases in <code>wt</code> correspond to even sharper declines in expected <code>mpg.</code></li>
+</ul>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>mod_int <span class="ot">=</span> <span class="fu">lm</span>(<span class="at">data =</span> mtcars, mpg <span class="sc">~</span> am <span class="sc">*</span> wt)</span>
+<span id="cb33-2"><a href="#cb33-2"></a><span class="fu">summary</span>(mod_int)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = mpg ~ am * wt, data = mtcars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.6004 -1.5446 -0.5325  0.9012  6.0909 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  31.4161     3.0201  10.402 4.00e-11 ***
+am           14.8784     4.2640   3.489  0.00162 ** 
+wt           -3.7859     0.7856  -4.819 4.55e-05 ***
+am:wt        -5.2984     1.4447  -3.667  0.00102 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.591 on 28 degrees of freedom
+Multiple R-squared:  0.833, Adjusted R-squared:  0.8151 
+F-statistic: 46.57 on 3 and 28 DF,  p-value: 5.209e-11</code></pre>
+</div>
+</div>
+</section>
+<section id="visualizing-an-interaction" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="visualizing-an-interaction">Visualizing an interaction</h2>
+<p>By default, R will draw different regression lines for each level of a categorical factor we’ve added an <code>aes</code> for.</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg, <span class="at">color =</span> <span class="fu">factor</span>(am))) <span class="sc">+</span></span>
+<span id="cb35-3"><a href="#cb35-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb35-4"><a href="#cb35-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week5-regression_advanced_files/figure-html/viz_int-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="interim-summary" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="interim-summary">Interim summary</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Multiple regression models are often more powerful than single-variable models.</li>
+<li>In some cases, adding an <em>interaction</em> helps account for relationships that depend on another variable.</li>
+<li>But adding multiple variables does make <em>interpretation</em> slightly more challenging.</li>
+</ul>
+</div>
+</section>
+<section id="part-2-advanced-topics" class="level1">
+<h1>Part 2: Advanced topics</h1>
+<p>Standard errors, heteroscedasticity, and multicollinearity.</p>
+<section id="coefficient-standard-errors-ses" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="coefficient-standard-errors-ses">Coefficient standard errors (SEs)</h2>
+<blockquote class="blockquote">
+<p>The <strong>standard error</strong> of a coefficient measures the uncertainty in the estimated coefficient value.</p>
+</blockquote>
+<p>When we inspect the <em>output</em> of a fit <code>lm</code> model, we can see not only the coefficients but the <em>standard errors</em> (<code>Std. Error</code>):</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_education)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Income ~ Education, data = df_income)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-19.568  -8.012   1.474   5.754  23.701 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -41.9166     9.7689  -4.291 0.000192 ***
+Education     6.3872     0.5812  10.990 1.15e-11 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 11.93 on 28 degrees of freedom
+Multiple R-squared:  0.8118,    Adjusted R-squared:  0.8051 
+F-statistic: 120.8 on 1 and 28 DF,  p-value: 1.151e-11</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Does a <em>larger</em> SE correspond to more or less uncertainty about our estimate?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="understanding-ses" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="understanding-ses">Understanding SEs</h2>
+<p>Next:</p>
+<ul>
+<li>Discuss where SE comes from and how it’s calculated (briefly).</li>
+<li>Discuss t-statistic and notion of a sampling distribution.
+<ul>
+<li>t-statistic tests if coefficient is significantly diff. from zero</li>
+<li>Large |t|, i.e., &gt;= 2, generally suggests significance.</li>
+<li>Precisely: what is the probability of a |t|&gt;=2 under the null hypothesis?</li>
+</ul></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
