@@ -218,6 +218,10 @@ window.Quarto = {
     <a class="dropdown-item" href="../labs/lab2.html">
  <span class="dropdown-text">Lab 2: Wrangling and visualization</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../labs/lab3.html">
+ <span class="dropdown-text">Lab 3: Regression in R</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -292,7 +296,26 @@ window.Quarto = {
   <li><a href="#part-2-advanced-topics" id="toc-part-2-advanced-topics" class="nav-link" data-scroll-target="#part-2-advanced-topics">Part 2: Advanced topics</a>
   <ul class="collapse">
   <li><a href="#coefficient-standard-errors-ses" id="toc-coefficient-standard-errors-ses" class="nav-link" data-scroll-target="#coefficient-standard-errors-ses">Coefficient standard errors (SEs)</a></li>
-  <li><a href="#understanding-ses" id="toc-understanding-ses" class="nav-link" data-scroll-target="#understanding-ses">Understanding SEs</a></li>
+  <li><a href="#the-sampling-distribution-of-coefficients" id="toc-the-sampling-distribution-of-coefficients" class="nav-link" data-scroll-target="#the-sampling-distribution-of-coefficients">The sampling distribution of coefficients</a></li>
+  <li><a href="#calculating-the-se" id="toc-calculating-the-se" class="nav-link" data-scroll-target="#calculating-the-se">Calculating the SE</a></li>
+  <li><a href="#the-t-statistic" id="toc-the-t-statistic" class="nav-link" data-scroll-target="#the-t-statistic">The t-statistic</a></li>
+  <li><a href="#interpreting-the-t-statistic" id="toc-interpreting-the-t-statistic" class="nav-link" data-scroll-target="#interpreting-the-t-statistic">Interpreting the t-statistic</a></li>
+  <li><a href="#confidence-intervals" id="toc-confidence-intervals" class="nav-link" data-scroll-target="#confidence-intervals">Confidence intervals</a></li>
+  <li><a href="#your-turn-ses-and-t-statistics" id="toc-your-turn-ses-and-t-statistics" class="nav-link" data-scroll-target="#your-turn-ses-and-t-statistics">Your turn: SEs and t-statistics</a></li>
+  <li><a href="#heteroscedasticity" id="toc-heteroscedasticity" class="nav-link" data-scroll-target="#heteroscedasticity">Heteroscedasticity</a></li>
+  <li><a href="#heteroscedasticity-and-prediction-error" id="toc-heteroscedasticity-and-prediction-error" class="nav-link" data-scroll-target="#heteroscedasticity-and-prediction-error">Heteroscedasticity and prediction error</a></li>
+  <li><a href="#why-heteroscedasticity-biases-ses" id="toc-why-heteroscedasticity-biases-ses" class="nav-link" data-scroll-target="#why-heteroscedasticity-biases-ses">Why heteroscedasticity biases SEs</a></li>
+  <li><a href="#detecting-heteroscedasticity" id="toc-detecting-heteroscedasticity" class="nav-link" data-scroll-target="#detecting-heteroscedasticity">Detecting heteroscedasticity</a></li>
+  <li><a href="#what-to-do-about-heteroscedasticity" id="toc-what-to-do-about-heteroscedasticity" class="nav-link" data-scroll-target="#what-to-do-about-heteroscedasticity">What to do about heteroscedasticity?</a></li>
+  <li><a href="#multicollinearity" id="toc-multicollinearity" class="nav-link" data-scroll-target="#multicollinearity">Multicollinearity</a></li>
+  <li><a href="#multicollinearity-the-core-problem" id="toc-multicollinearity-the-core-problem" class="nav-link" data-scroll-target="#multicollinearity-the-core-problem">Multicollinearity: The core problem</a></li>
+  <li><a href="#example-detecting-multicollinearity" id="toc-example-detecting-multicollinearity" class="nav-link" data-scroll-target="#example-detecting-multicollinearity">Example: Detecting multicollinearity</a></li>
+  <li><a href="#variance-inflation-factor-vif" id="toc-variance-inflation-factor-vif" class="nav-link" data-scroll-target="#variance-inflation-factor-vif">Variance Inflation Factor (VIF)</a></li>
+  <li><a href="#understanding-vif-the-concept" id="toc-understanding-vif-the-concept" class="nav-link" data-scroll-target="#understanding-vif-the-concept">Understanding VIF: The concept</a></li>
+  <li><a href="#what-to-do-about-multicollinearity" id="toc-what-to-do-about-multicollinearity" class="nav-link" data-scroll-target="#what-to-do-about-multicollinearity">What to do about multicollinearity?</a></li>
+  <li><a href="#your-turn-diagnostics" id="toc-your-turn-diagnostics" class="nav-link" data-scroll-target="#your-turn-diagnostics">Your turn: Diagnostics</a></li>
+  <li><a href="#final-summary" id="toc-final-summary" class="nav-link" data-scroll-target="#final-summary">Final summary</a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key takeaways</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="week5-r-regression-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
@@ -749,18 +772,403 @@ F-statistic: 120.8 on 1 and 28 DF,  p-value: 1.151e-11</code></pre>
 </div>
 </div>
 </section>
-<section id="understanding-ses" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="understanding-ses">Understanding SEs</h2>
-<p>Next:</p>
-<ul>
-<li>Discuss where SE comes from and how it’s calculated (briefly).</li>
-<li>Discuss t-statistic and notion of a sampling distribution.
-<ul>
-<li>t-statistic tests if coefficient is significantly diff. from zero</li>
-<li>Large |t|, i.e., &gt;= 2, generally suggests significance.</li>
-<li>Precisely: what is the probability of a |t|&gt;=2 under the null hypothesis?</li>
-</ul></li>
+<section id="the-sampling-distribution-of-coefficients" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="the-sampling-distribution-of-coefficients">The sampling distribution of coefficients</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>If we could repeatedly sample from our population and fit our model each time, we’d get a <strong>distribution of coefficient estimates</strong>.</li>
+<li>This is called the <strong>sampling distribution</strong> of the coefficient.</li>
+<li>The <strong>standard error</strong> is the standard deviation of this sampling distribution.</li>
+<li>It tells us: “If we repeated this study many times, how much would our coefficient estimate vary?”</li>
 </ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Which properties affect the standard deviation of that sampling distribution?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="calculating-the-se" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="calculating-the-se">Calculating the SE</h2>
+<p>For a simple linear regression, the SE of the slope coefficient is:</p>
+<p><span class="math inline">\(SE(\beta_1) = \sqrt{\frac{\sum(y_i - \hat{y}_i)^2}{(n-2)\sum(x_i - \bar{x})^2}}\)</span></p>
+<div class="incremental">
+<ul class="incremental">
+<li><strong>Numerator</strong>: Larger residuals → more uncertainty → larger SE</li>
+<li><strong>Denominator</strong>: More data points and more spread in <span class="math inline">\(X\)</span> → less uncertainty → smaller SE</li>
+<li>For multiple regression, the calculation is more complex (involves matrix algebra)</li>
+<li>Fortunately, R calculates this for us!</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You will not be expected to calculate this from scratch!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-t-statistic" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="the-t-statistic">The t-statistic</h2>
+<blockquote class="blockquote">
+<p>The <strong>t-statistic</strong> measures how many standard errors a coefficient is away from zero.</p>
+</blockquote>
+<p><span class="math inline">\(t = \frac{\hat{\beta} - 0}{SE(\hat{\beta})}\)</span></p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Extract coefficient and SE for Education</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a>coef_value <span class="ot">&lt;-</span> <span class="fu">summary</span>(mod_education)<span class="sc">$</span>coefficients[<span class="st">"Education"</span>, <span class="st">"Estimate"</span>]</span>
+<span id="cb39-3"><a href="#cb39-3"></a>se_value <span class="ot">&lt;-</span> <span class="fu">summary</span>(mod_education)<span class="sc">$</span>coefficients[<span class="st">"Education"</span>, <span class="st">"Std. Error"</span>]</span>
+<span id="cb39-4"><a href="#cb39-4"></a></span>
+<span id="cb39-5"><a href="#cb39-5"></a><span class="co"># Calculate t-statistic manually</span></span>
+<span id="cb39-6"><a href="#cb39-6"></a>t_stat <span class="ot">&lt;-</span> coef_value <span class="sc">/</span> se_value</span>
+<span id="cb39-7"><a href="#cb39-7"></a>t_stat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10.99015</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>This matches the <code>t value</code> column in our summary output!</p>
+</div>
+</section>
+<section id="interpreting-the-t-statistic" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="interpreting-the-t-statistic">Interpreting the t-statistic</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>The t-statistic follows a <strong>t-distribution</strong> under the null hypothesis that <span class="math inline">\(\beta = 0\)</span>.</li>
+<li><strong>Rule of thumb</strong>: <span class="math inline">\(|t| \geq 2\)</span> typically indicates statistical significance (p &lt; 0.05).</li>
+<li>More precisely: We calculate the probability of observing a <span class="math inline">\(|t|\)</span> this large (or larger) if the true coefficient were zero.</li>
+<li>This probability is the <strong>p-value</strong>.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Looking at our <code>mod_education</code> output, is the <code>Education</code> coefficient significantly different from zero?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="confidence-intervals" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="confidence-intervals">Confidence intervals</h2>
+<p>We can use the SE to construct <strong>confidence intervals</strong> around our coefficient estimates:</p>
+<p><span class="math inline">\(\hat{\beta} \pm t_{critical} \times SE(\hat{\beta})\)</span></p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># 95% confidence intervals for our regression model</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a><span class="fu">confint</span>(mod_education)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 2.5 %     97.5 %
+(Intercept) -61.927397 -21.905827
+Education     5.196685   7.577637</code></pre>
+</div>
+</div>
+</section>
+<section id="your-turn-ses-and-t-statistics" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="your-turn-ses-and-t-statistics">Your turn: SEs and t-statistics</h2>
+<p>Using your <code>mtcars</code> model from earlier predicting <code>mpg</code> from <code>wt</code> and <code>am</code>:</p>
+<ol type="1">
+<li>Which coefficient has the largest standard error?<br>
+</li>
+<li>Which coefficient has the smallest p-value (most significant)?<br>
+</li>
+<li>Calculate 99% confidence intervals using <code>confint(model, level = 0.99)</code>.</li>
+</ol>
+</section>
+<section id="heteroscedasticity" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="heteroscedasticity">Heteroscedasticity</h2>
+<blockquote class="blockquote">
+<p><strong>Heteroscedasticity</strong> occurs when the variance of residuals is not constant across all levels of the predictors.</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li><strong>Homoscedasticity</strong> (the ideal): Residuals have constant variance.</li>
+<li><strong>Heteroscedasticity</strong> (a problem): Residual variance changes with predictor values.</li>
+<li>This <strong>violates</strong> one of the key assumptions of linear regression!</li>
+<li>Consequences: Standard errors become unreliable, affecting our hypothesis tests.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Why would heteroscecasticity affect our interpretation of standard errors?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="heteroscedasticity-and-prediction-error" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="heteroscedasticity-and-prediction-error">Heteroscedasticity and prediction error</h2>
+<blockquote class="blockquote">
+<p>The <strong>standard error of the estimate</strong> gives us an estimate of how much prediction error to expect.</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li>With homoscedasticity, our <em>expected error</em> shouldn’t really depend on <span class="math inline">\(X\)</span>.</li>
+<li>But with heteroscedasticity, our <em>margin of error</em> might actually vary as a function of <span class="math inline">\(X\)</span>.</li>
+<li>Yet we only have a single estimate of our prediction error, which might overestimate or underestimate error for a given <span class="math inline">\(X\)</span> value.</li>
+</ul>
+</div>
+</section>
+<section id="why-heteroscedasticity-biases-ses" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="why-heteroscedasticity-biases-ses">Why heteroscedasticity biases SEs</h2>
+<p>The key insight:</p>
+<div class="incremental">
+<ul class="incremental">
+<li>OLS gives <strong>equal weight</strong> to all observations when estimating SEs.</li>
+<li>But with heteroscedasticity, some observations have <strong>more noise</strong> than others.</li>
+<li>High-variance observations should be trusted <strong>less</strong>, but OLS doesn’t know this.</li>
+<li>Result: SEs don’t accurately reflect true uncertainty.</li>
+</ul>
+</div>
+</section>
+<section id="detecting-heteroscedasticity" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="detecting-heteroscedasticity">Detecting heteroscedasticity</h2>
+<p>We can diagnose heteroscedasticity by plotting residuals vs.&nbsp;fitted values:</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># Create diagnostic plot</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="fu">tibble</span>(</span>
+<span id="cb43-3"><a href="#cb43-3"></a>  <span class="at">fitted =</span> <span class="fu">fitted</span>(mod_multiple),</span>
+<span id="cb43-4"><a href="#cb43-4"></a>  <span class="at">residuals =</span> <span class="fu">residuals</span>(mod_multiple)</span>
+<span id="cb43-5"><a href="#cb43-5"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb43-6"><a href="#cb43-6"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> fitted, <span class="at">y =</span> residuals)) <span class="sc">+</span></span>
+<span id="cb43-7"><a href="#cb43-7"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb43-8"><a href="#cb43-8"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb43-9"><a href="#cb43-9"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Residuals vs. Fitted Values"</span>,</span>
+<span id="cb43-10"><a href="#cb43-10"></a>       <span class="at">x =</span> <span class="st">"Fitted Values"</span>, <span class="at">y =</span> <span class="st">"Residuals"</span>) <span class="sc">+</span></span>
+<span id="cb43-11"><a href="#cb43-11"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week5-regression_advanced_files/figure-html/heteroscedasticity_check-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Look for: funnel shapes, increasing/decreasing spread, or other patterns.</p>
+</div>
+</section>
+<section id="what-to-do-about-heteroscedasticity" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="what-to-do-about-heteroscedasticity">What to do about heteroscedasticity?</h2>
+<p>Several options to address heteroscedasticity:</p>
+<div class="incremental">
+<ol class="incremental" type="1">
+<li><strong>Transform</strong> the outcome variable (e.g., log transformation)</li>
+<li>Use <strong>robust standard errors</strong> (also called <a href="https://en.wikipedia.org/wiki/Heteroskedasticity-consistent_standard_errors">heteroscedasticity-consistent SEs</a>)</li>
+<li>Use <a href="https://en.wikipedia.org/wiki/Weighted_least_squares"><strong>weighted least squares</strong> regression</a></li>
+</ol>
+</div>
+<div class="fragment">
+<p>We won’t be covering (2) or (3), but there are R packages for implementing both.</p>
+</div>
+</section>
+<section id="multicollinearity" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="multicollinearity">Multicollinearity</h2>
+<blockquote class="blockquote">
+<p><strong>Multicollinearity</strong> occurs when predictor variables are highly correlated with each other.</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li>Makes it difficult to isolate the individual effect of each predictor.</li>
+<li>Leads to <strong>unstable</strong> coefficient estimates with large standard errors.</li>
+<li>Coefficients may have unexpected signs or magnitudes.</li>
+<li>Does NOT affect predictions, but makes <strong>interpretation</strong> problematic.</li>
+</ul>
+</div>
+</section>
+<section id="multicollinearity-the-core-problem" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="multicollinearity-the-core-problem">Multicollinearity: The core problem</h2>
+<blockquote class="blockquote">
+<p>When predictors are highly correlated, the model struggles to determine which predictor is “responsible” for variation in Y.</p>
+</blockquote>
+<p>Consider predicting income from: - Years of education - Number of graduate degrees</p>
+<div class="incremental">
+<ul class="incremental">
+<li>These are <strong>highly correlated</strong> - more years usually means more degrees.</li>
+<li>The model faces a <strong>credit assignment challenge</strong>: Is income higher because of years OR degrees?</li>
+<li>Many combinations of coefficients can fit the data equally well.</li>
+<li>Result: Coefficients become <strong>unstable</strong> and <strong>uncertain</strong>.</li>
+</ul>
+</div>
+</section>
+<section id="example-detecting-multicollinearity" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="example-detecting-multicollinearity">Example: Detecting multicollinearity</h2>
+<p>Let’s check the correlation between our predictors:</p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># Correlation between predictors</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a><span class="fu">cor</span>(df_income<span class="sc">$</span>Seniority, df_income<span class="sc">$</span>Education)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1945146</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># Visualize the relationship</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a>df_income <span class="sc">%&gt;%</span></span>
+<span id="cb46-3"><a href="#cb46-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Seniority, <span class="at">y =</span> Education)) <span class="sc">+</span></span>
+<span id="cb46-4"><a href="#cb46-4"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb46-5"><a href="#cb46-5"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb46-6"><a href="#cb46-6"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Relationship between Seniority and Education"</span>) <span class="sc">+</span></span>
+<span id="cb46-7"><a href="#cb46-7"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week5-regression_advanced_files/figure-html/multicol-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="variance-inflation-factor-vif" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="variance-inflation-factor-vif">Variance Inflation Factor (VIF)</h2>
+<blockquote class="blockquote">
+<p>The <strong>VIF</strong> quantifies how much the variance of a coefficient is inflated due to multicollinearity.</p>
+</blockquote>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">library</span>(car)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: carData</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'car'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    recode</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:purrr':
+
+    some</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">vif</span>(mod_multiple)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Seniority Education 
+ 1.039324  1.039324 </code></pre>
+</div>
+</div>
+<div class="incremental">
+<ul class="incremental">
+<li><strong>VIF = 1</strong>: No correlation with other predictors</li>
+<li><strong>VIF &lt; 5</strong>: Generally acceptable</li>
+<li><strong>VIF &gt; 10</strong>: Serious multicollinearity problem</li>
+<li><strong>VIF &gt; 5</strong>: Some concern, investigate further</li>
+</ul>
+</div>
+</section>
+<section id="understanding-vif-the-concept" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="understanding-vif-the-concept">Understanding VIF: The concept</h2>
+<blockquote class="blockquote">
+<p><strong>VIF</strong> (Variance Inflation Factor) quantifies how much multicollinearity inflates the variance of a coefficient.</p>
+</blockquote>
+<p>From the formula on the previous slide:</p>
+<p><span class="math inline">\(VIF_j = \frac{1}{1-R^2_j}\)</span></p>
+<p>Where <span class="math inline">\(R^2_j\)</span> is the R-squared from regressing predictor <span class="math inline">\(X_j\)</span> on all other predictors.</p>
+<div class="incremental">
+<ul class="incremental">
+<li><strong>Interpretation</strong>: “How much is the variance of <span class="math inline">\(\hat{\beta}_j\)</span> inflated compared to if <span class="math inline">\(X_j\)</span> were uncorrelated with other predictors?”</li>
+<li>If <span class="math inline">\(X_j\)</span> is uncorrelated with others: <span class="math inline">\(R^2_j = 0\)</span> → <span class="math inline">\(VIF = 1\)</span> (no inflation)</li>
+<li>If <span class="math inline">\(X_j\)</span> is highly correlated with others: <span class="math inline">\(R^2_j\)</span> close to 1 → <span class="math inline">\(VIF\)</span> is large</li>
+</ul>
+</div>
+</section>
+<section id="what-to-do-about-multicollinearity" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="what-to-do-about-multicollinearity">What to do about multicollinearity?</h2>
+<p>Several strategies to address multicollinearity:</p>
+<div class="incremental">
+<ol class="incremental" type="1">
+<li><strong>Remove</strong> one of the correlated predictors</li>
+<li><strong>Combine</strong> correlated predictors (e.g., create an index)</li>
+<li>Use <strong>principal components analysis</strong> (PCA) to create uncorrelated predictors</li>
+<li>Use <strong>regularization</strong> methods (Ridge, Lasso regression)</li>
+<li>Collect <strong>more data</strong> with greater variation in predictors</li>
+</ol>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The best solution depends on your research question and theoretical considerations!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="your-turn-diagnostics" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="your-turn-diagnostics">Your turn: Diagnostics</h2>
+<p>Using the <code>mtcars</code> dataset:</p>
+<ol type="1">
+<li>Build a model predicting <code>mpg</code> from <code>wt</code>, <code>hp</code>, and <code>disp</code></li>
+<li>Check for multicollinearity using <code>cor()</code> and <code>vif()</code></li>
+<li>Create a residual plot to check for heteroscedasticity</li>
+<li>What potential issues do you notice?</li>
+</ol>
+</section>
+<section id="final-summary" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="final-summary">Final summary</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><strong>Standard errors</strong> quantify uncertainty in coefficient estimates</li>
+<li><strong>t-statistics</strong> test whether coefficients differ significantly from zero</li>
+<li><strong>Heteroscedasticity</strong> (non-constant variance) violates regression assumptions</li>
+<li><strong>Multicollinearity</strong> (correlated predictors) inflates standard errors and makes interpretation difficult</li>
+<li>Both issues can be diagnosed and addressed with appropriate techniques</li>
+<li>Always check your model assumptions!</li>
+</ul>
+</div>
+</section>
+<section id="key-takeaways" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="key-takeaways">Key takeaways</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Multiple regression allows us to model complex relationships</li>
+<li>Adding interactions captures when one variable’s effect depends on another</li>
+<li><strong>Adjusted</strong> <span class="math inline">\(R^2\)</span> and <strong>AIC</strong> help compare models with different numbers of predictors</li>
+<li>Understanding SEs helps us assess the reliability of our estimates</li>
+<li>Checking assumptions (homoscedasticity, no multicollinearity) is crucial</li>
+<li>When assumptions are violated, specialized techniques can help</li>
+</ul>
+</div>
 
 
 </section>

@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -183,6 +218,10 @@ window.Quarto = {
     <a class="dropdown-item" href="../labs/lab2.html">
  <span class="dropdown-text">Lab 2: Wrangling and visualization</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../labs/lab3.html">
+ <span class="dropdown-text">Lab 3: Regression in R</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -240,6 +279,26 @@ window.Quarto = {
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
+  <li><a href="#load-datasets" id="toc-load-datasets" class="nav-link" data-scroll-target="#load-datasets">Load datasets</a></li>
+  </ul></li>
+  <li><a href="#part-0-wrangling" id="toc-part-0-wrangling" class="nav-link" data-scroll-target="#part-0-wrangling">Part 0: Wrangling</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1-join-the-datasets" id="toc-exercise-1-join-the-datasets" class="nav-link" data-scroll-target="#exercise-1-join-the-datasets">Exercise 1: Join the datasets</a></li>
+  </ul></li>
+  <li><a href="#part-1-building-and-interpreting-simple-models" id="toc-part-1-building-and-interpreting-simple-models" class="nav-link" data-scroll-target="#part-1-building-and-interpreting-simple-models">Part 1: Building and interpreting simple models</a>
+  <ul class="collapse">
+  <li><a href="#exercise-2-a-concreteness-advantage-pt.-1" id="toc-exercise-2-a-concreteness-advantage-pt.-1" class="nav-link" data-scroll-target="#exercise-2-a-concreteness-advantage-pt.-1">Exercise 2: A concreteness advantage? (pt.&nbsp;1)</a></li>
+  <li><a href="#exercise-3-a-concreteness-advantage-pt.-2" id="toc-exercise-3-a-concreteness-advantage-pt.-2" class="nav-link" data-scroll-target="#exercise-3-a-concreteness-advantage-pt.-2">Exercise 3: A concreteness advantage? (pt.&nbsp;2)</a></li>
+  <li><a href="#exercise-4-what-about-raw-frequency" id="toc-exercise-4-what-about-raw-frequency" class="nav-link" data-scroll-target="#exercise-4-what-about-raw-frequency">Exercise 4: What about raw <em>frequency</em>?</a></li>
+  <li><a href="#exercise-5-what-about-log-frequency" id="toc-exercise-5-what-about-log-frequency" class="nav-link" data-scroll-target="#exercise-5-what-about-log-frequency">Exercise 5: What about log <em>frequency</em>?</a></li>
+  <li><a href="#exercise-6-an-age-of-acquisition-advantage" id="toc-exercise-6-an-age-of-acquisition-advantage" class="nav-link" data-scroll-target="#exercise-6-an-age-of-acquisition-advantage">Exercise 6: An age of acquisition advantage?</a></li>
+  </ul></li>
+  <li><a href="#part-2-complex-models" id="toc-part-2-complex-models" class="nav-link" data-scroll-target="#part-2-complex-models">Part 2: Complex models</a>
+  <ul class="collapse">
+  <li><a href="#exercise-7-a-multivariate-model" id="toc-exercise-7-a-multivariate-model" class="nav-link" data-scroll-target="#exercise-7-a-multivariate-model">Exercise 7: A multivariate model</a></li>
+  <li><a href="#exercise-8-evaluating-this-model" id="toc-exercise-8-evaluating-this-model" class="nav-link" data-scroll-target="#exercise-8-evaluating-this-model">Exercise 8: Evaluating this model</a></li>
+  <li><a href="#exercise-9-checking-for-multicollinearity" id="toc-exercise-9-checking-for-multicollinearity" class="nav-link" data-scroll-target="#exercise-9-checking-for-multicollinearity">Exercise 9: Checking for multicollinearity</a></li>
+  <li><a href="#exercise-9-a-multivariate-model" id="toc-exercise-9-a-multivariate-model" class="nav-link" data-scroll-target="#exercise-9-a-multivariate-model">Exercise 9: A multivariate model</a></li>
   <li><a href="#submission-instructions" id="toc-submission-instructions" class="nav-link" data-scroll-target="#submission-instructions">Submission Instructions</a></li>
   </ul></li>
   </ul>
@@ -278,12 +337,163 @@ window.Quarto = {
 <li>Fitting <code>lm</code> models to actual data.</li>
 <li>Plotting and interpreting the <em>coefficients</em> of those models.</li>
 </ul>
-<p>Datasets:</p>
+<p>We’ll be working (again) with several datasets measuring properties of English words:</p>
 <ul>
-<li>BLP/Concreteness</li>
-<li>Election data</li>
-<li></li>
+<li>A dataset of concreteness and frequency information.</li>
+<li>A dataset of age of acquisition information.</li>
+<li>A dataset of response times to individual words.</li>
 </ul>
+<p>We’re interested in how the <em>accessibility</em> of a word (as measured by response time and accuracy) is predicted by various other features, such as its <em>frequency</em>, <em>concreteness</em>, and <em>age of acquisition</em>. We’ll be building regression models to help us tease apart these effects.</p>
+<section id="load-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="load-datasets">Load datasets</h2>
+<p>To get started, let’s load the datasets.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggcorrplot)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="do">### Concreteness dataset</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df_concreteness <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/concreteness.csv"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 28612 Columns: 4
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (2): Word, Dom_Pos
+dbl (2): Concreteness, Frequency
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df_concreteness)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 28612</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">### AoA dataset</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df_aoa <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/AoA.csv"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 31124 Columns: 2
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (1): Word
+dbl (1): AoA
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df_aoa)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 31124</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Dataset with response times and accuracy</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df_blp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/blp.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 55867 Columns: 8
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (2): spelling, lexicality
+dbl (6): rt, zscore, accuracy, rt.sd, zscore.sd, accuracy.sd
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df_blp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 55867</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="part-0-wrangling" class="level1">
+<h1>Part 0: Wrangling</h1>
+<section id="exercise-1-join-the-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1-join-the-datasets">Exercise 1: Join the datasets</h2>
+<p>To get started, let’s <strong>join these datasets</strong> on a common column. You might need to add a new column the the <em>BLP</em> data to make that work. You might also want to drop any <code>NA</code> rows.</p>
+</section>
+</section>
+<section id="part-1-building-and-interpreting-simple-models" class="level1">
+<h1>Part 1: Building and interpreting simple models</h1>
+<p>Now that we’ve joined the datasets, we can start building <em>regression models</em> to help us predict response times and accuracy.</p>
+<section id="exercise-2-a-concreteness-advantage-pt.-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2-a-concreteness-advantage-pt.-1">Exercise 2: A concreteness advantage? (pt.&nbsp;1)</h2>
+<p>Some research on word processing has argued for a “concreteness advantage”: i.e., the idea that concrete words are <em>easier</em> to process. Here, “processing ease” is often measured in terms of response time (faster = easier) and also accuracy (more accurate = easier).</p>
+<ul>
+<li>Create a scatterplot showing the relationship between <code>rt</code> and <code>Concreteness</code>.</li>
+<li>Build a regression model building <code>rt</code> from <code>Concreteness</code>.</li>
+<li>What are the coefficients? Interpret them.</li>
+<li>Are any coefficients significant? What does it mean if they are?</li>
+<li>What is the overall <em>model fit</em> (i.e., <span class="math inline">\(R^2\)</span>)?</li>
+<li>Finally, <strong>is this consistent with a concreteness advantage</strong></li>
+</ul>
+</section>
+<section id="exercise-3-a-concreteness-advantage-pt.-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3-a-concreteness-advantage-pt.-2">Exercise 3: A concreteness advantage? (pt.&nbsp;2)</h2>
+<p>Now replicate Exercise 2 but using <code>accuracy</code> as a dependnet measure instead of <code>rt</code>. Do you see a similar pattern of results?</p>
+</section>
+<section id="exercise-4-what-about-raw-frequency" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4-what-about-raw-frequency">Exercise 4: What about raw <em>frequency</em>?</h2>
+<p>Another well-attested finding in psycholinguistics is that <em>frequent words</em> are easier to process. Is that true of these data too?</p>
+<ul>
+<li>Create a scatterplot showing the relationship between <code>rt</code> and <code>Frequency</code>.</li>
+<li>Build an <code>lm</code> model predicting <code>rt</code> from raw <code>Frequency</code>. Interpret the coefficients.</li>
+<li>What is the <span class="math inline">\(R^2\)</span> of this model? How does it compare to the concreteness model from exercise 2?</li>
+</ul>
+</section>
+<section id="exercise-5-what-about-log-frequency" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5-what-about-log-frequency">Exercise 5: What about log <em>frequency</em>?</h2>
+<p>Frequency is a <em>right-skewed variable</em> (if you’re curious, make a histogram of <code>Frequency</code> to illustrate what this means!). Skewed data can sometimes influence regression coefficients or model fit. In some cases, researchers address this by <em>log-transforming</em> frequency.</p>
+<ul>
+<li>Apply a <em>log transformation</em> to <code>Frequency</code>, creating a new variable called <code>log_freq</code>.</li>
+<li>Redo Exercise 4 using <code>log_freq</code> instead. What differences do you observe?</li>
+<li>How does having a <em>log</em> <span class="math inline">\(X\)</span> variable change our interpretation of the coefficients?</li>
+</ul>
+</section>
+<section id="exercise-6-an-age-of-acquisition-advantage" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6-an-age-of-acquisition-advantage">Exercise 6: An age of acquisition advantage?</h2>
+<p>Another common argument is that words that are learned <em>earlier</em> are easier to process, perhaps because they’ve been stored in the lexical network for longer. Is that true of these data?</p>
+<ul>
+<li>Redo exercises 2-3 using <code>AoA</code> instead of <code>Concreteness</code>.</li>
+<li>How does the <span class="math inline">\(R^2\)</span> of this model compare to the models with <code>Concreteness</code>, <code>Frequency</code>, or <code>log_freq</code>?</li>
+</ul>
+</section>
+</section>
+<section id="part-2-complex-models" class="level1">
+<h1>Part 2: Complex models</h1>
+<p>One limitation of the models we built in Part 1 is that they’re all <em>univariate models</em>. But many of the predictors (like <code>Concreteness</code> and <code>Age of Acquisition</code>) are actually correlated! That makes it harder to figure out the unique effect of <code>Concreteness</code>, independent from <code>AoA</code>.</p>
+<p>We can use <em>multiple regression</em> to get at this question.</p>
+<section id="exercise-7-a-multivariate-model" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7-a-multivariate-model">Exercise 7: A multivariate model</h2>
+<p>Build a <strong>multiple regression model</strong> predicting <code>rt</code> with <code>Concreteness</code>, <code>AoA</code>, and <code>log_freq</code> as predictors.</p>
+<ul>
+<li>Interpret each of the coefficients (including the Intercept). How is this different from our interpretation of the coefficients in the univariate models?</li>
+<li>Use <code>broom::tidy</code> to store the coefficients in a dataframe. Now, create a <strong>visualization</strong> of the coefficient values (e.g., a scatterplot with error bars).</li>
+</ul>
+</section>
+<section id="exercise-8-evaluating-this-model" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8-evaluating-this-model">Exercise 8: Evaluating this model</h2>
+<ul>
+<li>Interpret the <span class="math inline">\(R^2\)</span> of the model from Exercise 7. How does this compare to the univariate models?</li>
+<li>Extract <em>predictions</em> from the modelusing the <code>predict</code> function and set them to a new column called <code>rt_pred</code>. Create a scatterplot showing the relationship between <code>rt_pred</code> and <code>rt</code>.</li>
+</ul>
+</section>
+<section id="exercise-9-checking-for-multicollinearity" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9-checking-for-multicollinearity">Exercise 9: Checking for multicollinearity</h2>
+<p>Finally, let’s check our model for signs of <em>multicollinearity</em> using the <code>vif</code> function. Is there anything to worry about?</p>
+</section>
+<section id="exercise-9-a-multivariate-model" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9-a-multivariate-model">Exercise 9: A multivariate model</h2>
+<p>Replicate Exercises 7-8 but with <code>accuracy</code> as a dependent variable instead of <code>rt</code>.</p>
+</section>
 <section id="submission-instructions" class="level2">
 <h2 class="anchored" data-anchor-id="submission-instructions">Submission Instructions</h2>
 <ol type="1">
