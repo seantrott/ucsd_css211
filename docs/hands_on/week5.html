@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CSS 211 Schedule – CSS 211: Statistical Methods for Computational Social Science</title>
+<title>Week 5: Multiple regression – CSS 211: Statistical Methods for Computational Social Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f93c2b1f3f0577f377aefa4848a86a36.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-f93c2b1f3f0577f377aefa4848a86a36.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,6 +104,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -80,9 +144,9 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">CSS 211: Statistical Methods for Computational Social Science</span>
     </a>
   </div>
@@ -93,19 +157,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./syllabus.html"> 
+    <a class="nav-link" href="../syllabus.html"> 
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./schedule.html" aria-current="page"> 
+    <a class="nav-link" href="../schedule.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./final_project.html"> 
+    <a class="nav-link" href="../final_project.html"> 
 <span class="menu-text">Final Project</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -114,27 +178,27 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures">    
         <li>
-    <a class="dropdown-item" href="./lectures/week0-intro.html">
+    <a class="dropdown-item" href="../lectures/week0-intro.html">
  <span class="dropdown-text">Week 0: Course Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/week1-philosophy.html">
+    <a class="dropdown-item" href="../lectures/week1-philosophy.html">
  <span class="dropdown-text">Week 1: Philosophy of Science</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/week1-r-intro.html">
+    <a class="dropdown-item" href="../lectures/week1-r-intro.html">
  <span class="dropdown-text">Week 1: Introduction to R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/week2-wrangling.html">
+    <a class="dropdown-item" href="../lectures/week2-wrangling.html">
  <span class="dropdown-text">Week 2: Data Wrangling</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/week3-visualization.html">
+    <a class="dropdown-item" href="../lectures/week3-visualization.html">
  <span class="dropdown-text">Week 3: Data Visualization</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/week4-regression.html">
+    <a class="dropdown-item" href="../lectures/week4-regression.html">
  <span class="dropdown-text">Week 4: Linear Regression</span></a>
   </li>  
     </ul>
@@ -147,15 +211,15 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-labs">    
         <li>
-    <a class="dropdown-item" href="./labs/lab1.html">
+    <a class="dropdown-item" href="../labs/lab1.html">
  <span class="dropdown-text">Lab 1: R Basics</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./labs/lab2.html">
+    <a class="dropdown-item" href="../labs/lab2.html">
  <span class="dropdown-text">Lab 2: Wrangling and visualization</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./labs/lab3.html">
+    <a class="dropdown-item" href="../labs/lab3.html">
  <span class="dropdown-text">Lab 3: Regression in R</span></a>
   </li>  
     </ul>
@@ -166,19 +230,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-hands-on-exercises">    
         <li>
-    <a class="dropdown-item" href="./hands_on/week2.html">
+    <a class="dropdown-item" href="../hands_on/week2.html">
  <span class="dropdown-text">Week 2: Wrangling</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./hands_on/week3.html">
+    <a class="dropdown-item" href="../hands_on/week3.html">
  <span class="dropdown-text">Week 3: Visualization</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./hands_on/week4.html">
+    <a class="dropdown-item" href="../hands_on/week4.html">
  <span class="dropdown-text">Week 4: Regression</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./hands_on/week5.html">
+    <a class="dropdown-item" href="../hands_on/week5.html">
  <span class="dropdown-text">Week 5: Multiple regression</span></a>
   </li>  
     </ul>
@@ -189,7 +253,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
         <li>
-    <a class="dropdown-item" href="./readings.html">
+    <a class="dropdown-item" href="../readings.html">
  <span class="dropdown-text">Readings</span></a>
   </li>  
     </ul>
@@ -212,15 +276,27 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#load-dataset" id="toc-load-dataset" class="nav-link" data-scroll-target="#load-dataset">Load dataset</a></li>
+  <li><a href="#exercise-1-understand-your-data" id="toc-exercise-1-understand-your-data" class="nav-link" data-scroll-target="#exercise-1-understand-your-data">Exercise 1: Understand your data</a></li>
+  <li><a href="#exercise-2-build-univariate-models" id="toc-exercise-2-build-univariate-models" class="nav-link" data-scroll-target="#exercise-2-build-univariate-models">Exercise 2: Build univariate models</a></li>
+  <li><a href="#exercise-3-build-a-big-multivariate-model" id="toc-exercise-3-build-a-big-multivariate-model" class="nav-link" data-scroll-target="#exercise-3-build-a-big-multivariate-model">Exercise 3: Build a big multivariate model!</a></li>
+  <li><a href="#exercise-4-a-more-principled-approach" id="toc-exercise-4-a-more-principled-approach" class="nav-link" data-scroll-target="#exercise-4-a-more-principled-approach">Exercise 4: A more principled approach</a></li>
+  <li><a href="#exercise-5-plot-a-map-of-california" id="toc-exercise-5-plot-a-map-of-california" class="nav-link" data-scroll-target="#exercise-5-plot-a-map-of-california">Exercise 5: Plot a map of California!</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">CSS 211 Schedule</h1>
+<h1 class="title">Week 5: Multiple regression</h1>
 </div>
 
 
@@ -237,280 +313,86 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is a tentative schedule of which topics I plan to cover. Note that while all lectures will have an interactive component, Fridays are reserved for more hands-on labs—typically involving a CSS-relevant dataset—with active participation encouraged.</p>
-<p>Readings are option; “ISLR” refers to <a href="https://www.statlearning.com/">“Introduction to Statistical Learning in R” (James et al.), which can be downloaded here</a>.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Week</th>
-<th>Day</th>
-<th>Date</th>
-<th>Topic(s)</th>
-<th>Assignments Due</th>
-<th>Suggested readings</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td>F</td>
-<td>09-26</td>
-<td><a href="./lectures/week0-intro.html">Course Introduction</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>M</td>
-<td>09-30</td>
-<td><a href="./lectures/week1-philosophy.html">Philosophy of Science in CSS</a></td>
-<td></td>
-<td><a href="https://r4ds.had.co.nz/introduction.html">Introduction to R for Data Science</a></td>
-</tr>
-<tr class="odd">
-<td>1</td>
-<td>W</td>
-<td>10-01</td>
-<td><a href="./lectures/week1-r-intro.html">Introduction to R and RStudio</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>F</td>
-<td>10-03</td>
-<td><a href="./labs/lab1.html">R basics <strong>[HANDS-ON]</strong></a></td>
-<td><strong>Lab 1</strong></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>M</td>
-<td>10-06</td>
-<td><a href="./lectures/week2-wrangling.html">Data wrangling</a></td>
-<td></td>
-<td><a href="https://vita.had.co.nz/papers/tidy-data.pdf">Tidy data (Wickham, 2011)</a></td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>W</td>
-<td>10-08</td>
-<td><a href="./lectures/week2-wrangling.html">Data wrangling</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>F</td>
-<td>10-10</td>
-<td><a href="./hands_on/week2.html">Hands-on data cleaning <strong>[HANDS-ON]</strong></a></td>
-<td><strong>Concept quiz</strong></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>M</td>
-<td>10-13</td>
-<td><a href="./lectures/week3-visualization.html">Data visualization (principles)</a></td>
-<td></td>
-<td><a href="https://r4ds.had.co.nz/data-visualisation.html">Introduction to Data Visualization in R</a></td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>W</td>
-<td>10-15</td>
-<td><a href="./lectures/week3-visualization.html">Data visualization (<em>ggplot</em>)</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>F</td>
-<td>10-17</td>
-<td><a href="./hands_on/week3.html">Exploratory data analysis <strong>[HANDS-ON]</strong></a></td>
-<td>Lab 2</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>M</td>
-<td>10-20</td>
-<td><a href="./lectures/week4-regression.html">Linear regression</a></td>
-<td></td>
-<td><a href="https://www.statlearning.com/">ISLR, 3.1</a></td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>W</td>
-<td>10-22</td>
-<td><a href="./lectures/week4-regression.html">Linear regression</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>F</td>
-<td>10-24</td>
-<td><a href="./hands_on/week4.html">Hands-on regression <strong>[HANDS-ON]</strong></a></td>
-<td><strong>Concept quiz</strong></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>M</td>
-<td>10-27</td>
-<td><a href="./lectures/week5-regression_advanced.html">Multiple regression</a></td>
-<td></td>
-<td><a href="https://www.statlearning.com/">ISLR, 3.2</a></td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>W</td>
-<td>10-29</td>
-<td><a href="./lectures/week5-regression_advanced.html">Regression: issues</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>F</td>
-<td>10-31</td>
-<td><a href="./hands_on/week5.html">Building complex models <strong>[HANDS-ON]</strong></a></td>
-<td>Lab 3</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>6</td>
-<td>M</td>
-<td>11-03</td>
-<td><a href="./lectures/week6-logistic.html">Logistic regression</a></td>
-<td></td>
-<td><a href="https://www.statlearning.com/">ISLR, 4.3</a></td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td>W</td>
-<td>11-05</td>
-<td>Regularization</td>
-<td></td>
-<td><a href="https://www.statlearning.com/">ISLR, 6.2</a></td>
-</tr>
-<tr class="odd">
-<td>6</td>
-<td>F</td>
-<td>11-07</td>
-<td>Interpreting logistic models <strong>[HANDS-ON]</strong></td>
-<td><strong>Concept quiz</strong></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>7</td>
-<td>M</td>
-<td>11-10</td>
-<td>Mixed effects models</td>
-<td></td>
-<td><a href="https://arxiv.org/abs/1308.5499">Winter, 2013</a></td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td>W</td>
-<td>11-12</td>
-<td>Mixed models + model selection (<strong>PRE-RECORDED</strong>)</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>7</td>
-<td>F</td>
-<td>11-14</td>
-<td><strong>In-class midterm</strong></td>
-<td><strong>Midterm!</strong></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>8</td>
-<td>M</td>
-<td>11-17</td>
-<td>Resampling</td>
-<td></td>
-<td><a href="https://www.statlearning.com/">ISLR, 5.2</a></td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td>W</td>
-<td>11-19</td>
-<td>Resampling</td>
-<td>Lab 4</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>8</td>
-<td>F</td>
-<td>11-21</td>
-<td>Build your own baseline <strong>[HANDS-ON]</strong></td>
-<td><strong>Concept quiz</strong></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>9</td>
-<td>M</td>
-<td>11-24</td>
-<td>Final project check-in</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>9</td>
-<td>W</td>
-<td>11-26</td>
-<td><strong>HOLIDAY (Thanksgiving)</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>9</td>
-<td>F</td>
-<td>11-28</td>
-<td><strong>HOLIDAY (Thanksgiving)</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>10</td>
-<td>M</td>
-<td>12-01</td>
-<td>Best practices, Wrap-up</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>10</td>
-<td>W</td>
-<td>12-03</td>
-<td>Final project presentations (pt.&nbsp;1)</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>10</td>
-<td>F</td>
-<td>12-05</td>
-<td>Final project presentations (pt.&nbsp;2)</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>11</td>
-<td>W</td>
-<td>12-10</td>
-<td></td>
-<td><strong>Final report due</strong></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The goal of this hands-on exercise is to familiarize you with <strong>building and interpreting multiple regression models in R</strong>, and also <strong>debugging common issues in regression models</strong>.</p>
+<p>We’ll be working with a dataset of housing prices in California. Our goal is to build a model predicting <code>median_house_value</code> in a given district/county.</p>
+</section>
+<section id="load-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="load-dataset">Load dataset</h2>
+<p>To get started, let’s load the dataset.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggcorrplot)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="do">### Housing dataset</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df_housing <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/regression/housing.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 20640 Columns: 10
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (1): ocean_proximity
+dbl (9): longitude, latitude, housing_median_age, total_rooms, total_bedroom...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-1-understand-your-data" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1-understand-your-data">Exercise 1: Understand your data</h2>
+<p>To get started, let’s explore our data.</p>
+<ul>
+<li>Look at each of the variables and create histograms of them (or bar plots, etc.). What do they look like? What are they?</li>
+<li>Which variables correlate with each other? Use <code>gcorrplot</code>?</li>
+</ul>
+</section>
+<section id="exercise-2-build-univariate-models" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2-build-univariate-models">Exercise 2: Build univariate models</h2>
+<p>Now, build a series of <em>univariate</em> models to predict <code>median_house_value</code>.</p>
+<ul>
+<li>Try building models for each of the following predictors: <code>housing_median_age</code>, <code>total_bedrooms</code>, <code>population</code>, <code>median_income</code>, and <code>ocean_proximity</code>.</li>
+<li>For each model, interpret the <em>coefficients</em> and also the <span class="math inline">\(R^2\)</span>.</li>
+<li>Optionally, make a <em>barplot</em> comparing the <span class="math inline">\(R^2\)</span> of these univariate models.</li>
+</ul>
+</section>
+<section id="exercise-3-build-a-big-multivariate-model" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3-build-a-big-multivariate-model">Exercise 3: Build a big multivariate model!</h2>
+<p>Now let’s construct a <em>multivariate model</em>. Combine all the predictors from Exercise 2 into a single multivariate model.</p>
+<ul>
+<li>How does this change your interpretation of the coefficients?</li>
+<li>How does this change the overall model fit?</li>
+<li>Using <code>vif</code> (from the <code>car</code> package), determine whether there’s multicollinearity in your model.</li>
+</ul>
+</section>
+<section id="exercise-4-a-more-principled-approach" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4-a-more-principled-approach">Exercise 4: A more principled approach</h2>
+<p>Now let’s use a technique called <em>forward stepwise regression</em> to build a locally optimal set of predictors.</p>
+<ul>
+<li>Start with the <em>best model</em> from Exercise 2.</li>
+<li>Then, build a series of 2-variable models (i.e., with each <em>other</em> predictor), and choose the best of those.</li>
+<li>Do this until you’ve added all the variables from Exercise 2 in order of how much they help the model.</li>
+</ul>
+<p>What’s the <span class="math inline">\(R^2\)</span> of each of these progressively more complicated models?</p>
+</section>
+<section id="exercise-5-plot-a-map-of-california" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5-plot-a-map-of-california">Exercise 5: Plot a map of California!</h2>
+<p>Our data also includes <code>latitude</code> and <code>longitude</code> information. Use that (e.g., in a scatterplot) to make a <em>visualization</em> of how housing prices change across California.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
