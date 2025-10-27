@@ -45,6 +45,8 @@ website:
             href: hands_on/week3.qmd
           - text: "Week 4: Regression"
             href: hands_on/week4.qmd
+          - text: "Week 5: Multiple regression"
+            href: hands_on/week5.qmd
       - text: "Resources"
         menu:
           - text: "Readings"

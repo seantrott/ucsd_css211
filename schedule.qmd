@@ -24,8 +24,8 @@ Readings are option; "ISLR" refers to ["Introduction to Statistical Learning in 
 | 4 | F | 10-24 | [Hands-on regression **[HANDS-ON]**](hands_on/week4.qmd) | **Concept quiz** |
 | 5 | M | 10-27 | [Multiple regression](lectures/week5-regression_advanced.qmd) | |[ISLR, 3.2](https://www.statlearning.com/)|
 | 5 | W | 10-29 | [Regression: issues](lectures/week5-regression_advanced.qmd) | |
-| 5 | F | 10-31 | Building complex models **[HANDS-ON]** | Lab 3 |
-| 6 | M | 11-03 | Logistic regression | |[ISLR, 4.3](https://www.statlearning.com/)|
+| 5 | F | 10-31 | [Building complex models **[HANDS-ON]**](hands_on_week5.qmd| Lab 3 |
+| 6 | M | 11-03 | [Logistic regression](lectures/week6-logistic.qmd) | |[ISLR, 4.3](https://www.statlearning.com/)|
 | 6 | W | 11-05 | Regularization | |[ISLR, 6.2](https://www.statlearning.com/)|
 | 6 | F | 11-07 | Interpreting logistic models **[HANDS-ON]** | **Concept quiz** |
 | 7 | M | 11-10 | Mixed effects models | |[Winter, 2013](https://arxiv.org/abs/1308.5499)|
