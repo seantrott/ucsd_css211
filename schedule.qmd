@@ -29,7 +29,7 @@ Readings are option; "ISLR" refers to ["Introduction to Statistical Learning in 
 | 6 | W | 11-05 | [Logistic regression](lectures/week6-logistic.qmd)  | |[ISLR, 6.2](https://www.statlearning.com/)|
 | 6 | F | 11-07 | Interpreting logistic models **[HANDS-ON]** | **Concept quiz** |
 | 7 | M | 11-10 | Midterm review | ||
-| 7 | W | 11-12 | *No class* | |
+| 7 | W | 11-12 | Mixed effects models (*Pre-recorded lecture*) | |
 | 7 | F | 11-14 | **In-class midterm** | **Midterm!** |
 | 8 | M | 11-17 | Mixed effects models | |[Winter, 2013](https://arxiv.org/abs/1308.5499)|
 | 8 | W | 11-19 | Mixed effects models | Lab 4 |
