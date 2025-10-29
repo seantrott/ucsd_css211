@@ -3,4 +3,85 @@ title: "CSS 211 Final Project)"
 ---
 
 
-Details coming soon!
+The primary goal of the **final project** is to *reproduce* the analysis and results from a published paper (or preprint) in your area of interest. Alternatively/additionally, students are allowed (but not required) to conduct an *original* analysis on a publicly available dataset (or multiple datasets).
+
+## Project guidelines and expectations
+
+Your **deliverable** will be a *report* (and short *presentation*, delivered in class). The report (*30 points total*) should consist of the following sections (roughly):
+
+| Section | Points | Description | Example 1| 
+| --------------- | ---- | ---------- | -------- | 
+| Introduction |  3 | What dataset are you looking at? Where/how was it created? What was the original paper your analysis is based on? | Dataset about which construction people use in the [dative alternation](http://www.glottopedia.org/index.php/Dative_alternation): do they use NP ("She gave the man the box") or PP ("She gave the box to the man"). I will ask which features predict the use of one construction vs. the other. Originally published in [Bresnan et al. (2007)](https://pure.mpg.de/pubman/faces/ViewItemOverviewPage.jsp?itemId=item_58830).| 
+| Data |  8 |  Descriptive statistics about the dataset: number of rows/columns, central tendency (mean/median/mode) of key variables, variability of key variables, any missing values, etc. Should also include details of **cleaning** or **merging** datasets, should you need to do that. | The [dativeSimplified](https://rdrr.io/cran/languageR/man/dativeSimplified.html) dataset contains 903 observations with 5 variables; it was created by examining transcriptions of conversational data from Switchboard. No cleaning was required. | 
+| Visualizations | 8 | Reproduction of figures from original paper; alternatively, 2-3 *original visualizations* showing specific patterns or features you'd like to highlight. Each visualization should be accompanied by a short (1-2 sentences) description of what you think it shows. | Boxplot showing **length** of the *theme* argument when recipient is realized as a noun phrase vs. prepositional phrase. Barplot showing proportion of **NP** realizations depending on animacy of recipient. | 
+| Analyses |  8| Reproduction of analyses from original paper; alternatively, 2-3 *original analyses* using methods discussed in class (e.g., linear regression, logistic regression etc.) to address your question. Each analysis should be accompanied by a short (1-3 sentences) *interpretation*. Should also include **evaluation** of your model somehow, e.g., $R^2$, AIC, etc. | Logistic regression predicting **realization** (NP vs. PP) from Animacy and Length. Compare AIC of this model to a model omitting each variable in turn. | 
+| Limitations | 2 | Discuss any limitations to your approach. If it is a reproduction of published work, discuss any discrepancies; if it's original work, discuss any issues with your decisions.  | Variables could be inter-related; also only 4 predictor variables total. |  
+| Conclusion |  1 | Drawing a conclusion about the dataset and the questions you posed. | An NP realization is more likely for *longer themes*.| 
+
+
+The presentation will constitute an additional *5 points* of your final project grade. Presentations will be relatively short (~5 minutes), so the key thing will be to summarize the research question(s), display a key figure, and walk through an analysis.
+
+
+
+## Advice for finding a result to reproduce
+
+Finding a result to reproduce can be the hardest part, since it depends on finding papers with *publicly available datasets*. I recommend working *iteratively* here: 
+
+1. Start by finding some papers that interest you (and have analyses you think you can reproduce).
+2. Determine whether any of them have publicly available data. 
+3a. If they do, choose one of those papers. 
+3b. If they don't, return to (1). 
+
+More advice on the search process is below.
+
+### Start with recent, computational papers
+
+Look for papers published in the last 3-5 years that use computational methods, statistical analysis, or data visualization. Recent papers are more likely to have accessible data and code.
+
+### Check for open science practices
+
+Prioritize papers that include:
+
+- Links to datasets (often in supplementary materials or data repositories)
+- Code repositories (GitHub, OSF, etc.)
+- Clear methodology sections that explain analytical steps
+- Papers with "reproducibility" badges or statements
+
+### Good places to search:
+
+- Journal-specific repositories (e.g., PLOS ONE, Behavior Research Methods, Nature Scientific Data)
+- Preprint servers (arXiv, bioRxiv, SocArXiv) often have more accessible materials
+- Your course readings or papers cited in class
+- Papers from faculty in your department
+
+### Consider scope
+
+Choose a paper where you can reproduce:
+
+- Anywhere from 2-4 specific analyses or figures. 
+- Results using a subset of the data.
+- Key findings using similar methods on comparable data
+
+## Advice for finding datasets
+
+Some students may wish to conduct an *original* analysis on a publicly available dataset. This can be more challenging, since it requires coming up with an original research question of theoretical interest. But if you're having trouble identifying a suitable paper (see above), you can always go this route. 
+
+Here, your strategy will involve finding a suitable dataset or *multiple datasets* that you want to combine. You'll want to make sure this is accessible in a format you can read in and work with (e.g., a `csv` file).
+
+Some useful starting points:
+
+| Dataset | Social Science Domain | Description | Accessing |
+| ------ | ---- | ---------- | ------- |
+| World Bank Open Data | Economics / Global Development | Contains time series data for **many domains**, such as agricultural development, rural poverty, carbon emissions, and much, much more. | [Link to Data Bank](https://data.worldbank.org/); can browse by "indicator"; may require merging datasets for more information. |
+| [World Happiness Report](https://www.kaggle.com/datasets/ajaypalsinghlo/world-happiness-report-2021) | Economics / Global Development | Dataset about global happiness scores; might need to be merged with other datasets to ask useful questions. | [Kaggle](https://www.kaggle.com/datasets/ajaypalsinghlo/world-happiness-report-2021)|
+| World Energy Consumption | Economics / Climate | Contains time series data about consumption of **energy** and **electricity**. | [Link on Kaggle](https://www.kaggle.com/datasets/pralabhpoudel/world-energy-consumption) |
+| SCARFS (Spontaneous, controlled, acts of reference between friends and strangers) | Linguistics/Communication | Data about friends and strangers playing the game **Taboo**, which clues they gave, and whether a trial was correct. | [GitHub Link](https://github.com/seantrott/scarfs) |
+| Linguistic norms | Linguistics/Communication | Many psycholinguistic norm datasets, including concreteness, age of acquisition, iconicity, and more, are available online (including for this class!) | [Concreteness paper](https://link.springer.com/article/10.3758/s13428-013-0403-5), [Iconicity paper](https://link.springer.com/article/10.3758/s13428-023-02112-6) |
+| [California Housing Prices](https://www.kaggle.com/datasets/camnugent/california-housing-prices) | Economics | Information about the median house value for different districts in California. | [Link on Kaggle](https://www.kaggle.com/datasets/camnugent/california-housing-prices). |
+| [Student alcohol consumption](https://www.kaggle.com/datasets/uciml/student-alcohol-consumption?select=student-por.csv) | Public Health | Information about student behavior, including alcohol consumption and more. |  [Link on Kaggle](https://www.kaggle.com/datasets/uciml/student-alcohol-consumption?select=student-por.csv). |
+
+
+
+
+
+

@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -212,8 +241,22 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#project-guidelines-and-expectations" id="toc-project-guidelines-and-expectations" class="nav-link active" data-scroll-target="#project-guidelines-and-expectations">Project guidelines and expectations</a></li>
+  <li><a href="#advice-for-finding-a-result-to-reproduce" id="toc-advice-for-finding-a-result-to-reproduce" class="nav-link" data-scroll-target="#advice-for-finding-a-result-to-reproduce">Advice for finding a result to reproduce</a>
+  <ul class="collapse">
+  <li><a href="#start-with-recent-computational-papers" id="toc-start-with-recent-computational-papers" class="nav-link" data-scroll-target="#start-with-recent-computational-papers">Start with recent, computational papers</a></li>
+  <li><a href="#check-for-open-science-practices" id="toc-check-for-open-science-practices" class="nav-link" data-scroll-target="#check-for-open-science-practices">Check for open science practices</a></li>
+  <li><a href="#good-places-to-search" id="toc-good-places-to-search" class="nav-link" data-scroll-target="#good-places-to-search">Good places to search:</a></li>
+  <li><a href="#consider-scope" id="toc-consider-scope" class="nav-link" data-scroll-target="#consider-scope">Consider scope</a></li>
+  </ul></li>
+  <li><a href="#advice-for-finding-datasets" id="toc-advice-for-finding-datasets" class="nav-link" data-scroll-target="#advice-for-finding-datasets">Advice for finding datasets</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -237,9 +280,163 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Details coming soon!</p>
+<p>The primary goal of the <strong>final project</strong> is to <em>reproduce</em> the analysis and results from a published paper (or preprint) in your area of interest. Alternatively/additionally, students are allowed (but not required) to conduct an <em>original</em> analysis on a publicly available dataset (or multiple datasets).</p>
+<section id="project-guidelines-and-expectations" class="level2">
+<h2 class="anchored" data-anchor-id="project-guidelines-and-expectations">Project guidelines and expectations</h2>
+<p>Your <strong>deliverable</strong> will be a <em>report</em> (and short <em>presentation</em>, delivered in class). The report (<em>30 points total</em>) should consist of the following sections (roughly):</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Section</th>
+<th>Points</th>
+<th>Description</th>
+<th>Example 1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Introduction</td>
+<td>3</td>
+<td>What dataset are you looking at? Where/how was it created? What was the original paper your analysis is based on?</td>
+<td>Dataset about which construction people use in the <a href="http://www.glottopedia.org/index.php/Dative_alternation">dative alternation</a>: do they use NP (“She gave the man the box”) or PP (“She gave the box to the man”). I will ask which features predict the use of one construction vs.&nbsp;the other. Originally published in <a href="https://pure.mpg.de/pubman/faces/ViewItemOverviewPage.jsp?itemId=item_58830">Bresnan et al.&nbsp;(2007)</a>.</td>
+</tr>
+<tr class="even">
+<td>Data</td>
+<td>8</td>
+<td>Descriptive statistics about the dataset: number of rows/columns, central tendency (mean/median/mode) of key variables, variability of key variables, any missing values, etc. Should also include details of <strong>cleaning</strong> or <strong>merging</strong> datasets, should you need to do that.</td>
+<td>The <a href="https://rdrr.io/cran/languageR/man/dativeSimplified.html">dativeSimplified</a> dataset contains 903 observations with 5 variables; it was created by examining transcriptions of conversational data from Switchboard. No cleaning was required.</td>
+</tr>
+<tr class="odd">
+<td>Visualizations</td>
+<td>8</td>
+<td>Reproduction of figures from original paper; alternatively, 2-3 <em>original visualizations</em> showing specific patterns or features you’d like to highlight. Each visualization should be accompanied by a short (1-2 sentences) description of what you think it shows.</td>
+<td>Boxplot showing <strong>length</strong> of the <em>theme</em> argument when recipient is realized as a noun phrase vs.&nbsp;prepositional phrase. Barplot showing proportion of <strong>NP</strong> realizations depending on animacy of recipient.</td>
+</tr>
+<tr class="even">
+<td>Analyses</td>
+<td>8</td>
+<td>Reproduction of analyses from original paper; alternatively, 2-3 <em>original analyses</em> using methods discussed in class (e.g., linear regression, logistic regression etc.) to address your question. Each analysis should be accompanied by a short (1-3 sentences) <em>interpretation</em>. Should also include <strong>evaluation</strong> of your model somehow, e.g., <span class="math inline">\(R^2\)</span>, AIC, etc.</td>
+<td>Logistic regression predicting <strong>realization</strong> (NP vs.&nbsp;PP) from Animacy and Length. Compare AIC of this model to a model omitting each variable in turn.</td>
+</tr>
+<tr class="odd">
+<td>Limitations</td>
+<td>2</td>
+<td>Discuss any limitations to your approach. If it is a reproduction of published work, discuss any discrepancies; if it’s original work, discuss any issues with your decisions.</td>
+<td>Variables could be inter-related; also only 4 predictor variables total.</td>
+</tr>
+<tr class="even">
+<td>Conclusion</td>
+<td>1</td>
+<td>Drawing a conclusion about the dataset and the questions you posed.</td>
+<td>An NP realization is more likely for <em>longer themes</em>.</td>
+</tr>
+</tbody>
+</table>
+<p>The presentation will constitute an additional <em>5 points</em> of your final project grade. Presentations will be relatively short (~5 minutes), so the key thing will be to summarize the research question(s), display a key figure, and walk through an analysis.</p>
+</section>
+<section id="advice-for-finding-a-result-to-reproduce" class="level2">
+<h2 class="anchored" data-anchor-id="advice-for-finding-a-result-to-reproduce">Advice for finding a result to reproduce</h2>
+<p>Finding a result to reproduce can be the hardest part, since it depends on finding papers with <em>publicly available datasets</em>. I recommend working <em>iteratively</em> here:</p>
+<ol type="1">
+<li>Start by finding some papers that interest you (and have analyses you think you can reproduce).</li>
+<li>Determine whether any of them have publicly available data. 3a. If they do, choose one of those papers. 3b. If they don’t, return to (1).</li>
+</ol>
+<p>More advice on the search process is below.</p>
+<section id="start-with-recent-computational-papers" class="level3">
+<h3 class="anchored" data-anchor-id="start-with-recent-computational-papers">Start with recent, computational papers</h3>
+<p>Look for papers published in the last 3-5 years that use computational methods, statistical analysis, or data visualization. Recent papers are more likely to have accessible data and code.</p>
+</section>
+<section id="check-for-open-science-practices" class="level3">
+<h3 class="anchored" data-anchor-id="check-for-open-science-practices">Check for open science practices</h3>
+<p>Prioritize papers that include:</p>
+<ul>
+<li>Links to datasets (often in supplementary materials or data repositories)</li>
+<li>Code repositories (GitHub, OSF, etc.)</li>
+<li>Clear methodology sections that explain analytical steps</li>
+<li>Papers with “reproducibility” badges or statements</li>
+</ul>
+</section>
+<section id="good-places-to-search" class="level3">
+<h3 class="anchored" data-anchor-id="good-places-to-search">Good places to search:</h3>
+<ul>
+<li>Journal-specific repositories (e.g., PLOS ONE, Behavior Research Methods, Nature Scientific Data)</li>
+<li>Preprint servers (arXiv, bioRxiv, SocArXiv) often have more accessible materials</li>
+<li>Your course readings or papers cited in class</li>
+<li>Papers from faculty in your department</li>
+</ul>
+</section>
+<section id="consider-scope" class="level3">
+<h3 class="anchored" data-anchor-id="consider-scope">Consider scope</h3>
+<p>Choose a paper where you can reproduce:</p>
+<ul>
+<li>Anywhere from 2-4 specific analyses or figures.</li>
+<li>Results using a subset of the data.</li>
+<li>Key findings using similar methods on comparable data</li>
+</ul>
+</section>
+</section>
+<section id="advice-for-finding-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="advice-for-finding-datasets">Advice for finding datasets</h2>
+<p>Some students may wish to conduct an <em>original</em> analysis on a publicly available dataset. This can be more challenging, since it requires coming up with an original research question of theoretical interest. But if you’re having trouble identifying a suitable paper (see above), you can always go this route.</p>
+<p>Here, your strategy will involve finding a suitable dataset or <em>multiple datasets</em> that you want to combine. You’ll want to make sure this is accessible in a format you can read in and work with (e.g., a <code>csv</code> file).</p>
+<p>Some useful starting points:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Dataset</th>
+<th>Social Science Domain</th>
+<th>Description</th>
+<th>Accessing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>World Bank Open Data</td>
+<td>Economics / Global Development</td>
+<td>Contains time series data for <strong>many domains</strong>, such as agricultural development, rural poverty, carbon emissions, and much, much more.</td>
+<td><a href="https://data.worldbank.org/">Link to Data Bank</a>; can browse by “indicator”; may require merging datasets for more information.</td>
+</tr>
+<tr class="even">
+<td><a href="https://www.kaggle.com/datasets/ajaypalsinghlo/world-happiness-report-2021">World Happiness Report</a></td>
+<td>Economics / Global Development</td>
+<td>Dataset about global happiness scores; might need to be merged with other datasets to ask useful questions.</td>
+<td><a href="https://www.kaggle.com/datasets/ajaypalsinghlo/world-happiness-report-2021">Kaggle</a></td>
+</tr>
+<tr class="odd">
+<td>World Energy Consumption</td>
+<td>Economics / Climate</td>
+<td>Contains time series data about consumption of <strong>energy</strong> and <strong>electricity</strong>.</td>
+<td><a href="https://www.kaggle.com/datasets/pralabhpoudel/world-energy-consumption">Link on Kaggle</a></td>
+</tr>
+<tr class="even">
+<td>SCARFS (Spontaneous, controlled, acts of reference between friends and strangers)</td>
+<td>Linguistics/Communication</td>
+<td>Data about friends and strangers playing the game <strong>Taboo</strong>, which clues they gave, and whether a trial was correct.</td>
+<td><a href="https://github.com/seantrott/scarfs">GitHub Link</a></td>
+</tr>
+<tr class="odd">
+<td>Linguistic norms</td>
+<td>Linguistics/Communication</td>
+<td>Many psycholinguistic norm datasets, including concreteness, age of acquisition, iconicity, and more, are available online (including for this class!)</td>
+<td><a href="https://link.springer.com/article/10.3758/s13428-013-0403-5">Concreteness paper</a>, <a href="https://link.springer.com/article/10.3758/s13428-023-02112-6">Iconicity paper</a></td>
+</tr>
+<tr class="even">
+<td><a href="https://www.kaggle.com/datasets/camnugent/california-housing-prices">California Housing Prices</a></td>
+<td>Economics</td>
+<td>Information about the median house value for different districts in California.</td>
+<td><a href="https://www.kaggle.com/datasets/camnugent/california-housing-prices">Link on Kaggle</a>.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://www.kaggle.com/datasets/uciml/student-alcohol-consumption?select=student-por.csv">Student alcohol consumption</a></td>
+<td>Public Health</td>
+<td>Information about student behavior, including alcohol consumption and more.</td>
+<td><a href="https://www.kaggle.com/datasets/uciml/student-alcohol-consumption?select=student-por.csv">Link on Kaggle</a>.</td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
