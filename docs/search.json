@@ -1215,7 +1215,7 @@
     "href": "lectures/week1-r-intro.html#simulating-data",
     "title": "Introduction to R",
     "section": "Simulating data",
-    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\n\n\n\n\n\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8498317"
+    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\n\n\n\n\n\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.825607"
   },
   {
     "objectID": "lectures/week1-r-intro.html#a-conceptual-preview-of-the-tidyverse",
@@ -1397,7 +1397,7 @@
     "href": "lectures/week1-r-intro-slides.html#simulating-data",
     "title": "Introduction to R",
     "section": "Simulating data",
-    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.888038"
+    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.7970291"
   },
   {
     "objectID": "lectures/week1-r-intro-slides.html#a-conceptual-preview-of-the-tidyverse",
@@ -1764,67 +1764,207 @@
     "text": "Exercise 5: Does Location predict readability?\nDoes the Location in a text from which an excerpt is drawn predict readability? Build a model to find out.\n\nWhat is the intercept and slope(s)? Interpret both.\nIs the slope coefficient significant? What does that mean?\nWhat is the \\(R^2\\) of the model? Interpret what it means.\n\nQuestion: How is this model similar and different from the model with Categ as a predictor? Focus on the number of distinct slope coefficients."
   },
   {
-    "objectID": "hands_on/week2.html",
-    "href": "hands_on/week2.html",
-    "title": "Week 2: Hands-on data wrangling",
+    "objectID": "hands_on/week3.html",
+    "href": "hands_on/week3.html",
+    "title": "Week 3: Hands-on data visualization",
     "section": "",
-    "text": "The goal of this hands-on exercise is to familiarize you with the basics of data wrangling and descriptive analysis. It will be a “semi-guided session”, with periods for independent (or collaborative) work.\nSpecific topics and skills:\n\nFamiliarity with tools for describing data, e.g., group_by and summarise, as well as simple plots like hist.\nExperience transforming or manipulating data using filter and mutate.\nExperience reshaping and merging datasets using pivot_longer and various joins."
+    "text": "The goal of this hands-on exercise is to familiarize you with data visualization, particularly with an emphasis on exploring a dataset and creating clear visualizations that communicate basic insights.\nWe’ll be working with the CLEAR Corpus, a dataset of text excerpts rated for their readability (Crossley et al., 2021)."
   },
   {
-    "objectID": "hands_on/week2.html#introduction",
-    "href": "hands_on/week2.html#introduction",
-    "title": "Week 2: Hands-on data wrangling",
+    "objectID": "hands_on/week3.html#introduction",
+    "href": "hands_on/week3.html#introduction",
+    "title": "Week 3: Hands-on data visualization",
     "section": "",
-    "text": "The goal of this hands-on exercise is to familiarize you with the basics of data wrangling and descriptive analysis. It will be a “semi-guided session”, with periods for independent (or collaborative) work.\nSpecific topics and skills:\n\nFamiliarity with tools for describing data, e.g., group_by and summarise, as well as simple plots like hist.\nExperience transforming or manipulating data using filter and mutate.\nExperience reshaping and merging datasets using pivot_longer and various joins."
+    "text": "The goal of this hands-on exercise is to familiarize you with data visualization, particularly with an emphasis on exploring a dataset and creating clear visualizations that communicate basic insights.\nWe’ll be working with the CLEAR Corpus, a dataset of text excerpts rated for their readability (Crossley et al., 2021)."
   },
   {
-    "objectID": "hands_on/week2.html#the-datasets",
-    "href": "hands_on/week2.html#the-datasets",
-    "title": "Week 2: Hands-on data wrangling",
-    "section": "The dataset(s)",
-    "text": "The dataset(s)\nWe’ll be working with a few Linguistics datasets:\n\nA dataset about word concreteness, which you’ve already seen from class.\n\nA dataset about word iconicity (the extent to which words sound like what they mean).\n\nTo get started, let’s load the datasets.\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n### Concreteness\ndf_concreteness &lt;- read_csv(\"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/concreteness.csv\")\n\nRows: 28612 Columns: 4\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): Word, Dom_Pos\ndbl (2): Concreteness, Frequency\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n### Iconicity\ndf_iconicity &lt;- read_csv(\"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/iconicity.csv\")\n\nRows: 14774 Columns: 6\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): word\ndbl (5): n_ratings, n, prop_known, rating, rating_sd\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
+    "objectID": "hands_on/week3.html#load-dataset",
+    "href": "hands_on/week3.html#load-dataset",
+    "title": "Week 3: Hands-on data visualization",
+    "section": "Load dataset",
+    "text": "Load dataset\nTo get started, let’s load the dataset.\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(ggcorrplot)\n\n### Lancaster norms\ndf_clear &lt;- read_csv(\"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/viz/CLEAR_corpus_final.csv\")\n\nRows: 4724 Columns: 28\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (11): Author, Title, Anthology, URL, Categ, Sub Cat, Lexile Band, Locati...\ndbl (17): ID, Pub Year, MPAA #Max, MPAA# Avg, Google WC, Sentence Count, Par...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
   },
   {
-    "objectID": "hands_on/week2.html#exercise-1-understand-the-structure-of-your-data",
-    "href": "hands_on/week2.html#exercise-1-understand-the-structure-of-your-data",
-    "title": "Week 2: Hands-on data wrangling",
+    "objectID": "hands_on/week3.html#exercise-1-understand-the-structure-of-your-data",
+    "href": "hands_on/week3.html#exercise-1-understand-the-structure-of-your-data",
+    "title": "Week 3: Hands-on data visualization",
     "section": "Exercise 1: Understand the structure of your data",
-    "text": "Exercise 1: Understand the structure of your data\nFirst, use functions like nrow, colnames, head, and more to understand the structure and content of each dataset.\nTry to answer the following questions:\n\nWhat does each column mean?\nWould you say the datasets are in wide or long format?\n\nDo the datasets have any overlapping columns?\n\nHow many words are in each dataset? Are they the same words?\n\nWhat’s the range of values for iconicity and concreteness ratings?"
+    "text": "Exercise 1: Understand the structure of your data\nAs always, let’s try to understand our data first.\nUse functions like nrow, colnames, head, and more to understand the structure and content of our dataset.\nTry to answer the following questions:\n\nWhat does each column mean? (Hint: some of these columns represent automated reading indices, and BT_easiness is the normalized human readability judgments.)\nWould you say the dataset is in wide or long format?\n\nAny missing values? What should you do about them?"
   },
   {
-    "objectID": "hands_on/week2.html#exercise-2-join-your-data",
-    "href": "hands_on/week2.html#exercise-2-join-your-data",
-    "title": "Week 2: Hands-on data wrangling",
-    "section": "Exercise 2: Join your data",
-    "text": "Exercise 2: Join your data\nUse a join operation to merge the concreteness and iconicity datasets on a common column name. (Hint: You might need to use mutate to create a new column in at least one of the datasets.)\nWhat are the consequences of using left/right/full/inner_join? Which join did you use, and what does the resulting table look like in terms of lost (or gained) rows?"
+    "objectID": "hands_on/week3.html#exercise-2-which-metrics-correlate-and-how-much",
+    "href": "hands_on/week3.html#exercise-2-which-metrics-correlate-and-how-much",
+    "title": "Week 3: Hands-on data visualization",
+    "section": "Exercise 2: Which metrics correlate, and how much?",
+    "text": "Exercise 2: Which metrics correlate, and how much?\nFocusing on the various metrics of readability (E.g., Flesch-Kincaid, etc.) as well as the metrics reflecting passage length (e.g., Paragraphs, Sentence Count), create a correlation matrix and plot it with ggcorrplot. Which metrics correlate the most with BT_easiness (the “gold standard”)?\n(Note: Some of the metrics may be negatively correlated, because they capture reading difficulty as opposed to reading ease; if it helps, you can always take the absolute value of the correlations when determining which one is strongest.)"
   },
   {
-    "objectID": "hands_on/week2.html#exercise-3-explore-your-data",
-    "href": "hands_on/week2.html#exercise-3-explore-your-data",
-    "title": "Week 2: Hands-on data wrangling",
-    "section": "Exercise 3: Explore your data",
-    "text": "Exercise 3: Explore your data\nNow that you’ve merged your datasets, let’s conduct some initial explorations.\n\n3a: How many ratings?\nThe iconicity dataset contains a number of ratings for each word, but some words were rated more times than others.\n\nWhat is the range of n_ratings?\nWhich word was rated the most times? What about the least?\n\n\n\n3b: Which words are most and least iconic?\n\nWhich(s) word has (or have) the highest iconicity rating in the merged dataset? What about the word(s) with the lowest rating? Do these results make sense to you? (Hint: Use slice_max/min).\nWhat about the top 5 iconic words and the bottom 5 iconic words? (Hint: Use arrange and slice_head.)\nCan you draw any conclusions from this preliminary exploration about which kinds of words are most and least iconic?\nAre the extreme words the same before and after merging?\n\n\n\n3c: Which words have the most and least variance in their iconicity ratings?\nRepeat exercise 3b, but for rating_sd instead of rating.\n\n\n3d: Which words are most and least frequent?\nRepeat exercise 3b, but now for Frequency. Which words are the most and least frequent in the joined dataset?\n\n\n3e: Which words are most and least concrete?\nRepeat exercise 3b, but now for Concreteness. Which words are the most and least concrete in the joined dataset?"
+    "objectID": "hands_on/week3.html#exercise-3-create-a-scatterplot",
+    "href": "hands_on/week3.html#exercise-3-create-a-scatterplot",
+    "title": "Week 3: Hands-on data visualization",
+    "section": "Exercise 3: Create a scatterplot",
+    "text": "Exercise 3: Create a scatterplot\nChoose 1-2 of the metrics and create a scatterplot showing how it relates to BT_easiness. Does this roughly match what you found in the correlation exercise above?"
   },
   {
-    "objectID": "hands_on/week2.html#exercise-4-grouping-and-summarizing",
-    "href": "hands_on/week2.html#exercise-4-grouping-and-summarizing",
-    "title": "Week 2: Hands-on data wrangling",
-    "section": "Exercise 4: Grouping and summarizing",
-    "text": "Exercise 4: Grouping and summarizing\nThe dataset also includes information about each word’s part-of-speech. Let’s use that information to learn more about our data.\n\n4a: Which part-of-speech is most and least iconic?\nUse group_by and summarise to calculate the mean iconicity for each part of speech.\n\nWhich part-of-speech has the highest iconicity on average, and which has the least?\n\nIs this broadly consistent with your qualitative inspection of the most and least iconic words earlier?\n\n\n\n4b: Which part-of-speech is most and least concrete?\nUse group_by and summarise to calculate the mean frequency for each part of speech.\n\nWhich part-of-speech has the highest frequency on average, and which has the least?\n\nDo you think these estimates might be affected by the distribution shape of Frequency? If necessary, recalculate the above with a log-transformed measure."
+    "objectID": "hands_on/week3.html#exercise-4-modify-your-scatterplot",
+    "href": "hands_on/week3.html#exercise-4-modify-your-scatterplot",
+    "title": "Week 3: Hands-on data visualization",
+    "section": "Exercise 4: Modify your scatterplot",
+    "text": "Exercise 4: Modify your scatterplot\nNow, add a new layer to your scatterplot. That could be a categorical factor (e.g., Categ) or another continuous metric: you can decide! What did this layer reveal to you?"
   },
   {
-    "objectID": "hands_on/week2.html#exercise-5-correlations-between-our-variables",
-    "href": "hands_on/week2.html#exercise-5-correlations-between-our-variables",
-    "title": "Week 2: Hands-on data wrangling",
-    "section": "Exercise 5: Correlations between our variables",
-    "text": "Exercise 5: Correlations between our variables\n\n5a: A correlation matrix\nNow, create a correlation matrix between n_ratings, rating, rating_sd, Concreteness, and Frequency. You might need to use select to first select those columns.\n\nWhat are the strongest correlations?\nAre more concrete words also more iconic?\n\n\n\n5b: Does the strength of correlation depend on part-of-speech?\nFocusing specifically on the relationship between Concreteness and rating, calculate the correlation between these variables for each part-of-speech.\n\nWhich parts-of-speech show the highest correlation? Which show the lowest?\nCompare these values to the count of observations for each part of speech.\n\n\n\n5c: Concrete vs. abstract words\n\nNow, create a binary variable called Concrete that categorizes words with a Concreteness &gt;2.5 as “Concrete”, and words with a Concreteness &lt;= 2.5 as “Abstract”.\n\nThen, calculate the mean iconicity for words categorized as Concrete vs. Abstract."
+    "objectID": "hands_on/week3.html#exercise-5-are-certain-categories-more-readable",
+    "href": "hands_on/week3.html#exercise-5-are-certain-categories-more-readable",
+    "title": "Week 3: Hands-on data visualization",
+    "section": "Exercise 5: Are certain categories more readable?",
+    "text": "Exercise 5: Are certain categories more readable?\n\nNow create a plot showing whether BT_easiness varies by Categ directly. You can choose to use either a barplot (with standard errors) or a violin plot (or barplot).\n\nThen put some numbers to it: use group_by %&gt;% summarise to get the mean BT_easiness by Categ."
   },
   {
-    "objectID": "hands_on/week2.html#exercise-6-free-exploration",
-    "href": "hands_on/week2.html#exercise-6-free-exploration",
-    "title": "Week 2: Hands-on data wrangling",
-    "section": "Exercise 6: Free exploration!",
-    "text": "Exercise 6: Free exploration!\nTry to come up with at least one additional question to ask about your data.\n\nIf necessary, that could include merging with additional datasets (e.g., the AoA dataset used in class).\n\nAlternatively, you could try to build a regression model using lm to model the relationships between the variables more directly."
+    "objectID": "hands_on/week3.html#exercise-6-are-passages-from-different-locations-more-readable",
+    "href": "hands_on/week3.html#exercise-6-are-passages-from-different-locations-more-readable",
+    "title": "Week 3: Hands-on data visualization",
+    "section": "Exercise 6: Are passages from different locations more readable?",
+    "text": "Exercise 6: Are passages from different locations more readable?\nThe corpus also contains information about where in a passage text was excerpted from (e.g., the beginning or the end). Repeat exercise 5 above but using Location instead of Categ. What do you find? (Note: Make sure to reorder your plot in terms of increasing or decreasing BT_easiness).\nNow create a plot showing whether BT_easiness varies by Categ directly. You can choose to use either a barplot (with standard errors) or a violin plot (or barplot)."
+  },
+  {
+    "objectID": "hands_on/week3.html#exercise-7-what-about-sub-cat",
+    "href": "hands_on/week3.html#exercise-7-what-about-sub-cat",
+    "title": "Week 3: Hands-on data visualization",
+    "section": "Exercise 7: What about Sub Cat?",
+    "text": "Exercise 7: What about Sub Cat?\nSome of the excerpts also contain information about the sub category they are drawn from. Repeat exercise 5 again, this time for Sub Cat.\n\nDoes anything stick out to you?\nWhat might be a limitation to this analysis? (Hint: You might want to count how many observations there are per Sub Cat.)"
+  },
+  {
+    "objectID": "hands_on/week3.html#exercise-8-most-and-least-readable-texts",
+    "href": "hands_on/week3.html#exercise-8-most-and-least-readable-texts",
+    "title": "Week 3: Hands-on data visualization",
+    "section": "Exercise 8: Most and least readable texts?",
+    "text": "Exercise 8: Most and least readable texts?\nFinally, use slice_max and slice_min to find the most and least readable texts in the corpus. Do you agree with this assessment?"
+  },
+  {
+    "objectID": "labs/lab2.html",
+    "href": "labs/lab2.html",
+    "title": "Lab 2: Data Visualization in R",
+    "section": "",
+    "text": "Name: ___________________________\nDate: ___________________________"
+  },
+  {
+    "objectID": "labs/lab2.html#load-data",
+    "href": "labs/lab2.html#load-data",
+    "title": "Lab 2: Data Visualization in R",
+    "section": "Load data",
+    "text": "Load data\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(ggcorrplot)\n\n### Concreteness dataset\ndf_concreteness &lt;- read_csv(\"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/concreteness.csv\")\n\nRows: 28612 Columns: 4\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): Word, Dom_Pos\ndbl (2): Concreteness, Frequency\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n### New dataset with response times and accuracy\ndf_blp &lt;- read_csv(\"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/blp.csv\")\n\nRows: 55867 Columns: 8\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): spelling, lexicality\ndbl (6): rt, zscore, accuracy, rt.sd, zscore.sd, accuracy.sd\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
+  },
+  {
+    "objectID": "labs/lab2.html#exercise-1-explore-the-blp-data",
+    "href": "labs/lab2.html#exercise-1-explore-the-blp-data",
+    "title": "Lab 2: Data Visualization in R",
+    "section": "Exercise 1: Explore the BLP data",
+    "text": "Exercise 1: Explore the BLP data\nThe British Lexicon Project was a large-scale study asking participants to make lexical decision (“is this a word?”) about a series of actual words and non-words. The authors recorded the response time (rt) and accuracy for each word and non-word.\nTake a moment to explore the data and each of the columns:\n\nWhich column contains the word or non-word itself?\nThe lexicality column indicates whether something is a word (W) or not (N). How many of each category are there?\n\nAre there any missing values anywhere? If so, exclude those rows from the dataset using drop_na.\nUse group_by and summarise to calculate the average rt and average accuracy for words and non-words."
+  },
+  {
+    "objectID": "labs/lab2.html#exercise-2-join-with-concreteness",
+    "href": "labs/lab2.html#exercise-2-join-with-concreteness",
+    "title": "Lab 2: Data Visualization in R",
+    "section": "Exercise 2: Join with concreteness",
+    "text": "Exercise 2: Join with concreteness\nNow, join the BLP dataset with the concreteness dataset.\n\nFirst, you should drop any non-words from the dataset using the lexicality column and filter.\nYou might need to first rename one of the BLP columns to find a common “key”.\nYou’ll also need to decide what kind of join operation to use. My suggestion is to use a join that only includes words that appear in both datasets.\nHow many words are in this merged dataset?"
+  },
+  {
+    "objectID": "labs/lab2.html#exercise-3-are-concreteness-and-response-patterns-related",
+    "href": "labs/lab2.html#exercise-3-are-concreteness-and-response-patterns-related",
+    "title": "Lab 2: Data Visualization in R",
+    "section": "Exercise 3: Are concreteness and response patterns related?",
+    "text": "Exercise 3: Are concreteness and response patterns related?\nLet’s try to figure out whether people respond faster or slower to more concrete words.\n\n3a: Create a scatterplot showing the relationship between rt and Concreteness\nUse geom_point to make the scatterplot and geom_smooth(method = \"lm\") to plot a regression line over it. Try modifying the alpha of the points. Also make sure to clearly label your axes and choose a theme!\nSome questions to consider:\n\nDoes this relationship look positive, negative, or neutral (no relationship)?\nConceptually, what might this mean in terms of a concreteness advantage?\n\n\n\n3b: Create a scatterplot showing the relationship between accuracy and Concreteness\nAgain, use geom_point to make the scatterplot and geom_smooth(method = \"lm\") to plot a regression line over it. Try modifying the alpha of the points. Also make sure to clearly label your axes and choose a theme!\nSome questions to consider:\n\nDoes this relationship look positive, negative, or neutral (no relationship)?\nConceptually, what might this mean in terms of a concreteness advantage?\n\n\n\n3c: Calculate a correlation coefficient\nNow, for each of the relationships above, calculate a correlation coefficient using cor.test. What can you conclude? Does it match your intuitions from the visualization?"
+  },
+  {
+    "objectID": "labs/lab2.html#exercise-4-other-variables",
+    "href": "labs/lab2.html#exercise-4-other-variables",
+    "title": "Lab 2: Data Visualization in R",
+    "section": "Exercise 4: Other variables!",
+    "text": "Exercise 4: Other variables!\nRecall that the concreteness dataset also includes information about word frequency and part of speech. Let’s dig into those variables now to figure out how they relate to rt/accuracy.\n\n4a: Is Frequency related to rt or accuracy?\n\nReproduce 3a-3c but using Frequency instead of Concreteness.\nYou should also check whether using log frequency affects your results. Create a new variable called log_frequency and redo the above with that.\n\n\n\n4b: Is Part of Speech related to rt or accuracy?\n\nNow, group_by part-of-speech (Dom_Pos) and calculate the mean rt and accuracy. Which part of speech has the faster rt and highest accuracy?\n\nCreate a violin plot showing rt`` byDom_Pos. Reorder the levels in terms of increasingrt`.\n\n\n\n4c: What about number of letters?\nSome words are longer than others. Does that matter?\n\nUse mutate, as well as the nchar function, to create a new variable called num_letters (for each Word).\nThen recreate exercises 3a-3c for num_letters."
+  },
+  {
+    "objectID": "labs/lab2.html#exercise-5-create-a-correlation-matrix",
+    "href": "labs/lab2.html#exercise-5-create-a-correlation-matrix",
+    "title": "Lab 2: Data Visualization in R",
+    "section": "Exercise 5: Create a correlation matrix",
+    "text": "Exercise 5: Create a correlation matrix\nTo round things off, let’s create a correlation matrix between our numeric variables:\n\nFirst, use select and cor to get the correlation between our variables: Frequency, log_frequency, Concreteness, num_letters, rt, and accuracy.\nNext, use ggcorrplot to visualize that correlation matrix."
+  },
+  {
+    "objectID": "labs/lab2.html#submission-instructions",
+    "href": "labs/lab2.html#submission-instructions",
+    "title": "Lab 2: Data Visualization in R",
+    "section": "Submission Instructions",
+    "text": "Submission Instructions\n\nMake sure all your code chunks run without errors\nSave this file with your name in the filename (e.g., “Lab1_YourLastName.qmd”)\nRender the document to HTML\nSubmit both the .qmd file and the rendered HTML file to Canvas"
+  },
+  {
+    "objectID": "labs/lab1.html",
+    "href": "labs/lab1.html",
+    "title": "Lab 1: Introduction to R",
+    "section": "",
+    "text": "Name: ___________________________\nDate: ___________________________"
+  },
+  {
+    "objectID": "labs/lab1.html#introduction",
+    "href": "labs/lab1.html#introduction",
+    "title": "Lab 1: Introduction to R",
+    "section": "",
+    "text": "Name: ___________________________\nDate: ___________________________"
+  },
+  {
+    "objectID": "labs/lab1.html#introduction-1",
+    "href": "labs/lab1.html#introduction-1",
+    "title": "Lab 1: Introduction to R",
+    "section": "Introduction",
+    "text": "Introduction\nThe goal of this lab is to familiarize you with using R and RStudio. You’ll get hands-on practice with:\n\nPerforming simple calculations (basic arithmetic, mean, etc.).\nWorking with variables.\nCreating simple variables.\n\nNote that this lab will all be in “base R”, meaning we won’t (yet) be working with packages like tidyverse."
+  },
+  {
+    "objectID": "labs/lab1.html#exercise-1-basic-arithmetic",
+    "href": "labs/lab1.html#exercise-1-basic-arithmetic",
+    "title": "Lab 1: Introduction to R",
+    "section": "Exercise 1: Basic Arithmetic",
+    "text": "Exercise 1: Basic Arithmetic\nR can be used as a calculator. Try the following operations:\n\n# Addition\n5 + 3\n\n[1] 8\n\n\n\n# Subtraction\n10 - 4\n\n[1] 6\n\n\n\n# Multiplication\n6 * 7\n\n[1] 42\n\n\n\n# Division\n20 / 4\n\n[1] 5\n\n\nYour turn: Calculate \\(15 + 8 * 3 - 2\\)\n\n# Write your code here:"
+  },
+  {
+    "objectID": "labs/lab1.html#exercise-2-variables-and-assignment",
+    "href": "labs/lab1.html#exercise-2-variables-and-assignment",
+    "title": "Lab 1: Introduction to R",
+    "section": "Exercise 2: Variables and Assignment",
+    "text": "Exercise 2: Variables and Assignment\nIn R, we can store values in variables using the assignment operator &lt;-.\n\n# Create a variable called 'my_age' and assign it your age\nmy_age &lt;- 25  # Replace 25 with your actual age\n\n# Print the variable\nmy_age\n\n[1] 25\n\n\nYour turn: Create two variables representing the number of hours you studied yesterday and today. Calculate the total hours.\n\n# Write your code here:"
+  },
+  {
+    "objectID": "labs/lab1.html#exercise-3-vectors-and-basic-statistics",
+    "href": "labs/lab1.html#exercise-3-vectors-and-basic-statistics",
+    "title": "Lab 1: Introduction to R",
+    "section": "Exercise 3: Vectors and Basic Statistics",
+    "text": "Exercise 3: Vectors and Basic Statistics\nVectors are collections of values. We create them using the c() function.\n\n# Create a vector of test scores\ntest_scores &lt;- c(85, 92, 78, 96, 88, 91, 83)\n\n# Display the vector\ntest_scores\n\n[1] 85 92 78 96 88 91 83\n\n\n\n# Calculate basic statistics\nmean(test_scores)     # Mean (average)\n\n[1] 87.57143\n\nmedian(test_scores)   # Median (middle value)\n\n[1] 88\n\nsd(test_scores)       # Standard deviation\n\n[1] 6.078847\n\nlength(test_scores)   # Number of values\n\n[1] 7\n\n\nYour turn: Create a vector with the ages of 5 family members or friends. Calculate the mean and standard deviation.\n\n# Write your code here:"
+  },
+  {
+    "objectID": "labs/lab1.html#exercise-4-creating-data",
+    "href": "labs/lab1.html#exercise-4-creating-data",
+    "title": "Lab 1: Introduction to R",
+    "section": "Exercise 4: Creating Data",
+    "text": "Exercise 4: Creating Data\nLet’s create some sample data to work with:\n\n# Create a vector of 50 random numbers from a normal distribution\n# with mean = 100 and standard deviation = 15\nrandom_data &lt;- rnorm(50, mean = 100, sd = 15)\n\n# Look at the first 10 values\nhead(random_data, 10)\n\n [1] 106.62177 109.62702 133.56149  96.76624  66.21082  94.51237 110.33556\n [8]  86.83512 114.25898  92.58711\n\n\n\n# Calculate summary statistics for this data\nmean(random_data)\n\n[1] 96.89497\n\nsd(random_data)\n\n[1] 14.21201\n\nmin(random_data)\n\n[1] 64.04248\n\nmax(random_data)\n\n[1] 133.5615\n\n\nYour turn: Create a vector of 30 random numbers with mean = 50 and sd = 5. Calculate its summary statistics.\n\n# Write your code here:"
+  },
+  {
+    "objectID": "labs/lab1.html#exercise-5-basic-plotting",
+    "href": "labs/lab1.html#exercise-5-basic-plotting",
+    "title": "Lab 1: Introduction to R",
+    "section": "Exercise 5: Basic Plotting",
+    "text": "Exercise 5: Basic Plotting\nR has built-in functions for creating plots. Let’s make a histogram:\n\n# Create a histogram of our random data\nhist(random_data, \n     main = \"Histogram of Random Data\",\n     xlab = \"Value\",\n     ylab = \"Frequency\",\n     col = \"lightblue\")\n\n\n\n\n\n\n\n\n\n# Create a simple scatterplot\nx_values &lt;- c(1, 2, 3, 4, 5)\ny_values &lt;- c(2, 4, 1, 5, 3)\n\nplot(x_values, y_values,\n     main = \"Simple Scatterplot\",\n     xlab = \"X Values\",\n     ylab = \"Y Values\",\n     pch = 16,  # Solid circles\n     col = \"red\")\n\n\n\n\n\n\n\n\nYour turn: Create a histogram of the family ages vector you created in Exercise 3. Add appropriate labels.\n\n# Write your code here:"
+  },
+  {
+    "objectID": "labs/lab1.html#submission-instructions",
+    "href": "labs/lab1.html#submission-instructions",
+    "title": "Lab 1: Introduction to R",
+    "section": "Submission Instructions",
+    "text": "Submission Instructions\n\nMake sure all your code chunks run without errors\nSave this file with your name in the filename (e.g., “Lab1_YourLastName.qmd”)\nRender the document to HTML\nSubmit both the .qmd file and the rendered HTML file to Canvas"
+  },
+  {
+    "objectID": "readings.html",
+    "href": "readings.html",
+    "title": "Resources",
+    "section": "",
+    "text": "CSS 211 has no required readings. However, students might benefit from exploring additional content on course topics. The course schedule lists suggested readings for each week; here, I include those readings, as well as additional resources students might benefit from, organized by topic.\n\nGeneral Resources\n\nHadley Wickham’s R for Data Science(R4DS).\nIntroduction to Statistical Learning (James et al.)\n\n\n\nData wrangling and visualization.\n\nWickham, H. (2014). “Tidy data” (Journal of Statistical Software).\nWickham, H. & Grolemund, G. (2017). R for Data Science, [Chapters 5, 10-12](R4DS, data wrangling.\nHealy, K. (2018). Data Visualization, Chapters 1-3\n\n\n\nRegression\n\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 3\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 4.1-4.3\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 6.1-6.2\n\n\n\nMixed Effects Models\n\nWinter, B. (2013). “Linear models and linear mixed effects models in R” (tutorial)\nGelman, A. & Hill, J. (2006). Data Analysis Using Regression, Chapters 11-12\nBates, D. et al. (2015). “Fitting linear mixed-effects models using lme4” (Journal of Statistical Software)\n\n\n\nResampling Methods\n\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 5\n\n\n\nBest Practices and Research Design\n\nGelman, A. & Loken, E. (2014). “The garden of forking paths: Why multiple comparisons can be a problem” (American Scientist)"
   },
   {
     "objectID": "labs/lab3.html",
@@ -1918,207 +2058,123 @@
     "text": "Submission Instructions\n\nMake sure all your code chunks run without errors\nSave this file with your name in the filename (e.g., “Lab1_YourLastName.qmd”)\nRender the document to HTML\nSubmit both the .qmd file and the rendered HTML file to Canvas"
   },
   {
-    "objectID": "readings.html",
-    "href": "readings.html",
-    "title": "Resources",
+    "objectID": "hands_on/week2.html",
+    "href": "hands_on/week2.html",
+    "title": "Week 2: Hands-on data wrangling",
     "section": "",
-    "text": "CSS 211 has no required readings. However, students might benefit from exploring additional content on course topics. The course schedule lists suggested readings for each week; here, I include those readings, as well as additional resources students might benefit from, organized by topic.\n\nGeneral Resources\n\nHadley Wickham’s R for Data Science(R4DS).\nIntroduction to Statistical Learning (James et al.)\n\n\n\nData wrangling and visualization.\n\nWickham, H. (2014). “Tidy data” (Journal of Statistical Software).\nWickham, H. & Grolemund, G. (2017). R for Data Science, [Chapters 5, 10-12](R4DS, data wrangling.\nHealy, K. (2018). Data Visualization, Chapters 1-3\n\n\n\nRegression\n\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 3\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 4.1-4.3\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 6.1-6.2\n\n\n\nMixed Effects Models\n\nWinter, B. (2013). “Linear models and linear mixed effects models in R” (tutorial)\nGelman, A. & Hill, J. (2006). Data Analysis Using Regression, Chapters 11-12\nBates, D. et al. (2015). “Fitting linear mixed-effects models using lme4” (Journal of Statistical Software)\n\n\n\nResampling Methods\n\nJames, G. et al. (2021). Introduction to Statistical Learning, Chapter 5\n\n\n\nBest Practices and Research Design\n\nGelman, A. & Loken, E. (2014). “The garden of forking paths: Why multiple comparisons can be a problem” (American Scientist)"
+    "text": "The goal of this hands-on exercise is to familiarize you with the basics of data wrangling and descriptive analysis. It will be a “semi-guided session”, with periods for independent (or collaborative) work.\nSpecific topics and skills:\n\nFamiliarity with tools for describing data, e.g., group_by and summarise, as well as simple plots like hist.\nExperience transforming or manipulating data using filter and mutate.\nExperience reshaping and merging datasets using pivot_longer and various joins."
   },
   {
-    "objectID": "labs/lab1.html",
-    "href": "labs/lab1.html",
-    "title": "Lab 1: Introduction to R",
+    "objectID": "hands_on/week2.html#introduction",
+    "href": "hands_on/week2.html#introduction",
+    "title": "Week 2: Hands-on data wrangling",
     "section": "",
-    "text": "Name: ___________________________\nDate: ___________________________"
+    "text": "The goal of this hands-on exercise is to familiarize you with the basics of data wrangling and descriptive analysis. It will be a “semi-guided session”, with periods for independent (or collaborative) work.\nSpecific topics and skills:\n\nFamiliarity with tools for describing data, e.g., group_by and summarise, as well as simple plots like hist.\nExperience transforming or manipulating data using filter and mutate.\nExperience reshaping and merging datasets using pivot_longer and various joins."
   },
   {
-    "objectID": "labs/lab1.html#introduction",
-    "href": "labs/lab1.html#introduction",
-    "title": "Lab 1: Introduction to R",
-    "section": "",
-    "text": "Name: ___________________________\nDate: ___________________________"
+    "objectID": "hands_on/week2.html#the-datasets",
+    "href": "hands_on/week2.html#the-datasets",
+    "title": "Week 2: Hands-on data wrangling",
+    "section": "The dataset(s)",
+    "text": "The dataset(s)\nWe’ll be working with a few Linguistics datasets:\n\nA dataset about word concreteness, which you’ve already seen from class.\n\nA dataset about word iconicity (the extent to which words sound like what they mean).\n\nTo get started, let’s load the datasets.\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n### Concreteness\ndf_concreteness &lt;- read_csv(\"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/concreteness.csv\")\n\nRows: 28612 Columns: 4\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): Word, Dom_Pos\ndbl (2): Concreteness, Frequency\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n### Iconicity\ndf_iconicity &lt;- read_csv(\"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/iconicity.csv\")\n\nRows: 14774 Columns: 6\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): word\ndbl (5): n_ratings, n, prop_known, rating, rating_sd\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
   },
   {
-    "objectID": "labs/lab1.html#introduction-1",
-    "href": "labs/lab1.html#introduction-1",
-    "title": "Lab 1: Introduction to R",
-    "section": "Introduction",
-    "text": "Introduction\nThe goal of this lab is to familiarize you with using R and RStudio. You’ll get hands-on practice with:\n\nPerforming simple calculations (basic arithmetic, mean, etc.).\nWorking with variables.\nCreating simple variables.\n\nNote that this lab will all be in “base R”, meaning we won’t (yet) be working with packages like tidyverse."
-  },
-  {
-    "objectID": "labs/lab1.html#exercise-1-basic-arithmetic",
-    "href": "labs/lab1.html#exercise-1-basic-arithmetic",
-    "title": "Lab 1: Introduction to R",
-    "section": "Exercise 1: Basic Arithmetic",
-    "text": "Exercise 1: Basic Arithmetic\nR can be used as a calculator. Try the following operations:\n\n# Addition\n5 + 3\n\n[1] 8\n\n\n\n# Subtraction\n10 - 4\n\n[1] 6\n\n\n\n# Multiplication\n6 * 7\n\n[1] 42\n\n\n\n# Division\n20 / 4\n\n[1] 5\n\n\nYour turn: Calculate \\(15 + 8 * 3 - 2\\)\n\n# Write your code here:"
-  },
-  {
-    "objectID": "labs/lab1.html#exercise-2-variables-and-assignment",
-    "href": "labs/lab1.html#exercise-2-variables-and-assignment",
-    "title": "Lab 1: Introduction to R",
-    "section": "Exercise 2: Variables and Assignment",
-    "text": "Exercise 2: Variables and Assignment\nIn R, we can store values in variables using the assignment operator &lt;-.\n\n# Create a variable called 'my_age' and assign it your age\nmy_age &lt;- 25  # Replace 25 with your actual age\n\n# Print the variable\nmy_age\n\n[1] 25\n\n\nYour turn: Create two variables representing the number of hours you studied yesterday and today. Calculate the total hours.\n\n# Write your code here:"
-  },
-  {
-    "objectID": "labs/lab1.html#exercise-3-vectors-and-basic-statistics",
-    "href": "labs/lab1.html#exercise-3-vectors-and-basic-statistics",
-    "title": "Lab 1: Introduction to R",
-    "section": "Exercise 3: Vectors and Basic Statistics",
-    "text": "Exercise 3: Vectors and Basic Statistics\nVectors are collections of values. We create them using the c() function.\n\n# Create a vector of test scores\ntest_scores &lt;- c(85, 92, 78, 96, 88, 91, 83)\n\n# Display the vector\ntest_scores\n\n[1] 85 92 78 96 88 91 83\n\n\n\n# Calculate basic statistics\nmean(test_scores)     # Mean (average)\n\n[1] 87.57143\n\nmedian(test_scores)   # Median (middle value)\n\n[1] 88\n\nsd(test_scores)       # Standard deviation\n\n[1] 6.078847\n\nlength(test_scores)   # Number of values\n\n[1] 7\n\n\nYour turn: Create a vector with the ages of 5 family members or friends. Calculate the mean and standard deviation.\n\n# Write your code here:"
-  },
-  {
-    "objectID": "labs/lab1.html#exercise-4-creating-data",
-    "href": "labs/lab1.html#exercise-4-creating-data",
-    "title": "Lab 1: Introduction to R",
-    "section": "Exercise 4: Creating Data",
-    "text": "Exercise 4: Creating Data\nLet’s create some sample data to work with:\n\n# Create a vector of 50 random numbers from a normal distribution\n# with mean = 100 and standard deviation = 15\nrandom_data &lt;- rnorm(50, mean = 100, sd = 15)\n\n# Look at the first 10 values\nhead(random_data, 10)\n\n [1]  89.72566 102.23141 100.89582  95.66177 110.21307 114.37167  88.14273\n [8]  93.95558  95.52066  60.88540\n\n\n\n# Calculate summary statistics for this data\nmean(random_data)\n\n[1] 101.0254\n\nsd(random_data)\n\n[1] 14.50248\n\nmin(random_data)\n\n[1] 60.8854\n\nmax(random_data)\n\n[1] 142.9077\n\n\nYour turn: Create a vector of 30 random numbers with mean = 50 and sd = 5. Calculate its summary statistics.\n\n# Write your code here:"
-  },
-  {
-    "objectID": "labs/lab1.html#exercise-5-basic-plotting",
-    "href": "labs/lab1.html#exercise-5-basic-plotting",
-    "title": "Lab 1: Introduction to R",
-    "section": "Exercise 5: Basic Plotting",
-    "text": "Exercise 5: Basic Plotting\nR has built-in functions for creating plots. Let’s make a histogram:\n\n# Create a histogram of our random data\nhist(random_data, \n     main = \"Histogram of Random Data\",\n     xlab = \"Value\",\n     ylab = \"Frequency\",\n     col = \"lightblue\")\n\n\n\n\n\n\n\n\n\n# Create a simple scatterplot\nx_values &lt;- c(1, 2, 3, 4, 5)\ny_values &lt;- c(2, 4, 1, 5, 3)\n\nplot(x_values, y_values,\n     main = \"Simple Scatterplot\",\n     xlab = \"X Values\",\n     ylab = \"Y Values\",\n     pch = 16,  # Solid circles\n     col = \"red\")\n\n\n\n\n\n\n\n\nYour turn: Create a histogram of the family ages vector you created in Exercise 3. Add appropriate labels.\n\n# Write your code here:"
-  },
-  {
-    "objectID": "labs/lab1.html#submission-instructions",
-    "href": "labs/lab1.html#submission-instructions",
-    "title": "Lab 1: Introduction to R",
-    "section": "Submission Instructions",
-    "text": "Submission Instructions\n\nMake sure all your code chunks run without errors\nSave this file with your name in the filename (e.g., “Lab1_YourLastName.qmd”)\nRender the document to HTML\nSubmit both the .qmd file and the rendered HTML file to Canvas"
-  },
-  {
-    "objectID": "labs/lab2.html",
-    "href": "labs/lab2.html",
-    "title": "Lab 2: Data Visualization in R",
-    "section": "",
-    "text": "Name: ___________________________\nDate: ___________________________"
-  },
-  {
-    "objectID": "labs/lab2.html#load-data",
-    "href": "labs/lab2.html#load-data",
-    "title": "Lab 2: Data Visualization in R",
-    "section": "Load data",
-    "text": "Load data\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(ggcorrplot)\n\n### Concreteness dataset\ndf_concreteness &lt;- read_csv(\"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/concreteness.csv\")\n\nRows: 28612 Columns: 4\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): Word, Dom_Pos\ndbl (2): Concreteness, Frequency\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n### New dataset with response times and accuracy\ndf_blp &lt;- read_csv(\"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/blp.csv\")\n\nRows: 55867 Columns: 8\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): spelling, lexicality\ndbl (6): rt, zscore, accuracy, rt.sd, zscore.sd, accuracy.sd\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
-  },
-  {
-    "objectID": "labs/lab2.html#exercise-1-explore-the-blp-data",
-    "href": "labs/lab2.html#exercise-1-explore-the-blp-data",
-    "title": "Lab 2: Data Visualization in R",
-    "section": "Exercise 1: Explore the BLP data",
-    "text": "Exercise 1: Explore the BLP data\nThe British Lexicon Project was a large-scale study asking participants to make lexical decision (“is this a word?”) about a series of actual words and non-words. The authors recorded the response time (rt) and accuracy for each word and non-word.\nTake a moment to explore the data and each of the columns:\n\nWhich column contains the word or non-word itself?\nThe lexicality column indicates whether something is a word (W) or not (N). How many of each category are there?\n\nAre there any missing values anywhere? If so, exclude those rows from the dataset using drop_na.\nUse group_by and summarise to calculate the average rt and average accuracy for words and non-words."
-  },
-  {
-    "objectID": "labs/lab2.html#exercise-2-join-with-concreteness",
-    "href": "labs/lab2.html#exercise-2-join-with-concreteness",
-    "title": "Lab 2: Data Visualization in R",
-    "section": "Exercise 2: Join with concreteness",
-    "text": "Exercise 2: Join with concreteness\nNow, join the BLP dataset with the concreteness dataset.\n\nFirst, you should drop any non-words from the dataset using the lexicality column and filter.\nYou might need to first rename one of the BLP columns to find a common “key”.\nYou’ll also need to decide what kind of join operation to use. My suggestion is to use a join that only includes words that appear in both datasets.\nHow many words are in this merged dataset?"
-  },
-  {
-    "objectID": "labs/lab2.html#exercise-3-are-concreteness-and-response-patterns-related",
-    "href": "labs/lab2.html#exercise-3-are-concreteness-and-response-patterns-related",
-    "title": "Lab 2: Data Visualization in R",
-    "section": "Exercise 3: Are concreteness and response patterns related?",
-    "text": "Exercise 3: Are concreteness and response patterns related?\nLet’s try to figure out whether people respond faster or slower to more concrete words.\n\n3a: Create a scatterplot showing the relationship between rt and Concreteness\nUse geom_point to make the scatterplot and geom_smooth(method = \"lm\") to plot a regression line over it. Try modifying the alpha of the points. Also make sure to clearly label your axes and choose a theme!\nSome questions to consider:\n\nDoes this relationship look positive, negative, or neutral (no relationship)?\nConceptually, what might this mean in terms of a concreteness advantage?\n\n\n\n3b: Create a scatterplot showing the relationship between accuracy and Concreteness\nAgain, use geom_point to make the scatterplot and geom_smooth(method = \"lm\") to plot a regression line over it. Try modifying the alpha of the points. Also make sure to clearly label your axes and choose a theme!\nSome questions to consider:\n\nDoes this relationship look positive, negative, or neutral (no relationship)?\nConceptually, what might this mean in terms of a concreteness advantage?\n\n\n\n3c: Calculate a correlation coefficient\nNow, for each of the relationships above, calculate a correlation coefficient using cor.test. What can you conclude? Does it match your intuitions from the visualization?"
-  },
-  {
-    "objectID": "labs/lab2.html#exercise-4-other-variables",
-    "href": "labs/lab2.html#exercise-4-other-variables",
-    "title": "Lab 2: Data Visualization in R",
-    "section": "Exercise 4: Other variables!",
-    "text": "Exercise 4: Other variables!\nRecall that the concreteness dataset also includes information about word frequency and part of speech. Let’s dig into those variables now to figure out how they relate to rt/accuracy.\n\n4a: Is Frequency related to rt or accuracy?\n\nReproduce 3a-3c but using Frequency instead of Concreteness.\nYou should also check whether using log frequency affects your results. Create a new variable called log_frequency and redo the above with that.\n\n\n\n4b: Is Part of Speech related to rt or accuracy?\n\nNow, group_by part-of-speech (Dom_Pos) and calculate the mean rt and accuracy. Which part of speech has the faster rt and highest accuracy?\n\nCreate a violin plot showing rt`` byDom_Pos. Reorder the levels in terms of increasingrt`.\n\n\n\n4c: What about number of letters?\nSome words are longer than others. Does that matter?\n\nUse mutate, as well as the nchar function, to create a new variable called num_letters (for each Word).\nThen recreate exercises 3a-3c for num_letters."
-  },
-  {
-    "objectID": "labs/lab2.html#exercise-5-create-a-correlation-matrix",
-    "href": "labs/lab2.html#exercise-5-create-a-correlation-matrix",
-    "title": "Lab 2: Data Visualization in R",
-    "section": "Exercise 5: Create a correlation matrix",
-    "text": "Exercise 5: Create a correlation matrix\nTo round things off, let’s create a correlation matrix between our numeric variables:\n\nFirst, use select and cor to get the correlation between our variables: Frequency, log_frequency, Concreteness, num_letters, rt, and accuracy.\nNext, use ggcorrplot to visualize that correlation matrix."
-  },
-  {
-    "objectID": "labs/lab2.html#submission-instructions",
-    "href": "labs/lab2.html#submission-instructions",
-    "title": "Lab 2: Data Visualization in R",
-    "section": "Submission Instructions",
-    "text": "Submission Instructions\n\nMake sure all your code chunks run without errors\nSave this file with your name in the filename (e.g., “Lab1_YourLastName.qmd”)\nRender the document to HTML\nSubmit both the .qmd file and the rendered HTML file to Canvas"
-  },
-  {
-    "objectID": "hands_on/week3.html",
-    "href": "hands_on/week3.html",
-    "title": "Week 3: Hands-on data visualization",
-    "section": "",
-    "text": "The goal of this hands-on exercise is to familiarize you with data visualization, particularly with an emphasis on exploring a dataset and creating clear visualizations that communicate basic insights.\nWe’ll be working with the CLEAR Corpus, a dataset of text excerpts rated for their readability (Crossley et al., 2021)."
-  },
-  {
-    "objectID": "hands_on/week3.html#introduction",
-    "href": "hands_on/week3.html#introduction",
-    "title": "Week 3: Hands-on data visualization",
-    "section": "",
-    "text": "The goal of this hands-on exercise is to familiarize you with data visualization, particularly with an emphasis on exploring a dataset and creating clear visualizations that communicate basic insights.\nWe’ll be working with the CLEAR Corpus, a dataset of text excerpts rated for their readability (Crossley et al., 2021)."
-  },
-  {
-    "objectID": "hands_on/week3.html#load-dataset",
-    "href": "hands_on/week3.html#load-dataset",
-    "title": "Week 3: Hands-on data visualization",
-    "section": "Load dataset",
-    "text": "Load dataset\nTo get started, let’s load the dataset.\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(ggcorrplot)\n\n### Lancaster norms\ndf_clear &lt;- read_csv(\"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/viz/CLEAR_corpus_final.csv\")\n\nRows: 4724 Columns: 28\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (11): Author, Title, Anthology, URL, Categ, Sub Cat, Lexile Band, Locati...\ndbl (17): ID, Pub Year, MPAA #Max, MPAA# Avg, Google WC, Sentence Count, Par...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
-  },
-  {
-    "objectID": "hands_on/week3.html#exercise-1-understand-the-structure-of-your-data",
-    "href": "hands_on/week3.html#exercise-1-understand-the-structure-of-your-data",
-    "title": "Week 3: Hands-on data visualization",
+    "objectID": "hands_on/week2.html#exercise-1-understand-the-structure-of-your-data",
+    "href": "hands_on/week2.html#exercise-1-understand-the-structure-of-your-data",
+    "title": "Week 2: Hands-on data wrangling",
     "section": "Exercise 1: Understand the structure of your data",
-    "text": "Exercise 1: Understand the structure of your data\nAs always, let’s try to understand our data first.\nUse functions like nrow, colnames, head, and more to understand the structure and content of our dataset.\nTry to answer the following questions:\n\nWhat does each column mean? (Hint: some of these columns represent automated reading indices, and BT_easiness is the normalized human readability judgments.)\nWould you say the dataset is in wide or long format?\n\nAny missing values? What should you do about them?"
+    "text": "Exercise 1: Understand the structure of your data\nFirst, use functions like nrow, colnames, head, and more to understand the structure and content of each dataset.\nTry to answer the following questions:\n\nWhat does each column mean?\nWould you say the datasets are in wide or long format?\n\nDo the datasets have any overlapping columns?\n\nHow many words are in each dataset? Are they the same words?\n\nWhat’s the range of values for iconicity and concreteness ratings?"
   },
   {
-    "objectID": "hands_on/week3.html#exercise-2-which-metrics-correlate-and-how-much",
-    "href": "hands_on/week3.html#exercise-2-which-metrics-correlate-and-how-much",
-    "title": "Week 3: Hands-on data visualization",
-    "section": "Exercise 2: Which metrics correlate, and how much?",
-    "text": "Exercise 2: Which metrics correlate, and how much?\nFocusing on the various metrics of readability (E.g., Flesch-Kincaid, etc.) as well as the metrics reflecting passage length (e.g., Paragraphs, Sentence Count), create a correlation matrix and plot it with ggcorrplot. Which metrics correlate the most with BT_easiness (the “gold standard”)?\n(Note: Some of the metrics may be negatively correlated, because they capture reading difficulty as opposed to reading ease; if it helps, you can always take the absolute value of the correlations when determining which one is strongest.)"
+    "objectID": "hands_on/week2.html#exercise-2-join-your-data",
+    "href": "hands_on/week2.html#exercise-2-join-your-data",
+    "title": "Week 2: Hands-on data wrangling",
+    "section": "Exercise 2: Join your data",
+    "text": "Exercise 2: Join your data\nUse a join operation to merge the concreteness and iconicity datasets on a common column name. (Hint: You might need to use mutate to create a new column in at least one of the datasets.)\nWhat are the consequences of using left/right/full/inner_join? Which join did you use, and what does the resulting table look like in terms of lost (or gained) rows?"
   },
   {
-    "objectID": "hands_on/week3.html#exercise-3-create-a-scatterplot",
-    "href": "hands_on/week3.html#exercise-3-create-a-scatterplot",
-    "title": "Week 3: Hands-on data visualization",
-    "section": "Exercise 3: Create a scatterplot",
-    "text": "Exercise 3: Create a scatterplot\nChoose 1-2 of the metrics and create a scatterplot showing how it relates to BT_easiness. Does this roughly match what you found in the correlation exercise above?"
+    "objectID": "hands_on/week2.html#exercise-3-explore-your-data",
+    "href": "hands_on/week2.html#exercise-3-explore-your-data",
+    "title": "Week 2: Hands-on data wrangling",
+    "section": "Exercise 3: Explore your data",
+    "text": "Exercise 3: Explore your data\nNow that you’ve merged your datasets, let’s conduct some initial explorations.\n\n3a: How many ratings?\nThe iconicity dataset contains a number of ratings for each word, but some words were rated more times than others.\n\nWhat is the range of n_ratings?\nWhich word was rated the most times? What about the least?\n\n\n\n3b: Which words are most and least iconic?\n\nWhich(s) word has (or have) the highest iconicity rating in the merged dataset? What about the word(s) with the lowest rating? Do these results make sense to you? (Hint: Use slice_max/min).\nWhat about the top 5 iconic words and the bottom 5 iconic words? (Hint: Use arrange and slice_head.)\nCan you draw any conclusions from this preliminary exploration about which kinds of words are most and least iconic?\nAre the extreme words the same before and after merging?\n\n\n\n3c: Which words have the most and least variance in their iconicity ratings?\nRepeat exercise 3b, but for rating_sd instead of rating.\n\n\n3d: Which words are most and least frequent?\nRepeat exercise 3b, but now for Frequency. Which words are the most and least frequent in the joined dataset?\n\n\n3e: Which words are most and least concrete?\nRepeat exercise 3b, but now for Concreteness. Which words are the most and least concrete in the joined dataset?"
   },
   {
-    "objectID": "hands_on/week3.html#exercise-4-modify-your-scatterplot",
-    "href": "hands_on/week3.html#exercise-4-modify-your-scatterplot",
-    "title": "Week 3: Hands-on data visualization",
-    "section": "Exercise 4: Modify your scatterplot",
-    "text": "Exercise 4: Modify your scatterplot\nNow, add a new layer to your scatterplot. That could be a categorical factor (e.g., Categ) or another continuous metric: you can decide! What did this layer reveal to you?"
+    "objectID": "hands_on/week2.html#exercise-4-grouping-and-summarizing",
+    "href": "hands_on/week2.html#exercise-4-grouping-and-summarizing",
+    "title": "Week 2: Hands-on data wrangling",
+    "section": "Exercise 4: Grouping and summarizing",
+    "text": "Exercise 4: Grouping and summarizing\nThe dataset also includes information about each word’s part-of-speech. Let’s use that information to learn more about our data.\n\n4a: Which part-of-speech is most and least iconic?\nUse group_by and summarise to calculate the mean iconicity for each part of speech.\n\nWhich part-of-speech has the highest iconicity on average, and which has the least?\n\nIs this broadly consistent with your qualitative inspection of the most and least iconic words earlier?\n\n\n\n4b: Which part-of-speech is most and least concrete?\nUse group_by and summarise to calculate the mean frequency for each part of speech.\n\nWhich part-of-speech has the highest frequency on average, and which has the least?\n\nDo you think these estimates might be affected by the distribution shape of Frequency? If necessary, recalculate the above with a log-transformed measure."
   },
   {
-    "objectID": "hands_on/week3.html#exercise-5-are-certain-categories-more-readable",
-    "href": "hands_on/week3.html#exercise-5-are-certain-categories-more-readable",
-    "title": "Week 3: Hands-on data visualization",
-    "section": "Exercise 5: Are certain categories more readable?",
-    "text": "Exercise 5: Are certain categories more readable?\n\nNow create a plot showing whether BT_easiness varies by Categ directly. You can choose to use either a barplot (with standard errors) or a violin plot (or barplot).\n\nThen put some numbers to it: use group_by %&gt;% summarise to get the mean BT_easiness by Categ."
+    "objectID": "hands_on/week2.html#exercise-5-correlations-between-our-variables",
+    "href": "hands_on/week2.html#exercise-5-correlations-between-our-variables",
+    "title": "Week 2: Hands-on data wrangling",
+    "section": "Exercise 5: Correlations between our variables",
+    "text": "Exercise 5: Correlations between our variables\n\n5a: A correlation matrix\nNow, create a correlation matrix between n_ratings, rating, rating_sd, Concreteness, and Frequency. You might need to use select to first select those columns.\n\nWhat are the strongest correlations?\nAre more concrete words also more iconic?\n\n\n\n5b: Does the strength of correlation depend on part-of-speech?\nFocusing specifically on the relationship between Concreteness and rating, calculate the correlation between these variables for each part-of-speech.\n\nWhich parts-of-speech show the highest correlation? Which show the lowest?\nCompare these values to the count of observations for each part of speech.\n\n\n\n5c: Concrete vs. abstract words\n\nNow, create a binary variable called Concrete that categorizes words with a Concreteness &gt;2.5 as “Concrete”, and words with a Concreteness &lt;= 2.5 as “Abstract”.\n\nThen, calculate the mean iconicity for words categorized as Concrete vs. Abstract."
   },
   {
-    "objectID": "hands_on/week3.html#exercise-6-are-passages-from-different-locations-more-readable",
-    "href": "hands_on/week3.html#exercise-6-are-passages-from-different-locations-more-readable",
-    "title": "Week 3: Hands-on data visualization",
-    "section": "Exercise 6: Are passages from different locations more readable?",
-    "text": "Exercise 6: Are passages from different locations more readable?\nThe corpus also contains information about where in a passage text was excerpted from (e.g., the beginning or the end). Repeat exercise 5 above but using Location instead of Categ. What do you find? (Note: Make sure to reorder your plot in terms of increasing or decreasing BT_easiness).\nNow create a plot showing whether BT_easiness varies by Categ directly. You can choose to use either a barplot (with standard errors) or a violin plot (or barplot)."
+    "objectID": "hands_on/week2.html#exercise-6-free-exploration",
+    "href": "hands_on/week2.html#exercise-6-free-exploration",
+    "title": "Week 2: Hands-on data wrangling",
+    "section": "Exercise 6: Free exploration!",
+    "text": "Exercise 6: Free exploration!\nTry to come up with at least one additional question to ask about your data.\n\nIf necessary, that could include merging with additional datasets (e.g., the AoA dataset used in class).\n\nAlternatively, you could try to build a regression model using lm to model the relationships between the variables more directly."
   },
   {
-    "objectID": "hands_on/week3.html#exercise-7-what-about-sub-cat",
-    "href": "hands_on/week3.html#exercise-7-what-about-sub-cat",
-    "title": "Week 3: Hands-on data visualization",
-    "section": "Exercise 7: What about Sub Cat?",
-    "text": "Exercise 7: What about Sub Cat?\nSome of the excerpts also contain information about the sub category they are drawn from. Repeat exercise 5 again, this time for Sub Cat.\n\nDoes anything stick out to you?\nWhat might be a limitation to this analysis? (Hint: You might want to count how many observations there are per Sub Cat.)"
+    "objectID": "hands_on/week6.html",
+    "href": "hands_on/week6.html",
+    "title": "Week 6: Logistic regression",
+    "section": "",
+    "text": "The goal of this hands-on exercise is to familiarize you with building and interpreting logistic regression models in R.\nWe’ll be working with the Titanic dataset we used earlier in the quarter. More information can be found here.\nHere’s a handy reference table for the different columns of the dataset.\n\n\n\n\n\n\n\n\nColumn\nDescription\nValues / Notes\n\n\n\n\nSurvived\nSurvival\n0 = No, 1 = Yes\n\n\nPclass\nTicket class\n1 = 1st, 2 = 2nd, 3 = 3rd\n\n\nSex\nSex\n\n\n\nAge\nAge in years\n\n\n\nSibSp\n# of siblings / spouses aboard\n\n\n\nParch\n# of parents / children aboard\n\n\n\nticket\nTicket number\n\n\n\nFare\nPassenger fare\n\n\n\nCabin\nCabin number\n\n\n\nEmbarked\nPort of Embarkation\nC = Cherbourg, Q = Queenstown, S = Southampton"
   },
   {
-    "objectID": "hands_on/week3.html#exercise-8-most-and-least-readable-texts",
-    "href": "hands_on/week3.html#exercise-8-most-and-least-readable-texts",
-    "title": "Week 3: Hands-on data visualization",
-    "section": "Exercise 8: Most and least readable texts?",
-    "text": "Exercise 8: Most and least readable texts?\nFinally, use slice_max and slice_min to find the most and least readable texts in the corpus. Do you agree with this assessment?"
+    "objectID": "hands_on/week6.html#introduction",
+    "href": "hands_on/week6.html#introduction",
+    "title": "Week 6: Logistic regression",
+    "section": "",
+    "text": "The goal of this hands-on exercise is to familiarize you with building and interpreting logistic regression models in R.\nWe’ll be working with the Titanic dataset we used earlier in the quarter. More information can be found here.\nHere’s a handy reference table for the different columns of the dataset.\n\n\n\n\n\n\n\n\nColumn\nDescription\nValues / Notes\n\n\n\n\nSurvived\nSurvival\n0 = No, 1 = Yes\n\n\nPclass\nTicket class\n1 = 1st, 2 = 2nd, 3 = 3rd\n\n\nSex\nSex\n\n\n\nAge\nAge in years\n\n\n\nSibSp\n# of siblings / spouses aboard\n\n\n\nParch\n# of parents / children aboard\n\n\n\nticket\nTicket number\n\n\n\nFare\nPassenger fare\n\n\n\nCabin\nCabin number\n\n\n\nEmbarked\nPort of Embarkation\nC = Cherbourg, Q = Queenstown, S = Southampton"
+  },
+  {
+    "objectID": "hands_on/week6.html#load-dataset",
+    "href": "hands_on/week6.html#load-dataset",
+    "title": "Week 6: Logistic regression",
+    "section": "Load dataset",
+    "text": "Load dataset\nTo get started, let’s load the dataset.\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(ggcorrplot)\n\n### Titanic dataset\ndf_titanic &lt;- read_csv(\"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/wrangling/titanic.csv\")\n\nRows: 891 Columns: 12\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (5): Name, Sex, Ticket, Cabin, Embarked\ndbl (7): PassengerId, Survived, Pclass, Age, SibSp, Parch, Fare\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nhead(df_titanic)\n\n# A tibble: 6 × 12\n  PassengerId Survived Pclass Name    Sex     Age SibSp Parch Ticket  Fare Cabin\n        &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;\n1           1        0      3 Braund… male     22     1     0 A/5 2…  7.25 &lt;NA&gt; \n2           2        1      1 Cuming… fema…    38     1     0 PC 17… 71.3  C85  \n3           3        1      3 Heikki… fema…    26     0     0 STON/…  7.92 &lt;NA&gt; \n4           4        1      1 Futrel… fema…    35     1     0 113803 53.1  C123 \n5           5        0      3 Allen,… male     35     0     0 373450  8.05 &lt;NA&gt; \n6           6        0      3 Moran,… male     NA     0     0 330877  8.46 &lt;NA&gt; \n# ℹ 1 more variable: Embarked &lt;chr&gt;"
+  },
+  {
+    "objectID": "hands_on/week6.html#exercise-1-does-age-predict-survived",
+    "href": "hands_on/week6.html#exercise-1-does-age-predict-survived",
+    "title": "Week 6: Logistic regression",
+    "section": "Exercise 1: Does Age predict Survived?",
+    "text": "Exercise 1: Does Age predict Survived?\nBuild a logistic regression model predicting Survived from Age.\n\nIs the coefficient for Age significant? If so, what does that mean?\nInterpret the intercept and slope coefficient. What do they correspond to?\n\nAccording to this model, what is the probability that a 20-year-old person would survive? What about a 30-year-old person?\n\nWhat is the AIC of this model?"
+  },
+  {
+    "objectID": "hands_on/week6.html#exercise-2-does-pclass-predict-survived",
+    "href": "hands_on/week6.html#exercise-2-does-pclass-predict-survived",
+    "title": "Week 6: Logistic regression",
+    "section": "Exercise 2: Does Pclass predict Survived?",
+    "text": "Exercise 2: Does Pclass predict Survived?\nBuild a logistic regression model predicting Survived from Pclass (passenger class).\n\nIs the coefficient for Pclass significant? If so, what does that mean?\nInterpret the intercept and slope coefficient. What do they correspond to?\n\nAccording to this model, what is the probability that a person in 1st class would survive? What about third-class?\nWhat is the AIC of this model?"
+  },
+  {
+    "objectID": "hands_on/week6.html#exercise-3-does-sex-predict-survived",
+    "href": "hands_on/week6.html#exercise-3-does-sex-predict-survived",
+    "title": "Week 6: Logistic regression",
+    "section": "Exercise 3: Does Sex predict Survived??",
+    "text": "Exercise 3: Does Sex predict Survived??\nBuild a logistic regression model predicting Survived from Sex.\n\nIs the coefficient for Sex significant? If so, what does that mean?\nInterpret the intercept and slope coefficient. What do they correspond to?\n\nAccording to this model, what is the probability that a person listed as female would survive? What about male?\nWhat is the AIC of this model?"
+  },
+  {
+    "objectID": "hands_on/week6.html#exercise-4-compare-the-single-variable-models.",
+    "href": "hands_on/week6.html#exercise-4-compare-the-single-variable-models.",
+    "title": "Week 6: Logistic regression",
+    "section": "Exercise 4: Compare the single-variable models.",
+    "text": "Exercise 4: Compare the single-variable models.\nIn Exercises 1-3, you calculated the AIC of each of these models. Now let’s compare those AIC values. Which is lowest? What does that tell us about the ability of each predictor to account for whether someone Survived?"
+  },
+  {
+    "objectID": "hands_on/week6.html#exercise-5-build-a-multivariate-model.",
+    "href": "hands_on/week6.html#exercise-5-build-a-multivariate-model.",
+    "title": "Week 6: Logistic regression",
+    "section": "Exercise 5: Build a multivariate model.",
+    "text": "Exercise 5: Build a multivariate model.\nNow let’s combine those three variables in a single model predicting Survived.\n\nDo any of the coefficients change? How so and how much?\nUse the broom package (and ggplot2) to visualize the coefficients with their standard errors.\nWhat is the AIC of this new model?\nWrite out the linear equation corresponding to this model to help think through what it means."
   },
   {
     "objectID": "hands_on/week5.html",
