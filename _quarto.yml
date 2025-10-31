@@ -28,6 +28,10 @@ website:
             text: "Week 3: Data Visualization"
           - href: lectures/week4-regression.qmd
             text: "Week 4: Linear Regression"
+          - href: lectures/week5-regression_advanced.qmd
+            text: "Week 5: Multiple Regression"
+          - href: lectures/week6-logistic.qmd
+            text: "Week 6: Logistic Regression"
       - text: "Labs"
         icon: fas fa-laptop-code
         menu:

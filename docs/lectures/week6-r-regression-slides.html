@@ -310,7 +310,7 @@
 <span id="cb3-6"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="week6-logistic_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"><p>Linear model generates predictions <strong>outside [0,1]</strong>, but probability must be bounded!</p>
+<img data-src="week7-mixed_models_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"><p>Linear model generates predictions <strong>outside [0,1]</strong>, but probability must be bounded!</p>
 </section>
 <section id="framing-the-problem-probabilistically" class="slide level2 smaller">
 <h2>Framing the problem probabilistically</h2>
@@ -423,7 +423,7 @@
 <span id="cb4-8"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="week6-logistic_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<img data-src="week7-mixed_models_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
 <section id="introducing-the-log-odds-logit" class="slide level2 smaller">
 <h2>Introducing the log-odds (logit)</h2>
 <blockquote>
@@ -447,7 +447,7 @@
 <span id="cb5-7"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="week6-logistic_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<img data-src="week7-mixed_models_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
 <section id="interpreting-the-sign-of-log-odds" class="slide level2 smaller">
 <h2>Interpreting the sign of log-odds</h2>
 <div class="cell">
@@ -459,7 +459,7 @@
 <span id="cb6-6"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="week6-logistic_files/figure-revealjs/unnamed-chunk-4-1.png" width="768" class="r-stretch"><ul>
+<img data-src="week7-mixed_models_files/figure-revealjs/unnamed-chunk-4-1.png" width="768" class="r-stretch"><ul>
 <li class="fragment">Positive log-odds → <span class="math inline">\(p &gt; 0.5\)</span></li>
 <li class="fragment">Negative log-odds → <span class="math inline">\(p &lt; 0.5\)</span></li>
 </ul>
@@ -496,7 +496,7 @@
 <span id="cb7-7"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="week6-logistic_files/figure-revealjs/unnamed-chunk-5-1.png" width="768" class="r-stretch"></section>
+<img data-src="week7-mixed_models_files/figure-revealjs/unnamed-chunk-5-1.png" width="768" class="r-stretch"></section>
 <section id="where-does-regression-come-in" class="slide level2 smaller">
 <h2>Where does regression come in?</h2>
 <p>With logistic regression, we learn parameters <span class="math inline">\(\beta\)</span> for:</p>
@@ -520,7 +520,7 @@
 <h2>Interpreting β: P(Y) ~ X is NOT linear</h2>
 <p>The mapping between log-odds and <span class="math inline">\(P(Y)\)</span> is <strong>not linear</strong>.</p>
 
-<img data-src="week6-logistic_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><p>We <strong>cannot</strong> interpret coefficients linearly with respect to <span class="math inline">\(P(Y)\)</span>!</p>
+<img data-src="week7-mixed_models_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><p>We <strong>cannot</strong> interpret coefficients linearly with respect to <span class="math inline">\(P(Y)\)</span>!</p>
 </section>
 <section id="part-2-logistic-regression-in-r" class="slide level2">
 <h2>Part 2: Logistic regression in R</h2>
@@ -639,7 +639,7 @@ Number of Fisher Scoring iterations: 6</code></pre>
 <span id="cb21-7"><a></a><span class="fu">plot</span>(X, p, <span class="at">xlab =</span> <span class="st">"# Characters"</span>, <span class="at">ylab =</span> <span class="st">"P(spam)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="week6-logistic_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"><p>Linear on log-odds scale, non-linear on probability scale!</p>
+<img data-src="week7-mixed_models_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"><p>Linear on log-odds scale, non-linear on probability scale!</p>
 </section>
 <section id="categorical-predictors" class="slide level2 smaller">
 <h2>Categorical predictors</h2>
@@ -731,7 +731,7 @@ Number of Fisher Scoring iterations: 5</code></pre>
 <span id="cb30-7"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="week6-logistic_files/figure-revealjs/unnamed-chunk-17-1.png" width="768" class="r-stretch"></section>
+<img data-src="week7-mixed_models_files/figure-revealjs/unnamed-chunk-17-1.png" width="768" class="r-stretch"></section>
 <section id="summary" class="slide level2 smaller">
 <h2>Summary</h2>
 <ul>
