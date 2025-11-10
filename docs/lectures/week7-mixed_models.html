@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Logistic Regression – CSS 211: Statistical Methods for Computational Social Science</title>
+<title>Mixed Effects Models – CSS 211: Statistical Methods for Computational Social Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f93c2b1f3f0577f377aefa4848a86a36.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,35 +104,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -294,49 +265,25 @@ window.Quarto = {
    
   <ul>
   <li><a href="#goals-of-the-lecture" id="toc-goals-of-the-lecture" class="nav-link active" data-scroll-target="#goals-of-the-lecture">Goals of the lecture</a></li>
-  <li><a href="#what-is-classification" id="toc-what-is-classification" class="nav-link" data-scroll-target="#what-is-classification">What is classification?</a></li>
-  <li><a href="#binary-vs.-multi-class-classification" id="toc-binary-vs.-multi-class-classification" class="nav-link" data-scroll-target="#binary-vs.-multi-class-classification">Binary vs.&nbsp;multi-class classification</a></li>
-  <li><a href="#part-1-foundations-of-logistic-regression" id="toc-part-1-foundations-of-logistic-regression" class="nav-link" data-scroll-target="#part-1-foundations-of-logistic-regression">Part 1: Foundations of logistic regression</a></li>
-  <li><a href="#example-dataset-email-spam" id="toc-example-dataset-email-spam" class="nav-link" data-scroll-target="#example-dataset-email-spam">Example dataset: Email spam</a></li>
-  <li><a href="#why-not-linear-regression" id="toc-why-not-linear-regression" class="nav-link" data-scroll-target="#why-not-linear-regression">Why not linear regression?</a></li>
-  <li><a href="#the-problem-predictions-beyond-01" id="toc-the-problem-predictions-beyond-01" class="nav-link" data-scroll-target="#the-problem-predictions-beyond-01">The problem: predictions beyond [0,1]</a></li>
-  <li><a href="#framing-the-problem-probabilistically" id="toc-framing-the-problem-probabilistically" class="nav-link" data-scroll-target="#framing-the-problem-probabilistically">Framing the problem probabilistically</a></li>
-  <li><a href="#generalized-linear-models-glms" id="toc-generalized-linear-models-glms" class="nav-link" data-scroll-target="#generalized-linear-models-glms">Generalized linear models (GLMs)</a></li>
-  <li><a href="#common-glms" id="toc-common-glms" class="nav-link" data-scroll-target="#common-glms">Common GLMs</a></li>
-  <li><a href="#the-logit-link-function" id="toc-the-logit-link-function" class="nav-link" data-scroll-target="#the-logit-link-function">The logit link function</a></li>
-  <li><a href="#introducing-the-odds" id="toc-introducing-the-odds" class="nav-link" data-scroll-target="#introducing-the-odds">Introducing the odds</a></li>
-  <li><a href="#visualizing-odds" id="toc-visualizing-odds" class="nav-link" data-scroll-target="#visualizing-odds">Visualizing odds</a></li>
-  <li><a href="#introducing-the-log-odds-logit" id="toc-introducing-the-log-odds-logit" class="nav-link" data-scroll-target="#introducing-the-log-odds-logit">Introducing the log-odds (logit)</a></li>
-  <li><a href="#visualizing-log-odds" id="toc-visualizing-log-odds" class="nav-link" data-scroll-target="#visualizing-log-odds">Visualizing log-odds</a></li>
-  <li><a href="#interpreting-the-sign-of-log-odds" id="toc-interpreting-the-sign-of-log-odds" class="nav-link" data-scroll-target="#interpreting-the-sign-of-log-odds">Interpreting the sign of log-odds</a></li>
-  <li><a href="#is-log-odds-linearly-related-to-p" id="toc-is-log-odds-linearly-related-to-p" class="nav-link" data-scroll-target="#is-log-odds-linearly-related-to-p">Is log-odds linearly related to p?</a></li>
-  <li><a href="#the-logistic-function" id="toc-the-logistic-function" class="nav-link" data-scroll-target="#the-logistic-function">The logistic function</a></li>
-  <li><a href="#mapping-from-log-odds-to-probability" id="toc-mapping-from-log-odds-to-probability" class="nav-link" data-scroll-target="#mapping-from-log-odds-to-probability">Mapping from log-odds to probability</a></li>
-  <li><a href="#where-does-regression-come-in" id="toc-where-does-regression-come-in" class="nav-link" data-scroll-target="#where-does-regression-come-in">Where does regression come in?</a></li>
-  <li><a href="#interpreting-β-log-odds-x-is-linear" id="toc-interpreting-β-log-odds-x-is-linear" class="nav-link" data-scroll-target="#interpreting-β-log-odds-x-is-linear">Interpreting β: log-odds ~ X is linear</a></li>
-  <li><a href="#interpreting-β-py-x-is-not-linear" id="toc-interpreting-β-py-x-is-not-linear" class="nav-link" data-scroll-target="#interpreting-β-py-x-is-not-linear">Interpreting β: P(Y) ~ X is NOT linear</a></li>
-  <li><a href="#part-2-logistic-regression-in-r" id="toc-part-2-logistic-regression-in-r" class="nav-link" data-scroll-target="#part-2-logistic-regression-in-r">Part 2: Logistic regression in R</a></li>
-  <li><a href="#logistic-regression-in-r" id="toc-logistic-regression-in-r" class="nav-link" data-scroll-target="#logistic-regression-in-r">Logistic regression in R</a></li>
-  <li><a href="#fitting-a-simple-model" id="toc-fitting-a-simple-model" class="nav-link" data-scroll-target="#fitting-a-simple-model">Fitting a simple model</a></li>
-  <li><a href="#interpreting-the-coefficients" id="toc-interpreting-the-coefficients" class="nav-link" data-scroll-target="#interpreting-the-coefficients">Interpreting the coefficients</a></li>
-  <li><a href="#converting-log-odds-to-probability" id="toc-converting-log-odds-to-probability" class="nav-link" data-scroll-target="#converting-log-odds-to-probability">Converting log-odds to probability</a></li>
-  <li><a href="#example-num_char-100" id="toc-example-num_char-100" class="nav-link" data-scroll-target="#example-num_char-100">Example: num_char = 100</a></li>
-  <li><a href="#visualizing-log-odds-vs.-probability" id="toc-visualizing-log-odds-vs.-probability" class="nav-link" data-scroll-target="#visualizing-log-odds-vs.-probability">Visualizing: log-odds vs.&nbsp;probability</a></li>
-  <li><a href="#categorical-predictors" id="toc-categorical-predictors" class="nav-link" data-scroll-target="#categorical-predictors">Categorical predictors</a></li>
-  <li><a href="#interpreting-categorical-predictors" id="toc-interpreting-categorical-predictors" class="nav-link" data-scroll-target="#interpreting-categorical-predictors">Interpreting categorical predictors</a></li>
-  <li><a href="#probability-for-winner-no" id="toc-probability-for-winner-no" class="nav-link" data-scroll-target="#probability-for-winner-no">Probability for winner = “no”</a></li>
-  <li><a href="#probability-for-winner-yes" id="toc-probability-for-winner-yes" class="nav-link" data-scroll-target="#probability-for-winner-yes">Probability for winner = “yes”</a></li>
-  <li><a href="#generating-predictions" id="toc-generating-predictions" class="nav-link" data-scroll-target="#generating-predictions">Generating predictions</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#load-libraries" id="toc-load-libraries" class="nav-link" data-scroll-target="#load-libraries">Load libraries</a></li>
+  <li><a href="#part-1-independence" id="toc-part-1-independence" class="nav-link" data-scroll-target="#part-1-independence">Part 1: Independence</a></li>
+  <li><a href="#what-is-independence" id="toc-what-is-independence" class="nav-link" data-scroll-target="#what-is-independence">What is independence?</a></li>
+  <li><a href="#why-does-independence-matter" id="toc-why-does-independence-matter" class="nav-link" data-scroll-target="#why-does-independence-matter">Why does independence matter?</a></li>
+  <li><a href="#example-independent-data" id="toc-example-independent-data" class="nav-link" data-scroll-target="#example-independent-data">Example: Independent data</a></li>
+  <li><a href="#another-independent-example" id="toc-another-independent-example" class="nav-link" data-scroll-target="#another-independent-example">Another independent example</a></li>
+  <li><a href="#visualizing-independent-data" id="toc-visualizing-independent-data" class="nav-link" data-scroll-target="#visualizing-independent-data">Visualizing independent data</a></li>
+  <li><a href="#analyzing-independent-data" id="toc-analyzing-independent-data" class="nav-link" data-scroll-target="#analyzing-independent-data">Analyzing independent data</a></li>
+  <li><a href="#part-2-introduction-to-mixed-effects-models" id="toc-part-2-introduction-to-mixed-effects-models" class="nav-link" data-scroll-target="#part-2-introduction-to-mixed-effects-models">Part 2: Introduction to mixed effects models</a></li>
+  <li><a href="#part-3-using-lme4" id="toc-part-3-using-lme4" class="nav-link" data-scroll-target="#part-3-using-lme4">Part 3: Using <code>lme4</code></a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="week6-r-regression-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="week7-r-multilevel-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Logistic Regression</h1>
+<h1 class="title">Mixed Effects Models</h1>
 </div>
 
 
@@ -357,61 +304,26 @@ window.Quarto = {
 <h2 class="smaller anchored" data-anchor-id="goals-of-the-lecture">Goals of the lecture</h2>
 <div class="incremental">
 <ul class="incremental">
-<li><strong>Classification</strong>: dealing with categorical outcomes.</li>
-<li><strong>Logistic regression</strong>.
+<li>The <strong>independence assumption</strong> of linear regression.
 <ul class="incremental">
-<li>Why not linear regression?</li>
-<li>Generalized linear models (GLMs).</li>
-<li>Odds and log-odds.</li>
-<li>The logistic function.</li>
+<li>What about when data are <em>non-independent</em>?</li>
 </ul></li>
-<li>Building and interpreting logistic models with <code>glm</code>.</li>
-</ul>
-</div>
-</section>
-<section id="what-is-classification" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="what-is-classification">What is classification?</h2>
-<blockquote class="blockquote">
-<p>“To classify is human…We sort dirty dishes from clean, white laundry from colorfast, important email to be answered from e-junk…. Any part of the home, school, or workplace reveals some such system of classification.”</p>
-<p>— Bowker &amp; Star, 2000</p>
-</blockquote>
-<div class="incremental">
+<li>Introducing <strong>mixed effects models</strong>.
 <ul class="incremental">
-<li>Classification = predicting a <strong>categorical response variable</strong> using features</li>
-<li>Common examples:
+<li>Fixed vs.&nbsp;random effects.</li>
+<li>Adding <em>random intercepts</em>.</li>
+<li>Adding <em>random slopes</em>.</li>
+</ul></li>
+<li>Mixed models <strong>in practice</strong> with <code>lme4</code>.
 <ul class="incremental">
-<li>Is an email spam or not spam?</li>
-<li>Is a cell mass cancerous or not cancerous?</li>
-<li>Will this customer buy or not buy?</li>
-<li>Is a credit card transaction fraudulent?</li>
-<li>Is this image a cat, dog, person, or other?</li>
+<li>Model comparison: the logic of <em>likelihood-ratio tests</em>.</li>
+<li>Best practices.</li>
 </ul></li>
 </ul>
 </div>
 </section>
-<section id="binary-vs.-multi-class-classification" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="binary-vs.-multi-class-classification">Binary vs.&nbsp;multi-class classification</h2>
-<div class="incremental">
-<ul class="incremental">
-<li><strong>Binary classification</strong>: sorting inputs into one of <strong>two</strong> labels
-<ul class="incremental">
-<li>E.g., spam vs.&nbsp;not spam</li>
-</ul></li>
-<li><strong>Multi-class classification</strong>: more than two labels
-<ul class="incremental">
-<li>E.g., face recognition with <em>n</em> possible identities</li>
-<li>E.g., image classification (cat, dog, person, other)</li>
-</ul></li>
-<li>Today: focus on <strong>binary classification</strong> with logistic regression</li>
-</ul>
-</div>
-</section>
-<section id="part-1-foundations-of-logistic-regression" class="level2">
-<h2 class="anchored" data-anchor-id="part-1-foundations-of-logistic-regression">Part 1: Foundations of logistic regression</h2>
-<p>Motivation, log-odds, and the logistic function.</p>
-</section>
-<section id="example-dataset-email-spam" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="example-dataset-email-spam">Example dataset: Email spam</h2>
+<section id="load-libraries" class="level2">
+<h2 class="anchored" data-anchor-id="load-libraries">Load libraries</h2>
 <div class="cell" data-output-location="fragment">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="do">### Loading the tidyverse</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -427,582 +339,120 @@ window.Quarto = {
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>df_spam <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/logistic/spam.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 3921 Columns: 21
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr   (2): winner, number
-dbl  (18): spam, to_multiple, from, cc, sent_email, image, attach, dollar, i...
-dttm  (1): time
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">nrow</span>(df_spam)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3921</code></pre>
-</div>
+</section>
+<section id="part-1-independence" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-independence">Part 1: Independence</h2>
+<p>The independence assumption; why it matters; examples of <em>non-independence</em>.</p>
+</section>
+<section id="what-is-independence" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="what-is-independence">What is independence?</h2>
+<blockquote class="blockquote">
+<p><strong>Independence</strong> means that each observation in your dataset is generated by a separate, unrelated causal process.</p>
+</blockquote>
+<div class="incremental">
+<ul class="incremental">
+<li>When you flip a coin, each flip is independent of the others</li>
+<li>The outcome of flip #1 doesn’t influence flip #2</li>
+<li>No hidden factors connect multiple observations</li>
+<li>Each data point provides <em>new</em> information</li>
+</ul>
 </div>
 <div class="notes">
-<p>Dataset contains information about emails and whether they were spam, along with various features like number of characters, whether they contain certain words, etc.</p>
+<p>Independence is a fundamental assumption of many statistical tests. When we assume independence, we’re saying that knowing the value of one observation tells us nothing about another observation beyond what our model predicts.</p>
 </div>
 </section>
-<section id="why-not-linear-regression" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="why-not-linear-regression">Why not linear regression?</h2>
+<section id="why-does-independence-matter" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="why-does-independence-matter">Why does independence matter?</h2>
+<p>Standard statistical methods (t-tests, OLS regression, ANOVA) assume independence.</p>
+<p><strong>When this assumption is violated:</strong></p>
 <div class="incremental">
 <ul class="incremental">
-<li><code>spam</code> is coded as 0 (no) or 1 (yes)</li>
-<li>Could we treat this as continuous and use linear regression?</li>
-<li>Interpret prediction <span class="math inline">\(\hat{y}\)</span> as probability of outcome?</li>
+<li>Standard errors are underestimated</li>
+<li>Confidence intervals are too narrow<br>
+</li>
+<li>p-values are too small (inflated Type I error)</li>
+<li>Your conclusions may be wrong!</li>
 </ul>
 </div>
 <div class="fragment">
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>💭 Check-in
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>What issues might arise here?</p>
-</div>
-</div>
+<p><strong>The problem:</strong> Treating non-independent observations as independent makes you overconfident in your results.</p>
 </div>
 </section>
-<section id="the-problem-predictions-beyond-01" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="the-problem-predictions-beyond-01">The problem: predictions beyond [0,1]</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_spam, <span class="fu">aes</span>(<span class="at">x =</span> num_char, <span class="at">y =</span> spam)) <span class="sc">+</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Number of characters"</span>,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Spam (0 = no, 1 = yes)"</span>) <span class="sc">+</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="week7-mixed_models_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Linear model generates predictions <strong>outside [0,1]</strong>, but probability must be bounded!</p>
-</section>
-<section id="framing-the-problem-probabilistically" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="framing-the-problem-probabilistically">Framing the problem probabilistically</h2>
+<section id="example-independent-data" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="example-independent-data">Example: Independent data</h2>
+<p>You test whether a new drug increases happiness:</p>
 <div class="incremental">
 <ul class="incremental">
-<li>Treat each outcome as <strong>Bernoulli trials</strong>: “success” (spam) vs.&nbsp;“failure” (not spam)</li>
-<li>Each observation has independent probability of success: <span class="math inline">\(p\)</span></li>
-<li>On its own: <span class="math inline">\(p\)</span> = proportion of spam emails</li>
-<li><strong>Goal</strong>: model <span class="math inline">\(p\)</span> conditioned on other variables, i.e., <span class="math inline">\(P(Y = 1 | X)\)</span></li>
+<li>100 people receive the drug</li>
+<li>100 people receive a placebo</li>
+<li>Each person provides <strong>one</strong> happiness rating (1-7 scale)</li>
+<li>You compare the two groups with a t-test</li>
 </ul>
 </div>
 <div class="fragment">
-<p><strong>Question</strong>: What does <span class="math inline">\(p\)</span> on its own remind you of from linear regression?</p>
+<p>✓ <strong>Independence is reasonable here</strong><br>
+Each person contributes exactly one data point.</p>
+</div>
+</section>
+<section id="another-independent-example" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="another-independent-example">Another independent example</h2>
+<p>You test whether people respond differently to metaphor type A vs.&nbsp;B:</p>
+<div class="incremental">
+<ul class="incremental">
+<li>200 participants, randomly assigned to condition A or B</li>
+<li>Each participant sees <strong>one</strong> item</li>
+<li>Between-subjects design with one item per person</li>
+<li>Compare responses with OLS regression</li>
+</ul>
 </div>
 <div class="fragment">
-<p><em>Answer</em>: The intercept-only model (the mean of <span class="math inline">\(Y\)</span>)</p>
+<p>✓ <strong>Independence is reasonable here</strong><br>
+No repeated measures, no item effects to worry about.</p>
 </div>
 </section>
-<section id="generalized-linear-models-glms" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="generalized-linear-models-glms">Generalized linear models (GLMs)</h2>
-<blockquote class="blockquote">
-<p><strong>Generalized linear models</strong> (GLMs) are generalizations of linear regression.</p>
-</blockquote>
-<p>Each GLM has:</p>
-<div class="incremental">
-<ol class="incremental" type="1">
-<li>A <strong>probability distribution</strong> for the outcome variable</li>
-<li>A <strong>linear model</strong>: <span class="math inline">\(\beta_0 + \beta_1 X_1 + ... + \beta_k X_k\)</span></li>
-<li>A <strong>link function</strong> relating the linear model to the outcome</li>
-</ol>
+<section id="visualizing-independent-data" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="visualizing-independent-data">Visualizing independent data</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week7-mixed_models_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Each observation is independent—no nesting structure.</p>
+</section>
+<section id="analyzing-independent-data" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="analyzing-independent-data">Analyzing independent data</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>simple_model <span class="ot">=</span> <span class="fu">lm</span>(<span class="at">data =</span> df, value <span class="sc">~</span> group)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(simple_model)<span class="sc">$</span>coefficients</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Estimate Std. Error   t value      Pr(&gt;|t|)
+(Intercept) 725.92903   1.431966 506.94583 3.217939e-310
+groupB      -21.73005   2.025105 -10.73033  1.812991e-21</code></pre>
+</div>
 </div>
 <div class="fragment">
-<p>We need a function that links our linear model to a probability score bounded at [0, 1].</p>
+<p><strong>Interpretation:</strong> - Intercept (groupA) = 725.93 (mean of group A) - groupB coefficient = -21.73 (difference from A) - Group B is about 20 units lower than Group A</p>
 </div>
 </section>
-<section id="common-glms" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="common-glms">Common GLMs</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 21%">
-<col style="width: 25%">
-<col style="width: 18%">
-<col style="width: 15%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Model name</th>
-<th>Distribution</th>
-<th>Link function</th>
-<th>Use cases</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Linear regression</td>
-<td>Normal</td>
-<td>Identity</td>
-<td>Continuous response</td>
-<td>Height, price</td>
-</tr>
-<tr class="even">
-<td><strong>Logistic regression</strong></td>
-<td>Bernoulli/Binomial</td>
-<td><strong>Logit</strong></td>
-<td><strong>Binary response</strong></td>
-<td><strong>Spam, fraud</strong></td>
-</tr>
-<tr class="odd">
-<td>Poisson regression</td>
-<td>Poisson</td>
-<td>Log</td>
-<td>Count data</td>
-<td># words, # visitors</td>
-</tr>
-</tbody>
-</table>
-<p>Today: <strong>logistic regression</strong></p>
+<section id="part-2-introduction-to-mixed-effects-models" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-introduction-to-mixed-effects-models">Part 2: Introduction to mixed effects models</h2>
+<p>Fixed vs.&nbsp;random effects; random intercepts; random slopes.</p>
 </section>
-<section id="the-logit-link-function" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="the-logit-link-function">The logit link function</h2>
-<p>Logistic regression uses the <strong>logit</strong> link function:</p>
-<p><span class="math display">\[\text{logit}(p) = \log\left(\frac{p}{1-p}\right)\]</span></p>
-<div class="incremental">
-<ul class="incremental">
-<li>Where <span class="math inline">\(p\)</span> is the probability of some outcome</li>
-<li>Takes a value between <span class="math inline">\([0, 1]\)</span> and maps it to <span class="math inline">\((-\infty, \infty)\)</span></li>
-<li>Also called the <strong>log-odds</strong></li>
+<section id="part-3-using-lme4" class="level2">
+<h2 class="anchored" data-anchor-id="part-3-using-lme4">Part 3: Using <code>lme4</code></h2>
+<p>Building and evaluating models; model comparisons; best practices and common issues.</p>
+<p>Good datasets: <code>sleepstudy</code></p>
+<p>Best practices:</p>
+<ul>
+<li>which are fixed, which are random?</li>
+<li>which random effects should i include?</li>
+<li>common issues: convergence failures, singular values, etc.</li>
 </ul>
-</div>
-</section>
-<section id="introducing-the-odds" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="introducing-the-odds">Introducing the odds</h2>
-<blockquote class="blockquote">
-<p>The <strong>odds</strong> of an event are the ratio of the probability of an event occuring (<span class="math inline">\(p\)</span>) and the probability of event not occurring (<span class="math inline">\(1-p\)</span>).</p>
-</blockquote>
-<p><span class="math display">\[\text{Odds}(Y) = \frac{p}{1-p}\]</span></p>
-<div class="incremental">
-<ul class="incremental">
-<li>Unlike <span class="math inline">\(p\)</span>, odds are bounded at <span class="math inline">\([0, \infty)\)</span></li>
-<li>Odds of 1 means 50/50 chance</li>
-<li>Odds &gt; 1 means more likely to occur than not</li>
-<li>Odds &lt; 1 means less likely to occur than not</li>
-</ul>
-</div>
-</section>
-<section id="visualizing-odds" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="visualizing-odds">Visualizing odds</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>odds <span class="ot">&lt;-</span> p <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> p)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(p, odds), <span class="fu">aes</span>(<span class="at">x =</span> p, <span class="at">y =</span> odds)) <span class="sc">+</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"P(Y)"</span>, <span class="at">y =</span> <span class="st">"Odds(Y)"</span>, </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Odds(Y) vs. P(Y)"</span>) <span class="sc">+</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="week7-mixed_models_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="introducing-the-log-odds-logit" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="introducing-the-log-odds-logit">Introducing the log-odds (logit)</h2>
-<blockquote class="blockquote">
-<p>The <strong>log-odds</strong> is the log of the odds (the <strong>logit function</strong>).</p>
-</blockquote>
-<p><span class="math display">\[\text{logit}(p) = \log\left(\frac{p}{1-p}\right)\]</span></p>
-<div class="incremental">
-<ul class="incremental">
-<li>Unlike <span class="math inline">\(p\)</span>, log-odds are bounded at <span class="math inline">\((-\infty, \infty)\)</span></li>
-<li>This is what we’ll model linearly!</li>
-</ul>
-</div>
-</section>
-<section id="visualizing-log-odds" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="visualizing-log-odds">Visualizing log-odds</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>log_odds <span class="ot">&lt;-</span> <span class="fu">log</span>(p <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> p))</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(p, log_odds), <span class="fu">aes</span>(<span class="at">x =</span> p, <span class="at">y =</span> log_odds)) <span class="sc">+</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"P(Y)"</span>, <span class="at">y =</span> <span class="st">"Log-odds(Y)"</span>, </span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Log-odds(Y) vs. P(Y)"</span>) <span class="sc">+</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="week7-mixed_models_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="interpreting-the-sign-of-log-odds" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="interpreting-the-sign-of-log-odds">Interpreting the sign of log-odds</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(p, log_odds), <span class="fu">aes</span>(<span class="at">x =</span> p, <span class="at">y =</span> log_odds)) <span class="sc">+</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">0.5</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"P(Y)"</span>, <span class="at">y =</span> <span class="st">"Log-odds(Y)"</span>) <span class="sc">+</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="week7-mixed_models_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="768"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="incremental">
-<ul class="incremental">
-<li>Positive log-odds → <span class="math inline">\(p &gt; 0.5\)</span></li>
-<li>Negative log-odds → <span class="math inline">\(p &lt; 0.5\)</span></li>
-</ul>
-</div>
-</section>
-<section id="is-log-odds-linearly-related-to-p" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="is-log-odds-linearly-related-to-p">Is log-odds linearly related to p?</h2>
-<p><strong>No!</strong> The log-odds of <span class="math inline">\(Y\)</span> is <strong>non-linearly</strong> related to <span class="math inline">\(P(Y)\)</span>.</p>
-<div class="incremental">
-<ul class="incremental">
-<li>This means we <strong>cannot</strong> interpret linear changes in log-odds as linear changes in probability</li>
-<li>This will be very important when interpreting logistic regression models</li>
-</ul>
-</div>
-</section>
-<section id="the-logistic-function" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="the-logistic-function">The logistic function</h2>
-<blockquote class="blockquote">
-<p>The <strong>logistic function</strong> is the <strong>inverse</strong> of the logit function.</p>
-</blockquote>
-<p><span class="math display">\[P(Y) = \frac{e^{\text{logit}(p)}}{1 + e^{\text{logit}(p)}}\]</span></p>
-<div class="incremental">
-<ul class="incremental">
-<li>Converts log-odds back to probability</li>
-<li>Maps <span class="math inline">\((-\infty, \infty)\)</span> to <span class="math inline">\([0, 1]\)</span></li>
-<li>Also called the <strong>sigmoid function</strong></li>
-</ul>
-</div>
-</section>
-<section id="mapping-from-log-odds-to-probability" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="mapping-from-log-odds-to-probability">Mapping from log-odds to probability</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>log_odds_range <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="fl">0.1</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>p_range <span class="ot">&lt;-</span> <span class="fu">exp</span>(log_odds_range) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(log_odds_range))</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(log_odds_range, p_range), </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> log_odds_range, <span class="at">y =</span> p_range)) <span class="sc">+</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Log-odds(Y)"</span>, <span class="at">y =</span> <span class="st">"P(Y)"</span>) <span class="sc">+</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="week7-mixed_models_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="768"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="where-does-regression-come-in" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="where-does-regression-come-in">Where does regression come in?</h2>
-<p>With logistic regression, we learn parameters <span class="math inline">\(\beta\)</span> for:</p>
-<p><span class="math display">\[\log\left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 X_1 + ... + \beta_k X_k\]</span></p>
-<div class="incremental">
-<ul class="incremental">
-<li>Our “dependent variable” is the <strong>log-odds</strong> (logit) of <span class="math inline">\(p\)</span></li>
-<li>We learn a <strong>linear relationship</strong> between <span class="math inline">\(X\)</span> and the <strong>log-odds</strong> of our outcome</li>
-<li>NOT a linear relationship with probability itself!</li>
-</ul>
-</div>
-</section>
-<section id="interpreting-β-log-odds-x-is-linear" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="interpreting-β-log-odds-x-is-linear">Interpreting β: log-odds ~ X is linear</h2>
-<p><span class="math display">\[\log\left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 X\]</span></p>
-<div class="incremental">
-<ul class="incremental">
-<li>If <span class="math inline">\(\beta_1 &gt; 0\)</span>: For each 1-unit increase in <span class="math inline">\(X\)</span>, log-odds <strong>increase</strong> by <span class="math inline">\(\beta_1\)</span></li>
-<li>If <span class="math inline">\(\beta_1 &lt; 0\)</span>: For each 1-unit increase in <span class="math inline">\(X\)</span>, log-odds <strong>decrease</strong> by <span class="math inline">\(|\beta_1|\)</span></li>
-<li><strong>Straightforward linear interpretation</strong> for log-odds</li>
-</ul>
-</div>
-</section>
-<section id="interpreting-β-py-x-is-not-linear" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="interpreting-β-py-x-is-not-linear">Interpreting β: P(Y) ~ X is NOT linear</h2>
-<p>The mapping between log-odds and <span class="math inline">\(P(Y)\)</span> is <strong>not linear</strong>.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="week7-mixed_models_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>We <strong>cannot</strong> interpret coefficients linearly with respect to <span class="math inline">\(P(Y)\)</span>!</p>
-</section>
-<section id="part-2-logistic-regression-in-r" class="level2">
-<h2 class="anchored" data-anchor-id="part-2-logistic-regression-in-r">Part 2: Logistic regression in R</h2>
-<p>Using <code>glm</code>, interpreting logistic models.</p>
-</section>
-<section id="logistic-regression-in-r" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="logistic-regression-in-r">Logistic regression in R</h2>
-<p>Use the <code>glm()</code> function with <code>family = binomial</code>:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(y <span class="sc">~</span> x,  <span class="do">### formula</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> df_name,  <span class="do">## dataframe name</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>)) <span class="do">## using logit link</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="incremental">
-<ul class="incremental">
-<li><code>family = binomial</code>: specifies we’re modeling binary outcomes</li>
-<li><code>link = "logit"</code>: specifies the logit link function (default for binomial)</li>
-<li>Fitting is straightforward—interpreting is the harder part!</li>
-</ul>
-</div>
-</section>
-<section id="fitting-a-simple-model" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="fitting-a-simple-model">Fitting a simple model</h2>
-<p>Let’s predict <code>spam</code> from <code>num_char</code> (message length):</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mod_len <span class="ot">&lt;-</span> <span class="fu">glm</span>(spam <span class="sc">~</span> num_char, </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> df_spam, </span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">family =</span> binomial)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_len)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-glm(formula = spam ~ num_char, family = binomial, data = df_spam)
-
-Coefficients:
-             Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept) -1.798738   0.071562 -25.135  &lt; 2e-16 ***
-num_char    -0.062071   0.008014  -7.746  9.5e-15 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-(Dispersion parameter for binomial family taken to be 1)
-
-    Null deviance: 2437.2  on 3920  degrees of freedom
-Residual deviance: 2346.4  on 3919  degrees of freedom
-AIC: 2350.4
-
-Number of Fisher Scoring iterations: 6</code></pre>
-</div>
-</div>
-</section>
-<section id="interpreting-the-coefficients" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="interpreting-the-coefficients">Interpreting the coefficients</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(mod_len)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(Intercept)    num_char 
--1.79873764 -0.06207116 </code></pre>
-</div>
-</div>
-<div class="incremental">
-<ul class="incremental">
-<li><strong>Intercept</strong> (-1.80): log-odds of spam when <code>num_char = 0</code></li>
-<li><strong>num_char</strong> (-0.06): for every 1-unit increase in <code>num_char</code>, log-odds of spam <strong>decrease</strong> by 0.06</li>
-<li>Negative coefficient → longer emails are less likely to be spam</li>
-</ul>
-</div>
-</section>
-<section id="converting-log-odds-to-probability" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="converting-log-odds-to-probability">Converting log-odds to probability</h2>
-<p>What’s <span class="math inline">\(P(\text{spam})\)</span> when <code>num_char = 0</code>?</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Log-odds (just the intercept)</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>log_odds <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod_len)[<span class="dv">1</span>]</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>log_odds</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(Intercept) 
-  -1.798738 </code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to probability</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">exp</span>(log_odds) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(log_odds))</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(Intercept) 
-  0.1420048 </code></pre>
-</div>
-</div>
-<p>About 14% chance of spam for a message with 0 characters.</p>
-</section>
-<section id="example-num_char-100" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="example-num_char-100">Example: num_char = 100</h2>
-<p>What’s <span class="math inline">\(P(\text{spam})\)</span> when <code>num_char = 100</code>?</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate log-odds</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>log_odds <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod_len)[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">coef</span>(mod_len)[<span class="dv">2</span>] <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>log_odds</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(Intercept) 
-  -8.005853 </code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to probability</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">exp</span>(log_odds) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(log_odds))</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> (Intercept) 
-0.0003333936 </code></pre>
-</div>
-</div>
-<p>Less than 0.1% chance—very unlikely to be spam!</p>
-</section>
-<section id="visualizing-log-odds-vs.-probability" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="visualizing-log-odds-vs.-probability">Visualizing: log-odds vs.&nbsp;probability</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> df_spam<span class="sc">$</span>num_char</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>lo <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod_len)[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">coef</span>(mod_len)[<span class="dv">2</span>] <span class="sc">*</span> X</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">exp</span>(lo) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(lo))</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(X, lo, <span class="at">xlab =</span> <span class="st">"# Characters"</span>, <span class="at">ylab =</span> <span class="st">"Log-odds(spam)"</span>)</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(X, p, <span class="at">xlab =</span> <span class="st">"# Characters"</span>, <span class="at">ylab =</span> <span class="st">"P(spam)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="week7-mixed_models_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Linear on log-odds scale, non-linear on probability scale!</p>
-</section>
-<section id="categorical-predictors" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="categorical-predictors">Categorical predictors</h2>
-<p>Let’s use <code>winner</code> (whether email contains the word “winner”):</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>mod_winner <span class="ot">&lt;-</span> <span class="fu">glm</span>(spam <span class="sc">~</span> winner, </span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> df_spam, </span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">family =</span> binomial)</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_winner)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-glm(formula = spam ~ winner, family = binomial, data = df_spam)
-
-Coefficients:
-            Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept) -2.31405    0.05627 -41.121  &lt; 2e-16 ***
-winneryes    1.52559    0.27549   5.538 3.06e-08 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-(Dispersion parameter for binomial family taken to be 1)
-
-    Null deviance: 2437.2  on 3920  degrees of freedom
-Residual deviance: 2412.7  on 3919  degrees of freedom
-AIC: 2416.7
-
-Number of Fisher Scoring iterations: 5</code></pre>
-</div>
-</div>
-</section>
-<section id="interpreting-categorical-predictors" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="interpreting-categorical-predictors">Interpreting categorical predictors</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(mod_winner)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(Intercept)   winneryes 
-  -2.314047    1.525589 </code></pre>
-</div>
-</div>
-<div class="incremental">
-<ul class="incremental">
-<li><strong>Intercept</strong> (-2.31): log-odds of spam when <code>winner = "no"</code></li>
-<li><strong>winneryes</strong> (1.53): <strong>change</strong> in log-odds (relative to intercept) when <code>winner = "yes"</code></li>
-<li>Just like linear regression: categorical predictors are relative to reference level</li>
-</ul>
-</div>
-</section>
-<section id="probability-for-winner-no" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="probability-for-winner-no">Probability for winner = “no”</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Log-odds (just intercept)</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>lo <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod_winner)[<span class="dv">1</span>]</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to probability</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">exp</span>(lo) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(lo))</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(Intercept) 
-  0.0899663 </code></pre>
-</div>
-</div>
-<p>About 9% chance of spam without “winner”</p>
-</section>
-<section id="probability-for-winner-yes" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="probability-for-winner-yes">Probability for winner = “yes”</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Log-odds (intercept + coefficient)</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>lo <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod_winner)[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">coef</span>(mod_winner)[<span class="dv">2</span>]</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to probability</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">exp</span>(lo) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(lo))</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(Intercept) 
-     0.3125 </code></pre>
-</div>
-</div>
-<p>About 31% chance of spam with “winner”—much higher!</p>
-</section>
-<section id="generating-predictions" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="generating-predictions">Generating predictions</h2>
-<p>The <code>predict()</code> function with <code>type = "response"</code> gives predicted <span class="math inline">\(P(Y)\)</span>:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(mod_len, <span class="at">type =</span> <span class="st">"response"</span>)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_spam, <span class="fu">aes</span>(<span class="at">x =</span> num_char, <span class="at">y =</span> predictions)) <span class="sc">+</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Number of characters"</span>,</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Predicted P(spam)"</span>) <span class="sc">+</span></span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="week7-mixed_models_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="768"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="summary" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="summary">Summary</h2>
-<div class="incremental">
-<ul class="incremental">
-<li>Many statistical modeling problems involve <strong>categorical response variables</strong></li>
-<li><strong>Logistic regression</strong> for binary classification tasks</li>
-<li>It’s a <strong>generalized linear model (GLM)</strong>
-<ul class="incremental">
-<li>Predicts <strong>log-odds</strong> of <span class="math inline">\(P(Y)\)</span> as a linear function of <span class="math inline">\(X\)</span></li>
-<li>Log-odds converted to <span class="math inline">\(P(Y)\)</span> using the <strong>logistic function</strong></li>
-</ul></li>
-<li>Interpretation:
-<ul class="incremental">
-<li>Linear relationship with <strong>log-odds</strong></li>
-<li>Non-linear relationship with <strong>probability</strong></li>
-</ul></li>
-</ul>
-</div>
 
 
 </section>

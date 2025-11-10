@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "CSS 211 Schedule",
     "section": "",
-    "text": "This is a tentative schedule of which topics I plan to cover. Note that while all lectures will have an interactive component, Fridays are reserved for more hands-on labs—typically involving a CSS-relevant dataset—with active participation encouraged.\nReadings are option; “ISLR” refers to “Introduction to Statistical Learning in R” (James et al.), which can be downloaded here.\n\n\n\nWeek\nDay\nDate\nTopic(s)\nAssignments Due\nSuggested readings\n\n\n\n\n0\nF\n09-26\nCourse Introduction\n\n\n\n\n1\nM\n09-30\nPhilosophy of Science in CSS\n\nIntroduction to R for Data Science\n\n\n1\nW\n10-01\nIntroduction to R and RStudio\n\n\n\n\n1\nF\n10-03\nR basics [HANDS-ON]\nLab 1\n\n\n\n2\nM\n10-06\nData wrangling\n\nTidy data (Wickham, 2011)\n\n\n2\nW\n10-08\nData wrangling\n\n\n\n\n2\nF\n10-10\nHands-on data cleaning [HANDS-ON]\nConcept quiz\n\n\n\n3\nM\n10-13\nData visualization (principles)\n\nIntroduction to Data Visualization in R\n\n\n3\nW\n10-15\nData visualization (ggplot)\n\n\n\n\n3\nF\n10-17\nExploratory data analysis [HANDS-ON]\nLab 2\n\n\n\n4\nM\n10-20\nLinear regression\n\nISLR, 3.1\n\n\n4\nW\n10-22\nLinear regression\n\n\n\n\n4\nF\n10-24\nHands-on regression [HANDS-ON]\nConcept quiz\n\n\n\n5\nM\n10-27\nMultiple regression\n\nISLR, 3.2\n\n\n5\nW\n10-29\nRegression: issues\n\n\n\n\n5\nF\n10-31\nBuilding complex models [HANDS-ON]\nLab 3\n\n\n\n6\nM\n11-03\nLogistic regression\n\nISLR, 4.3\n\n\n6\nW\n11-05\nLogistic regression\n\nISLR, 6.2\n\n\n6\nF\n11-07\nInterpreting logistic models [HANDS-ON]\nConcept quiz\n\n\n\n7\nM\n11-10\nMidterm review\n\n\n\n\n7\nW\n11-12\nMixed effects models (Pre-recorded lecture)\n\n\n\n\n7\nF\n11-14\nIn-class midterm\nMidterm!\n\n\n\n8\nM\n11-17\nFinal project check-in\n\nWinter, 2013\n\n\n8\nW\n11-19\nMixed effects models\nLab 4\n\n\n\n8\nF\n11-21\nMixed effects models\nConcept quiz\n\n\n\n9\nM\n11-24\nModel selection [HANDS-ON]\n\n\n\n\n9\nW\n11-26\nHOLIDAY (Thanksgiving)\n\n\n\n\n9\nF\n11-28\nHOLIDAY (Thanksgiving)\n\n\n\n\n10\nM\n12-01\nResampling, best practices, wrap-up\n\n\n\n\n10\nW\n12-03\nFinal project presentations (pt. 1)\n\n\n\n\n10\nF\n12-05\nFinal project presentations (pt. 2)\n\n\n\n\n11\nW\n12-10\n\nFinal report due"
+    "text": "This is a tentative schedule of which topics I plan to cover. Note that while all lectures will have an interactive component, Fridays are reserved for more hands-on labs—typically involving a CSS-relevant dataset—with active participation encouraged.\nReadings are option; “ISLR” refers to “Introduction to Statistical Learning in R” (James et al.), which can be downloaded here.\n\n\n\nWeek\nDay\nDate\nTopic(s)\nAssignments Due\nSuggested readings\n\n\n\n\n0\nF\n09-26\nCourse Introduction\n\n\n\n\n1\nM\n09-30\nPhilosophy of Science in CSS\n\nIntroduction to R for Data Science\n\n\n1\nW\n10-01\nIntroduction to R and RStudio\n\n\n\n\n1\nF\n10-03\nR basics [HANDS-ON]\nLab 1\n\n\n\n2\nM\n10-06\nData wrangling\n\nTidy data (Wickham, 2011)\n\n\n2\nW\n10-08\nData wrangling\n\n\n\n\n2\nF\n10-10\nHands-on data cleaning [HANDS-ON]\nConcept quiz\n\n\n\n3\nM\n10-13\nData visualization (principles)\n\nIntroduction to Data Visualization in R\n\n\n3\nW\n10-15\nData visualization (ggplot)\n\n\n\n\n3\nF\n10-17\nExploratory data analysis [HANDS-ON]\nLab 2\n\n\n\n4\nM\n10-20\nLinear regression\n\nISLR, 3.1\n\n\n4\nW\n10-22\nLinear regression\n\n\n\n\n4\nF\n10-24\nHands-on regression [HANDS-ON]\nConcept quiz\n\n\n\n5\nM\n10-27\nMultiple regression\n\nISLR, 3.2\n\n\n5\nW\n10-29\nRegression: issues\n\n\n\n\n5\nF\n10-31\nBuilding complex models [HANDS-ON]\nLab 3\n\n\n\n6\nM\n11-03\nLogistic regression\n\nISLR, 4.3\n\n\n6\nW\n11-05\nLogistic regression\n\nISLR, 6.2\n\n\n6\nF\n11-07\nInterpreting logistic models [HANDS-ON]\nConcept quiz\n\n\n\n7\nM\n11-10\nMidterm review\n\n\n\n\n7\nW\n11-12\nMixed effects models (Pre-recorded lecture)\n\n\n\n\n7\nF\n11-14\nIn-class midterm\nMidterm!\n\n\n\n8\nM\n11-17\nFinal project check-in\n\nWinter, 2013\n\n\n8\nW\n11-19\nMixed effects models\nLab 4\n\n\n\n8\nF\n11-21\nMixed effects models\nConcept quiz\n\n\n\n9\nM\n11-24\nModel selection [HANDS-ON]\n\n\n\n\n9\nW\n11-26\nHOLIDAY (Thanksgiving)\n\n\n\n\n9\nF\n11-28\nHOLIDAY (Thanksgiving)\n\n\n\n\n10\nM\n12-01\nResampling, best practices, wrap-up\n\n\n\n\n10\nW\n12-03\nFinal project presentations (pt. 1)\n\n\n\n\n10\nF\n12-05\nFinal project presentations (pt. 2)\n\n\n\n\n11\nM\n12-08\n\nFinal report due"
   },
   {
     "objectID": "lectures/week6-logistic.html",
@@ -2508,16 +2508,16 @@
   {
     "objectID": "lectures/week7-mixed_models.html",
     "href": "lectures/week7-mixed_models.html",
-    "title": "Logistic Regression",
+    "title": "Mixed Effects Models",
     "section": "",
-    "text": "Classification: dealing with categorical outcomes.\nLogistic regression.\n\nWhy not linear regression?\nGeneralized linear models (GLMs).\nOdds and log-odds.\nThe logistic function.\n\nBuilding and interpreting logistic models with glm."
+    "text": "The independence assumption of linear regression.\n\nWhat about when data are non-independent?\n\nIntroducing mixed effects models.\n\nFixed vs. random effects.\nAdding random intercepts.\nAdding random slopes.\n\nMixed models in practice with lme4.\n\nModel comparison: the logic of likelihood-ratio tests.\nBest practices."
   },
   {
     "objectID": "lectures/week7-mixed_models.html#goals-of-the-lecture",
     "href": "lectures/week7-mixed_models.html#goals-of-the-lecture",
-    "title": "Logistic Regression",
+    "title": "Mixed Effects Models",
     "section": "",
-    "text": "Classification: dealing with categorical outcomes.\nLogistic regression.\n\nWhy not linear regression?\nGeneralized linear models (GLMs).\nOdds and log-odds.\nThe logistic function.\n\nBuilding and interpreting logistic models with glm."
+    "text": "The independence assumption of linear regression.\n\nWhat about when data are non-independent?\n\nIntroducing mixed effects models.\n\nFixed vs. random effects.\nAdding random intercepts.\nAdding random slopes.\n\nMixed models in practice with lme4.\n\nModel comparison: the logic of likelihood-ratio tests.\nBest practices."
   },
   {
     "objectID": "lectures/week7-mixed_models.html#what-is-classification",
@@ -4849,5 +4849,152 @@
     "title": "Data Wrangling in R",
     "section": "Putting it all together",
     "text": "Putting it all together\nThese lectures have covered the basics of data wrangling with the tidyverse.\nA typical workflow will involve:\n\n\nReading data (read_csv).\nExploring the data (is.na, summary, summarise).\nClean data (mutate, filter).\nReshape if needed (pivot_longer/wider).\nJoin if needed (inner_join, etc.).\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe end result is a dataset ready for further analysis and visualization (coming up!)."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#load-libraries",
+    "href": "lectures/week7-mixed_models.html#load-libraries",
+    "title": "Mixed Effects Models",
+    "section": "Load libraries",
+    "text": "Load libraries\n\n### Loading the tidyverse\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#part-1-independence",
+    "href": "lectures/week7-mixed_models.html#part-1-independence",
+    "title": "Mixed Effects Models",
+    "section": "Part 1: Independence",
+    "text": "Part 1: Independence\nThe independence assumption; why it matters; examples of non-independence."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#what-is-independence",
+    "href": "lectures/week7-mixed_models.html#what-is-independence",
+    "title": "Mixed Effects Models",
+    "section": "What is independence?",
+    "text": "What is independence?\n\nIndependence means that each observation in your dataset is generated by a separate, unrelated causal process.\n\n\n\nWhen you flip a coin, each flip is independent of the others\nThe outcome of flip #1 doesn’t influence flip #2\nNo hidden factors connect multiple observations\nEach data point provides new information\n\n\n\nIndependence is a fundamental assumption of many statistical tests. When we assume independence, we’re saying that knowing the value of one observation tells us nothing about another observation beyond what our model predicts."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#why-does-independence-matter",
+    "href": "lectures/week7-mixed_models.html#why-does-independence-matter",
+    "title": "Mixed Effects Models",
+    "section": "Why does independence matter?",
+    "text": "Why does independence matter?\nStandard statistical methods (t-tests, OLS regression, ANOVA) assume independence.\nWhen this assumption is violated:\n\n\nStandard errors are underestimated\nConfidence intervals are too narrow\n\np-values are too small (inflated Type I error)\nYour conclusions may be wrong!\n\n\n\nThe problem: Treating non-independent observations as independent makes you overconfident in your results."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#example-independent-data",
+    "href": "lectures/week7-mixed_models.html#example-independent-data",
+    "title": "Mixed Effects Models",
+    "section": "Example: Independent data",
+    "text": "Example: Independent data\nYou test whether a new drug increases happiness:\n\n\n100 people receive the drug\n100 people receive a placebo\nEach person provides one happiness rating (1-7 scale)\nYou compare the two groups with a t-test\n\n\n\n✓ Independence is reasonable here\nEach person contributes exactly one data point."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#another-independent-example",
+    "href": "lectures/week7-mixed_models.html#another-independent-example",
+    "title": "Mixed Effects Models",
+    "section": "Another independent example",
+    "text": "Another independent example\nYou test whether people respond differently to metaphor type A vs. B:\n\n\n200 participants, randomly assigned to condition A or B\nEach participant sees one item\nBetween-subjects design with one item per person\nCompare responses with OLS regression\n\n\n\n✓ Independence is reasonable here\nNo repeated measures, no item effects to worry about."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#visualizing-independent-data",
+    "href": "lectures/week7-mixed_models.html#visualizing-independent-data",
+    "title": "Mixed Effects Models",
+    "section": "Visualizing independent data",
+    "text": "Visualizing independent data\n\n\n\n\n\n\n\n\n\nEach observation is independent—no nesting structure."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#analyzing-independent-data",
+    "href": "lectures/week7-mixed_models.html#analyzing-independent-data",
+    "title": "Mixed Effects Models",
+    "section": "Analyzing independent data",
+    "text": "Analyzing independent data\n\nsimple_model = lm(data = df, value ~ group)\nsummary(simple_model)$coefficients\n\n             Estimate Std. Error   t value      Pr(&gt;|t|)\n(Intercept) 725.92903   1.431966 506.94583 3.217939e-310\ngroupB      -21.73005   2.025105 -10.73033  1.812991e-21\n\n\n\nInterpretation: - Intercept (groupA) = 725.93 (mean of group A) - groupB coefficient = -21.73 (difference from A) - Group B is about 20 units lower than Group A"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#part-2-introduction-to-mixed-effects-models",
+    "href": "lectures/week7-mixed_models.html#part-2-introduction-to-mixed-effects-models",
+    "title": "Mixed Effects Models",
+    "section": "Part 2: Introduction to mixed effects models",
+    "text": "Part 2: Introduction to mixed effects models\nFixed vs. random effects; random intercepts; random slopes."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#part-3-using-lme4",
+    "href": "lectures/week7-mixed_models.html#part-3-using-lme4",
+    "title": "Mixed Effects Models",
+    "section": "Part 3: Using lme4",
+    "text": "Part 3: Using lme4\nBuilding and evaluating models; model comparisons; best practices and common issues.\nGood datasets: sleepstudy\nBest practices:\n\nwhich are fixed, which are random?\nwhich random effects should i include?\ncommon issues: convergence failures, singular values, etc."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#goals-of-the-lecture",
+    "href": "lectures/week7-r-multilevel-slides.html#goals-of-the-lecture",
+    "title": "Mixed Effects Models",
+    "section": "Goals of the lecture",
+    "text": "Goals of the lecture\n\nThe independence assumption of linear regression.\n\nWhat about when data are non-independent?\n\nIntroducing mixed effects models.\n\nFixed vs. random effects.\nAdding random intercepts.\nAdding random slopes.\n\nMixed models in practice with lme4.\n\nModel comparison: the logic of likelihood-ratio tests.\nBest practices."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#load-libraries",
+    "href": "lectures/week7-r-multilevel-slides.html#load-libraries",
+    "title": "Mixed Effects Models",
+    "section": "Load libraries",
+    "text": "Load libraries\n\n### Loading the tidyverse\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#part-1-independence",
+    "href": "lectures/week7-r-multilevel-slides.html#part-1-independence",
+    "title": "Mixed Effects Models",
+    "section": "Part 1: Independence",
+    "text": "Part 1: Independence\nThe independence assumption; why it matters; examples of non-independence."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#what-is-independence",
+    "href": "lectures/week7-r-multilevel-slides.html#what-is-independence",
+    "title": "Mixed Effects Models",
+    "section": "What is independence?",
+    "text": "What is independence?\n\nIndependence means that each observation in your dataset is generated by a separate, unrelated causal process.\n\n\nWhen you flip a coin, each flip is independent of the others\nThe outcome of flip #1 doesn’t influence flip #2\nNo hidden factors connect multiple observations\nEach data point provides new information\n\n\nIndependence is a fundamental assumption of many statistical tests. When we assume independence, we’re saying that knowing the value of one observation tells us nothing about another observation beyond what our model predicts."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#why-does-independence-matter",
+    "href": "lectures/week7-r-multilevel-slides.html#why-does-independence-matter",
+    "title": "Mixed Effects Models",
+    "section": "Why does independence matter?",
+    "text": "Why does independence matter?\nStandard statistical methods (t-tests, OLS regression, ANOVA) assume independence.\nWhen this assumption is violated:\n\nStandard errors are underestimated\nConfidence intervals are too narrow\n\np-values are too small (inflated Type I error)\nYour conclusions may be wrong!\n\n\nThe problem: Treating non-independent observations as independent makes you overconfident in your results."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#example-independent-data",
+    "href": "lectures/week7-r-multilevel-slides.html#example-independent-data",
+    "title": "Mixed Effects Models",
+    "section": "Example: Independent data",
+    "text": "Example: Independent data\nYou test whether a new drug increases happiness:\n\n100 people receive the drug\n100 people receive a placebo\nEach person provides one happiness rating (1-7 scale)\nYou compare the two groups with a t-test\n\n\n✓ Independence is reasonable here\nEach person contributes exactly one data point."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#another-independent-example",
+    "href": "lectures/week7-r-multilevel-slides.html#another-independent-example",
+    "title": "Mixed Effects Models",
+    "section": "Another independent example",
+    "text": "Another independent example\nYou test whether people respond differently to metaphor type A vs. B:\n\n200 participants, randomly assigned to condition A or B\nEach participant sees one item\nBetween-subjects design with one item per person\nCompare responses with OLS regression\n\n\n✓ Independence is reasonable here\nNo repeated measures, no item effects to worry about."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#visualizing-independent-data",
+    "href": "lectures/week7-r-multilevel-slides.html#visualizing-independent-data",
+    "title": "Mixed Effects Models",
+    "section": "Visualizing independent data",
+    "text": "Visualizing independent data\n\nEach observation is independent—no nesting structure."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#analyzing-independent-data",
+    "href": "lectures/week7-r-multilevel-slides.html#analyzing-independent-data",
+    "title": "Mixed Effects Models",
+    "section": "Analyzing independent data",
+    "text": "Analyzing independent data\n\n\n             Estimate Std. Error   t value      Pr(&gt;|t|)\n(Intercept) 728.22966    1.55497 468.32380 2.070891e-303\ngroupB      -22.37912    2.19906 -10.17667  7.803228e-20\n\n\n\nInterpretation: - Intercept (groupA) = 728.23 (mean of group A) - groupB coefficient = -22.38 (difference from A) - Group B is about 20 units lower than Group A"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#part-2-introduction-to-mixed-effects-models",
+    "href": "lectures/week7-r-multilevel-slides.html#part-2-introduction-to-mixed-effects-models",
+    "title": "Mixed Effects Models",
+    "section": "Part 2: Introduction to mixed effects models",
+    "text": "Part 2: Introduction to mixed effects models\nFixed vs. random effects; random intercepts; random slopes."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#part-3-using-lme4",
+    "href": "lectures/week7-r-multilevel-slides.html#part-3-using-lme4",
+    "title": "Mixed Effects Models",
+    "section": "Part 3: Using lme4",
+    "text": "Part 3: Using lme4\nBuilding and evaluating models; model comparisons; best practices and common issues.\nGood datasets: sleepstudy\nBest practices:\n\nwhich are fixed, which are random?\nwhich random effects should i include?\ncommon issues: convergence failures, singular values, etc."
   }
 ]

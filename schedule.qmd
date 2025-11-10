@@ -40,4 +40,4 @@ Readings are option; "ISLR" refers to ["Introduction to Statistical Learning in 
 | 10 | M | 12-01 | Resampling, best practices, wrap-up | |
 | 10 | W | 12-03 | Final project presentations (pt. 1) | |
 | 10 | F | 12-05 | Final project presentations (pt. 2) | |
-| 11 | W | 12-10 | | **Final report due** |
+| 11 | M | 12-08 | | **Final report due** |
