@@ -32,6 +32,8 @@ website:
             text: "Week 5: Multiple Regression"
           - href: lectures/week6-logistic.qmd
             text: "Week 6: Logistic Regression"
+          - href: lectures/week7-mixed_models.qmd
+            text: "Week 7: Mixed Models"
       - text: "Labs"
         icon: fas fa-laptop-code
         menu:

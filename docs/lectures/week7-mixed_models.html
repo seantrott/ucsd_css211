@@ -104,6 +104,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -179,6 +208,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../lectures/week6-logistic.html">
  <span class="dropdown-text">Week 6: Logistic Regression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lectures/week7-mixed_models.html">
+ <span class="dropdown-text">Week 7: Mixed Models</span></a>
   </li>  
     </ul>
   </li>
@@ -273,8 +306,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#another-independent-example" id="toc-another-independent-example" class="nav-link" data-scroll-target="#another-independent-example">Another independent example</a></li>
   <li><a href="#visualizing-independent-data" id="toc-visualizing-independent-data" class="nav-link" data-scroll-target="#visualizing-independent-data">Visualizing independent data</a></li>
   <li><a href="#analyzing-independent-data" id="toc-analyzing-independent-data" class="nav-link" data-scroll-target="#analyzing-independent-data">Analyzing independent data</a></li>
+  <li><a href="#when-independence-fails" id="toc-when-independence-fails" class="nav-link" data-scroll-target="#when-independence-fails">When independence fails</a></li>
+  <li><a href="#example-the-sleep-study" id="toc-example-the-sleep-study" class="nav-link" data-scroll-target="#example-the-sleep-study">Example: The sleep study</a></li>
+  <li><a href="#naive-analysis-wrong" id="toc-naive-analysis-wrong" class="nav-link" data-scroll-target="#naive-analysis-wrong">Naive analysis (wrong!)</a></li>
+  <li><a href="#the-real-structure" id="toc-the-real-structure" class="nav-link" data-scroll-target="#the-real-structure">The real structure</a></li>
+  <li><a href="#subject-level-variability" id="toc-subject-level-variability" class="nav-link" data-scroll-target="#subject-level-variability">Subject-level variability</a></li>
+  <li><a href="#two-types-of-nested-variance" id="toc-two-types-of-nested-variance" class="nav-link" data-scroll-target="#two-types-of-nested-variance">Two types of nested variance</a></li>
   <li><a href="#part-2-introduction-to-mixed-effects-models" id="toc-part-2-introduction-to-mixed-effects-models" class="nav-link" data-scroll-target="#part-2-introduction-to-mixed-effects-models">Part 2: Introduction to mixed effects models</a></li>
+  <li><a href="#what-are-mixed-effects-models" id="toc-what-are-mixed-effects-models" class="nav-link" data-scroll-target="#what-are-mixed-effects-models">What are mixed effects models?</a></li>
+  <li><a href="#fixed-vs.-random-effects" id="toc-fixed-vs.-random-effects" class="nav-link" data-scroll-target="#fixed-vs.-random-effects">Fixed vs.&nbsp;random effects</a></li>
+  <li><a href="#the-mixed-model-formula" id="toc-the-mixed-model-formula" class="nav-link" data-scroll-target="#the-mixed-model-formula">The mixed model formula</a></li>
+  <li><a href="#random-intercepts-intuition" id="toc-random-intercepts-intuition" class="nav-link" data-scroll-target="#random-intercepts-intuition">Random intercepts: Intuition</a></li>
+  <li><a href="#random-intercepts-r-syntax" id="toc-random-intercepts-r-syntax" class="nav-link" data-scroll-target="#random-intercepts-r-syntax">Random intercepts: R syntax</a></li>
+  <li><a href="#extracting-random-intercepts" id="toc-extracting-random-intercepts" class="nav-link" data-scroll-target="#extracting-random-intercepts">Extracting random intercepts</a></li>
+  <li><a href="#understanding-the-intercepts" id="toc-understanding-the-intercepts" class="nav-link" data-scroll-target="#understanding-the-intercepts">Understanding the intercepts</a></li>
+  <li><a href="#visualizing-random-intercepts" id="toc-visualizing-random-intercepts" class="nav-link" data-scroll-target="#visualizing-random-intercepts">Visualizing random intercepts</a></li>
+  <li><a href="#random-slopes-intuition" id="toc-random-slopes-intuition" class="nav-link" data-scroll-target="#random-slopes-intuition">Random slopes: Intuition</a></li>
+  <li><a href="#random-slopes-r-syntax" id="toc-random-slopes-r-syntax" class="nav-link" data-scroll-target="#random-slopes-r-syntax">Random slopes: R syntax</a></li>
+  <li><a href="#extracting-random-slopes" id="toc-extracting-random-slopes" class="nav-link" data-scroll-target="#extracting-random-slopes">Extracting random slopes</a></li>
+  <li><a href="#understanding-the-slopes" id="toc-understanding-the-slopes" class="nav-link" data-scroll-target="#understanding-the-slopes">Understanding the slopes</a></li>
+  <li><a href="#visualizing-random-slopes" id="toc-visualizing-random-slopes" class="nav-link" data-scroll-target="#visualizing-random-slopes">Visualizing random slopes</a></li>
+  <li><a href="#why-random-slopes-matter" id="toc-why-random-slopes-matter" class="nav-link" data-scroll-target="#why-random-slopes-matter">Why random slopes matter</a></li>
+  <li><a href="#multiple-random-effects" id="toc-multiple-random-effects" class="nav-link" data-scroll-target="#multiple-random-effects">Multiple random effects</a></li>
+  <li><a href="#conceptual-summary" id="toc-conceptual-summary" class="nav-link" data-scroll-target="#conceptual-summary">Conceptual summary</a></li>
   <li><a href="#part-3-using-lme4" id="toc-part-3-using-lme4" class="nav-link" data-scroll-target="#part-3-using-lme4">Part 3: Using <code>lme4</code></a></li>
+  <li><a href="#the-lme4-package" id="toc-the-lme4-package" class="nav-link" data-scroll-target="#the-lme4-package">The <code>lme4</code> package</a></li>
+  <li><a href="#building-your-first-model" id="toc-building-your-first-model" class="nav-link" data-scroll-target="#building-your-first-model">Building your first model</a></li>
+  <li><a href="#viewing-model-output" id="toc-viewing-model-output" class="nav-link" data-scroll-target="#viewing-model-output">Viewing model output</a></li>
+  <li><a href="#adding-random-slopes" id="toc-adding-random-slopes" class="nav-link" data-scroll-target="#adding-random-slopes">Adding random slopes</a></li>
+  <li><a href="#comparing-the-models" id="toc-comparing-the-models" class="nav-link" data-scroll-target="#comparing-the-models">Comparing the models</a></li>
+  <li><a href="#model-comparison-the-logic" id="toc-model-comparison-the-logic" class="nav-link" data-scroll-target="#model-comparison-the-logic">Model comparison: The logic</a></li>
+  <li><a href="#running-model-comparison" id="toc-running-model-comparison" class="nav-link" data-scroll-target="#running-model-comparison">Running model comparison</a></li>
+  <li><a href="#extracting-coefficients" id="toc-extracting-coefficients" class="nav-link" data-scroll-target="#extracting-coefficients">Extracting coefficients</a></li>
+  <li><a href="#visualizing-random-effects" id="toc-visualizing-random-effects" class="nav-link" data-scroll-target="#visualizing-random-effects">Visualizing random effects</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="week7-r-multilevel-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
@@ -317,7 +382,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Mixed models <strong>in practice</strong> with <code>lme4</code>.
 <ul class="incremental">
 <li>Model comparison: the logic of <em>likelihood-ratio tests</em>.</li>
-<li>Best practices.</li>
 </ul></li>
 </ul>
 </div>
@@ -338,6 +402,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="do">### Loading lme4</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">library</span>(lme4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Matrix
+
+Attaching package: 'Matrix'
+
+The following objects are masked from 'package:tidyr':
+
+    expand, pack, unpack</code></pre>
 </div>
 </div>
 </section>
@@ -427,32 +502,679 @@ No repeated measures, no item effects to worry about.</p>
 <section id="analyzing-independent-data" class="level2 smaller">
 <h2 class="smaller anchored" data-anchor-id="analyzing-independent-data">Analyzing independent data</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>simple_model <span class="ot">=</span> <span class="fu">lm</span>(<span class="at">data =</span> df, value <span class="sc">~</span> group)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(simple_model)<span class="sc">$</span>coefficients</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>simple_model <span class="ot">=</span> <span class="fu">lm</span>(<span class="at">data =</span> df, value <span class="sc">~</span> group)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(simple_model)<span class="sc">$</span>coefficients</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>             Estimate Std. Error   t value      Pr(&gt;|t|)
-(Intercept) 725.92903   1.431966 506.94583 3.217939e-310
-groupB      -21.73005   2.025105 -10.73033  1.812991e-21</code></pre>
+<pre><code>             Estimate Std. Error    t value      Pr(&gt;|t|)
+(Intercept) 725.28182   1.483120 489.024307 3.981800e-307
+groupB      -20.63247   2.097449  -9.836938  7.625833e-19</code></pre>
 </div>
 </div>
 <div class="fragment">
-<p><strong>Interpretation:</strong> - Intercept (groupA) = 725.93 (mean of group A) - groupB coefficient = -21.73 (difference from A) - Group B is about 20 units lower than Group A</p>
+<p><strong>Interpretation:</strong> - Intercept (groupA) = 725.28 (mean of group A) - groupB coefficient = -20.63 (difference from A) - Group B is about 20 units lower than Group A</p>
+</div>
+</section>
+<section id="when-independence-fails" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="when-independence-fails">When independence fails</h2>
+<blockquote class="blockquote">
+<p><em>Non-independence</em> occurs when different observations are systematically related, i.e., they were produced by the same generative process.</p>
+</blockquote>
+<p><strong>Common sources of non-independence in behavioral research:</strong></p>
+<div class="incremental">
+<ul class="incremental">
+<li><strong>Repeated measures</strong>: Same participant tested multiple times</li>
+<li><strong>Nested data</strong>: Students within classrooms within schools</li>
+<li><strong>Stimulus items</strong>: Same stimuli shown to multiple participants<br>
+</li>
+<li><strong>Time series</strong>: Measurements over time from same units</li>
+<li><strong>Clustered designs</strong>: Participants recruited from same communities</li>
+</ul>
+</div>
+</section>
+<section id="example-the-sleep-study" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="example-the-sleep-study">Example: The sleep study</h2>
+<p>The <code>sleepstudy</code> dataset tracks reaction times in 18 subjects over subsequent days of sleep deprivation:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(sleepstudy)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sleepstudy, <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Reaction Days Subject
+1 249.5600    0     308
+2 258.7047    1     308
+3 250.8006    2     308</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Based on the structure of this study, what might be a source of non-independence?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="naive-analysis-wrong" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="naive-analysis-wrong">Naive analysis (wrong!)</h2>
+<p>Let’s pretend we don’t know about the nested structure:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sleepstudy <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Days, <span class="at">y =</span> Reaction)) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Naive analysis: treating all 180 observations as independent"</span>) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week7-mixed_models_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💭 Check-in
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What’s not pictured here?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-real-structure" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="the-real-structure">The real structure</h2>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week7-mixed_models_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Subjects differ in:</strong></p>
+<ul>
+<li>Overall reaction time (baseline speed)<br>
+</li>
+<li>Effect of sleep deprivation (some are more resilient)</li>
+</ul>
+</section>
+<section id="subject-level-variability" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="subject-level-variability">Subject-level variability</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week7-mixed_models_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Some subjects are consistently faster; others are consistently slower.</p>
+</section>
+<section id="two-types-of-nested-variance" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="two-types-of-nested-variance">Two types of nested variance</h2>
+<div class="incremental">
+<ol class="incremental" type="1">
+<li><strong>Random intercepts</strong>: Subjects differ in their average reaction time
+<ul class="incremental">
+<li>Some people are just faster/slower overall</li>
+<li>Even with no sleep deprivation!</li>
+</ul></li>
+<li><strong>Random slopes</strong>: Subjects differ in <em>how much</em> sleep deprivation affects them
+<ul class="incremental">
+<li>Some people are resilient (shallow slope)</li>
+<li>Others deteriorate quickly (steep slope)</li>
+</ul></li>
+</ol>
+</div>
+<div class="fragment">
+<p><strong>Mixed effects models</strong> let us account for both types of variance.</p>
 </div>
 </section>
 <section id="part-2-introduction-to-mixed-effects-models" class="level2">
 <h2 class="anchored" data-anchor-id="part-2-introduction-to-mixed-effects-models">Part 2: Introduction to mixed effects models</h2>
 <p>Fixed vs.&nbsp;random effects; random intercepts; random slopes.</p>
 </section>
+<section id="what-are-mixed-effects-models" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="what-are-mixed-effects-models">What are mixed effects models?</h2>
+<p><strong>Mixed effects models</strong> combine:</p>
+<div class="incremental">
+<ul class="incremental">
+<li><strong>Fixed effects</strong>: Variables we care about (e.g., experimental conditions)
+<ul class="incremental">
+<li>These are your hypotheses!</li>
+<li>Estimated with specific coefficient values</li>
+</ul></li>
+<li><strong>Random effects</strong>: Grouping variables that create non-independence
+<ul class="incremental">
+<li>Sources of variability we need to control for</li>
+<li>Allow intercepts/slopes to vary by group</li>
+<li>Estimated as distributions (variance parameters)</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Goal:</strong> Get better estimates of fixed effects by accounting for nested structure.</p>
+</div>
+</section>
+<section id="fixed-vs.-random-effects" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="fixed-vs.-random-effects">Fixed vs.&nbsp;random effects</h2>
+<p>Determining which factors to include as <em>fixed</em> vs.&nbsp;<em>random</em> effects is not always straightforward. Here’s a rough guide, but we’ll discuss it again later too:</p>
+<p><strong>How do you decide?</strong></p>
+<div class="incremental">
+<ul class="incremental">
+<li><strong>Fixed effects</strong>:
+<ul class="incremental">
+<li>Variables you’re theoretically interested in</li>
+<li>Want to estimate specific coefficient values</li>
+<li>Often <em>experimental manipulations</em></li>
+<li>Examples: treatment condition, time, drug dosage</li>
+</ul></li>
+<li><strong>Random effects</strong>:
+<ul class="incremental">
+<li>Grouping/clustering variables</li>
+<li>Want to account for variance, not estimate specific values</li>
+<li>Usually <em>sampling from larger population</em></li>
+<li>Examples: participant ID, item ID, school, lab</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="the-mixed-model-formula" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="the-mixed-model-formula">The mixed model formula</h2>
+<p>Standard regression:</p>
+<p><span class="math display">\[Y = \beta_0 + \beta_1 X + \epsilon\]</span></p>
+<p>Mixed effects model with random intercepts:</p>
+<p><span class="math display">\[Y = (\beta_0 + u_0) + \beta_1 X + \epsilon\]</span></p>
+<div class="fragment">
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(\beta_0\)</span> = overall intercept (fixed effect)</li>
+<li><span class="math inline">\(u_0\)</span> = subject-specific deviation from overall intercept (random effect)</li>
+<li><span class="math inline">\(\beta_1\)</span> = fixed effect of X</li>
+<li><span class="math inline">\(\epsilon\)</span> = residual error</li>
+</ul>
+</div>
+</section>
+<section id="random-intercepts-intuition" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="random-intercepts-intuition">Random intercepts: Intuition</h2>
+<p><strong>Random intercepts</strong> allow each group (e.g., subject) to have its own baseline:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week7-mixed_models_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Same slope, different intercepts.</p>
+</section>
+<section id="random-intercepts-r-syntax" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="random-intercepts-r-syntax">Random intercepts: R syntax</h2>
+<p><strong>Basic model with random intercepts:</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>model_intercepts <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Reaction <span class="sc">~</span> Days <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Subject), </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> sleepstudy)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Breaking down the syntax:</strong></p>
+<div class="incremental">
+<ul class="incremental">
+<li><code>Reaction ~ Days</code>: Fixed effect of Days on Reaction</li>
+<li><code>(1 | Subject)</code>: Random intercept for each Subject
+<ul class="incremental">
+<li><code>1</code> = intercept</li>
+<li><code>|</code> = “grouped by”</li>
+<li><code>Subject</code> = grouping variable</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="extracting-random-intercepts" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="extracting-random-intercepts">Extracting random intercepts</h2>
+<p><strong>After fitting the model, you can extract the random effects:</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract random intercepts</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>random_int <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model_intercepts)<span class="sc">$</span>Subject</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(random_int, <span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    (Intercept)
+308   40.783710
+309  -77.849554
+310  -63.108567
+330    4.406442</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>These are <strong>deviations</strong> from the overall intercept (fixed effect).</p>
+</div>
+</section>
+<section id="understanding-the-intercepts" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="understanding-the-intercepts">Understanding the intercepts</h2>
+<p><strong>Each subject’s fitted intercept = fixed intercept + random deviation:</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Overall (fixed) intercept</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>fixed_intercept <span class="ot">&lt;-</span> <span class="fu">fixef</span>(model_intercepts)[<span class="st">"(Intercept)"</span>]</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>fixed_intercept</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept) 
+   251.4051 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subject 308's total intercept</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>subject_308_deviation <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model_intercepts)<span class="sc">$</span>Subject[<span class="st">"308"</span>, <span class="st">"(Intercept)"</span>]</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>subject_308_deviation</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 40.78371</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>subject_308_total <span class="ot">&lt;-</span> fixed_intercept <span class="sc">+</span> subject_308_deviation</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>subject_308_total</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept) 
+   292.1888 </code></pre>
+</div>
+</div>
+</section>
+<section id="visualizing-random-intercepts" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="visualizing-random-intercepts">Visualizing random intercepts</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create dataframe of random intercepts</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>intercept_df <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model_intercepts)<span class="sc">$</span>Subject <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="st">"Subject"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">deviation =</span> <span class="st">`</span><span class="at">(Intercept)</span><span class="st">`</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(intercept_df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Subject, deviation), <span class="at">y =</span> deviation)) <span class="sc">+</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Random intercept deviations by subject"</span>,</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Subject"</span>, <span class="at">y =</span> <span class="st">"Deviation from fixed intercept (ms)"</span>) <span class="sc">+</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week7-mixed_models_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="random-slopes-intuition" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="random-slopes-intuition">Random slopes: Intuition</h2>
+<p><strong>Random slopes</strong> allow the effect of X to vary by group:</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week7-mixed_models_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="random-slopes-r-syntax" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="random-slopes-r-syntax">Random slopes: R syntax</h2>
+<p><strong>Model with random intercepts AND slopes:</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>model_slopes <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Reaction <span class="sc">~</span> Days <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> Days <span class="sc">|</span> Subject), </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> sleepstudy)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_slopes)<span class="sc">$</span>coefficients</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Estimate Std. Error   t value
+(Intercept) 251.40510   6.824597 36.838090
+Days         10.46729   1.545790  6.771481</code></pre>
+</div>
+</div>
+<p><strong>Breaking down the syntax:</strong></p>
+<div class="incremental">
+<ul class="incremental">
+<li><code>Reaction ~ Days</code>: Fixed effect of Days</li>
+<li><code>(1 + Days | Subject)</code>: Random effects for Subject
+<ul class="incremental">
+<li><code>1</code> = random intercept</li>
+<li><code>Days</code> = random slope for Days</li>
+<li><code>|</code> = grouped by</li>
+<li><code>Subject</code> = grouping variable</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="extracting-random-slopes" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="extracting-random-slopes">Extracting random slopes</h2>
+<p><strong>After fitting the model, you can extract the random effects:</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract random intercepts</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>random_eff <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model_slopes)<span class="sc">$</span>Subject</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(random_eff, <span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    (Intercept)      Days
+308    2.258551  9.198976
+309  -40.398738 -8.619681
+310  -38.960409 -5.448856
+330   23.690620 -4.814350</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Now, we have deviations from the <em>intercept</em> and from the <em>Days</em> slope.</p>
+</div>
+</section>
+<section id="understanding-the-slopes" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="understanding-the-slopes">Understanding the slopes</h2>
+<p><strong>Each subject’s fitted slope = fixed slope + random deviation:</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Overall (fixed) slope for Days</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>fixed_slope <span class="ot">&lt;-</span> <span class="fu">fixef</span>(model_slopes)[<span class="st">"Days"</span>]</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>fixed_slope</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Days 
+10.46729 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subject 308's slope deviation and total slope</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>subject_308_slope_dev <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model_slopes)<span class="sc">$</span>Subject[<span class="st">"308"</span>, <span class="st">"Days"</span>]</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>subject_308_slope_dev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9.198976</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>subject_308_total_slope <span class="ot">&lt;-</span> fixed_slope <span class="sc">+</span> subject_308_slope_dev</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>subject_308_total_slope</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Days 
+19.66626 </code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Subject 308’s RT increases by ~19.67 ms per day (vs.&nbsp;population average of ~10.47 ms).</p>
+</div>
+</section>
+<section id="visualizing-random-slopes" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="visualizing-random-slopes">Visualizing random slopes</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create dataframe of random effects</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>slopes_df <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model_slopes)<span class="sc">$</span>Subject <span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="st">"Subject"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">intercept_dev =</span> <span class="st">`</span><span class="at">(Intercept)</span><span class="st">`</span>, <span class="at">slope_dev =</span> Days)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(slopes_df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Subject, slope_dev), <span class="at">y =</span> slope_dev)) <span class="sc">+</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"darkgreen"</span>) <span class="sc">+</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Random slope deviations by subject"</span>,</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Subject"</span>, <span class="at">y =</span> <span class="st">"Deviation from fixed slope (ms/day)"</span>) <span class="sc">+</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week7-mixed_models_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="why-random-slopes-matter" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="why-random-slopes-matter">Why random slopes matter</h2>
+<p><strong>Without random slopes:</strong> - Assumes the effect is the same for everyone - Underestimates uncertainty in the fixed effect - Can lead to false positives</p>
+<p><strong>With random slopes:</strong> - Acknowledges that effects vary across individuals - Provides more conservative (realistic) estimates - Better generalization to new subjects</p>
+<div class="fragment">
+<p><strong>Rule of thumb:</strong> If a variable varies within your grouping variable, include it as a random slope.</p>
+</div>
+</section>
+<section id="multiple-random-effects" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="multiple-random-effects">Multiple random effects</h2>
+<p>You can include multiple sources of random effects:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Random effects for both subjects and items</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lmer</span>(RT <span class="sc">~</span> Condition <span class="sc">+</span> </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>                (<span class="dv">1</span> <span class="sc">+</span> Condition <span class="sc">|</span> Subject) <span class="sc">+</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>                (<span class="dv">1</span> <span class="sc">+</span> Condition <span class="sc">|</span> Item),</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> mydata)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p><strong>Common in psycholinguistics:</strong> - Random effects for subjects (people vary) - Random effects for items (stimuli vary) - Called “crossed random effects”</p>
+</div>
+</section>
+<section id="conceptual-summary" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="conceptual-summary">Conceptual summary</h2>
+<p><strong>Mixed effects models help when:</strong></p>
+<div class="incremental">
+<ul class="incremental">
+<li>You have repeated measures</li>
+<li>You have nested/hierarchical structure</li>
+<li>You want to generalize beyond your specific sample</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Key components:</strong> - <strong>Fixed effects</strong>: Your hypotheses - <strong>Random intercepts</strong>: Group-level baseline differences<br>
+- <strong>Random slopes</strong>: Group-level differences in effects</p>
+</div>
+</section>
 <section id="part-3-using-lme4" class="level2">
 <h2 class="anchored" data-anchor-id="part-3-using-lme4">Part 3: Using <code>lme4</code></h2>
 <p>Building and evaluating models; model comparisons; best practices and common issues.</p>
-<p>Good datasets: <code>sleepstudy</code></p>
-<p>Best practices:</p>
-<ul>
-<li>which are fixed, which are random?</li>
-<li>which random effects should i include?</li>
-<li>common issues: convergence failures, singular values, etc.</li>
+</section>
+<section id="the-lme4-package" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="the-lme4-package">The <code>lme4</code> package</h2>
+<p><strong>Most common R package for mixed models:</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p><strong>Main functions:</strong> - <code>lmer()</code>: Linear mixed effects models - <code>glmer()</code>: Generalized linear mixed models (logistic, Poisson, etc.)</p>
+</div>
+</section>
+<section id="building-your-first-model" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="building-your-first-model">Building your first model</h2>
+<p>Let’s fit a model with random intercepts only:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>model_intercepts <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Reaction <span class="sc">~</span> Days <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Subject),</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">data =</span> sleepstudy,</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">REML =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p><strong>Note:</strong> <code>REML = FALSE</code> uses maximum likelihood estimation, which we need for model comparison.</p>
+</div>
+</section>
+<section id="viewing-model-output" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="viewing-model-output">Viewing model output</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_intercepts)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by maximum likelihood  ['lmerMod']
+Formula: Reaction ~ Days + (1 | Subject)
+   Data: sleepstudy
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+   1802.1    1814.9    -897.0    1794.1       176 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.2347 -0.5544  0.0155  0.5257  4.2648 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Subject  (Intercept) 1296.9   36.01   
+ Residual              954.5   30.90   
+Number of obs: 180, groups:  Subject, 18
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept) 251.4051     9.5062   26.45
+Days         10.4673     0.8017   13.06
+
+Correlation of Fixed Effects:
+     (Intr)
+Days -0.380</code></pre>
+</div>
+</div>
+</section>
+<section id="adding-random-slopes" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="adding-random-slopes">Adding random slopes</h2>
+<p>Now let’s add random slopes for the Days effect:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>model_full <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Reaction <span class="sc">~</span> Days <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> Days <span class="sc">|</span> Subject),</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> sleepstudy,</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">REML =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This allows both the intercept AND the slope to vary by subject.</p>
+</section>
+<section id="comparing-the-models" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="comparing-the-models">Comparing the models</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_full)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by maximum likelihood  ['lmerMod']
+Formula: Reaction ~ Days + (1 + Days | Subject)
+   Data: sleepstudy
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+   1763.9    1783.1    -876.0    1751.9       174 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.9416 -0.4656  0.0289  0.4636  5.1793 
+
+Random effects:
+ Groups   Name        Variance Std.Dev. Corr
+ Subject  (Intercept) 565.48   23.780       
+          Days         32.68    5.717   0.08
+ Residual             654.95   25.592       
+Number of obs: 180, groups:  Subject, 18
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept)  251.405      6.632  37.907
+Days          10.467      1.502   6.968
+
+Correlation of Fixed Effects:
+     (Intr)
+Days -0.138</code></pre>
+</div>
+</div>
+</section>
+<section id="model-comparison-the-logic" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="model-comparison-the-logic">Model comparison: The logic</h2>
+<p><strong>Question:</strong> Does adding variable <span class="math inline">\(X\)</span> improve the model over a model without <span class="math inline">\(X\)</span>?</p>
+<p><strong>Approach: Likelihood ratio test</strong></p>
+<div class="incremental">
+<ul class="incremental">
+<li>Compare <strong>log-likelihood</strong> of two nested models</li>
+<li>Model with more parameters should fit better</li>
+<li>But: is the improvement “worth it”?</li>
+<li>Test statistic: <span class="math inline">\(\chi^2 = -2(LL_{reduced} - LL_{full})\)</span></li>
+<li>Compare to chi-square distribution</li>
 </ul>
+</div>
+</section>
+<section id="running-model-comparison" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="running-model-comparison">Running model comparison</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>model_full <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Reaction <span class="sc">~</span> Days <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> Days <span class="sc">|</span> Subject),</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> sleepstudy,</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">REML =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>model_reduced <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Reaction <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">+</span> Days <span class="sc">|</span> Subject),</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> sleepstudy,</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">REML =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model_full, model_reduced)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Data: sleepstudy
+Models:
+model_reduced: Reaction ~ (1 + Days | Subject)
+model_full: Reaction ~ Days + (1 + Days | Subject)
+              npar    AIC    BIC  logLik -2*log(L)  Chisq Df Pr(&gt;Chisq)    
+model_reduced    5 1785.5 1801.4 -887.74    1775.5                         
+model_full       6 1763.9 1783.1 -875.97    1751.9 23.537  1  1.226e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p><strong>Interpretation:</strong>: Adding <code>Days</code> significantly improves fit</p>
+</div>
+</section>
+<section id="extracting-coefficients" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="extracting-coefficients">Extracting coefficients</h2>
+<p><strong>Fixed effects (population-level):</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fixef</span>(model_full)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)        Days 
+  251.40510    10.46729 </code></pre>
+</div>
+</div>
+<p><strong>Random effects (subject-specific deviations):</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">ranef</span>(model_full)<span class="sc">$</span>Subject, <span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    (Intercept)      Days
+308    2.815789  9.075507
+309  -40.047855 -8.644152
+310  -38.432497 -5.513471
+330   22.831765 -4.658665</code></pre>
+</div>
+</div>
+</section>
+<section id="visualizing-random-effects" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="visualizing-random-effects">Visualizing random effects</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>ranef_df <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model_full)<span class="sc">$</span>Subject <span class="sc">%&gt;%</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="st">"Subject"</span>)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ranef_df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">(Intercept)</span><span class="st">`</span>, <span class="at">y =</span> Days)) <span class="sc">+</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Random effects for each subject"</span>,</span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Random intercept"</span>, <span class="at">y =</span> <span class="st">"Random slope for Days"</span>) <span class="sc">+</span></span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week7-mixed_models_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="conclusion" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="conclusion">Conclusion</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Mixed models are a valuable tool for modeling <em>non-independent data</em>.</li>
+<li>Random intercetps model correlated variance in <code>y</code>; random slopes model correlated variance in <code>y ~ x</code>.</li>
+<li>Coming up, we’ll discuss:
+<ul class="incremental">
+<li>More complex models (e.g., nested variance).</li>
+<li>Deep dive into fitting random effects (e.g., <em>pooling</em>).</li>
+<li>Understanding the outputs (e.g., variance partitioning).</li>
+<li>Best practices (e.g., “keep it maximal”).</li>
+<li>Diagnozing and fixing common issues (e.g., convergence failures).</li>
+<li>Generalizing to <em>generalized linear mixed effects models</em>.</li>
+</ul></li>
+</ul>
+</div>
 
 
 </section>

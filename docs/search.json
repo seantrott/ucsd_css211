@@ -2510,14 +2510,14 @@
     "href": "lectures/week7-mixed_models.html",
     "title": "Mixed Effects Models",
     "section": "",
-    "text": "The independence assumption of linear regression.\n\nWhat about when data are non-independent?\n\nIntroducing mixed effects models.\n\nFixed vs. random effects.\nAdding random intercepts.\nAdding random slopes.\n\nMixed models in practice with lme4.\n\nModel comparison: the logic of likelihood-ratio tests.\nBest practices."
+    "text": "The independence assumption of linear regression.\n\nWhat about when data are non-independent?\n\nIntroducing mixed effects models.\n\nFixed vs. random effects.\nAdding random intercepts.\nAdding random slopes.\n\nMixed models in practice with lme4.\n\nModel comparison: the logic of likelihood-ratio tests."
   },
   {
     "objectID": "lectures/week7-mixed_models.html#goals-of-the-lecture",
     "href": "lectures/week7-mixed_models.html#goals-of-the-lecture",
     "title": "Mixed Effects Models",
     "section": "",
-    "text": "The independence assumption of linear regression.\n\nWhat about when data are non-independent?\n\nIntroducing mixed effects models.\n\nFixed vs. random effects.\nAdding random intercepts.\nAdding random slopes.\n\nMixed models in practice with lme4.\n\nModel comparison: the logic of likelihood-ratio tests.\nBest practices."
+    "text": "The independence assumption of linear regression.\n\nWhat about when data are non-independent?\n\nIntroducing mixed effects models.\n\nFixed vs. random effects.\nAdding random intercepts.\nAdding random slopes.\n\nMixed models in practice with lme4.\n\nModel comparison: the logic of likelihood-ratio tests."
   },
   {
     "objectID": "lectures/week7-mixed_models.html#what-is-classification",
@@ -4855,7 +4855,7 @@
     "href": "lectures/week7-mixed_models.html#load-libraries",
     "title": "Mixed Effects Models",
     "section": "Load libraries",
-    "text": "Load libraries\n\n### Loading the tidyverse\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
+    "text": "Load libraries\n\n### Loading the tidyverse\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n### Loading lme4\nlibrary(lme4)\n\nLoading required package: Matrix\n\nAttaching package: 'Matrix'\n\nThe following objects are masked from 'package:tidyr':\n\n    expand, pack, unpack"
   },
   {
     "objectID": "lectures/week7-mixed_models.html#part-1-independence",
@@ -4904,7 +4904,7 @@
     "href": "lectures/week7-mixed_models.html#analyzing-independent-data",
     "title": "Mixed Effects Models",
     "section": "Analyzing independent data",
-    "text": "Analyzing independent data\n\nsimple_model = lm(data = df, value ~ group)\nsummary(simple_model)$coefficients\n\n             Estimate Std. Error   t value      Pr(&gt;|t|)\n(Intercept) 725.92903   1.431966 506.94583 3.217939e-310\ngroupB      -21.73005   2.025105 -10.73033  1.812991e-21\n\n\n\nInterpretation: - Intercept (groupA) = 725.93 (mean of group A) - groupB coefficient = -21.73 (difference from A) - Group B is about 20 units lower than Group A"
+    "text": "Analyzing independent data\n\nsimple_model = lm(data = df, value ~ group)\nsummary(simple_model)$coefficients\n\n             Estimate Std. Error    t value      Pr(&gt;|t|)\n(Intercept) 725.28182   1.483120 489.024307 3.981800e-307\ngroupB      -20.63247   2.097449  -9.836938  7.625833e-19\n\n\n\nInterpretation: - Intercept (groupA) = 725.28 (mean of group A) - groupB coefficient = -20.63 (difference from A) - Group B is about 20 units lower than Group A"
   },
   {
     "objectID": "lectures/week7-mixed_models.html#part-2-introduction-to-mixed-effects-models",
@@ -4918,21 +4918,21 @@
     "href": "lectures/week7-mixed_models.html#part-3-using-lme4",
     "title": "Mixed Effects Models",
     "section": "Part 3: Using lme4",
-    "text": "Part 3: Using lme4\nBuilding and evaluating models; model comparisons; best practices and common issues.\nGood datasets: sleepstudy\nBest practices:\n\nwhich are fixed, which are random?\nwhich random effects should i include?\ncommon issues: convergence failures, singular values, etc."
+    "text": "Part 3: Using lme4\nBuilding and evaluating models; model comparisons; best practices and common issues."
   },
   {
     "objectID": "lectures/week7-r-multilevel-slides.html#goals-of-the-lecture",
     "href": "lectures/week7-r-multilevel-slides.html#goals-of-the-lecture",
     "title": "Mixed Effects Models",
     "section": "Goals of the lecture",
-    "text": "Goals of the lecture\n\nThe independence assumption of linear regression.\n\nWhat about when data are non-independent?\n\nIntroducing mixed effects models.\n\nFixed vs. random effects.\nAdding random intercepts.\nAdding random slopes.\n\nMixed models in practice with lme4.\n\nModel comparison: the logic of likelihood-ratio tests.\nBest practices."
+    "text": "Goals of the lecture\n\nThe independence assumption of linear regression.\n\nWhat about when data are non-independent?\n\nIntroducing mixed effects models.\n\nFixed vs. random effects.\nAdding random intercepts.\nAdding random slopes.\n\nMixed models in practice with lme4.\n\nModel comparison: the logic of likelihood-ratio tests."
   },
   {
     "objectID": "lectures/week7-r-multilevel-slides.html#load-libraries",
     "href": "lectures/week7-r-multilevel-slides.html#load-libraries",
     "title": "Mixed Effects Models",
     "section": "Load libraries",
-    "text": "Load libraries\n\n### Loading the tidyverse\nlibrary(tidyverse)"
+    "text": "Load libraries\n\n### Loading the tidyverse\nlibrary(tidyverse)\n### Loading lme4\nlibrary(lme4)"
   },
   {
     "objectID": "lectures/week7-r-multilevel-slides.html#part-1-independence",
@@ -4981,7 +4981,7 @@
     "href": "lectures/week7-r-multilevel-slides.html#analyzing-independent-data",
     "title": "Mixed Effects Models",
     "section": "Analyzing independent data",
-    "text": "Analyzing independent data\n\n\n             Estimate Std. Error   t value      Pr(&gt;|t|)\n(Intercept) 728.22966    1.55497 468.32380 2.070891e-303\ngroupB      -22.37912    2.19906 -10.17667  7.803228e-20\n\n\n\nInterpretation: - Intercept (groupA) = 728.23 (mean of group A) - groupB coefficient = -22.38 (difference from A) - Group B is about 20 units lower than Group A"
+    "text": "Analyzing independent data\n\n\n            Estimate Std. Error  t value      Pr(&gt;|t|)\n(Intercept) 727.4722   1.467172 495.8328 2.582790e-308\ngroupB      -19.2071   2.074895  -9.2569  3.518843e-17\n\n\n\nInterpretation: - Intercept (groupA) = 727.47 (mean of group A) - groupB coefficient = -19.21 (difference from A) - Group B is about 20 units lower than Group A"
   },
   {
     "objectID": "lectures/week7-r-multilevel-slides.html#part-2-introduction-to-mixed-effects-models",
@@ -4995,6 +4995,482 @@
     "href": "lectures/week7-r-multilevel-slides.html#part-3-using-lme4",
     "title": "Mixed Effects Models",
     "section": "Part 3: Using lme4",
-    "text": "Part 3: Using lme4\nBuilding and evaluating models; model comparisons; best practices and common issues.\nGood datasets: sleepstudy\nBest practices:\n\nwhich are fixed, which are random?\nwhich random effects should i include?\ncommon issues: convergence failures, singular values, etc."
+    "text": "Part 3: Using lme4\nBuilding and evaluating models; model comparisons; best practices and common issues."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#when-independence-fails",
+    "href": "lectures/week7-mixed_models.html#when-independence-fails",
+    "title": "Mixed Effects Models",
+    "section": "When independence fails",
+    "text": "When independence fails\n\nNon-independence occurs when different observations are systematically related, i.e., they were produced by the same generative process.\n\nCommon sources of non-independence in behavioral research:\n\n\nRepeated measures: Same participant tested multiple times\nNested data: Students within classrooms within schools\nStimulus items: Same stimuli shown to multiple participants\n\nTime series: Measurements over time from same units\nClustered designs: Participants recruited from same communities"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#example-the-sleep-study",
+    "href": "lectures/week7-mixed_models.html#example-the-sleep-study",
+    "title": "Mixed Effects Models",
+    "section": "Example: The sleep study",
+    "text": "Example: The sleep study\nThe sleepstudy dataset tracks reaction times in 18 subjects over subsequent days of sleep deprivation:\n\ndata(sleepstudy)\nhead(sleepstudy, 3)\n\n  Reaction Days Subject\n1 249.5600    0     308\n2 258.7047    1     308\n3 250.8006    2     308\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nBased on the structure of this study, what might be a source of non-independence?"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#naive-analysis-wrong",
+    "href": "lectures/week7-mixed_models.html#naive-analysis-wrong",
+    "title": "Mixed Effects Models",
+    "section": "Naive analysis (wrong!)",
+    "text": "Naive analysis (wrong!)\nLet’s pretend we don’t know about the nested structure:\n\nsleepstudy %&gt;%\n  ggplot(aes(x = Days, y = Reaction)) +\n  geom_point(alpha = 0.5) +\n  geom_smooth(method = \"lm\", color = \"red\") +\n  labs(title = \"Naive analysis: treating all 180 observations as independent\") +\n  theme_minimal(base_size = 14)\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote💭 Check-in\n\n\n\nWhat’s not pictured here?"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#the-real-structure",
+    "href": "lectures/week7-mixed_models.html#the-real-structure",
+    "title": "Mixed Effects Models",
+    "section": "The real structure",
+    "text": "The real structure\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nSubjects differ in:\n\nOverall reaction time (baseline speed)\n\nEffect of sleep deprivation (some are more resilient)"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#subject-level-variability",
+    "href": "lectures/week7-mixed_models.html#subject-level-variability",
+    "title": "Mixed Effects Models",
+    "section": "Subject-level variability",
+    "text": "Subject-level variability\n\n\n\n\n\n\n\n\n\nSome subjects are consistently faster; others are consistently slower."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#two-types-of-nested-variance",
+    "href": "lectures/week7-mixed_models.html#two-types-of-nested-variance",
+    "title": "Mixed Effects Models",
+    "section": "Two types of nested variance",
+    "text": "Two types of nested variance\n\n\nRandom intercepts: Subjects differ in their average reaction time\n\nSome people are just faster/slower overall\nEven with no sleep deprivation!\n\nRandom slopes: Subjects differ in how much sleep deprivation affects them\n\nSome people are resilient (shallow slope)\nOthers deteriorate quickly (steep slope)\n\n\n\n\nMixed effects models let us account for both types of variance."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#what-are-mixed-effects-models",
+    "href": "lectures/week7-mixed_models.html#what-are-mixed-effects-models",
+    "title": "Mixed Effects Models",
+    "section": "What are mixed effects models?",
+    "text": "What are mixed effects models?\nMixed effects models combine:\n\n\nFixed effects: Variables we care about (e.g., experimental conditions)\n\nThese are your hypotheses!\nEstimated with specific coefficient values\n\nRandom effects: Grouping variables that create non-independence\n\nSources of variability we need to control for\nAllow intercepts/slopes to vary by group\nEstimated as distributions (variance parameters)\n\n\n\n\nGoal: Get better estimates of fixed effects by accounting for nested structure."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#fixed-vs.-random-effects",
+    "href": "lectures/week7-mixed_models.html#fixed-vs.-random-effects",
+    "title": "Mixed Effects Models",
+    "section": "Fixed vs. random effects",
+    "text": "Fixed vs. random effects\nDetermining which factors to include as fixed vs. random effects is not always straightforward. Here’s a rough guide, but we’ll discuss it again later too:\nHow do you decide?\n\n\nFixed effects:\n\nVariables you’re theoretically interested in\nWant to estimate specific coefficient values\nOften experimental manipulations\nExamples: treatment condition, time, drug dosage\n\nRandom effects:\n\nGrouping/clustering variables\nWant to account for variance, not estimate specific values\nUsually sampling from larger population\nExamples: participant ID, item ID, school, lab"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#the-mixed-model-formula",
+    "href": "lectures/week7-mixed_models.html#the-mixed-model-formula",
+    "title": "Mixed Effects Models",
+    "section": "The mixed model formula",
+    "text": "The mixed model formula\nStandard regression:\n\\[Y = \\beta_0 + \\beta_1 X + \\epsilon\\]\nMixed effects model with random intercepts:\n\\[Y = (\\beta_0 + u_0) + \\beta_1 X + \\epsilon\\]\n\nWhere:\n\n\\(\\beta_0\\) = overall intercept (fixed effect)\n\\(u_0\\) = subject-specific deviation from overall intercept (random effect)\n\\(\\beta_1\\) = fixed effect of X\n\\(\\epsilon\\) = residual error"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#random-intercepts-intuition",
+    "href": "lectures/week7-mixed_models.html#random-intercepts-intuition",
+    "title": "Mixed Effects Models",
+    "section": "Random intercepts: Intuition",
+    "text": "Random intercepts: Intuition\nRandom intercepts allow each group (e.g., subject) to have its own baseline:\n\n\n\n\n\n\n\n\n\nSame slope, different intercepts."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#random-intercepts-r-syntax",
+    "href": "lectures/week7-mixed_models.html#random-intercepts-r-syntax",
+    "title": "Mixed Effects Models",
+    "section": "Random intercepts: R syntax",
+    "text": "Random intercepts: R syntax\nBasic model with random intercepts:\n\nmodel_intercepts &lt;- lmer(Reaction ~ Days + (1 | Subject), \n              data = sleepstudy)\n\nBreaking down the syntax:\n\n\nReaction ~ Days: Fixed effect of Days on Reaction\n(1 | Subject): Random intercept for each Subject\n\n1 = intercept\n| = “grouped by”\nSubject = grouping variable"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#extracting-random-intercepts",
+    "href": "lectures/week7-mixed_models.html#extracting-random-intercepts",
+    "title": "Mixed Effects Models",
+    "section": "Extracting random intercepts",
+    "text": "Extracting random intercepts\nAfter fitting the model, you can extract the random effects:\n\n# Extract random intercepts\nrandom_int &lt;- ranef(model_intercepts)$Subject\nhead(random_int, 4)\n\n    (Intercept)\n308   40.783710\n309  -77.849554\n310  -63.108567\n330    4.406442\n\n\n\nThese are deviations from the overall intercept (fixed effect)."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#understanding-the-intercepts",
+    "href": "lectures/week7-mixed_models.html#understanding-the-intercepts",
+    "title": "Mixed Effects Models",
+    "section": "Understanding the intercepts",
+    "text": "Understanding the intercepts\nEach subject’s fitted intercept = fixed intercept + random deviation:\n\n# Overall (fixed) intercept\nfixed_intercept &lt;- fixef(model_intercepts)[\"(Intercept)\"]\nfixed_intercept\n\n(Intercept) \n   251.4051 \n\n# Subject 308's total intercept\nsubject_308_deviation &lt;- ranef(model_intercepts)$Subject[\"308\", \"(Intercept)\"]\nsubject_308_deviation\n\n[1] 40.78371\n\nsubject_308_total &lt;- fixed_intercept + subject_308_deviation\nsubject_308_total\n\n(Intercept) \n   292.1888"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#visualizing-random-intercepts",
+    "href": "lectures/week7-mixed_models.html#visualizing-random-intercepts",
+    "title": "Mixed Effects Models",
+    "section": "Visualizing random intercepts",
+    "text": "Visualizing random intercepts\n\n# Create dataframe of random intercepts\nintercept_df &lt;- ranef(model_intercepts)$Subject %&gt;%\n  rownames_to_column(\"Subject\") %&gt;%\n  rename(deviation = `(Intercept)`)\n\nggplot(intercept_df, aes(x = reorder(Subject, deviation), y = deviation)) +\n  geom_point(size = 3, color = \"steelblue\") +\n  geom_hline(yintercept = 0, linetype = \"dashed\", color = \"red\") +\n  labs(title = \"Random intercept deviations by subject\",\n       x = \"Subject\", y = \"Deviation from fixed intercept (ms)\") +\n  theme_minimal(base_size = 14) +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#random-slopes-intuition",
+    "href": "lectures/week7-mixed_models.html#random-slopes-intuition",
+    "title": "Mixed Effects Models",
+    "section": "Random slopes: Intuition",
+    "text": "Random slopes: Intuition\nRandom slopes allow the effect of X to vary by group:\n\n\n`geom_smooth()` using formula = 'y ~ x'"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#random-slopes-r-syntax",
+    "href": "lectures/week7-mixed_models.html#random-slopes-r-syntax",
+    "title": "Mixed Effects Models",
+    "section": "Random slopes: R syntax",
+    "text": "Random slopes: R syntax\nModel with random intercepts AND slopes:\n\nmodel_slopes &lt;- lmer(Reaction ~ Days + (1 + Days | Subject), \n              data = sleepstudy)\nsummary(model_slopes)$coefficients\n\n             Estimate Std. Error   t value\n(Intercept) 251.40510   6.824597 36.838090\nDays         10.46729   1.545790  6.771481\n\n\nBreaking down the syntax:\n\n\nReaction ~ Days: Fixed effect of Days\n(1 + Days | Subject): Random effects for Subject\n\n1 = random intercept\nDays = random slope for Days\n| = grouped by\nSubject = grouping variable"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#extracting-random-slopes",
+    "href": "lectures/week7-mixed_models.html#extracting-random-slopes",
+    "title": "Mixed Effects Models",
+    "section": "Extracting random slopes",
+    "text": "Extracting random slopes\nAfter fitting the model, you can extract the random effects:\n\n# Extract random intercepts\nrandom_eff &lt;- ranef(model_slopes)$Subject\nhead(random_eff, 4)\n\n    (Intercept)      Days\n308    2.258551  9.198976\n309  -40.398738 -8.619681\n310  -38.960409 -5.448856\n330   23.690620 -4.814350\n\n\n\nNow, we have deviations from the intercept and from the Days slope."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#understanding-the-slopes",
+    "href": "lectures/week7-mixed_models.html#understanding-the-slopes",
+    "title": "Mixed Effects Models",
+    "section": "Understanding the slopes",
+    "text": "Understanding the slopes\nEach subject’s fitted slope = fixed slope + random deviation:\n\n# Overall (fixed) slope for Days\nfixed_slope &lt;- fixef(model_slopes)[\"Days\"]\nfixed_slope\n\n    Days \n10.46729 \n\n# Subject 308's slope deviation and total slope\nsubject_308_slope_dev &lt;- ranef(model_slopes)$Subject[\"308\", \"Days\"]\nsubject_308_slope_dev\n\n[1] 9.198976\n\nsubject_308_total_slope &lt;- fixed_slope + subject_308_slope_dev\nsubject_308_total_slope\n\n    Days \n19.66626 \n\n\n\nSubject 308’s RT increases by ~19.67 ms per day (vs. population average of ~10.47 ms)."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#visualizing-random-slopes",
+    "href": "lectures/week7-mixed_models.html#visualizing-random-slopes",
+    "title": "Mixed Effects Models",
+    "section": "Visualizing random slopes",
+    "text": "Visualizing random slopes\n\n# Create dataframe of random effects\nslopes_df &lt;- ranef(model_slopes)$Subject %&gt;%\n  rownames_to_column(\"Subject\") %&gt;%\n  rename(intercept_dev = `(Intercept)`, slope_dev = Days)\n\nggplot(slopes_df, aes(x = reorder(Subject, slope_dev), y = slope_dev)) +\n  geom_point(size = 3, color = \"darkgreen\") +\n  geom_hline(yintercept = 0, linetype = \"dashed\", color = \"red\") +\n  labs(title = \"Random slope deviations by subject\",\n       x = \"Subject\", y = \"Deviation from fixed slope (ms/day)\") +\n  theme_minimal(base_size = 14) +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#why-random-slopes-matter",
+    "href": "lectures/week7-mixed_models.html#why-random-slopes-matter",
+    "title": "Mixed Effects Models",
+    "section": "Why random slopes matter",
+    "text": "Why random slopes matter\nWithout random slopes: - Assumes the effect is the same for everyone - Underestimates uncertainty in the fixed effect - Can lead to false positives\nWith random slopes: - Acknowledges that effects vary across individuals - Provides more conservative (realistic) estimates - Better generalization to new subjects\n\nRule of thumb: If a variable varies within your grouping variable, include it as a random slope."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#multiple-random-effects",
+    "href": "lectures/week7-mixed_models.html#multiple-random-effects",
+    "title": "Mixed Effects Models",
+    "section": "Multiple random effects",
+    "text": "Multiple random effects\nYou can include multiple sources of random effects:\n\n# Random effects for both subjects and items\nmodel &lt;- lmer(RT ~ Condition + \n                (1 + Condition | Subject) +\n                (1 + Condition | Item),\n              data = mydata)\n\n\nCommon in psycholinguistics: - Random effects for subjects (people vary) - Random effects for items (stimuli vary) - Called “crossed random effects”"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#conceptual-summary",
+    "href": "lectures/week7-mixed_models.html#conceptual-summary",
+    "title": "Mixed Effects Models",
+    "section": "Conceptual summary",
+    "text": "Conceptual summary\nMixed effects models help when:\n\n\nYou have repeated measures\nYou have nested/hierarchical structure\nYou want to generalize beyond your specific sample\n\n\n\nKey components: - Fixed effects: Your hypotheses - Random intercepts: Group-level baseline differences\n- Random slopes: Group-level differences in effects"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#the-lme4-package",
+    "href": "lectures/week7-mixed_models.html#the-lme4-package",
+    "title": "Mixed Effects Models",
+    "section": "The lme4 package",
+    "text": "The lme4 package\nMost common R package for mixed models:\n\nlibrary(lme4)\n\n\nMain functions: - lmer(): Linear mixed effects models - glmer(): Generalized linear mixed models (logistic, Poisson, etc.)"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#building-your-first-model",
+    "href": "lectures/week7-mixed_models.html#building-your-first-model",
+    "title": "Mixed Effects Models",
+    "section": "Building your first model",
+    "text": "Building your first model\nLet’s fit a model with random intercepts only:\n\nmodel_intercepts &lt;- lmer(Reaction ~ Days + (1 | Subject),\n                         data = sleepstudy,\n                         REML = FALSE)\n\n\nNote: REML = FALSE uses maximum likelihood estimation, which we need for model comparison."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#viewing-model-output",
+    "href": "lectures/week7-mixed_models.html#viewing-model-output",
+    "title": "Mixed Effects Models",
+    "section": "Viewing model output",
+    "text": "Viewing model output\n\nsummary(model_intercepts)\n\nLinear mixed model fit by maximum likelihood  ['lmerMod']\nFormula: Reaction ~ Days + (1 | Subject)\n   Data: sleepstudy\n\n      AIC       BIC    logLik -2*log(L)  df.resid \n   1802.1    1814.9    -897.0    1794.1       176 \n\nScaled residuals: \n    Min      1Q  Median      3Q     Max \n-3.2347 -0.5544  0.0155  0.5257  4.2648 \n\nRandom effects:\n Groups   Name        Variance Std.Dev.\n Subject  (Intercept) 1296.9   36.01   \n Residual              954.5   30.90   \nNumber of obs: 180, groups:  Subject, 18\n\nFixed effects:\n            Estimate Std. Error t value\n(Intercept) 251.4051     9.5062   26.45\nDays         10.4673     0.8017   13.06\n\nCorrelation of Fixed Effects:\n     (Intr)\nDays -0.380"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#interpreting-the-output",
+    "href": "lectures/week7-mixed_models.html#interpreting-the-output",
+    "title": "Mixed Effects Models",
+    "section": "Interpreting the output",
+    "text": "Interpreting the output\n\nFixed effects: - (Intercept): 251.4 ms = average RT on day 0 - Days: 10.5 ms = RT increases by ~10.5 ms per day\n\nSubject (Intercept) variance = 1296.9, SD = 36.01 ms\n\nThis is how much subjects differ in their baseline reaction times\n95% of subjects have baseline RTs within ±72 ms (2×36) of the average\n\nResidual variance = 954.5, SD = 30.90 ms\n\nUnexplained variation after accounting for Days and Subject\n“Noise” in the data"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#variance-decomposition",
+    "href": "lectures/week7-mixed_models.html#variance-decomposition",
+    "title": "Mixed Effects Models",
+    "section": "Variance decomposition",
+    "text": "Variance decomposition\nThink of it as partitioning unexplained variance:\n\n\n\n\n\n\n\n\n\nInterpretation: ~57.6% of variance is due to stable differences between subjects!"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#adding-random-slopes",
+    "href": "lectures/week7-mixed_models.html#adding-random-slopes",
+    "title": "Mixed Effects Models",
+    "section": "Adding random slopes",
+    "text": "Adding random slopes\nNow let’s add random slopes for the Days effect:\n\nmodel_full &lt;- lmer(Reaction ~ Days + (1 + Days | Subject),\n                   data = sleepstudy,\n                   REML = FALSE)\n\nThis allows both the intercept AND the slope to vary by subject."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#comparing-the-models",
+    "href": "lectures/week7-mixed_models.html#comparing-the-models",
+    "title": "Mixed Effects Models",
+    "section": "Comparing the models",
+    "text": "Comparing the models\n\nsummary(model_full)\n\nLinear mixed model fit by maximum likelihood  ['lmerMod']\nFormula: Reaction ~ Days + (1 + Days | Subject)\n   Data: sleepstudy\n\n      AIC       BIC    logLik -2*log(L)  df.resid \n   1763.9    1783.1    -876.0    1751.9       174 \n\nScaled residuals: \n    Min      1Q  Median      3Q     Max \n-3.9416 -0.4656  0.0289  0.4636  5.1793 \n\nRandom effects:\n Groups   Name        Variance Std.Dev. Corr\n Subject  (Intercept) 565.48   23.780       \n          Days         32.68    5.717   0.08\n Residual             654.95   25.592       \nNumber of obs: 180, groups:  Subject, 18\n\nFixed effects:\n            Estimate Std. Error t value\n(Intercept)  251.405      6.632  37.907\nDays          10.467      1.502   6.968\n\nCorrelation of Fixed Effects:\n     (Intr)\nDays -0.138"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#model-comparison-the-logic",
+    "href": "lectures/week7-mixed_models.html#model-comparison-the-logic",
+    "title": "Mixed Effects Models",
+    "section": "Model comparison: The logic",
+    "text": "Model comparison: The logic\nQuestion: Does adding variable \\(X\\) improve the model over a model without \\(X\\)?\nApproach: Likelihood ratio test\n\n\nCompare log-likelihood of two nested models\nModel with more parameters should fit better\nBut: is the improvement “worth it”?\nTest statistic: \\(\\chi^2 = -2(LL_{reduced} - LL_{full})\\)\nCompare to chi-square distribution"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#running-model-comparison",
+    "href": "lectures/week7-mixed_models.html#running-model-comparison",
+    "title": "Mixed Effects Models",
+    "section": "Running model comparison",
+    "text": "Running model comparison\n\nmodel_full &lt;- lmer(Reaction ~ Days + (1 + Days | Subject),\n                   data = sleepstudy,\n                   REML = FALSE)\n\nmodel_reduced &lt;- lmer(Reaction ~ (1 + Days | Subject),\n                   data = sleepstudy,\n                   REML = FALSE)\n\nanova(model_full, model_reduced)\n\nData: sleepstudy\nModels:\nmodel_reduced: Reaction ~ (1 + Days | Subject)\nmodel_full: Reaction ~ Days + (1 + Days | Subject)\n              npar    AIC    BIC  logLik -2*log(L)  Chisq Df Pr(&gt;Chisq)    \nmodel_reduced    5 1785.5 1801.4 -887.74    1775.5                         \nmodel_full       6 1763.9 1783.1 -875.97    1751.9 23.537  1  1.226e-06 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n\nInterpretation:: Adding Days significantly improves fit"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#extracting-coefficients",
+    "href": "lectures/week7-mixed_models.html#extracting-coefficients",
+    "title": "Mixed Effects Models",
+    "section": "Extracting coefficients",
+    "text": "Extracting coefficients\nFixed effects (population-level):\n\nfixef(model_full)\n\n(Intercept)        Days \n  251.40510    10.46729 \n\n\nRandom effects (subject-specific deviations):\n\nhead(ranef(model_full)$Subject, 4)\n\n    (Intercept)      Days\n308    2.815789  9.075507\n309  -40.047855 -8.644152\n310  -38.432497 -5.513471\n330   22.831765 -4.658665"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#visualizing-random-effects",
+    "href": "lectures/week7-mixed_models.html#visualizing-random-effects",
+    "title": "Mixed Effects Models",
+    "section": "Visualizing random effects",
+    "text": "Visualizing random effects\n\nranef_df &lt;- ranef(model_full)$Subject %&gt;%\n  rownames_to_column(\"Subject\")\n\nggplot(ranef_df, aes(x = `(Intercept)`, y = Days)) +\n  geom_point(size = 3, alpha = 0.6) +\n  geom_hline(yintercept = 0, linetype = \"dashed\") +\n  geom_vline(xintercept = 0, linetype = \"dashed\") +\n  labs(title = \"Random effects for each subject\",\n       x = \"Random intercept\", y = \"Random slope for Days\") +\n  theme_minimal(base_size = 14)"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#conclusion",
+    "href": "lectures/week7-mixed_models.html#conclusion",
+    "title": "Mixed Effects Models",
+    "section": "Conclusion",
+    "text": "Conclusion\n\n\nMixed models are a valuable tool for modeling non-independent data.\nRandom intercetps model correlated variance in y; random slopes model correlated variance in y ~ x.\nComing up, we’ll discuss:\n\nMore complex models (e.g., nested variance).\nDeep dive into fitting random effects (e.g., pooling).\nUnderstanding the outputs (e.g., variance partitioning).\nBest practices (e.g., “keep it maximal”).\nDiagnozing and fixing common issues (e.g., convergence failures).\nGeneralizing to generalized linear mixed effects models."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#when-independence-fails",
+    "href": "lectures/week7-r-multilevel-slides.html#when-independence-fails",
+    "title": "Mixed Effects Models",
+    "section": "When independence fails",
+    "text": "When independence fails\n\nNon-independence occurs when different observations are systematically related, i.e., they were produced by the same generative process.\n\nCommon sources of non-independence in behavioral research:\n\nRepeated measures: Same participant tested multiple times\nNested data: Students within classrooms within schools\nStimulus items: Same stimuli shown to multiple participants\n\nTime series: Measurements over time from same units\nClustered designs: Participants recruited from same communities"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#example-the-sleep-study",
+    "href": "lectures/week7-r-multilevel-slides.html#example-the-sleep-study",
+    "title": "Mixed Effects Models",
+    "section": "Example: The sleep study",
+    "text": "Example: The sleep study\nThe sleepstudy dataset tracks reaction times in 18 subjects over subsequent days of sleep deprivation:\n\n\n  Reaction Days Subject\n1 249.5600    0     308\n2 258.7047    1     308\n3 250.8006    2     308\n\n\n\n\n\n\n💭 Check-in\n\n\nBased on the structure of this study, what might be a source of non-independence?"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#naive-analysis-wrong",
+    "href": "lectures/week7-r-multilevel-slides.html#naive-analysis-wrong",
+    "title": "Mixed Effects Models",
+    "section": "Naive analysis (wrong!)",
+    "text": "Naive analysis (wrong!)\nLet’s pretend we don’t know about the nested structure:\n\n\n\n\n\n💭 Check-in\n\n\nWhat’s not pictured here?"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#the-real-structure",
+    "href": "lectures/week7-r-multilevel-slides.html#the-real-structure",
+    "title": "Mixed Effects Models",
+    "section": "The real structure",
+    "text": "The real structure\n\nSubjects differ in:\n\nOverall reaction time (baseline speed)\n\nEffect of sleep deprivation (some are more resilient)"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#subject-level-variability",
+    "href": "lectures/week7-r-multilevel-slides.html#subject-level-variability",
+    "title": "Mixed Effects Models",
+    "section": "Subject-level variability",
+    "text": "Subject-level variability\n\nSome subjects are consistently faster; others are consistently slower."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#two-types-of-nested-variance",
+    "href": "lectures/week7-r-multilevel-slides.html#two-types-of-nested-variance",
+    "title": "Mixed Effects Models",
+    "section": "Two types of nested variance",
+    "text": "Two types of nested variance\n\nRandom intercepts: Subjects differ in their average reaction time\n\nSome people are just faster/slower overall\nEven with no sleep deprivation!\n\nRandom slopes: Subjects differ in how much sleep deprivation affects them\n\nSome people are resilient (shallow slope)\nOthers deteriorate quickly (steep slope)\n\n\n\nMixed effects models let us account for both types of variance."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#what-are-mixed-effects-models",
+    "href": "lectures/week7-r-multilevel-slides.html#what-are-mixed-effects-models",
+    "title": "Mixed Effects Models",
+    "section": "What are mixed effects models?",
+    "text": "What are mixed effects models?\nMixed effects models combine:\n\nFixed effects: Variables we care about (e.g., experimental conditions)\n\nThese are your hypotheses!\nEstimated with specific coefficient values\n\nRandom effects: Grouping variables that create non-independence\n\nSources of variability we need to control for\nAllow intercepts/slopes to vary by group\nEstimated as distributions (variance parameters)\n\n\n\nGoal: Get better estimates of fixed effects by accounting for nested structure."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#fixed-vs.-random-effects",
+    "href": "lectures/week7-r-multilevel-slides.html#fixed-vs.-random-effects",
+    "title": "Mixed Effects Models",
+    "section": "Fixed vs. random effects",
+    "text": "Fixed vs. random effects\nDetermining which factors to include as fixed vs. random effects is not always straightforward. Here’s a rough guide, but we’ll discuss it again later too:\nHow do you decide?\n\nFixed effects:\n\nVariables you’re theoretically interested in\nWant to estimate specific coefficient values\nOften experimental manipulations\nExamples: treatment condition, time, drug dosage\n\nRandom effects:\n\nGrouping/clustering variables\nWant to account for variance, not estimate specific values\nUsually sampling from larger population\nExamples: participant ID, item ID, school, lab"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#the-mixed-model-formula",
+    "href": "lectures/week7-r-multilevel-slides.html#the-mixed-model-formula",
+    "title": "Mixed Effects Models",
+    "section": "The mixed model formula",
+    "text": "The mixed model formula\nStandard regression:\n\\[Y = \\beta_0 + \\beta_1 X + \\epsilon\\]\nMixed effects model with random intercepts:\n\\[Y = (\\beta_0 + u_0) + \\beta_1 X + \\epsilon\\]\n\nWhere:\n\n\\(\\beta_0\\) = overall intercept (fixed effect)\n\\(u_0\\) = subject-specific deviation from overall intercept (random effect)\n\\(\\beta_1\\) = fixed effect of X\n\\(\\epsilon\\) = residual error"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#random-intercepts-intuition",
+    "href": "lectures/week7-r-multilevel-slides.html#random-intercepts-intuition",
+    "title": "Mixed Effects Models",
+    "section": "Random intercepts: Intuition",
+    "text": "Random intercepts: Intuition\nRandom intercepts allow each group (e.g., subject) to have its own baseline:\n\nSame slope, different intercepts."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#random-intercepts-r-syntax",
+    "href": "lectures/week7-r-multilevel-slides.html#random-intercepts-r-syntax",
+    "title": "Mixed Effects Models",
+    "section": "Random intercepts: R syntax",
+    "text": "Random intercepts: R syntax\nBasic model with random intercepts:\nBreaking down the syntax:\n\nReaction ~ Days: Fixed effect of Days on Reaction\n(1 | Subject): Random intercept for each Subject\n\n1 = intercept\n| = “grouped by”\nSubject = grouping variable"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#extracting-random-intercepts",
+    "href": "lectures/week7-r-multilevel-slides.html#extracting-random-intercepts",
+    "title": "Mixed Effects Models",
+    "section": "Extracting random intercepts",
+    "text": "Extracting random intercepts\nAfter fitting the model, you can extract the random effects:\n\n\n    (Intercept)\n308   40.783710\n309  -77.849554\n310  -63.108567\n330    4.406442\n\n\n\nThese are deviations from the overall intercept (fixed effect)."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#understanding-the-intercepts",
+    "href": "lectures/week7-r-multilevel-slides.html#understanding-the-intercepts",
+    "title": "Mixed Effects Models",
+    "section": "Understanding the intercepts",
+    "text": "Understanding the intercepts\nEach subject’s fitted intercept = fixed intercept + random deviation:\n\n\n(Intercept) \n   251.4051 \n\n\n[1] 40.78371\n\n\n(Intercept) \n   292.1888"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#visualizing-random-intercepts",
+    "href": "lectures/week7-r-multilevel-slides.html#visualizing-random-intercepts",
+    "title": "Mixed Effects Models",
+    "section": "Visualizing random intercepts",
+    "text": "Visualizing random intercepts"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#random-slopes-intuition",
+    "href": "lectures/week7-r-multilevel-slides.html#random-slopes-intuition",
+    "title": "Mixed Effects Models",
+    "section": "Random slopes: Intuition",
+    "text": "Random slopes: Intuition\nRandom slopes allow the effect of X to vary by group:"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#random-slopes-r-syntax",
+    "href": "lectures/week7-r-multilevel-slides.html#random-slopes-r-syntax",
+    "title": "Mixed Effects Models",
+    "section": "Random slopes: R syntax",
+    "text": "Random slopes: R syntax\nModel with random intercepts AND slopes:\n\n\n             Estimate Std. Error   t value\n(Intercept) 251.40510   6.824597 36.838090\nDays         10.46729   1.545790  6.771481\n\n\nBreaking down the syntax:\n\nReaction ~ Days: Fixed effect of Days\n(1 + Days | Subject): Random effects for Subject\n\n1 = random intercept\nDays = random slope for Days\n| = grouped by\nSubject = grouping variable"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#extracting-random-slopes",
+    "href": "lectures/week7-r-multilevel-slides.html#extracting-random-slopes",
+    "title": "Mixed Effects Models",
+    "section": "Extracting random slopes",
+    "text": "Extracting random slopes\nAfter fitting the model, you can extract the random effects:\n\n\n    (Intercept)      Days\n308    2.258551  9.198976\n309  -40.398738 -8.619681\n310  -38.960409 -5.448856\n330   23.690620 -4.814350\n\n\n\nNow, we have deviations from the intercept and from the Days slope."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#understanding-the-slopes",
+    "href": "lectures/week7-r-multilevel-slides.html#understanding-the-slopes",
+    "title": "Mixed Effects Models",
+    "section": "Understanding the slopes",
+    "text": "Understanding the slopes\nEach subject’s fitted slope = fixed slope + random deviation:\n\n\n    Days \n10.46729 \n\n\n[1] 9.198976\n\n\n    Days \n19.66626 \n\n\n\nSubject 308’s RT increases by ~19.67 ms per day (vs. population average of ~10.47 ms)."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#visualizing-random-slopes",
+    "href": "lectures/week7-r-multilevel-slides.html#visualizing-random-slopes",
+    "title": "Mixed Effects Models",
+    "section": "Visualizing random slopes",
+    "text": "Visualizing random slopes"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#why-random-slopes-matter",
+    "href": "lectures/week7-r-multilevel-slides.html#why-random-slopes-matter",
+    "title": "Mixed Effects Models",
+    "section": "Why random slopes matter",
+    "text": "Why random slopes matter\nWithout random slopes: - Assumes the effect is the same for everyone - Underestimates uncertainty in the fixed effect - Can lead to false positives\nWith random slopes: - Acknowledges that effects vary across individuals - Provides more conservative (realistic) estimates - Better generalization to new subjects\n\nRule of thumb: If a variable varies within your grouping variable, include it as a random slope."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#multiple-random-effects",
+    "href": "lectures/week7-r-multilevel-slides.html#multiple-random-effects",
+    "title": "Mixed Effects Models",
+    "section": "Multiple random effects",
+    "text": "Multiple random effects\nYou can include multiple sources of random effects:\n\nCommon in psycholinguistics: - Random effects for subjects (people vary) - Random effects for items (stimuli vary) - Called “crossed random effects”"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#conceptual-summary",
+    "href": "lectures/week7-r-multilevel-slides.html#conceptual-summary",
+    "title": "Mixed Effects Models",
+    "section": "Conceptual summary",
+    "text": "Conceptual summary\nMixed effects models help when:\n\nYou have repeated measures\nYou have nested/hierarchical structure\nYou want to generalize beyond your specific sample\n\n\nKey components: - Fixed effects: Your hypotheses - Random intercepts: Group-level baseline differences\n- Random slopes: Group-level differences in effects"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#the-lme4-package",
+    "href": "lectures/week7-r-multilevel-slides.html#the-lme4-package",
+    "title": "Mixed Effects Models",
+    "section": "The lme4 package",
+    "text": "The lme4 package\nMost common R package for mixed models:\n\nMain functions: - lmer(): Linear mixed effects models - glmer(): Generalized linear mixed models (logistic, Poisson, etc.)"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#building-your-first-model",
+    "href": "lectures/week7-r-multilevel-slides.html#building-your-first-model",
+    "title": "Mixed Effects Models",
+    "section": "Building your first model",
+    "text": "Building your first model\nLet’s fit a model with random intercepts only:\n\nNote: REML = FALSE uses maximum likelihood estimation, which we need for model comparison."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#viewing-model-output",
+    "href": "lectures/week7-r-multilevel-slides.html#viewing-model-output",
+    "title": "Mixed Effects Models",
+    "section": "Viewing model output",
+    "text": "Viewing model output\n\n\nLinear mixed model fit by maximum likelihood  ['lmerMod']\nFormula: Reaction ~ Days + (1 | Subject)\n   Data: sleepstudy\n\n      AIC       BIC    logLik -2*log(L)  df.resid \n   1802.1    1814.9    -897.0    1794.1       176 \n\nScaled residuals: \n    Min      1Q  Median      3Q     Max \n-3.2347 -0.5544  0.0155  0.5257  4.2648 \n\nRandom effects:\n Groups   Name        Variance Std.Dev.\n Subject  (Intercept) 1296.9   36.01   \n Residual              954.5   30.90   \nNumber of obs: 180, groups:  Subject, 18\n\nFixed effects:\n            Estimate Std. Error t value\n(Intercept) 251.4051     9.5062   26.45\nDays         10.4673     0.8017   13.06\n\nCorrelation of Fixed Effects:\n     (Intr)\nDays -0.380"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#interpreting-the-output",
+    "href": "lectures/week7-r-multilevel-slides.html#interpreting-the-output",
+    "title": "Mixed Effects Models",
+    "section": "Interpreting the output",
+    "text": "Interpreting the output\nFixed effects: - (Intercept): 251.4 ms = average RT on day 0 - Days: 10.5 ms = RT increases by ~10.5 ms per day\n\nSubject (Intercept) variance = 1296.9, SD = 36.01 ms\n\nThis is how much subjects differ in their baseline reaction times\n95% of subjects have baseline RTs within ±72 ms (2×36) of the average\n\nResidual variance = 954.5, SD = 30.90 ms\n\nUnexplained variation after accounting for Days and Subject\n“Noise” in the data"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#variance-decomposition",
+    "href": "lectures/week7-r-multilevel-slides.html#variance-decomposition",
+    "title": "Mixed Effects Models",
+    "section": "Variance decomposition",
+    "text": "Variance decomposition\nThink of it as partitioning unexplained variance:\n\nInterpretation: ~57.6% of variance is due to stable differences between subjects!"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#adding-random-slopes",
+    "href": "lectures/week7-r-multilevel-slides.html#adding-random-slopes",
+    "title": "Mixed Effects Models",
+    "section": "Adding random slopes",
+    "text": "Adding random slopes\nNow let’s add random slopes for the Days effect:\nThis allows both the intercept AND the slope to vary by subject."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#comparing-the-models",
+    "href": "lectures/week7-r-multilevel-slides.html#comparing-the-models",
+    "title": "Mixed Effects Models",
+    "section": "Comparing the models",
+    "text": "Comparing the models\n\n\nLinear mixed model fit by maximum likelihood  ['lmerMod']\nFormula: Reaction ~ Days + (1 + Days | Subject)\n   Data: sleepstudy\n\n      AIC       BIC    logLik -2*log(L)  df.resid \n   1763.9    1783.1    -876.0    1751.9       174 \n\nScaled residuals: \n    Min      1Q  Median      3Q     Max \n-3.9416 -0.4656  0.0289  0.4636  5.1793 \n\nRandom effects:\n Groups   Name        Variance Std.Dev. Corr\n Subject  (Intercept) 565.48   23.780       \n          Days         32.68    5.717   0.08\n Residual             654.95   25.592       \nNumber of obs: 180, groups:  Subject, 18\n\nFixed effects:\n            Estimate Std. Error t value\n(Intercept)  251.405      6.632  37.907\nDays          10.467      1.502   6.968\n\nCorrelation of Fixed Effects:\n     (Intr)\nDays -0.138"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#model-comparison-the-logic",
+    "href": "lectures/week7-r-multilevel-slides.html#model-comparison-the-logic",
+    "title": "Mixed Effects Models",
+    "section": "Model comparison: The logic",
+    "text": "Model comparison: The logic\nQuestion: Does adding variable \\(X\\) improve the model over a model without \\(X\\)?\nApproach: Likelihood ratio test\n\nCompare log-likelihood of two nested models\nModel with more parameters should fit better\nBut: is the improvement “worth it”?\nTest statistic: \\(\\chi^2 = -2(LL_{reduced} - LL_{full})\\)\nCompare to chi-square distribution"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#running-model-comparison",
+    "href": "lectures/week7-r-multilevel-slides.html#running-model-comparison",
+    "title": "Mixed Effects Models",
+    "section": "Running model comparison",
+    "text": "Running model comparison\n\n\nData: sleepstudy\nModels:\nmodel_reduced: Reaction ~ (1 + Days | Subject)\nmodel_full: Reaction ~ Days + (1 + Days | Subject)\n              npar    AIC    BIC  logLik -2*log(L)  Chisq Df Pr(&gt;Chisq)    \nmodel_reduced    5 1785.5 1801.4 -887.74    1775.5                         \nmodel_full       6 1763.9 1783.1 -875.97    1751.9 23.537  1  1.226e-06 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n\nInterpretation:: Adding Days significantly improves fit"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#extracting-coefficients",
+    "href": "lectures/week7-r-multilevel-slides.html#extracting-coefficients",
+    "title": "Mixed Effects Models",
+    "section": "Extracting coefficients",
+    "text": "Extracting coefficients\nFixed effects (population-level):\n\n\n(Intercept)        Days \n  251.40510    10.46729 \n\n\nRandom effects (subject-specific deviations):\n\n\n    (Intercept)      Days\n308    2.815789  9.075507\n309  -40.047855 -8.644152\n310  -38.432497 -5.513471\n330   22.831765 -4.658665"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#visualizing-random-effects",
+    "href": "lectures/week7-r-multilevel-slides.html#visualizing-random-effects",
+    "title": "Mixed Effects Models",
+    "section": "Visualizing random effects",
+    "text": "Visualizing random effects"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#conclusion",
+    "href": "lectures/week7-r-multilevel-slides.html#conclusion",
+    "title": "Mixed Effects Models",
+    "section": "Conclusion",
+    "text": "Conclusion\n\nMixed models are a valuable tool for modeling non-independent data.\nRandom intercetps model correlated variance in y; random slopes model correlated variance in y ~ x.\nComing up, we’ll discuss:\n\nMore complex models (e.g., nested variance).\nDeep dive into fitting random effects (e.g., pooling).\nUnderstanding the outputs (e.g., variance partitioning).\nBest practices (e.g., “keep it maximal”).\nDiagnozing and fixing common issues (e.g., convergence failures).\nGeneralizing to generalized linear mixed effects models."
   }
 ]
