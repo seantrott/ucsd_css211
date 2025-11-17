@@ -32,9 +32,9 @@ Readings are option; "ISLR" refers to ["Introduction to Statistical Learning in 
 | 7 | W | 11-12 | [Mixed effects models (*Pre-recorded lecture*)](lectures/week7-mixed_models.qmd) | |
 | 7 | F | 11-14 | **In-class midterm** | **Midterm!** |
 | 8 | M | 11-17 | Final project check-in| |[Winter, 2013](https://arxiv.org/abs/1308.5499)|
-| 8 | W | 11-19 | Mixed effects models | Lab 4 |
-| 8 | F | 11-21 | Mixed effects models  | **Concept quiz** |
-| 9 | M | 11-24 | Model selection **[HANDS-ON]**| |
+| 8 | W | 11-19 | Mixed effects models |  |
+| 8 | F | 11-21 | Mixed effects models  |Lab 4 |
+| 9 | M | 11-24 | Model selection **[HANDS-ON]**|  **Concept quiz**|
 | 9 | W | 11-26 | **HOLIDAY (Thanksgiving)** | |
 | 9 | F | 11-28 | **HOLIDAY (Thanksgiving)** | |
 | 10 | M | 12-01 | Resampling, best practices, wrap-up | |
