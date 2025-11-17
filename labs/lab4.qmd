@@ -1,0 +1,126 @@
+---
+title: "Lab 4: Mixed models and model selection"
+---
+
+
+**Name:** ___________________________
+
+**Date:** ___________________________
+
+# Introduction
+
+
+The goal of this lab is to familiarize you with **building and comparing mixed models in R**. 
+
+You'll be:
+
+- Understanding when data violate the **independence assumption**. 
+- Fitting models with **random intercepts**.
+- Fitting models with **random slopes**. 
+- Comparing models using **likelihood ratio tests**.
+- Interpreting **fixed and random effects**.
+
+
+We'll be working with the **resume** dataset, the result of a field experiment in which researchers manipulated perceived characteristics of a job applicant (e.g., gender and race), controlling for other things (like their years of experience), and measured whether those maniuplated characteristics impacted the likelihood of an employer calling them back. In this lab, we'll replicate some of those findings and also used mixed effects models to control for sources of non-independence.
+
+
+## Load datasets
+
+To get started, let's load the dataset. 
+
+```{r}
+library(tidyverse)
+library(lme4)
+
+### Resume dataset
+df_resume <- read_csv("https://raw.githubusercontent.com/seantrott/ucsd_css211_datasets/main/main/logistic/resume.csv") 
+nrow(df_resume)
+
+
+```
+
+# Part 1: The naive approach (ignoring non-independence)
+
+Let's start by analyzing these data the "wrong" way—treating all observations as independent. This will help us see why we need mixed models.
+
+## Exercise 1: Basic exploration
+
+Before building any models, let's explore the data:
+
+- How many unique job postings (`job_ad_id`) are in the dataset?
+- How many resumes were sent per job on average? (Hint: group by `job_ad_id` and count)
+- Create a visualization showing the distribution of the number of resumes per job.
+- Calculate the overall callback rate.
+
+
+## Exercise 2: A naive model of race effects
+
+Ignoring the nested structure, build a simple logistic regression predicting `received_callback` from `race`. 
+
+- What is the coefficient for `race`? 
+- Is it statistically significant?
+- Interpret this coefficient: what does it tell us about callback rates for Black vs. White names?
+
+## Exercise 3: Sources of non-independence
+
+There are a few sources of non-independence: `job_ad_id`, `job_city`, and `job_industry`. 
+
+- Calculate the `callback` rate for different ids, cities, and industries. 
+- Visualize this to determine whether this varies across these sources of non-independence. 
+
+# Part 2: Random intercepts models
+
+Now let's properly account for the nested structure using mixed effects models.
+
+## Exercise 4: Your first mixed model
+
+Build a mixed effects model with a **random intercept** for each `job_ad_id`, `job_city`, and `job_industry`:
+
+- Compare the coefficient for `race` to the naive model. How has it changed?
+- Is the effect still significant?
+
+## Exercise 5: Extracting random intercepts
+
+Extract and visualize the random intercepts for `job_ad_id`. 
+
+- Create a histogram of the random intercept deviations.
+- What is the range of these deviations?
+- **Interpretation**: What does a positive vs. negative deviation mean for a particular job?
+
+
+
+
+```{r eval=FALSE}
+model_intercepts <- glmer(received_callback ~ race + (1 | job_ad_id) +
+                            (1 | job_city) + (1|job_industry),
+                          data = df_resume,
+                          family = binomial)
+summary(model_intercepts)
+```
+
+
+# Part 3: Adding more complexity
+
+## Exercise 7: Adding fixed effects
+
+Build a model that includes additional predictors such as `years_experience` and `computer_skills`. 
+
+
+- How do the effects of `race` compare to the simpler models?
+- Which other predictors are significant?
+- Interpret the coefficient for `years_experience`.
+
+
+## Exercise 8: Model comparison
+
+Compare the model constructed in (7) to a model omitting only the fixed effect of `race` using a likelihood-ratio test. Is the full model an improvement? 
+
+
+
+
+## Submission Instructions
+
+1. Make sure all your code chunks run without errors
+2. Save this file with your name in the filename (e.g., "Lab1_YourLastName.qmd")
+3. Render the document to HTML 
+4. Submit both the .qmd file and the rendered HTML file to Canvas
