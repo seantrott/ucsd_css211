@@ -43,6 +43,8 @@ website:
             href: labs/lab2.html
           - text: "Lab 3: Regression in R"
             href: labs/lab3.html
+          - text: "Lab 4: Mixed models in R"
+            href: labs/lab4.html
       - text: "Hands-on exercises"
         menu:
           - text: "Week 2: Wrangling"
