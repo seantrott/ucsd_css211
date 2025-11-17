@@ -90,15 +90,6 @@ Extract and visualize the random intercepts for `job_ad_id`.
 
 
 
-```{r eval=FALSE}
-model_intercepts <- glmer(received_callback ~ race + (1 | job_ad_id) +
-                            (1 | job_city) + (1|job_industry),
-                          data = df_resume,
-                          family = binomial)
-summary(model_intercepts)
-```
-
-
 # Part 3: Adding more complexity
 
 ## Exercise 7: Adding fixed effects

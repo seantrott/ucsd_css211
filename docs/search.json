@@ -1698,7 +1698,7 @@
     "href": "lectures/week7-mixed_models.html#analyzing-independent-data",
     "title": "Mixed Effects Models",
     "section": "Analyzing independent data",
-    "text": "Analyzing independent data\n\nsimple_model = lm(data = df, value ~ group)\nsummary(simple_model)$coefficients\n\n             Estimate Std. Error    t value      Pr(&gt;|t|)\n(Intercept) 721.47207   1.437826 501.779794 2.441613e-309\ngroupB      -17.81815   2.033393  -8.762767  8.587320e-16\n\n\n\nInterpretation: - Intercept (groupA) = 721.47 (mean of group A) - groupB coefficient = -17.82 (difference from A) - Group B is about 20 units lower than Group A"
+    "text": "Analyzing independent data\n\nsimple_model = lm(data = df, value ~ group)\nsummary(simple_model)$coefficients\n\n             Estimate Std. Error    t value      Pr(&gt;|t|)\n(Intercept) 723.22404   1.596112 453.116229 1.419621e-300\ngroupB      -16.61191   2.257243  -7.359383  4.822485e-12\n\n\n\nInterpretation: - Intercept (groupA) = 723.22 (mean of group A) - groupB coefficient = -16.61 (difference from A) - Group B is about 20 units lower than Group A"
   },
   {
     "objectID": "lectures/week7-mixed_models.html#when-independence-fails",
@@ -1999,7 +1999,7 @@
     "href": "lectures/week7-r-multilevel-slides.html#analyzing-independent-data",
     "title": "Mixed Effects Models",
     "section": "Analyzing independent data",
-    "text": "Analyzing independent data\n\n\n             Estimate Std. Error   t value      Pr(&gt;|t|)\n(Intercept) 727.70680   1.464083 497.03919 1.596959e-308\ngroupB      -21.63968   2.070527 -10.45129  1.215590e-20\n\n\n\nInterpretation: - Intercept (groupA) = 727.71 (mean of group A) - groupB coefficient = -21.64 (difference from A) - Group B is about 20 units lower than Group A"
+    "text": "Analyzing independent data\n\n\n            Estimate Std. Error    t value      Pr(&gt;|t|)\n(Intercept) 723.6329   1.507002 480.180393 1.472707e-305\ngroupB      -19.4609   2.131223  -9.131332  7.976194e-17\n\n\n\nInterpretation: - Intercept (groupA) = 723.63 (mean of group A) - groupB coefficient = -19.46 (difference from A) - Group B is about 20 units lower than Group A"
   },
   {
     "objectID": "lectures/week7-r-multilevel-slides.html#when-independence-fails",
@@ -2489,7 +2489,7 @@
     "href": "labs/lab4.html#exercise-5-extracting-random-intercepts",
     "title": "Lab 4: Mixed models and model selection",
     "section": "Exercise 5: Extracting random intercepts",
-    "text": "Exercise 5: Extracting random intercepts\nExtract and visualize the random intercepts for job_ad_id.\n\nCreate a histogram of the random intercept deviations.\nWhat is the range of these deviations?\nInterpretation: What does a positive vs. negative deviation mean for a particular job?\n\n\nmodel_intercepts &lt;- glmer(received_callback ~ race + (1 | job_ad_id) +\n                            (1 | job_city) + (1|job_industry),\n                          data = df_resume,\n                          family = binomial)\nsummary(model_intercepts)"
+    "text": "Exercise 5: Extracting random intercepts\nExtract and visualize the random intercepts for job_ad_id.\n\nCreate a histogram of the random intercept deviations.\nWhat is the range of these deviations?\nInterpretation: What does a positive vs. negative deviation mean for a particular job?"
   },
   {
     "objectID": "labs/lab4.html#exercise-7-adding-fixed-effects",
@@ -2657,7 +2657,7 @@
     "href": "labs/lab1.html#exercise-4-creating-data",
     "title": "Lab 1: Introduction to R",
     "section": "Exercise 4: Creating Data",
-    "text": "Exercise 4: Creating Data\nLet’s create some sample data to work with:\n\n# Create a vector of 50 random numbers from a normal distribution\n# with mean = 100 and standard deviation = 15\nrandom_data &lt;- rnorm(50, mean = 100, sd = 15)\n\n# Look at the first 10 values\nhead(random_data, 10)\n\n [1]  91.98909 100.28042  82.35406 103.06041  85.86767 132.16666 103.21581\n [8]  73.88398 100.96075  82.54649\n\n\n\n# Calculate summary statistics for this data\nmean(random_data)\n\n[1] 99.86942\n\nsd(random_data)\n\n[1] 17.2968\n\nmin(random_data)\n\n[1] 59.76572\n\nmax(random_data)\n\n[1] 142.612\n\n\nYour turn: Create a vector of 30 random numbers with mean = 50 and sd = 5. Calculate its summary statistics.\n\n# Write your code here:"
+    "text": "Exercise 4: Creating Data\nLet’s create some sample data to work with:\n\n# Create a vector of 50 random numbers from a normal distribution\n# with mean = 100 and standard deviation = 15\nrandom_data &lt;- rnorm(50, mean = 100, sd = 15)\n\n# Look at the first 10 values\nhead(random_data, 10)\n\n [1] 112.02204 110.12223 119.87493  97.65791  92.04070  70.09678 110.18699\n [8] 108.63955 100.14769  86.72960\n\n\n\n# Calculate summary statistics for this data\nmean(random_data)\n\n[1] 102.2172\n\nsd(random_data)\n\n[1] 15.05372\n\nmin(random_data)\n\n[1] 70.09678\n\nmax(random_data)\n\n[1] 134.7615\n\n\nYour turn: Create a vector of 30 random numbers with mean = 50 and sd = 5. Calculate its summary statistics.\n\n# Write your code here:"
   },
   {
     "objectID": "labs/lab1.html#exercise-5-basic-plotting",
@@ -3336,7 +3336,7 @@
     "href": "lectures/week1-r-intro-slides.html#simulating-data",
     "title": "Introduction to R",
     "section": "Simulating data",
-    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8633631"
+    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8720213"
   },
   {
     "objectID": "lectures/week1-r-intro-slides.html#a-conceptual-preview-of-the-tidyverse",
@@ -3525,7 +3525,7 @@
     "href": "lectures/week1-r-intro.html#simulating-data",
     "title": "Introduction to R",
     "section": "Simulating data",
-    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\n\n\n\n\n\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.8314602"
+    "text": "Simulating data\n\nparent_heights = rnorm(100, 65, 3)\nchild_heights = parent_heights + rnorm(100, 0, 2)\ndf_heights = data.frame(parent_heights, child_heights)\n\nplot(df_heights$parent_heights, \n     df_heights$child_heights,\n     xlab = \"Parent Height\", \n     ylab = \"Child Height\",\n     pch = 16, # Filled circles\n     col = \"blue\")\n\n\n\n\n\n\n\ncor(df_heights$parent_heights, df_heights$child_heights)\n\n[1] 0.871996"
   },
   {
     "objectID": "lectures/week1-r-intro.html#a-conceptual-preview-of-the-tidyverse",

@@ -428,13 +428,6 @@ dbl (20): job_ad_id, job_fed_contractor, job_equal_opp_employer, job_req_any...
 <li>What is the range of these deviations?</li>
 <li><strong>Interpretation</strong>: What does a positive vs.&nbsp;negative deviation mean for a particular job?</li>
 </ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>model_intercepts <span class="ot">&lt;-</span> <span class="fu">glmer</span>(received_callback <span class="sc">~</span> race <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> job_ad_id) <span class="sc">+</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                            (<span class="dv">1</span> <span class="sc">|</span> job_city) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>job_industry),</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">data =</span> df_resume,</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">family =</span> binomial)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_intercepts)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 </section>
 </section>
 <section id="part-3-adding-more-complexity" class="level1">
