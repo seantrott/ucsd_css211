@@ -216,7 +216,9 @@
 <li class="fragment">Mixed models <strong>in practice</strong> with <code>lme4</code>.
 <ul>
 <li class="fragment">Model comparison: the logic of <em>likelihood-ratio tests</em>.</li>
+<li class="fragment"><code>glmer</code>: generalized linear mixed models.</li>
 </ul></li>
+<li class="fragment">Best practices.</li>
 </ul>
 </section>
 <section id="load-libraries" class="slide level2">
@@ -231,8 +233,9 @@
 
 </div>
 </section>
-<section id="part-1-independence" class="slide level2">
-<h2>Part 1: Independence</h2>
+<section>
+<section id="part-1-independence" class="title-slide slide level1 center">
+<h1>Part 1: Independence</h1>
 <p>The independence assumption; why it matters; examples of <em>non-independence</em>.</p>
 </section>
 <section id="what-is-independence" class="slide level2 smaller">
@@ -312,13 +315,13 @@ No repeated measures, no item effects to worry about.</p>
 <h2>Analyzing independent data</h2>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>            Estimate Std. Error    t value      Pr(&gt;|t|)
-(Intercept) 723.6329   1.507002 480.180393 1.472707e-305
-groupB      -19.4609   2.131223  -9.131332  7.976194e-17</code></pre>
+<pre><code>             Estimate Std. Error   t value      Pr(&gt;|t|)
+(Intercept) 726.81111   1.422685 510.87277 6.991096e-311
+groupB      -20.25867   2.011981 -10.06902  1.611032e-19</code></pre>
 </div>
 </div>
 <div class="fragment">
-<p><strong>Interpretation:</strong> - Intercept (groupA) = 723.63 (mean of group A) - groupB coefficient = -19.46 (difference from A) - Group B is about 20 units lower than Group A</p>
+<p><strong>Interpretation:</strong> - Intercept (groupA) = 726.81 (mean of group A) - groupB coefficient = -20.26 (difference from A) - Group B is about 20 units lower than Group A</p>
 </div>
 </section>
 <section id="when-independence-fails" class="slide level2 smaller">
@@ -409,9 +412,10 @@ groupB      -19.4609   2.131223  -9.131332  7.976194e-17</code></pre>
 <div class="fragment">
 <p><strong>Mixed effects models</strong> let us account for both types of variance.</p>
 </div>
-</section>
-<section id="part-2-introduction-to-mixed-effects-models" class="slide level2">
-<h2>Part 2: Introduction to mixed effects models</h2>
+</section></section>
+<section>
+<section id="part-2-introduction-to-mixed-effects-models" class="title-slide slide level1 center">
+<h1>Part 2: Introduction to mixed effects models</h1>
 <p>Fixed vs.&nbsp;random effects; random intercepts; random slopes.</p>
 </section>
 <section id="what-are-mixed-effects-models" class="slide level2 smaller">
@@ -619,12 +623,18 @@ Days         10.46729   1.545790  6.771481</code></pre>
 <li class="fragment">You want to generalize beyond your specific sample</li>
 </ul>
 <div class="fragment">
-<p><strong>Key components:</strong> - <strong>Fixed effects</strong>: Your hypotheses - <strong>Random intercepts</strong>: Group-level baseline differences<br>
-- <strong>Random slopes</strong>: Group-level differences in effects</p>
+<p><strong>Key components:</strong>.</p>
+<ul>
+<li><strong>Fixed effects</strong>: Your hypotheses.</li>
+<li><strong>Random intercepts</strong>: Group-level baseline differences<br>
+</li>
+<li><strong>Random slopes</strong>: Group-level differences in effects.</li>
+</ul>
 </div>
-</section>
-<section id="part-3-using-lme4" class="slide level2">
-<h2>Part 3: Using <code>lme4</code></h2>
+</section></section>
+<section>
+<section id="part-3-using-lme4" class="title-slide slide level1 center">
+<h1>Part 3: Using <code>lme4</code></h1>
 <p>Building and evaluating models; model comparisons; best practices and common issues.</p>
 </section>
 <section id="the-lme4-package" class="slide level2 smaller">
@@ -713,14 +723,17 @@ Days -0.138</code></pre>
 </section>
 <section id="model-comparison-the-logic" class="slide level2 smaller">
 <h2>Model comparison: The logic</h2>
+<blockquote>
+<p>The <strong>likelihood of a model</strong> refers to the probability of the observed data under that model’s parameter estimates.</p>
+</blockquote>
 <p><strong>Question:</strong> Does adding variable <span class="math inline">\(X\)</span> improve the model over a model without <span class="math inline">\(X\)</span>?</p>
-<p><strong>Approach: Likelihood ratio test</strong></p>
+<p><strong>Approach: Likelihood ratio test (LRT)</strong></p>
 <ul>
 <li class="fragment">Compare <strong>log-likelihood</strong> of two nested models</li>
 <li class="fragment">Model with more parameters should fit better</li>
 <li class="fragment">But: is the improvement “worth it”?</li>
 <li class="fragment">Test statistic: <span class="math inline">\(\chi^2 = -2(LL_{reduced} - LL_{full})\)</span></li>
-<li class="fragment">Compare to chi-square distribution</li>
+<li class="fragment">Compare to chi-square distribution (<a href="https://en.wikipedia.org/wiki/Wilks%27_theorem">Wilk’s Theorem</a>).</li>
 </ul>
 </section>
 <section id="running-model-comparison" class="slide level2 smaller">
@@ -766,6 +779,256 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <h2>Visualizing random effects</h2>
 
 <img data-src="week7-mixed_models_files/figure-revealjs/unnamed-chunk-26-1.png" width="768" class="r-stretch"></section>
+<section id="generalized-linear-mixed-models" class="slide level2 smaller">
+<h2>Generalized linear mixed models</h2>
+<blockquote>
+<p>A <strong>generalized linear mixed model (GLMM)</strong> is a general framework for fitting regression models with various <em>link functions</em> (e.g., <em>logit</em>) and random effects.</p>
+</blockquote>
+<ul>
+<li class="fragment">We’ve already discussed <em>GLMs</em> (<code>glm</code>) and logistic regression.</li>
+<li class="fragment">A GLMM is just a way to add random effects structure to a GLM.</li>
+<li class="fragment"><code>glmer</code> is to <code>glm</code> as <code>lmer</code> is to <code>lm</code>.</li>
+</ul>
+</section>
+<section id="example-binary-outcomes" class="slide level2 smaller">
+<h2>Example: Binary outcomes</h2>
+<p><strong>Scenario:</strong> Testing accuracy on a memory task</p>
+<ul>
+<li>Each participant completes multiple trials</li>
+<li>Each trial is coded as correct (1) or incorrect (0)</li>
+<li>We want to know if reaction time predicts accuracy</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  Subject Trial       RT Correct
+1       1     1 443.9524       0
+2       2     1 476.9823       0
+3       3     1 655.8708       0
+4       4     1 507.0508       0</code></pre>
+</div>
+</div>
+</section>
+<section id="naive-approach-wrong" class="slide level2 smaller">
+<h2>Naive approach (wrong!)</h2>
+<p><strong>What if we use regular logistic regression?</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="co"># Ignoring nested structure</span></span>
+<span id="cb19-2"><a></a>naive_glm <span class="ot">&lt;-</span> <span class="fu">glm</span>(Correct <span class="sc">~</span> RT, </span>
+<span id="cb19-3"><a></a>                 <span class="at">data =</span> binary_data, </span>
+<span id="cb19-4"><a></a>                 <span class="at">family =</span> binomial)</span>
+<span id="cb19-5"><a></a><span class="fu">summary</span>(naive_glm)<span class="sc">$</span>coefficients</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                Estimate  Std. Error    z value     Pr(&gt;|z|)
+(Intercept) -4.333121392 1.267280721 -3.4192277 0.0006279914
+RT           0.001789766 0.002405329  0.7440834 0.4568259948</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p><strong>Problem:</strong> This ignores that we have 30 trials per subject! Standard errors will be too small.</p>
+</div>
+</section>
+<section id="using-glmer" class="slide level2 smaller">
+<h2>Using glmer()</h2>
+<p><strong>Add random effects for subjects:</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="co"># With random intercepts</span></span>
+<span id="cb21-2"><a></a>glmm_model <span class="ot">&lt;-</span> <span class="fu">glmer</span>(Correct <span class="sc">~</span> RT <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Subject),</span>
+<span id="cb21-3"><a></a>                    <span class="at">data =</span> binary_data,</span>
+<span id="cb21-4"><a></a>                    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
+<span id="cb21-5"><a></a><span class="fu">summary</span>(glmm_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: Correct ~ RT + (1 | Subject)
+   Data: binary_data
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+    174.0     187.2     -84.0     168.0       597 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-0.2395 -0.1897 -0.1784 -0.1685  6.4595 
+
+Random effects:
+ Groups  Name        Variance Std.Dev.
+ Subject (Intercept) 0        0       
+Number of obs: 600, groups:  Subject, 20
+
+Fixed effects:
+             Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept) -4.333121   1.277856  -3.391 0.000697 ***
+RT           0.001790   0.002425   0.738 0.460513    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+   (Intr)
+RT -0.983
+optimizer (Nelder_Mead) convergence code: 0 (OK)
+boundary (singular) fit: see help('isSingular')</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p><strong>Syntax breakdown:</strong> - <code>Correct ~ RT</code>: Fixed effect of RT on accuracy - <code>(1 | Subject)</code>: Random intercept for each subject - <code>family = binomial(link = "logit")</code>: Logistic regression</p>
+</div>
+</section>
+<section id="interpreting-glmm-output" class="slide level2 smaller">
+<h2>Interpreting GLMM output</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: Correct ~ RT + (1 | Subject)
+   Data: binary_data
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+    174.0     187.2     -84.0     168.0       597 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-0.2395 -0.1897 -0.1784 -0.1685  6.4595 
+
+Random effects:
+ Groups  Name        Variance Std.Dev.
+ Subject (Intercept) 0        0       
+Number of obs: 600, groups:  Subject, 20
+
+Fixed effects:
+             Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept) -4.333121   1.277856  -3.391 0.000697 ***
+RT           0.001790   0.002425   0.738 0.460513    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+   (Intr)
+RT -0.983
+optimizer (Nelder_Mead) convergence code: 0 (OK)
+boundary (singular) fit: see help('isSingular')</code></pre>
+</div>
+</div>
+</section>
+<section id="example-binary-outcomes-1" class="slide level2 smaller">
+<h2>Example: Binary outcomes</h2>
+<p><strong>Scenario:</strong> Testing accuracy on a memory task</p>
+<ul>
+<li>Each participant completes multiple trials</li>
+<li>Each trial is coded as correct (1) or incorrect (0)</li>
+<li>We want to know if reaction time predicts accuracy</li>
+</ul>
+</section></section>
+<section>
+<section id="part-4-best-practices" class="title-slide slide level1 center">
+<h1>Part 4: Best practices</h1>
+<p>Choosing random effects; dealing with convergence warnings; reporting results.</p>
+</section>
+<section id="common-questions" class="slide level2 smaller">
+<h2>Common questions</h2>
+<p>Mixed effects models can get <em>complex</em> pretty quickly. Researchers end up running into a number of common questions:</p>
+<ul>
+<li class="fragment">Which effects should be random and which should be fixed?</li>
+<li class="fragment">How many random effects should I specify? Just random intercepts? Random slopes?</li>
+<li class="fragment">What happens if my model doesn’t “converge”?</li>
+<li class="fragment">How do I report my results?</li>
+</ul>
+<div class="fragment">
+<p>We’ll tackle each of these one by one.</p>
+</div>
+</section>
+<section id="fixed-vs.-random" class="slide level2 smaller">
+<h2>Fixed vs.&nbsp;random?</h2>
+<p>Selecting <em>fixed</em> vs.&nbsp;<em>random</em> effects can be challenging. There’s not even <a href="https://statmodeling.stat.columbia.edu/2005/01/25/why_i_dont_use/">universal consensus</a> on the best way to do this!</p>
+<p>Some ways to think about it:</p>
+<ul>
+<li class="fragment">In terms of <strong>sampling</strong>: Fixed effects <em>exhaust</em> the theoretical population (e.g., condition 1 vs.&nbsp;condition 2), and random effects are just a sample (e.g., of participants).</li>
+<li class="fragment">In terms of <strong>estimation process</strong>: Fixed effects are estimated using <em>maximum likelihood estimation</em>, and random effects are estimated with <em>shrinkage</em>.</li>
+<li class="fragment">In terms of <strong>interest</strong>: Fixed effects are what you’re interested in, and random effects are what you want to control for.</li>
+</ul>
+</section>
+<section id="how-many-random-effects-to-include-1" class="slide level2 smaller">
+<h2>How many random effects to include? (1)</h2>
+<p><strong>Barr et al.&nbsp;(2013): “Keep it maximal”</strong></p>
+<ul>
+<li class="fragment">Include the most complex random effects structure justified by your design</li>
+<li class="fragment">Include random slopes for within-unit variables</li>
+<li class="fragment">This reduces Type I error and improves generalizability</li>
+</ul>
+<div class="fragment">
+<p><strong>Example:</strong></p>
+</div>
+</section>
+<section id="how-many-random-effects-to-include-2" class="slide level2 smaller">
+<h2>How many random effects to include? (2)</h2>
+<p><strong>Bates et al.&nbsp;(2015): “Parsimonious mixed models”</strong></p>
+<ul>
+<li class="fragment">Maximal models often fail to converge or produce singular fits (coming up!)</li>
+<li class="fragment">Start with maximal model, then simplify if necessary</li>
+<li class="fragment">Remove random effect correlations first, then non-significant random slopes</li>
+<li class="fragment">Balance between Type I error control and model stability</li>
+</ul>
+<div class="fragment">
+<p><strong>Example:</strong></p>
+</div>
+</section>
+<section id="when-maximal-models-fail" class="slide level2 smaller">
+<h2>When maximal models fail</h2>
+<p><strong>Common issues:</strong></p>
+<ol type="1">
+<li class="fragment"><strong>Convergence failures</strong>: Model can’t find solution</li>
+<li class="fragment"><strong>Singular fit</strong>: Some variance is estimated as zero</li>
+<li class="fragment"><strong>Computational issues</strong>: Model is too complex for data</li>
+</ol>
+</section>
+<section id="dealing-with-convergence-issues" class="slide level2 smaller">
+<h2>Dealing with convergence issues</h2>
+<p><strong>Step 1: Check your data</strong> - Are there enough observations per group? - Any extreme outliers?</p>
+<p><strong>Step 2: Rescale continuous predictors</strong></p>
+<p><strong>Step 3: Try different optimizer</strong></p>
+</section>
+<section id="simplifying-random-effects" class="slide level2 smaller">
+<h2>Simplifying random effects</h2>
+<p><strong>Step 4: Simplify random effects structure</strong></p>
+<p>Start by removing correlations between random effects:</p>
+<p><strong>Step 5: Remove random slopes if necessary</strong></p>
+<p>Use model comparison to determine which random effects are necessary (Bates et al., 2015).</p>
+</section>
+<section id="reporting-your-results" class="slide level2 smaller">
+<h2>Reporting your results</h2>
+<p><strong>Template for reporting:</strong></p>
+<blockquote>
+<p>We fit a linear mixed effects model predicting reaction time from days of sleep deprivation. The model included random intercepts and random slopes for days grouped by subject. Sleep deprivation significantly increased reaction time (β = 10.47, SE = 1.55), with each additional day of deprivation associated with an ~10.5 ms increase in RT. A likelihood ratio test confirmed that including days as a fixed effect significantly improved model fit, χ²(1) = 45.85, p &lt; 0.001.</p>
+</blockquote>
+</section>
+<section id="what-to-report" class="slide level2 smaller">
+<h2>What to report</h2>
+<p><strong>Essential information:</strong></p>
+<ul>
+<li class="fragment">Random effects structure (what’s included)</li>
+<li class="fragment">Fixed effect estimates (β, SE, or CI)</li>
+<li class="fragment">Test statistic and p-value (LRT)</li>
+<li class="fragment">Model comparison details (which models, df, χ²)</li>
+<li class="fragment">Software and package versions</li>
+</ul>
+<p><strong>Key papers:</strong></p>
+<ul>
+<li>Barr et al.&nbsp;(2013): Keep it maximal</li>
+<li>Bates et al.&nbsp;(2015): Parsimonious mixed models</li>
+<li>Winter (2013): Linear mixed effects models in R</li>
+</ul>
+<p><strong>Tutorials:</strong></p>
+<ul>
+<li>This lecture!</li>
+<li><a href="https://arxiv.org/abs/1308.5499">Bodo Winter’s tutorial</a></li>
+<li><a href="https://m-clark.github.io/posts/2019-05-14-shrinkage-in-mixed-models/">Michael Clark on shrinkage</a></li>
+</ul>
+<p><strong>Documentation:</strong></p>
+<ul>
+<li><code>lme4</code> package documentation</li>
+<li><a href="http://mfviz.com/hierarchical-models/">Hierarchical models visualization</a></li>
+</ul>
+</section>
 <section id="conclusion" class="slide level2 smaller">
 <h2>Conclusion</h2>
 <ul>
@@ -783,7 +1046,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </ul>
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

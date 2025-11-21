@@ -1635,14 +1635,14 @@
     "href": "lectures/week7-mixed_models.html",
     "title": "Mixed Effects Models",
     "section": "",
-    "text": "The independence assumption of linear regression.\n\nWhat about when data are non-independent?\n\nIntroducing mixed effects models.\n\nFixed vs. random effects.\nAdding random intercepts.\nAdding random slopes.\n\nMixed models in practice with lme4.\n\nModel comparison: the logic of likelihood-ratio tests."
+    "text": "The independence assumption of linear regression.\n\nWhat about when data are non-independent?\n\nIntroducing mixed effects models.\n\nFixed vs. random effects.\nAdding random intercepts.\nAdding random slopes.\n\nMixed models in practice with lme4.\n\nModel comparison: the logic of likelihood-ratio tests.\nglmer: generalized linear mixed models.\n\nBest practices."
   },
   {
     "objectID": "lectures/week7-mixed_models.html#goals-of-the-lecture",
     "href": "lectures/week7-mixed_models.html#goals-of-the-lecture",
     "title": "Mixed Effects Models",
     "section": "",
-    "text": "The independence assumption of linear regression.\n\nWhat about when data are non-independent?\n\nIntroducing mixed effects models.\n\nFixed vs. random effects.\nAdding random intercepts.\nAdding random slopes.\n\nMixed models in practice with lme4.\n\nModel comparison: the logic of likelihood-ratio tests."
+    "text": "The independence assumption of linear regression.\n\nWhat about when data are non-independent?\n\nIntroducing mixed effects models.\n\nFixed vs. random effects.\nAdding random intercepts.\nAdding random slopes.\n\nMixed models in practice with lme4.\n\nModel comparison: the logic of likelihood-ratio tests.\nglmer: generalized linear mixed models.\n\nBest practices."
   },
   {
     "objectID": "lectures/week7-mixed_models.html#load-libraries",
@@ -1698,7 +1698,7 @@
     "href": "lectures/week7-mixed_models.html#analyzing-independent-data",
     "title": "Mixed Effects Models",
     "section": "Analyzing independent data",
-    "text": "Analyzing independent data\n\nsimple_model = lm(data = df, value ~ group)\nsummary(simple_model)$coefficients\n\n             Estimate Std. Error    t value      Pr(&gt;|t|)\n(Intercept) 723.22404   1.596112 453.116229 1.419621e-300\ngroupB      -16.61191   2.257243  -7.359383  4.822485e-12\n\n\n\nInterpretation: - Intercept (groupA) = 723.22 (mean of group A) - groupB coefficient = -16.61 (difference from A) - Group B is about 20 units lower than Group A"
+    "text": "Analyzing independent data\n\nsimple_model = lm(data = df, value ~ group)\nsummary(simple_model)$coefficients\n\n             Estimate Std. Error    t value      Pr(&gt;|t|)\n(Intercept) 722.61788   1.478058 488.896927 4.192398e-307\ngroupB      -18.04896   2.090289  -8.634673  1.942857e-15\n\n\n\nInterpretation: - Intercept (groupA) = 722.62 (mean of group A) - groupB coefficient = -18.05 (difference from A) - Group B is about 20 units lower than Group A"
   },
   {
     "objectID": "lectures/week7-mixed_models.html#when-independence-fails",
@@ -1859,7 +1859,7 @@
     "href": "lectures/week7-mixed_models.html#conceptual-summary",
     "title": "Mixed Effects Models",
     "section": "Conceptual summary",
-    "text": "Conceptual summary\nMixed effects models help when:\n\n\nYou have repeated measures\nYou have nested/hierarchical structure\nYou want to generalize beyond your specific sample\n\n\n\nKey components: - Fixed effects: Your hypotheses - Random intercepts: Group-level baseline differences\n- Random slopes: Group-level differences in effects"
+    "text": "Conceptual summary\nMixed effects models help when:\n\n\nYou have repeated measures\nYou have nested/hierarchical structure\nYou want to generalize beyond your specific sample\n\n\n\nKey components:.\n\nFixed effects: Your hypotheses.\nRandom intercepts: Group-level baseline differences\n\nRandom slopes: Group-level differences in effects."
   },
   {
     "objectID": "lectures/week7-mixed_models.html#part-3-using-lme4",
@@ -1908,7 +1908,7 @@
     "href": "lectures/week7-mixed_models.html#model-comparison-the-logic",
     "title": "Mixed Effects Models",
     "section": "Model comparison: The logic",
-    "text": "Model comparison: The logic\nQuestion: Does adding variable \\(X\\) improve the model over a model without \\(X\\)?\nApproach: Likelihood ratio test\n\n\nCompare log-likelihood of two nested models\nModel with more parameters should fit better\nBut: is the improvement “worth it”?\nTest statistic: \\(\\chi^2 = -2(LL_{reduced} - LL_{full})\\)\nCompare to chi-square distribution"
+    "text": "Model comparison: The logic\n\nThe likelihood of a model refers to the probability of the observed data under that model’s parameter estimates.\n\nQuestion: Does adding variable \\(X\\) improve the model over a model without \\(X\\)?\nApproach: Likelihood ratio test (LRT)\n\n\nCompare log-likelihood of two nested models\nModel with more parameters should fit better\nBut: is the improvement “worth it”?\nTest statistic: \\(\\chi^2 = -2(LL_{reduced} - LL_{full})\\)\nCompare to chi-square distribution (Wilk’s Theorem)."
   },
   {
     "objectID": "lectures/week7-mixed_models.html#running-model-comparison",
@@ -1943,7 +1943,7 @@
     "href": "lectures/week7-r-multilevel-slides.html#goals-of-the-lecture",
     "title": "Mixed Effects Models",
     "section": "Goals of the lecture",
-    "text": "Goals of the lecture\n\nThe independence assumption of linear regression.\n\nWhat about when data are non-independent?\n\nIntroducing mixed effects models.\n\nFixed vs. random effects.\nAdding random intercepts.\nAdding random slopes.\n\nMixed models in practice with lme4.\n\nModel comparison: the logic of likelihood-ratio tests."
+    "text": "Goals of the lecture\n\nThe independence assumption of linear regression.\n\nWhat about when data are non-independent?\n\nIntroducing mixed effects models.\n\nFixed vs. random effects.\nAdding random intercepts.\nAdding random slopes.\n\nMixed models in practice with lme4.\n\nModel comparison: the logic of likelihood-ratio tests.\nglmer: generalized linear mixed models.\n\nBest practices."
   },
   {
     "objectID": "lectures/week7-r-multilevel-slides.html#load-libraries",
@@ -1999,7 +1999,7 @@
     "href": "lectures/week7-r-multilevel-slides.html#analyzing-independent-data",
     "title": "Mixed Effects Models",
     "section": "Analyzing independent data",
-    "text": "Analyzing independent data\n\n\n            Estimate Std. Error    t value      Pr(&gt;|t|)\n(Intercept) 723.6329   1.507002 480.180393 1.472707e-305\ngroupB      -19.4609   2.131223  -9.131332  7.976194e-17\n\n\n\nInterpretation: - Intercept (groupA) = 723.63 (mean of group A) - groupB coefficient = -19.46 (difference from A) - Group B is about 20 units lower than Group A"
+    "text": "Analyzing independent data\n\n\n             Estimate Std. Error   t value      Pr(&gt;|t|)\n(Intercept) 726.81111   1.422685 510.87277 6.991096e-311\ngroupB      -20.25867   2.011981 -10.06902  1.611032e-19\n\n\n\nInterpretation: - Intercept (groupA) = 726.81 (mean of group A) - groupB coefficient = -20.26 (difference from A) - Group B is about 20 units lower than Group A"
   },
   {
     "objectID": "lectures/week7-r-multilevel-slides.html#when-independence-fails",
@@ -2160,7 +2160,7 @@
     "href": "lectures/week7-r-multilevel-slides.html#conceptual-summary",
     "title": "Mixed Effects Models",
     "section": "Conceptual summary",
-    "text": "Conceptual summary\nMixed effects models help when:\n\nYou have repeated measures\nYou have nested/hierarchical structure\nYou want to generalize beyond your specific sample\n\n\nKey components: - Fixed effects: Your hypotheses - Random intercepts: Group-level baseline differences\n- Random slopes: Group-level differences in effects"
+    "text": "Conceptual summary\nMixed effects models help when:\n\nYou have repeated measures\nYou have nested/hierarchical structure\nYou want to generalize beyond your specific sample\n\n\nKey components:.\n\nFixed effects: Your hypotheses.\nRandom intercepts: Group-level baseline differences\n\nRandom slopes: Group-level differences in effects."
   },
   {
     "objectID": "lectures/week7-r-multilevel-slides.html#part-3-using-lme4",
@@ -2209,7 +2209,7 @@
     "href": "lectures/week7-r-multilevel-slides.html#model-comparison-the-logic",
     "title": "Mixed Effects Models",
     "section": "Model comparison: The logic",
-    "text": "Model comparison: The logic\nQuestion: Does adding variable \\(X\\) improve the model over a model without \\(X\\)?\nApproach: Likelihood ratio test\n\nCompare log-likelihood of two nested models\nModel with more parameters should fit better\nBut: is the improvement “worth it”?\nTest statistic: \\(\\chi^2 = -2(LL_{reduced} - LL_{full})\\)\nCompare to chi-square distribution"
+    "text": "Model comparison: The logic\n\nThe likelihood of a model refers to the probability of the observed data under that model’s parameter estimates.\n\nQuestion: Does adding variable \\(X\\) improve the model over a model without \\(X\\)?\nApproach: Likelihood ratio test (LRT)\n\nCompare log-likelihood of two nested models\nModel with more parameters should fit better\nBut: is the improvement “worth it”?\nTest statistic: \\(\\chi^2 = -2(LL_{reduced} - LL_{full})\\)\nCompare to chi-square distribution (Wilk’s Theorem)."
   },
   {
     "objectID": "lectures/week7-r-multilevel-slides.html#running-model-comparison",
@@ -5080,5 +5080,229 @@
     "title": "Data Wrangling in R",
     "section": "Putting it all together",
     "text": "Putting it all together\nThese lectures have covered the basics of data wrangling with the tidyverse.\nA typical workflow will involve:\n\n\nReading data (read_csv).\nExploring the data (is.na, summary, summarise).\nClean data (mutate, filter).\nReshape if needed (pivot_longer/wider).\nJoin if needed (inner_join, etc.).\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe end result is a dataset ready for further analysis and visualization (coming up!)."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#generalized-linear-mixed-models",
+    "href": "lectures/week7-mixed_models.html#generalized-linear-mixed-models",
+    "title": "Mixed Effects Models",
+    "section": "Generalized linear mixed models",
+    "text": "Generalized linear mixed models\n\nA generalized linear mixed model (GLMM) is a general framework for fitting regression models with various link functions (e.g., logit) and random effects.\n\n\n\nWe’ve already discussed GLMs (glm) and logistic regression.\nA GLMM is just a way to add random effects structure to a GLM.\nglmer is to glm as lmer is to lm."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#example-binary-outcomes",
+    "href": "lectures/week7-mixed_models.html#example-binary-outcomes",
+    "title": "Mixed Effects Models",
+    "section": "Example: Binary outcomes",
+    "text": "Example: Binary outcomes\nScenario: Testing accuracy on a memory task\n\nEach participant completes multiple trials\nEach trial is coded as correct (1) or incorrect (0)\nWe want to know if reaction time predicts accuracy\n\n\n\n  Subject Trial       RT Correct\n1       1     1 443.9524       0\n2       2     1 476.9823       0\n3       3     1 655.8708       0\n4       4     1 507.0508       0"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#naive-approach-wrong",
+    "href": "lectures/week7-mixed_models.html#naive-approach-wrong",
+    "title": "Mixed Effects Models",
+    "section": "Naive approach (wrong!)",
+    "text": "Naive approach (wrong!)\nWhat if we use regular logistic regression?\n\n# Ignoring nested structure\nnaive_glm &lt;- glm(Correct ~ RT, \n                 data = binary_data, \n                 family = binomial)\nsummary(naive_glm)$coefficients\n\n                Estimate  Std. Error    z value     Pr(&gt;|z|)\n(Intercept) -4.333121392 1.267280721 -3.4192277 0.0006279914\nRT           0.001789766 0.002405329  0.7440834 0.4568259948\n\n\n\nProblem: This ignores that we have 30 trials per subject! Standard errors will be too small."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#using-glmer",
+    "href": "lectures/week7-mixed_models.html#using-glmer",
+    "title": "Mixed Effects Models",
+    "section": "Using glmer()",
+    "text": "Using glmer()\nAdd random effects for subjects:\n\n# With random intercepts\nglmm_model &lt;- glmer(Correct ~ RT + (1 | Subject),\n                    data = binary_data,\n                    family = binomial(link = \"logit\"))\n\nboundary (singular) fit: see help('isSingular')\n\nsummary(glmm_model)\n\nGeneralized linear mixed model fit by maximum likelihood (Laplace\n  Approximation) [glmerMod]\n Family: binomial  ( logit )\nFormula: Correct ~ RT + (1 | Subject)\n   Data: binary_data\n\n      AIC       BIC    logLik -2*log(L)  df.resid \n    174.0     187.2     -84.0     168.0       597 \n\nScaled residuals: \n    Min      1Q  Median      3Q     Max \n-0.2395 -0.1897 -0.1784 -0.1685  6.4595 \n\nRandom effects:\n Groups  Name        Variance Std.Dev.\n Subject (Intercept) 0        0       \nNumber of obs: 600, groups:  Subject, 20\n\nFixed effects:\n             Estimate Std. Error z value Pr(&gt;|z|)    \n(Intercept) -4.333121   1.277856  -3.391 0.000697 ***\nRT           0.001790   0.002425   0.738 0.460513    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nCorrelation of Fixed Effects:\n   (Intr)\nRT -0.983\noptimizer (Nelder_Mead) convergence code: 0 (OK)\nboundary (singular) fit: see help('isSingular')\n\n\n\nSyntax breakdown: - Correct ~ RT: Fixed effect of RT on accuracy - (1 | Subject): Random intercept for each subject - family = binomial(link = \"logit\"): Logistic regression"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#interpreting-glmm-output",
+    "href": "lectures/week7-mixed_models.html#interpreting-glmm-output",
+    "title": "Mixed Effects Models",
+    "section": "Interpreting GLMM output",
+    "text": "Interpreting GLMM output\n\nsummary(glmm_model)\n\nGeneralized linear mixed model fit by maximum likelihood (Laplace\n  Approximation) [glmerMod]\n Family: binomial  ( logit )\nFormula: Correct ~ RT + (1 | Subject)\n   Data: binary_data\n\n      AIC       BIC    logLik -2*log(L)  df.resid \n    174.0     187.2     -84.0     168.0       597 \n\nScaled residuals: \n    Min      1Q  Median      3Q     Max \n-0.2395 -0.1897 -0.1784 -0.1685  6.4595 \n\nRandom effects:\n Groups  Name        Variance Std.Dev.\n Subject (Intercept) 0        0       \nNumber of obs: 600, groups:  Subject, 20\n\nFixed effects:\n             Estimate Std. Error z value Pr(&gt;|z|)    \n(Intercept) -4.333121   1.277856  -3.391 0.000697 ***\nRT           0.001790   0.002425   0.738 0.460513    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nCorrelation of Fixed Effects:\n   (Intr)\nRT -0.983\noptimizer (Nelder_Mead) convergence code: 0 (OK)\nboundary (singular) fit: see help('isSingular')"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#example-binary-outcomes-1",
+    "href": "lectures/week7-mixed_models.html#example-binary-outcomes-1",
+    "title": "Mixed Effects Models",
+    "section": "Example: Binary outcomes",
+    "text": "Example: Binary outcomes\nScenario: Testing accuracy on a memory task\n\nEach participant completes multiple trials\nEach trial is coded as correct (1) or incorrect (0)\nWe want to know if reaction time predicts accuracy"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#part-4-best-practices",
+    "href": "lectures/week7-mixed_models.html#part-4-best-practices",
+    "title": "Mixed Effects Models",
+    "section": "Part 4: Best practices",
+    "text": "Part 4: Best practices\nChoosing random effects; dealing with convergence warnings; reporting results."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#common-questions",
+    "href": "lectures/week7-mixed_models.html#common-questions",
+    "title": "Mixed Effects Models",
+    "section": "Common questions",
+    "text": "Common questions\nMixed effects models can get complex pretty quickly. Researchers end up running into a number of common questions:\n\n\nWhich effects should be random and which should be fixed?\nHow many random effects should I specify? Just random intercepts? Random slopes?\nWhat happens if my model doesn’t “converge”?\nHow do I report my results?\n\n\n\nWe’ll tackle each of these one by one."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#fixed-vs.-random",
+    "href": "lectures/week7-mixed_models.html#fixed-vs.-random",
+    "title": "Mixed Effects Models",
+    "section": "Fixed vs. random?",
+    "text": "Fixed vs. random?\nSelecting fixed vs. random effects can be challenging. There’s not even universal consensus on the best way to do this!\nSome ways to think about it:\n\n\nIn terms of sampling: Fixed effects exhaust the theoretical population (e.g., condition 1 vs. condition 2), and random effects are just a sample (e.g., of participants).\nIn terms of estimation process: Fixed effects are estimated using maximum likelihood estimation, and random effects are estimated with shrinkage.\nIn terms of interest: Fixed effects are what you’re interested in, and random effects are what you want to control for."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#how-many-random-effects-to-include-1",
+    "href": "lectures/week7-mixed_models.html#how-many-random-effects-to-include-1",
+    "title": "Mixed Effects Models",
+    "section": "How many random effects to include? (1)",
+    "text": "How many random effects to include? (1)\nBarr et al. (2013): “Keep it maximal”\n\n\nInclude the most complex random effects structure justified by your design\nInclude random slopes for within-unit variables\nThis reduces Type I error and improves generalizability\n\n\n\nExample:\n\n# Maximal model for 2x2 design with subjects and items\nlmer(RT ~ Condition1 * Condition2 +\n       (1 + Condition1 * Condition2 | Subject) +\n       (1 + Condition1 * Condition2 | Item),\n     data = mydata)"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#how-many-random-effects-to-include-2",
+    "href": "lectures/week7-mixed_models.html#how-many-random-effects-to-include-2",
+    "title": "Mixed Effects Models",
+    "section": "How many random effects to include? (2)",
+    "text": "How many random effects to include? (2)\nBates et al. (2015): “Parsimonious mixed models”\n\n\nMaximal models often fail to converge or produce singular fits (coming up!)\nStart with maximal model, then simplify if necessary\nRemove random effect correlations first, then non-significant random slopes\nBalance between Type I error control and model stability\n\n\n\nExample:\n\n# Parsimonious approach: Remove correlations between random effects\nlmer(RT ~ Condition1 * Condition2 +\n       (1 + Condition1 * Condition2 || Subject) +  # || removes correlations\n       (1 + Condition1 * Condition2 || Item),\n     data = mydata)"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#when-maximal-models-fail",
+    "href": "lectures/week7-mixed_models.html#when-maximal-models-fail",
+    "title": "Mixed Effects Models",
+    "section": "When maximal models fail",
+    "text": "When maximal models fail\nCommon issues:\n\n\nConvergence failures: Model can’t find solution\nSingular fit: Some variance is estimated as zero\nComputational issues: Model is too complex for data"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#dealing-with-convergence-issues",
+    "href": "lectures/week7-mixed_models.html#dealing-with-convergence-issues",
+    "title": "Mixed Effects Models",
+    "section": "Dealing with convergence issues",
+    "text": "Dealing with convergence issues\nStep 1: Check your data - Are there enough observations per group? - Any extreme outliers?\nStep 2: Rescale continuous predictors\n\ndata$Days_scaled &lt;- scale(data$Days)\n\nStep 3: Try different optimizer\n\nlmer(Y ~ X + (1 + X | Subject),\n     control = lmerControl(optimizer = \"bobyqa\"))"
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#simplifying-random-effects",
+    "href": "lectures/week7-mixed_models.html#simplifying-random-effects",
+    "title": "Mixed Effects Models",
+    "section": "Simplifying random effects",
+    "text": "Simplifying random effects\nStep 4: Simplify random effects structure\nStart by removing correlations between random effects:\n\n# Remove correlation between intercept and slope\nlmer(Reaction ~ Days + (1 | Subject) + (0 + Days | Subject))\n\nStep 5: Remove random slopes if necessary\nUse model comparison to determine which random effects are necessary (Bates et al., 2015)."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#reporting-your-results",
+    "href": "lectures/week7-mixed_models.html#reporting-your-results",
+    "title": "Mixed Effects Models",
+    "section": "Reporting your results",
+    "text": "Reporting your results\nTemplate for reporting:\n\nWe fit a linear mixed effects model predicting reaction time from days of sleep deprivation. The model included random intercepts and random slopes for days grouped by subject. Sleep deprivation significantly increased reaction time (β = 10.47, SE = 1.55), with each additional day of deprivation associated with an ~10.5 ms increase in RT. A likelihood ratio test confirmed that including days as a fixed effect significantly improved model fit, χ²(1) = 45.85, p &lt; 0.001."
+  },
+  {
+    "objectID": "lectures/week7-mixed_models.html#what-to-report",
+    "href": "lectures/week7-mixed_models.html#what-to-report",
+    "title": "Mixed Effects Models",
+    "section": "What to report",
+    "text": "What to report\nEssential information:\n\n\nRandom effects structure (what’s included)\nFixed effect estimates (β, SE, or CI)\nTest statistic and p-value (LRT)\nModel comparison details (which models, df, χ²)\nSoftware and package versions\n\n\nKey papers:\n\nBarr et al. (2013): Keep it maximal\nBates et al. (2015): Parsimonious mixed models\nWinter (2013): Linear mixed effects models in R\n\nTutorials:\n\nThis lecture!\nBodo Winter’s tutorial\nMichael Clark on shrinkage\n\nDocumentation:\n\nlme4 package documentation\nHierarchical models visualization"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#generalized-linear-mixed-models",
+    "href": "lectures/week7-r-multilevel-slides.html#generalized-linear-mixed-models",
+    "title": "Mixed Effects Models",
+    "section": "Generalized linear mixed models",
+    "text": "Generalized linear mixed models\n\nA generalized linear mixed model (GLMM) is a general framework for fitting regression models with various link functions (e.g., logit) and random effects.\n\n\nWe’ve already discussed GLMs (glm) and logistic regression.\nA GLMM is just a way to add random effects structure to a GLM.\nglmer is to glm as lmer is to lm."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#example-binary-outcomes",
+    "href": "lectures/week7-r-multilevel-slides.html#example-binary-outcomes",
+    "title": "Mixed Effects Models",
+    "section": "Example: Binary outcomes",
+    "text": "Example: Binary outcomes\nScenario: Testing accuracy on a memory task\n\nEach participant completes multiple trials\nEach trial is coded as correct (1) or incorrect (0)\nWe want to know if reaction time predicts accuracy\n\n\n\n  Subject Trial       RT Correct\n1       1     1 443.9524       0\n2       2     1 476.9823       0\n3       3     1 655.8708       0\n4       4     1 507.0508       0"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#naive-approach-wrong",
+    "href": "lectures/week7-r-multilevel-slides.html#naive-approach-wrong",
+    "title": "Mixed Effects Models",
+    "section": "Naive approach (wrong!)",
+    "text": "Naive approach (wrong!)\nWhat if we use regular logistic regression?\n\n# Ignoring nested structure\nnaive_glm &lt;- glm(Correct ~ RT, \n                 data = binary_data, \n                 family = binomial)\nsummary(naive_glm)$coefficients\n\n                Estimate  Std. Error    z value     Pr(&gt;|z|)\n(Intercept) -4.333121392 1.267280721 -3.4192277 0.0006279914\nRT           0.001789766 0.002405329  0.7440834 0.4568259948\n\n\n\nProblem: This ignores that we have 30 trials per subject! Standard errors will be too small."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#using-glmer",
+    "href": "lectures/week7-r-multilevel-slides.html#using-glmer",
+    "title": "Mixed Effects Models",
+    "section": "Using glmer()",
+    "text": "Using glmer()\nAdd random effects for subjects:\n\n# With random intercepts\nglmm_model &lt;- glmer(Correct ~ RT + (1 | Subject),\n                    data = binary_data,\n                    family = binomial(link = \"logit\"))\nsummary(glmm_model)\n\nGeneralized linear mixed model fit by maximum likelihood (Laplace\n  Approximation) [glmerMod]\n Family: binomial  ( logit )\nFormula: Correct ~ RT + (1 | Subject)\n   Data: binary_data\n\n      AIC       BIC    logLik -2*log(L)  df.resid \n    174.0     187.2     -84.0     168.0       597 \n\nScaled residuals: \n    Min      1Q  Median      3Q     Max \n-0.2395 -0.1897 -0.1784 -0.1685  6.4595 \n\nRandom effects:\n Groups  Name        Variance Std.Dev.\n Subject (Intercept) 0        0       \nNumber of obs: 600, groups:  Subject, 20\n\nFixed effects:\n             Estimate Std. Error z value Pr(&gt;|z|)    \n(Intercept) -4.333121   1.277856  -3.391 0.000697 ***\nRT           0.001790   0.002425   0.738 0.460513    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nCorrelation of Fixed Effects:\n   (Intr)\nRT -0.983\noptimizer (Nelder_Mead) convergence code: 0 (OK)\nboundary (singular) fit: see help('isSingular')\n\n\n\nSyntax breakdown: - Correct ~ RT: Fixed effect of RT on accuracy - (1 | Subject): Random intercept for each subject - family = binomial(link = \"logit\"): Logistic regression"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#interpreting-glmm-output",
+    "href": "lectures/week7-r-multilevel-slides.html#interpreting-glmm-output",
+    "title": "Mixed Effects Models",
+    "section": "Interpreting GLMM output",
+    "text": "Interpreting GLMM output\n\n\nGeneralized linear mixed model fit by maximum likelihood (Laplace\n  Approximation) [glmerMod]\n Family: binomial  ( logit )\nFormula: Correct ~ RT + (1 | Subject)\n   Data: binary_data\n\n      AIC       BIC    logLik -2*log(L)  df.resid \n    174.0     187.2     -84.0     168.0       597 \n\nScaled residuals: \n    Min      1Q  Median      3Q     Max \n-0.2395 -0.1897 -0.1784 -0.1685  6.4595 \n\nRandom effects:\n Groups  Name        Variance Std.Dev.\n Subject (Intercept) 0        0       \nNumber of obs: 600, groups:  Subject, 20\n\nFixed effects:\n             Estimate Std. Error z value Pr(&gt;|z|)    \n(Intercept) -4.333121   1.277856  -3.391 0.000697 ***\nRT           0.001790   0.002425   0.738 0.460513    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nCorrelation of Fixed Effects:\n   (Intr)\nRT -0.983\noptimizer (Nelder_Mead) convergence code: 0 (OK)\nboundary (singular) fit: see help('isSingular')"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#example-binary-outcomes-1",
+    "href": "lectures/week7-r-multilevel-slides.html#example-binary-outcomes-1",
+    "title": "Mixed Effects Models",
+    "section": "Example: Binary outcomes",
+    "text": "Example: Binary outcomes\nScenario: Testing accuracy on a memory task\n\nEach participant completes multiple trials\nEach trial is coded as correct (1) or incorrect (0)\nWe want to know if reaction time predicts accuracy"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#part-4-best-practices",
+    "href": "lectures/week7-r-multilevel-slides.html#part-4-best-practices",
+    "title": "Mixed Effects Models",
+    "section": "Part 4: Best practices",
+    "text": "Part 4: Best practices\nChoosing random effects; dealing with convergence warnings; reporting results."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#common-questions",
+    "href": "lectures/week7-r-multilevel-slides.html#common-questions",
+    "title": "Mixed Effects Models",
+    "section": "Common questions",
+    "text": "Common questions\nMixed effects models can get complex pretty quickly. Researchers end up running into a number of common questions:\n\nWhich effects should be random and which should be fixed?\nHow many random effects should I specify? Just random intercepts? Random slopes?\nWhat happens if my model doesn’t “converge”?\nHow do I report my results?\n\n\nWe’ll tackle each of these one by one."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#fixed-vs.-random",
+    "href": "lectures/week7-r-multilevel-slides.html#fixed-vs.-random",
+    "title": "Mixed Effects Models",
+    "section": "Fixed vs. random?",
+    "text": "Fixed vs. random?\nSelecting fixed vs. random effects can be challenging. There’s not even universal consensus on the best way to do this!\nSome ways to think about it:\n\nIn terms of sampling: Fixed effects exhaust the theoretical population (e.g., condition 1 vs. condition 2), and random effects are just a sample (e.g., of participants).\nIn terms of estimation process: Fixed effects are estimated using maximum likelihood estimation, and random effects are estimated with shrinkage.\nIn terms of interest: Fixed effects are what you’re interested in, and random effects are what you want to control for."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#how-many-random-effects-to-include-1",
+    "href": "lectures/week7-r-multilevel-slides.html#how-many-random-effects-to-include-1",
+    "title": "Mixed Effects Models",
+    "section": "How many random effects to include? (1)",
+    "text": "How many random effects to include? (1)\nBarr et al. (2013): “Keep it maximal”\n\nInclude the most complex random effects structure justified by your design\nInclude random slopes for within-unit variables\nThis reduces Type I error and improves generalizability\n\n\nExample:"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#how-many-random-effects-to-include-2",
+    "href": "lectures/week7-r-multilevel-slides.html#how-many-random-effects-to-include-2",
+    "title": "Mixed Effects Models",
+    "section": "How many random effects to include? (2)",
+    "text": "How many random effects to include? (2)\nBates et al. (2015): “Parsimonious mixed models”\n\nMaximal models often fail to converge or produce singular fits (coming up!)\nStart with maximal model, then simplify if necessary\nRemove random effect correlations first, then non-significant random slopes\nBalance between Type I error control and model stability\n\n\nExample:"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#when-maximal-models-fail",
+    "href": "lectures/week7-r-multilevel-slides.html#when-maximal-models-fail",
+    "title": "Mixed Effects Models",
+    "section": "When maximal models fail",
+    "text": "When maximal models fail\nCommon issues:\n\nConvergence failures: Model can’t find solution\nSingular fit: Some variance is estimated as zero\nComputational issues: Model is too complex for data"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#dealing-with-convergence-issues",
+    "href": "lectures/week7-r-multilevel-slides.html#dealing-with-convergence-issues",
+    "title": "Mixed Effects Models",
+    "section": "Dealing with convergence issues",
+    "text": "Dealing with convergence issues\nStep 1: Check your data - Are there enough observations per group? - Any extreme outliers?\nStep 2: Rescale continuous predictors\nStep 3: Try different optimizer"
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#simplifying-random-effects",
+    "href": "lectures/week7-r-multilevel-slides.html#simplifying-random-effects",
+    "title": "Mixed Effects Models",
+    "section": "Simplifying random effects",
+    "text": "Simplifying random effects\nStep 4: Simplify random effects structure\nStart by removing correlations between random effects:\nStep 5: Remove random slopes if necessary\nUse model comparison to determine which random effects are necessary (Bates et al., 2015)."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#reporting-your-results",
+    "href": "lectures/week7-r-multilevel-slides.html#reporting-your-results",
+    "title": "Mixed Effects Models",
+    "section": "Reporting your results",
+    "text": "Reporting your results\nTemplate for reporting:\n\nWe fit a linear mixed effects model predicting reaction time from days of sleep deprivation. The model included random intercepts and random slopes for days grouped by subject. Sleep deprivation significantly increased reaction time (β = 10.47, SE = 1.55), with each additional day of deprivation associated with an ~10.5 ms increase in RT. A likelihood ratio test confirmed that including days as a fixed effect significantly improved model fit, χ²(1) = 45.85, p &lt; 0.001."
+  },
+  {
+    "objectID": "lectures/week7-r-multilevel-slides.html#what-to-report",
+    "href": "lectures/week7-r-multilevel-slides.html#what-to-report",
+    "title": "Mixed Effects Models",
+    "section": "What to report",
+    "text": "What to report\nEssential information:\n\nRandom effects structure (what’s included)\nFixed effect estimates (β, SE, or CI)\nTest statistic and p-value (LRT)\nModel comparison details (which models, df, χ²)\nSoftware and package versions\n\nKey papers:\n\nBarr et al. (2013): Keep it maximal\nBates et al. (2015): Parsimonious mixed models\nWinter (2013): Linear mixed effects models in R\n\nTutorials:\n\nThis lecture!\nBodo Winter’s tutorial\nMichael Clark on shrinkage\n\nDocumentation:\n\nlme4 package documentation\nHierarchical models visualization"
   }
 ]
